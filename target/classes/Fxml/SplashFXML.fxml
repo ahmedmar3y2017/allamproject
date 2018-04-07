@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+           prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.login.SplashFXMLController">
+    <children>
+        <ImageView fitHeight="550.0" fitWidth="800.0" pickOnBounds="true">
+            <image>
+                <Image url="@../images/back.jpg"/>
+            </image>
+        </ImageView>
+        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="الديار سنتر " wrappingWidth="234.19140625">
+            <font>
+                <Font name="29LT Bukra Regular" size="43.0"/>
+            </font>
+        </Text>
+        <Pane opacity="0.0" prefHeight="550.0" prefWidth="800.0" style="-fx-background-color: #000000;"/>
+    </children>
+</StackPane>
