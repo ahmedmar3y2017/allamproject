@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="allam@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="abohedyiacafe"/>
+    <schema id="3" parent="1" name="allam">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="1" name="app"/>
+    <schema id="5" parent="1" name="app_angular"/>
+    <schema id="6" parent="1" name="businessin"/>
+    <schema id="7" parent="1" name="crud"/>
+    <schema id="8" parent="1" name="hibernate"/>
+    <schema id="9" parent="1" name="hibernate5"/>
+    <schema id="10" parent="1" name="information_schema"/>
+    <schema id="11" parent="1" name="janna"/>
+    <schema id="12" parent="1" name="minig"/>
+    <schema id="13" parent="1" name="mysql"/>
+    <schema id="14" parent="1" name="online_exam"/>
+    <schema id="15" parent="1" name="project"/>
+    <schema id="16" parent="1" name="salsabil"/>
+    <schema id="17" parent="1" name="security"/>
+    <schema id="18" parent="1" name="soft"/>
+    <schema id="19" parent="1" name="spring"/>
+    <schema id="20" parent="1" name="springboot"/>
+    <schema id="21" parent="1" name="task"/>
+    <schema id="22" parent="1" name="test"/>
+    <schema id="23" parent="1" name="train"/>
+    <schema id="24" parent="1" name="tt"/>
+    <schema id="25" parent="1" name="weatherdb"/>
+    <schema id="26" parent="1" name="work"/>
+    <table id="27" parent="3" name="bank"/>
+    <table id="28" parent="3" name="bank_account"/>
+    <table id="29" parent="3" name="clients"/>
+    <table id="30" parent="3" name="maintable"/>
+    <table id="31" parent="3" name="notes"/>
+    <table id="32" parent="3" name="safe"/>
+    <table id="33" parent="3" name="users"/>
+    <column id="34" parent="27" name="id">
+      <Position>1</Position>
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="35" parent="27" name="name">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="36" parent="27" name="address">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <key id="37" parent="27" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="38" parent="28" name="id">
+      <Position>1</Position>
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="39" parent="28" name="type">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="40" parent="28" name="money">
+      <Position>3</Position>
+      <DataType>DOUBLE(22)|8</DataType>
+    </column>
+    <column id="41" parent="28" name="date">
+      <Position>4</Position>
+      <DataType>DATE(10)|91</DataType>
+    </column>
+    <column id="42" parent="28" name="bankid">
+      <Position>5</Position>
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="43" parent="28" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="44" parent="28" name="FKbank_accou414220">
+      <ColNames>bankid</ColNames>
+      <RefSchemaName>allam</RefSchemaName>
+      <RefTableName>bank</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="45" parent="29" name="id">
+      <Position>1</Position>
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="46" parent="29" name="name">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="47" parent="29" name="phone">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="48" parent="29" name="address">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <key id="49" parent="29" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="50" parent="30" name="id">
+      <Position>1</Position>
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="51" parent="30" name="date">
+      <Position>2</Position>
+      <DataType>DATE(10)|91</DataType>
+    </column>
+    <column id="52" parent="30" name="polesa">
+      <Position>3</Position>
+      <DataType>DOUBLE(22)|8</DataType>
+    </column>
+    <column id="53" parent="30" name="carNumber">
+      <Position>4</Position>
+      <DataType>DOUBLE(22)|8</DataType>
+    </column>
+    <column id="54" parent="30" name="amount">
+      <Position>5</Position>
+      <DataType>DOUBLE(22)|8</DataType>
+    </column>
+    <column id="55" parent="30" name="nowlon">
+      <Position>6</Position>
+      <DataType>DOUBLE(22)|8</DataType>
+    </column>
+    <column id="56" parent="30" name="ohda">
+      <Position>7</Position>
+      <DataType>DOUBLE(22)|8</DataType>
+    </column>
+    <column id="57" parent="30" name="added">
+      <Position>8</Position>
+      <DataType>DOUBLE(22)|8</DataType>
+    </column>
+    <column id="58" parent="30" name="mezan">
+      <Position>9</Position>
+      <DataType>DOUBLE(22)|8</DataType>
+    </column>
+    <column id="59" parent="30" name="discount">
+      <Position>10</Position>
+      <DataType>DOUBLE(22)|8</DataType>
+    </column>
+    <column id="60" parent="30" name="office">
+      <Position>11</Position>
+      <DataType>DOUBLE(22)|8</DataType>
+    </column>
+    <column id="61" parent="30" name="total">
+      <Position>12</Position>
+      <DataType>DOUBLE(22)|8</DataType>
+    </column>
+    <column id="62" parent="30" name="type">
+      <Position>13</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="63" parent="30" name="cityFrom">
+      <Position>14</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="64" parent="30" name="cityTo">
+      <Position>15</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="65" parent="30" name="clientsid">
+      <Position>16</Position>
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="66" parent="30" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="67" parent="30" name="FKmainTable235262">
+      <ColNames>clientsid</ColNames>
+      <RefSchemaName>allam</RefSchemaName>
+      <RefTableName>clients</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="68" parent="31" name="id">
+      <Position>1</Position>
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="69" parent="31" name="date">
+      <Position>2</Position>
+      <DataType>DATE(10)|91</DataType>
+    </column>
+    <column id="70" parent="31" name="note">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="71" parent="31" name="usersid">
+      <Position>4</Position>
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="72" parent="31" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="73" parent="31" name="FKnotes477196">
+      <ColNames>usersid</ColNames>
+      <RefSchemaName>allam</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="74" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="75" parent="32" name="type">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="76" parent="32" name="notes">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="77" parent="32" name="date">
+      <Position>4</Position>
+      <DataType>DATE(10)|91</DataType>
+    </column>
+    <column id="78" parent="32" name="usersid">
+      <Position>5</Position>
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="79" parent="32" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="80" parent="32" name="FKsafe9293">
+      <ColNames>usersid</ColNames>
+      <RefSchemaName>allam</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="81" parent="33" name="id">
+      <Position>1</Position>
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="82" parent="33" name="name">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="83" parent="33" name="phone">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="84" parent="33" name="password">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <key id="85" parent="33" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
