@@ -41,13 +41,13 @@
                               </ImageView>
                            </children>
                         </Pane>
-                        <Label layoutX="25.0" layoutY="96.0" text="اسم البنك  : ">
+                        <Label layoutX="33.0" layoutY="96.0" text="اسم البنك  : ">
                            <font>
                               <Font name="justagain DIN" size="19.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="clientName" editable="true" layoutX="152.0" layoutY="92.0" prefHeight="41.0" prefWidth="185.0" promptText="اسم البنك" />
-                        <Button fx:id="addclient" layoutX="345.0" layoutY="93.0" mnemonicParsing="false" onAction="#addclientAction" prefHeight="40.0" prefWidth="36.0" styleClass="round-red">
+                        <ComboBox fx:id="bankName" editable="true" layoutX="152.0" layoutY="92.0" prefHeight="41.0" prefWidth="200.0" promptText="اسم البنك" />
+                        <Button fx:id="addTwoBank" layoutX="359.0" layoutY="93.0" mnemonicParsing="false" onAction="#addTwoBankAction" prefHeight="40.0" prefWidth="36.0" styleClass="round-red">
                            <graphic>
                               <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -61,55 +61,55 @@
                               <Font name="justagain DIN" size="19.0" />
                            </font>
                         </Label>
-                        <JFXRadioButton layoutX="152.0" layoutY="178.0" prefHeight="21.0" prefWidth="115.0" text="سحب">
+                        <JFXRadioButton fx:id="bankSahb" layoutX="152.0" layoutY="178.0" prefHeight="21.0" prefWidth="115.0" text="سحب">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </JFXRadioButton>
-                        <JFXRadioButton layoutX="265.0" layoutY="178.0" prefHeight="21.0" prefWidth="118.0" text="ايداع">
+                        <JFXRadioButton fx:id="bankEda" layoutX="265.0" layoutY="178.0" prefHeight="21.0" prefWidth="118.0" text="ايداع">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </JFXRadioButton>
-                        <Label layoutX="26.0" layoutY="245.0" text="التاريخ  : ">
+                        <Label layoutX="64.0" layoutY="245.0" text="التاريخ  : ">
                            <font>
                               <Font name="justagain DIN" size="19.0" />
                            </font>
                         </Label>
-                        <Label layoutX="26.0" layoutY="315.0" text="ملاحظات  : ">
+                        <Label layoutX="35.0" layoutY="315.0" text="ملاحظات  : ">
                            <font>
                               <Font name="justagain DIN" size="19.0" />
                            </font>
                         </Label>
-                        <TextArea layoutX="137.0" layoutY="315.0" prefHeight="144.0" prefWidth="252.0" />
-                        <DatePicker layoutX="132.0" layoutY="239.0" prefHeight="45.0" prefWidth="263.0" />
-                        <JFXButton buttonType="RAISED" layoutX="96.0" layoutY="507.0" prefHeight="43.0" prefWidth="126.0" styleClass="round-red" text="اضافه">
+                        <TextArea fx:id="bankNotes" layoutX="137.0" layoutY="315.0" prefHeight="144.0" prefWidth="252.0" />
+                        <DatePicker fx:id="bankDate" layoutX="132.0" layoutY="239.0" prefHeight="45.0" prefWidth="263.0" />
+                        <JFXButton fx:id="addBank" buttonType="RAISED" layoutX="96.0" layoutY="507.0" onAction="#addBankAction" prefHeight="43.0" prefWidth="126.0" styleClass="round-red" text="اضافه">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton buttonType="RAISED" layoutX="245.0" layoutY="507.0" prefHeight="43.0" prefWidth="126.0" styleClass="round-red" text="تعديل">
+                        <JFXButton fx:id="updateBank" buttonType="RAISED" layoutX="245.0" layoutY="507.0" onAction="#updateBankAction" prefHeight="43.0" prefWidth="126.0" styleClass="round-red" text="تعديل">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </JFXButton>
-                        <JFXTreeTableView layoutX="441.0" layoutY="157.0" prefHeight="417.0" prefWidth="683.0" />
-                        <Label layoutX="945.0" layoutY="616.0" text="الرصيد المتاح  : ">
+                        <JFXTreeTableView fx:id="bankTable" layoutX="441.0" layoutY="157.0" prefHeight="417.0" prefWidth="683.0" />
+                        <Label layoutX="561.0" layoutY="614.0" text="الرصيد المتاح  : ">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField editable="false" layoutX="752.0" layoutY="607.0" prefHeight="46.0" prefWidth="161.0">
+                        <TextField fx:id="bankCurrentMoney" editable="false" layoutX="694.0" layoutY="607.0" prefHeight="46.0" prefWidth="161.0">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </TextField>
-                        <JFXButton buttonType="RAISED" layoutX="441.0" layoutY="608.0" prefHeight="43.0" prefWidth="126.0" styleClass="round-red" text="مسح">
+                        <JFXButton fx:id="deleteBank" buttonType="RAISED" layoutX="933.0" layoutY="611.0" onAction="#deleteBankAction" prefHeight="43.0" prefWidth="126.0" styleClass="round-red" text="مسح">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton buttonType="RAISED" layoutX="1052.0" layoutY="92.0" prefHeight="44.0" prefWidth="75.0" styleClass="round-red" text="بحث">
+                        <JFXButton fx:id="searchBank" buttonType="RAISED" layoutX="1052.0" layoutY="92.0" onAction="#searchBankAction" prefHeight="44.0" prefWidth="75.0" styleClass="round-red" text="بحث">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -119,24 +119,24 @@
                               <Font name="justagain DIN" size="19.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="clientName1" editable="true" layoutX="544.0" layoutY="93.0" prefHeight="41.0" prefWidth="150.0" promptText="اسم البنك" />
+                        <ComboBox fx:id="searchBankName" editable="true" layoutX="544.0" layoutY="93.0" prefHeight="41.0" prefWidth="150.0" promptText="اسم البنك" />
                         <Label layoutX="701.0" layoutY="96.0" text="من  : ">
                            <font>
                               <Font name="justagain DIN" size="19.0" />
                            </font>
                         </Label>
-                        <DatePicker layoutX="754.0" layoutY="93.0" prefHeight="42.0" prefWidth="118.0" />
+                        <DatePicker fx:id="searchToBank" layoutX="754.0" layoutY="93.0" prefHeight="42.0" prefWidth="118.0" />
                         <Label layoutX="872.0" layoutY="96.0" text="الى  : ">
                            <font>
                               <Font name="justagain DIN" size="19.0" />
                            </font>
                         </Label>
-                        <DatePicker layoutX="925.0" layoutY="93.0" prefHeight="42.0" prefWidth="118.0" />
+                        <DatePicker fx:id="searchFromBank" layoutX="925.0" layoutY="93.0" prefHeight="42.0" prefWidth="118.0" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="المصاريف">
+          <Tab fx:id="moneyTable" text="المصاريف">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -154,6 +154,76 @@
                               </ImageView>
                            </children>
                         </Pane>
+                        <Label layoutX="54.0" layoutY="136.0" text="نوع العمليه  : ">
+                           <font>
+                              <Font name="justagain DIN" size="19.0" />
+                           </font>
+                        </Label>
+                        <JFXRadioButton fx:id="moneySahb" layoutX="179.0" layoutY="142.0" prefHeight="21.0" prefWidth="115.0" text="سحب">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="moneyEda" layoutX="300.0" layoutY="142.0" prefHeight="21.0" prefWidth="118.0" text="ايداع">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </JFXRadioButton>
+                        <Label layoutX="60.0" layoutY="299.0" text="ملاحظات  : ">
+                           <font>
+                              <Font name="justagain DIN" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="moneyNotes" layoutX="174.0" layoutY="299.0" prefHeight="144.0" prefWidth="252.0" />
+                        <JFXButton fx:id="addMoney" buttonType="RAISED" layoutX="110.0" layoutY="515.0" onAction="#addMoneyAction" prefHeight="43.0" prefWidth="126.0" styleClass="round-red" text="اضافه">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="updateMoney" buttonType="RAISED" layoutX="269.0" layoutY="515.0" onAction="#updateMoneyAction" prefHeight="43.0" prefWidth="126.0" styleClass="round-red" text="تعديل">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXButton>
+                        <Label layoutX="89.0" layoutY="213.0" text="المبلغ  : ">
+                           <font>
+                              <Font name="justagain DIN" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="moneyMoney" layoutX="177.0" layoutY="209.0" prefHeight="41.0" prefWidth="246.0" />
+                        <JFXButton fx:id="searchMoney" buttonType="RAISED" layoutX="993.0" layoutY="131.0" onAction="#searchMoneyAction" prefHeight="44.0" prefWidth="109.0" styleClass="round-red" text="بحث">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXButton>
+                        <Label layoutX="509.0" layoutY="135.0" text="من  : ">
+                           <font>
+                              <Font name="justagain DIN" size="19.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="searchToMoney" layoutX="563.0" layoutY="131.0" prefHeight="42.0" prefWidth="170.0" />
+                        <Label layoutX="753.0" layoutY="136.0" text="الى  : ">
+                           <font>
+                              <Font name="justagain DIN" size="19.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="searchFromMoney" layoutX="803.0" layoutY="132.0" prefHeight="42.0" prefWidth="171.0" />
+                        <JFXTreeTableView layoutX="465.0" layoutY="193.0" prefHeight="400.0" prefWidth="657.0" />
+                        <Label layoutX="588.0" layoutY="630.0" text="الرصيد المتاح  : ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="moneyCurrentMoney" editable="false" layoutX="724.0" layoutY="621.0" prefHeight="46.0" prefWidth="161.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextField>
+                        <JFXButton fx:id="deleteMoney" buttonType="RAISED" layoutX="930.0" layoutY="625.0" onAction="#deleteMoneyAction" prefHeight="43.0" prefWidth="126.0" styleClass="round-red" text="مسح">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXButton>
                      </children>
                   </AnchorPane>
             </content>
