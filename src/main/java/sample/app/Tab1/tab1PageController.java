@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,12 +15,23 @@ import java.util.ResourceBundle;
 public class tab1PageController implements Initializable {
 
 
-    @FXML
-    private Button button;
+//    @FXML
+//    private Button button;
+//
+//    @FXML
+//    void buttonAction(ActionEvent event) {
+//        System.out.println("ButtonClick");
+//    }
 
     @FXML
-    void buttonAction(ActionEvent event) {
-        System.out.println("ButtonClick");
+    private ComboBox clientName;
+
+    @FXML
+    private Button addclient;
+
+    @FXML
+    void addclientAction(ActionEvent event) {
+
     }
 
     @Override

@@ -1,10 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="1270.0" style="-fx-background-color: #00dddd;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.Tab1.tab1PageController">
-    <children>
-        <Button fx:id="button" layoutX="129.0" layoutY="345.0" mnemonicParsing="false" onAction="#buttonAction" text="gggg" />
-    </children>
-</AnchorPane>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1270.0" stylesheets="@../styles/tab1.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.Tab1.tab1PageController">
+   <children>
+      <TabPane prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="البنوك">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="44.0" prefWidth="1151.0" style="-fx-background-color: #1f2e3c;">
+                           <children>
+                              <Label layoutX="90.0" layoutY="4.0" text="البنوك" textFill="WHITE">
+                                 <font>
+                                    <Font name="Andalus" size="22.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="40.0" fitWidth="59.0" layoutX="34.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/bank1.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Label layoutX="25.0" layoutY="96.0" text="اسم البنك  : ">
+                           <font>
+                              <Font name="justagain DIN" size="19.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="clientName" editable="true" layoutX="152.0" layoutY="92.0" prefHeight="41.0" prefWidth="185.0" promptText="اسم البنك" />
+                        <Button fx:id="addclient" layoutX="345.0" layoutY="93.0" mnemonicParsing="false" onAction="#addclientAction" prefHeight="40.0" prefWidth="36.0" styleClass="round-red">
+                           <graphic>
+                              <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/add.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label layoutX="25.0" layoutY="172.0" text="نوع العمليه  : ">
+                           <font>
+                              <Font name="justagain DIN" size="19.0" />
+                           </font>
+                        </Label>
+                        <JFXRadioButton layoutX="152.0" layoutY="178.0" prefHeight="21.0" prefWidth="115.0" text="سحب">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </JFXRadioButton>
+                        <JFXRadioButton layoutX="265.0" layoutY="178.0" prefHeight="21.0" prefWidth="118.0" text="ايداع">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </JFXRadioButton>
+                        <Label layoutX="26.0" layoutY="245.0" text="التاريخ  : ">
+                           <font>
+                              <Font name="justagain DIN" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="26.0" layoutY="315.0" text="ملاحظات  : ">
+                           <font>
+                              <Font name="justagain DIN" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextArea layoutX="137.0" layoutY="315.0" prefHeight="144.0" prefWidth="252.0" />
+                        <DatePicker layoutX="132.0" layoutY="239.0" prefHeight="45.0" prefWidth="263.0" />
+                        <JFXButton buttonType="RAISED" layoutX="96.0" layoutY="507.0" prefHeight="43.0" prefWidth="126.0" styleClass="round-red" text="اضافه">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" layoutX="245.0" layoutY="507.0" prefHeight="43.0" prefWidth="126.0" styleClass="round-red" text="تعديل">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXTreeTableView layoutX="441.0" layoutY="157.0" prefHeight="417.0" prefWidth="683.0" />
+                        <Label layoutX="945.0" layoutY="616.0" text="الرصيد المتاح  : ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField editable="false" layoutX="752.0" layoutY="607.0" prefHeight="46.0" prefWidth="161.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextField>
+                        <JFXButton buttonType="RAISED" layoutX="441.0" layoutY="608.0" prefHeight="43.0" prefWidth="126.0" styleClass="round-red" text="مسح">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" layoutX="1052.0" layoutY="92.0" prefHeight="44.0" prefWidth="75.0" styleClass="round-red" text="بحث">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXButton>
+                        <Label layoutX="437.0" layoutY="97.0" text="اسم البنك  : ">
+                           <font>
+                              <Font name="justagain DIN" size="19.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="clientName1" editable="true" layoutX="544.0" layoutY="93.0" prefHeight="41.0" prefWidth="150.0" promptText="اسم البنك" />
+                        <Label layoutX="701.0" layoutY="96.0" text="من  : ">
+                           <font>
+                              <Font name="justagain DIN" size="19.0" />
+                           </font>
+                        </Label>
+                        <DatePicker layoutX="754.0" layoutY="93.0" prefHeight="42.0" prefWidth="118.0" />
+                        <Label layoutX="872.0" layoutY="96.0" text="الى  : ">
+                           <font>
+                              <Font name="justagain DIN" size="19.0" />
+                           </font>
+                        </Label>
+                        <DatePicker layoutX="925.0" layoutY="93.0" prefHeight="42.0" prefWidth="118.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="المصاريف">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="44.0" prefWidth="1151.0" style="-fx-background-color: #1f2e3c;">
+                           <children>
+                              <Label layoutX="90.0" layoutY="4.0" text="المصاريف" textFill="WHITE">
+                                 <font>
+                                    <Font name="Andalus" size="22.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="39.0" fitWidth="43.0" layoutX="34.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/money.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+         <StackPane.margin>
+            <Insets top="50.0" />
+         </StackPane.margin>
+         <padding>
+            <Insets left="20.0" right="10.0" />
+         </padding>
+      </TabPane>
+   </children>
+</StackPane>

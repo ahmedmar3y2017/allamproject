@@ -39,6 +39,7 @@ public class startMain extends Application {
 
         primaryStage.setTitle("Login");
         primaryStage.setScene(scene);
+//        primaryStage.setResizable(false);
         primaryStage.show();
 
 

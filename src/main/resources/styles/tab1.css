@@ -1,65 +1,73 @@
 
-#tabpane{
-    /*-fx-border-color: #3FE387;*/
-    -fx-tab-min-height: 10em;
-    -fx-tab-max-height: 10em;
-    -fx-tab-min-width: 15em;
-    -fx-tab-max-width: 15em;
+#tabpane {
+    -fx-border-color: #1f2e3c;
+    -fx-tab-min-height: 12em;
+    -fx-tab-max-height: 14em;
+    -fx-tab-min-width: 5em;
+    -fx-tab-max-width: 7em;
+
 }
-.tab .tab-label{
+
+.tab .tab-label {
     -fx-background-color: transparent;
     -fx-alignment: center;
     -fx-text-fill: #00ce9b;
-    -fx-font-size: 17px;
+    -fx-font-size: 15px;
     -fx-font-weight: bold;
+    -fx-rotate: 90;
 
 }
-.tab{
+
+.tab {
     -fx-background-color: #1f2e3c;
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
-    -fx-padding: 5 35 5 35 ;
 
-
+    -fx-padding: 35 60 35 60;
 
 }
-.tab:selected{
 
+.tab:selected {
     -fx-background-color: #FAFCFB;
     -fx-background-insets: 0.0;
-    -fx-background-radius: 10.0;
-    -fx-border-width: 5 0 0 0 ;
-    -fx-border-color: #1f2e3c;
-
-
-}
-.contenttab{
+    -fx-background-radius: 0.0;
+    -fx-border-width: 5 0 0 0;
     -fx-border-color: #1f2e3c;
 }
-.tab:focused{
 
+.contenttab {
+    -fx-border-color: #1f2e3c;
+}
+
+.tab:focused {
     -fx-border-color: #3FE387;
-
-    -fx-focus-color:transparent;
-
+    -fx-focus-color: transparent;
 }
-.tab-pane *.tab-header-background{
+
+.tab-pane *.tab-header-background {
     -fx-background-color: transparent;
-
-
 }
-.tab-pane:left *.tab-header-area{
 
-    -fx-background-insets: 0 0 0 10 ;
+.tab-pane:left *.tab-header-area {
+    -fx-background-insets: 0 0 0 10;
     -fx-padding: 0.0em 0.0em 0.0em 0.0em;
-
 }
-.tab:selected .focus-indicator{
+
+.tab:selected .focus-indicator {
 
     -fx-focus-color: transparent;
     -fx-border-color: transparent;
 
 }
+
+.tab-content-area {
+    -fx-background-color: -fx-control-inner-background;
+    -fx-padding: 0.0em; /* 0 */
+    /* -fx-opacity: -fx-disabled-opacity;*/
+    -fx-border-color: #1f2e3c;
+    -fx-border-width: 1px;
+}
+
 
 
 
@@ -71,7 +79,7 @@
     -fx-background-color: orange;
 }
 
- /******************** table view *******************************/
+/******************** table view *******************************/
 /********************** tree table view ******************/
 .tree-table-view{
     -fx-tree-table-color: rgba(0, 150, 0, 0.4);
