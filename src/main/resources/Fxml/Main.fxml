@@ -13,6 +13,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -20,25 +22,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="950.0"
-            prefWidth="1270.0" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8.0.60"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.main.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="950.0" prefWidth="1270.0" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.main.MainController">
     <children>
-        <HBox layoutX="33.0" prefHeight="60.0" prefWidth="1240.0" style="-fx-background-color: #ff0000;"/>
-        <VBox prefHeight="890.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-              AnchorPane.topAnchor="60.0">
+        <HBox layoutX="33.0" prefHeight="60.0" prefWidth="1240.0" style="-fx-background-color: #ff0000;" />
+        <VBox prefHeight="890.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
             <children>
-                <JFXTabPane nodeOrientation="RIGHT_TO_LEFT" prefWidth="1270.0" stylesheets="@../styles/Main.css"
-                            tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                <JFXTabPane nodeOrientation="RIGHT_TO_LEFT" prefWidth="1270.0" stylesheets="@../styles/Main.css" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
                     <tabs>
                         <Tab fx:id="tab1" text="النقل">
                             <graphic>
                                 <ImageView fitHeight="150.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                                     <viewport>
-                                        <Rectangle2D/>
+                                        <Rectangle2D />
                                     </viewport>
                                     <image>
-                                        <Image url="@../images/logo.png"/>
+                                        <Image url="@../images/transposition.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -47,194 +45,185 @@
                                     <children>
                                         <Label layoutX="39.0" layoutY="46.0" text="اسم العميل  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="42.0" layoutY="107.0" text="نوع الضلمه  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="96.0" layoutY="162.0" text="من  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="88.0" layoutY="214.0" text="الى   : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="394.0" layoutY="46.0" text="التاريخ  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="377.0" layoutY="101.0" text="البوليصه  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="390.0" layoutY="156.0" text="السياره  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="401.0" layoutY="209.0" text="الوزن  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="683.0" layoutY="47.0" text="النولون  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="694.0" layoutY="99.0" text="عهده  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="693.0" layoutY="158.0" text="اضافه  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="689.0" layoutY="217.0" text="الميزان  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="972.0" layoutY="46.0" text="خصم  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="968.0" layoutY="106.0" text="مكتب  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="964.0" layoutY="156.0" text="صافى  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
-                                        <JFXTreeTableView fx:id="tableview" layoutX="17.0" layoutY="276.0"
-                                                          prefHeight="450.0" prefWidth="1240.0"/>
-                                        <JFXButton fx:id="update" buttonType="RAISED" layoutX="927.0" layoutY="736.0"
-                                                   onAction="#updateAction" prefHeight="58.0" prefWidth="126.0"
-                                                   styleClass="round-red" text="تعديل" underline="true">
+                                        <JFXButton fx:id="update" buttonType="RAISED" layoutX="927.0" layoutY="736.0" onAction="#updateAction" prefHeight="58.0" prefWidth="126.0" styleClass="round-red" text="تعديل" underline="true">
                                             <font>
-                                                <Font name="Andalus" size="25.0"/>
+                                                <Font name="Andalus" size="25.0" />
                                             </font>
                                         </JFXButton>
-                                        <JFXButton fx:id="delete" buttonType="RAISED" layoutX="1075.0" layoutY="736.0"
-                                                   onAction="#deleteAction" prefHeight="58.0" prefWidth="123.0"
-                                                   styleClass="round-red" text="مسح" underline="true">
+                                        <JFXButton fx:id="delete" buttonType="RAISED" layoutX="1075.0" layoutY="736.0" onAction="#deleteAction" prefHeight="58.0" prefWidth="123.0" styleClass="round-red" text="مسح" underline="true">
                                             <font>
-                                                <Font name="Andalus" size="25.0"/>
+                                                <Font name="Andalus" size="25.0" />
                                             </font>
                                         </JFXButton>
-                                        <TextField alignment="CENTER" layoutX="148.0" layoutY="103.0" prefHeight="40.0"
-                                                   prefWidth="192.0" promptText="نوع">
+                                        <TextField alignment="CENTER" layoutX="148.0" layoutY="103.0" prefHeight="40.0" prefWidth="192.0" promptText="نوع">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </TextField>
-                                        <DatePicker fx:id="from" layoutX="147.0" layoutY="159.0" prefHeight="36.0"
-                                                    prefWidth="193.0" promptText="من"/>
-                                        <DatePicker fx:id="to" layoutX="147.0" layoutY="213.0" prefHeight="36.0"
-                                                    prefWidth="193.0" promptText="الى"/>
-                                        <DatePicker fx:id="date" layoutX="455.0" layoutY="45.0" prefHeight="36.0"
-                                                    prefWidth="193.0" promptText="التاريخ"/>
-                                        <TextField fx:id="bolisa" alignment="CENTER" layoutX="457.0" layoutY="98.0"
-                                                   prefHeight="40.0" prefWidth="192.0" promptText="البوليصه">
+                                        <DatePicker fx:id="from" layoutX="147.0" layoutY="159.0" prefHeight="36.0" prefWidth="193.0" promptText="من" />
+                                        <DatePicker fx:id="to" layoutX="147.0" layoutY="213.0" prefHeight="36.0" prefWidth="193.0" promptText="الى" />
+                                        <DatePicker fx:id="date" layoutX="455.0" layoutY="45.0" prefHeight="36.0" prefWidth="193.0" promptText="التاريخ" />
+                                        <TextField fx:id="bolisa" alignment="CENTER" layoutX="457.0" layoutY="98.0" prefHeight="40.0" prefWidth="192.0" promptText="البوليصه">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </TextField>
-                                        <TextField fx:id="carNum" alignment="CENTER" layoutX="455.0" layoutY="152.0"
-                                                   prefHeight="40.0" prefWidth="192.0" promptText="السياره">
+                                        <TextField fx:id="carNum" alignment="CENTER" layoutX="455.0" layoutY="152.0" prefHeight="40.0" prefWidth="192.0" promptText="السياره">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </TextField>
-                                        <TextField fx:id="weight" alignment="CENTER" layoutX="455.0" layoutY="209.0"
-                                                   prefHeight="40.0" prefWidth="192.0" promptText="الوزن">
+                                        <TextField fx:id="weight" alignment="CENTER" layoutX="455.0" layoutY="209.0" prefHeight="40.0" prefWidth="192.0" promptText="الوزن">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </TextField>
-                                        <TextField fx:id="nawlon" alignment="CENTER" layoutX="752.0" layoutY="44.0"
-                                                   prefHeight="40.0" prefWidth="192.0" promptText="النولون">
+                                        <TextField fx:id="nawlon" alignment="CENTER" layoutX="752.0" layoutY="44.0" prefHeight="40.0" prefWidth="192.0" promptText="النولون">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </TextField>
-                                        <TextField fx:id="ohda" alignment="CENTER" layoutX="753.0" layoutY="97.0"
-                                                   prefHeight="40.0" prefWidth="192.0" promptText="عهده">
+                                        <TextField fx:id="ohda" alignment="CENTER" layoutX="753.0" layoutY="97.0" prefHeight="40.0" prefWidth="192.0" promptText="عهده">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </TextField>
-                                        <TextField fx:id="added" alignment="CENTER" layoutX="755.0" layoutY="154.0"
-                                                   prefHeight="40.0" prefWidth="192.0" promptText="اضافه">
+                                        <TextField fx:id="added" alignment="CENTER" layoutX="755.0" layoutY="154.0" prefHeight="40.0" prefWidth="192.0" promptText="اضافه">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </TextField>
-                                        <TextField fx:id="mezan" alignment="CENTER" layoutX="756.0" layoutY="212.0"
-                                                   prefHeight="40.0" prefWidth="192.0" promptText="الميزان">
+                                        <TextField fx:id="mezan" alignment="CENTER" layoutX="756.0" layoutY="212.0" prefHeight="40.0" prefWidth="192.0" promptText="الميزان">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </TextField>
-                                        <TextField fx:id="discount" alignment="CENTER" layoutX="1028.0" layoutY="43.0"
-                                                   prefHeight="40.0" prefWidth="192.0" promptText="خصم">
+                                        <TextField fx:id="discount" alignment="CENTER" layoutX="1028.0" layoutY="43.0" prefHeight="40.0" prefWidth="192.0" promptText="خصم">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </TextField>
-                                        <TextField fx:id="officeNum" alignment="CENTER" layoutX="1030.0" layoutY="102.0"
-                                                   prefHeight="40.0" prefWidth="192.0" promptText="مكتب">
+                                        <TextField fx:id="officeNum" alignment="CENTER" layoutX="1030.0" layoutY="102.0" prefHeight="40.0" prefWidth="192.0" promptText="مكتب">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </TextField>
-                                        <TextField fx:id="clear" alignment="CENTER" layoutX="1032.0" layoutY="157.0"
-                                                   prefHeight="40.0" prefWidth="192.0" promptText="صافى">
+                                        <TextField fx:id="clear" alignment="CENTER" layoutX="1032.0" layoutY="157.0" prefHeight="40.0" prefWidth="192.0" promptText="صافى">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </TextField>
-                                        <Button fx:id="addclient" layoutX="301.0" layoutY="43.0" mnemonicParsing="false"
-                                                onAction="#addclientAction" prefHeight="40.0" prefWidth="36.0"
-                                                styleClass="round-red">
+                                        <Button fx:id="addclient" layoutX="301.0" layoutY="43.0" mnemonicParsing="false" onAction="#addclientAction" prefHeight="40.0" prefWidth="36.0" styleClass="round-red">
                                             <graphic>
-                                                <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true"
-                                                           preserveRatio="true">
+                                                <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
-                                                        <Image url="@../images/add.png"/>
+                                                        <Image url="@../images/add.png" />
                                                     </image>
                                                 </ImageView>
                                             </graphic>
                                         </Button>
-                                        <JFXButton fx:id="save" buttonType="RAISED" layoutX="1104.0" layoutY="213.0"
-                                                   onAction="#saveAction" prefHeight="42.0" prefWidth="118.0"
-                                                   styleClass="round-red" text="حفظ">
+                                        <JFXButton fx:id="save" buttonType="RAISED" layoutX="1104.0" layoutY="213.0" onAction="#saveAction" prefHeight="42.0" prefWidth="118.0" styleClass="round-red" text="حفظ">
                                             <font>
-                                                <Font size="19.0"/>
+                                                <Font size="19.0" />
                                             </font>
                                         </JFXButton>
-                                        <JFXButton buttonType="RAISED" layoutX="976.0" layoutY="213.0" prefHeight="42.0"
-                                                   prefWidth="118.0" styleClass="round-red" text="تعديل">
+                                        <JFXButton buttonType="RAISED" layoutX="976.0" layoutY="213.0" prefHeight="42.0" prefWidth="118.0" styleClass="round-red" text="تعديل">
                                             <font>
-                                                <Font size="19.0"/>
+                                                <Font size="19.0" />
                                             </font>
                                         </JFXButton>
-                                        <ComboBox fx:id="clientName" editable="true" layoutX="146.0" layoutY="42.0"
-                                                  prefHeight="41.0" prefWidth="150.0" promptText="اسم العميل"/>
+                                        <ComboBox fx:id="clientName" editable="true" layoutX="146.0" layoutY="42.0" prefHeight="41.0" prefWidth="150.0" promptText="اسم العميل" />
+                              <TreeTableView fx:id="tableview" layoutX="19.0" layoutY="359.0" prefHeight="295.0" prefWidth="1234.0">
+                                <columns>
+                                  <TreeTableColumn fx:id="NaklTable_date" prefWidth="93.0" text="التاريخ" />
+                                  <TreeTableColumn fx:id="NaklTable_bolisa" prefWidth="69.0" text="البوليصه" />
+                                    <TreeTableColumn fx:id="NaklTable_carNum" prefWidth="75.0" text="السياره" />
+                                    <TreeTableColumn fx:id="NaklTable_weight" prefWidth="73.0" text="الوزن" />
+                                    <TreeTableColumn fx:id="NaklTable_nawlon" prefWidth="81.0" text="النولون" />
+                                    <TreeTableColumn fx:id="NaklTable_ohda" prefWidth="83.0" text="عهده" />
+                                    <TreeTableColumn fx:id="NaklTable_agz" prefWidth="70.0" text="عجز" />
+                                    <TreeTableColumn fx:id="NaklTable_added" prefWidth="102.0" text="اضافه" />
+                                    <TreeTableColumn fx:id="NaklTable_mezan" prefWidth="111.0" text="الميزان" />
+                                    <TreeTableColumn fx:id="NaklTable_discount" prefWidth="90.0" text="خصم" />
+                                    <TreeTableColumn fx:id="NaklTable_office" prefWidth="103.0" text="مكتب" />
+                                    <TreeTableColumn fx:id="NaklTable_clear" prefWidth="89.0" text="صافى" />
+                                    <TreeTableColumn fx:id="NaklTable_type" prefWidth="89.0" text="بيان" />
+                                    <TreeTableColumn fx:id="NaklTable_notes" prefWidth="103.0" text="ملاحظات" />
+                                </columns>
+                              </TreeTableView>
                                     </children>
                                 </AnchorPane>
                             </content>
@@ -245,54 +234,41 @@
                                     <children>
                                         <Label layoutX="56.0" layoutY="81.0" text="اسم العميل  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="351.0" layoutY="80.0" text="من  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="621.0" layoutY="79.0" text="الى   : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
-                                        <DatePicker fx:id="accountfromSearch" layoutX="670.0" layoutY="78.0"
-                                                    onAction="#accountfromSearchAction" prefHeight="36.0"
-                                                    prefWidth="193.0" promptText="من"/>
-                                        <DatePicker fx:id="accounttoSearch" layoutX="400.0" layoutY="78.0"
-                                                    onAction="#accounttoSearchAction" prefHeight="36.0"
-                                                    prefWidth="193.0" promptText="الى"/>
-                                        <ComboBox fx:id="accountClientName" editable="true" layoutX="160.0"
-                                                  layoutY="77.0" onAction="#accountClientNameAction" prefHeight="41.0"
-                                                  prefWidth="150.0" promptText="اسم العميل"/>
-                                        <JFXButton fx:id="accountSearch" buttonType="RAISED" layoutX="924.0"
-                                                   layoutY="74.0" onAction="#accountSearchAction" prefHeight="35.0"
-                                                   prefWidth="133.0" styleClass="round-red" text="بحث">
+                                        <DatePicker fx:id="accountfromSearch" layoutX="670.0" layoutY="78.0" onAction="#accountfromSearchAction" prefHeight="36.0" prefWidth="193.0" promptText="من" />
+                                        <DatePicker fx:id="accounttoSearch" layoutX="400.0" layoutY="78.0" onAction="#accounttoSearchAction" prefHeight="36.0" prefWidth="193.0" promptText="الى" />
+                                        <ComboBox fx:id="accountClientName" editable="true" layoutX="160.0" layoutY="77.0" onAction="#accountClientNameAction" prefHeight="41.0" prefWidth="150.0" promptText="اسم العميل" />
+                                        <JFXButton fx:id="accountSearch" buttonType="RAISED" layoutX="924.0" layoutY="74.0" onAction="#accountSearchAction" prefHeight="35.0" prefWidth="133.0" styleClass="round-red" text="بحث">
                                             <font>
-                                                <Font size="20.0"/>
+                                                <Font size="20.0" />
                                             </font>
                                         </JFXButton>
-                                        <JFXTreeTableView fx:id="accounTableview" layoutX="17.0" layoutY="160.0"
-                                                          prefHeight="541.0" prefWidth="1240.0"/>
+                                        <JFXTreeTableView fx:id="accounTableview" layoutX="17.0" layoutY="160.0" prefHeight="541.0" prefWidth="1240.0" />
                                         <Label layoutX="505.0" layoutY="728.0" text="الصافى  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
-                                        <TextField fx:id="accountClear" alignment="CENTER" editable="false"
-                                                   layoutX="610.0" layoutY="719.0" prefHeight="51.0" prefWidth="174.0"
-                                                   promptText="الصافى">
+                                        <TextField fx:id="accountClear" alignment="CENTER" editable="false" layoutX="610.0" layoutY="719.0" prefHeight="51.0" prefWidth="174.0" promptText="الصافى">
                                             <font>
-                                                <Font size="18.0"/>
+                                                <Font size="18.0" />
                                             </font>
                                         </TextField>
-                                        <JFXButton fx:id="accountPrint" buttonType="RAISED" layoutX="1015.0"
-                                                   layoutY="719.0" prefHeight="35.0" prefWidth="133.0"
-                                                   styleClass="round-red" text="طباعه">
+                                        <JFXButton fx:id="accountPrint" buttonType="RAISED" layoutX="1015.0" layoutY="719.0" prefHeight="35.0" prefWidth="133.0" styleClass="round-red" text="طباعه">
                                             <font>
-                                                <Font size="20.0"/>
+                                                <Font size="20.0" />
                                             </font>
                                         </JFXButton>
                                     </children>
@@ -301,41 +277,41 @@
                             <graphic>
                                 <ImageView fitHeight="150.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                                     <viewport>
-                                        <Rectangle2D/>
+                                        <Rectangle2D />
                                     </viewport>
                                     <image>
-                                        <Image url="@../images/logo.png"/>
+                                        <Image url="@../images/kashf_client.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
                         </Tab>
                         <Tab text="الحسابات">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                             </content>
                             <graphic>
                                 <ImageView fitHeight="150.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                                     <viewport>
-                                        <Rectangle2D/>
+                                        <Rectangle2D />
                                     </viewport>
                                     <image>
-                                        <Image url="@../images/logo.png"/>
+                                        <Image url="@../images/account.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
                         </Tab>
                         <Tab text="الخزينه">
                             <content>
-                                <fx:include fx:id="firstTab" source="tab1.fxml"/>
+                                <fx:include fx:id="firstTab" source="tab1.fxml" />
                             </content>
 
                             <graphic>
                                 <ImageView fitHeight="150.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                                     <viewport>
-                                        <Rectangle2D/>
+                                        <Rectangle2D />
                                     </viewport>
                                     <image>
-                                        <Image url="@../images/logo.png"/>
+                                        <Image url="@../images/money.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -344,10 +320,10 @@
                             <graphic>
                                 <ImageView fitHeight="150.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                                     <viewport>
-                                        <Rectangle2D/>
+                                        <Rectangle2D />
                                     </viewport>
                                     <image>
-                                        <Image url="@../images/logo.png"/>
+                                        <Image url="@../images/clients.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -356,61 +332,48 @@
                                     <children>
                                         <Label layoutX="70.0" layoutY="115.0" text="اسم العميل  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
-                                        <TextField fx:id="client_clientName" alignment="CENTER" layoutX="188.0"
-                                                   layoutY="112.0" prefHeight="40.0" prefWidth="192.0"
-                                                   promptText="اسم العميل">
+                                        <TextField fx:id="client_clientName" alignment="CENTER" layoutX="188.0" layoutY="112.0" prefHeight="40.0" prefWidth="192.0" promptText="اسم العميل">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </TextField>
                                         <Label layoutX="78.0" layoutY="217.0" text="رقم التليفون  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
-                                        <TextField fx:id="client_phone" alignment="CENTER" layoutX="196.0"
-                                                   layoutY="214.0" prefHeight="40.0" prefWidth="192.0"
-                                                   promptText="رقم التليفون">
+                                        <TextField fx:id="client_phone" alignment="CENTER" layoutX="196.0" layoutY="214.0" prefHeight="40.0" prefWidth="192.0" promptText="رقم التليفون">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </TextField>
                                         <Label layoutX="80.0" layoutY="311.0" text="العنوان  : ">
                                             <font>
-                                                <Font name="justagain DIN" size="19.0"/>
+                                                <Font name="justagain DIN" size="19.0" />
                                             </font>
                                         </Label>
-                                        <TextField fx:id="client_address" alignment="CENTER" layoutX="198.0"
-                                                   layoutY="308.0" prefHeight="40.0" prefWidth="192.0"
-                                                   promptText="العنوان">
+                                        <TextField fx:id="client_address" alignment="CENTER" layoutX="198.0" layoutY="308.0" prefHeight="40.0" prefWidth="192.0" promptText="العنوان">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </TextField>
-                                        <JFXButton fx:id="client_Add" buttonType="RAISED" layoutX="120.0"
-                                                   layoutY="398.0" onAction="#client_AddAction" prefHeight="42.0"
-                                                   prefWidth="118.0" styleClass="round-red" text="اضافه">
+                                        <JFXButton fx:id="client_Add" buttonType="RAISED" layoutX="120.0" layoutY="398.0" onAction="#client_AddAction" prefHeight="42.0" prefWidth="118.0" styleClass="round-red" text="اضافه">
                                             <font>
-                                                <Font size="19.0"/>
+                                                <Font size="19.0" />
                                             </font>
                                         </JFXButton>
-                                        <JFXButton fx:id="client_Update" buttonType="RAISED" layoutX="262.0"
-                                                   layoutY="398.0" onAction="#client_UpdateAction" prefHeight="42.0"
-                                                   prefWidth="118.0" styleClass="round-red" text="تعديل">
+                                        <JFXButton fx:id="client_Update" buttonType="RAISED" layoutX="262.0" layoutY="398.0" onAction="#client_UpdateAction" prefHeight="42.0" prefWidth="118.0" styleClass="round-red" text="تعديل">
                                             <font>
-                                                <Font size="19.0"/>
+                                                <Font size="19.0" />
                                             </font>
                                         </JFXButton>
-                                        <JFXTreeTableView fx:id="client_tableView" layoutX="438.0" layoutY="109.0"
-                                                          prefHeight="524.0" prefWidth="800.0"/>
-                                        <JFXButton fx:id="client_delete" buttonType="RAISED" layoutX="1118.0"
-                                                   layoutY="659.0" onAction="#client_deleteAction" prefHeight="42.0"
-                                                   prefWidth="118.0" styleClass="round-red" text="مسح">
+                                        <JFXTreeTableView fx:id="client_tableView" layoutX="438.0" layoutY="109.0" prefHeight="524.0" prefWidth="800.0" />
+                                        <JFXButton fx:id="client_delete" buttonType="RAISED" layoutX="1118.0" layoutY="659.0" onAction="#client_deleteAction" prefHeight="42.0" prefWidth="118.0" styleClass="round-red" text="مسح">
                                             <font>
-                                                <Font size="19.0"/>
+                                                <Font size="19.0" />
                                             </font>
                                         </JFXButton>
                                     </children>
@@ -419,18 +382,16 @@
                         </Tab>
                     </tabs>
                     <cursor>
-                        <Cursor fx:constant="HAND"/>
+                        <Cursor fx:constant="HAND" />
                     </cursor>
                 </JFXTabPane>
             </children>
         </VBox>
-        <JFXDrawer fx:id="drawer" layoutX="-7.0" layoutY="34.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="295.0"
-                   prefWidth="159.0" AnchorPane.bottomAnchor="621.0" AnchorPane.leftAnchor="-7.0"
-                   AnchorPane.rightAnchor="1127.0" AnchorPane.topAnchor="34.0">
+        <JFXDrawer fx:id="drawer" layoutX="-7.0" layoutY="34.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="295.0" prefWidth="159.0" AnchorPane.bottomAnchor="621.0" AnchorPane.leftAnchor="-7.0" AnchorPane.rightAnchor="1127.0" AnchorPane.topAnchor="34.0">
             <cursor>
-                <Cursor fx:constant="HAND"/>
+                <Cursor fx:constant="HAND" />
             </cursor>
         </JFXDrawer>
-        <JFXHamburger fx:id="ham1" layoutX="2.0" layoutY="10.0"/>
+        <JFXHamburger fx:id="ham1" layoutX="2.0" layoutY="10.0" />
     </children>
 </AnchorPane>

@@ -13,6 +13,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.control.cell.TextFieldTreeTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 import sample.app.Tab1.tab1PageController;
@@ -34,7 +37,43 @@ public class MainController implements Initializable {
     private Tab tab1;
 
     @FXML
-    private JFXTreeTableView tableview;
+    private TreeTableView<NaklTable> tableview;
+    @FXML
+    private TreeTableColumn<NaklTable, String> NaklTable_date;
+    @FXML
+    private TreeTableColumn<NaklTable, Double> NaklTable_bolisa;
+    @FXML
+    private TreeTableColumn<NaklTable, Double> NaklTable_carNum;
+    @FXML
+    private TreeTableColumn<NaklTable, Double> NaklTable_weight;
+    @FXML
+    private TreeTableColumn<NaklTable, Double> NaklTable_nawlon;
+    @FXML
+    private TreeTableColumn<NaklTable, Double> NaklTable_ohda;
+    @FXML
+    private TreeTableColumn<NaklTable, Double> NaklTable_agz;
+    @FXML
+    private TreeTableColumn<NaklTable, Double> NaklTable_added;
+
+    @FXML
+    private TreeTableColumn<NaklTable, Double> NaklTable_mezan;
+
+
+    @FXML
+    private TreeTableColumn<NaklTable, Double> NaklTable_discount;
+
+
+    @FXML
+    private TreeTableColumn<NaklTable, Double> NaklTable_office;
+
+
+    @FXML
+    private TreeTableColumn<NaklTable, Double> NaklTable_clear;
+    @FXML
+    private TreeTableColumn<NaklTable, String> NaklTable_type;
+    @FXML
+    private TreeTableColumn<NaklTable, String> NaklTable_notes;
+
 
     @FXML
     private JFXButton update;
@@ -150,8 +189,7 @@ public class MainController implements Initializable {
 
 //       ******************************* Main************************************
 
-        JFXTreeTableColumn<NaklTable, String> NaklTable_date = new JFXTreeTableColumn<>("التاريخ");
-        NaklTable_date.setPrefWidth(93);
+
         NaklTable_date.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<NaklTable, String> param) {
@@ -159,8 +197,7 @@ public class MainController implements Initializable {
             }
         });
 
-        JFXTreeTableColumn<NaklTable, Double> NaklTable_bolisa = new JFXTreeTableColumn<>("البوليصه");
-        NaklTable_bolisa.setPrefWidth(88);
+
         NaklTable_bolisa.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
             @Override
             public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<NaklTable, Double> param) {
@@ -168,8 +205,7 @@ public class MainController implements Initializable {
             }
 
         });
-        JFXTreeTableColumn<NaklTable, Double> NaklTable_carNum = new JFXTreeTableColumn<>("السياره");
-        NaklTable_carNum.setPrefWidth(88);
+
         NaklTable_carNum.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
             @Override
             public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<NaklTable, Double> param) {
@@ -177,8 +213,7 @@ public class MainController implements Initializable {
             }
 
         });
-        JFXTreeTableColumn<NaklTable, Double> NaklTable_weight = new JFXTreeTableColumn<>("الوزن");
-        NaklTable_weight.setPrefWidth(88);
+
         NaklTable_weight.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
             @Override
             public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<NaklTable, Double> param) {
@@ -186,8 +221,7 @@ public class MainController implements Initializable {
             }
 
         });
-        JFXTreeTableColumn<NaklTable, Double> NaklTable_nawlon = new JFXTreeTableColumn<>("النولون");
-        NaklTable_nawlon.setPrefWidth(88);
+
         NaklTable_nawlon.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
             @Override
             public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<NaklTable, Double> param) {
@@ -195,8 +229,7 @@ public class MainController implements Initializable {
             }
 
         });
-        JFXTreeTableColumn<NaklTable, Double> NaklTable_ohda = new JFXTreeTableColumn<>("عهده");
-        NaklTable_ohda.setPrefWidth(88);
+
         NaklTable_ohda.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
             @Override
             public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<NaklTable, Double> param) {
@@ -204,8 +237,7 @@ public class MainController implements Initializable {
             }
 
         });
-        JFXTreeTableColumn<NaklTable, Double> NaklTable_agz = new JFXTreeTableColumn<>("عجز");
-        NaklTable_agz.setPrefWidth(88);
+
         NaklTable_agz.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
             @Override
             public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<NaklTable, Double> param) {
@@ -213,8 +245,7 @@ public class MainController implements Initializable {
             }
 
         });
-        JFXTreeTableColumn<NaklTable, Double> NaklTable_added = new JFXTreeTableColumn<>("اضافه");
-        NaklTable_added.setPrefWidth(88);
+
         NaklTable_added.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
             @Override
             public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<NaklTable, Double> param) {
@@ -223,8 +254,6 @@ public class MainController implements Initializable {
 
         });
 
-        JFXTreeTableColumn<NaklTable, Double> NaklTable_mezan = new JFXTreeTableColumn<>("الميزان");
-        NaklTable_mezan.setPrefWidth(88);
         NaklTable_mezan.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
             @Override
             public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<NaklTable, Double> param) {
@@ -232,8 +261,7 @@ public class MainController implements Initializable {
             }
 
         });
-        JFXTreeTableColumn<NaklTable, Double> NaklTable_discount = new JFXTreeTableColumn<>("خصم");
-        NaklTable_discount.setPrefWidth(88);
+
         NaklTable_discount.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
             @Override
             public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<NaklTable, Double> param) {
@@ -241,8 +269,7 @@ public class MainController implements Initializable {
             }
 
         });
-        JFXTreeTableColumn<NaklTable, Double> NaklTable_office = new JFXTreeTableColumn<>("مكتب");
-        NaklTable_office.setPrefWidth(88);
+
         NaklTable_office.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
             @Override
             public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<NaklTable, Double> param) {
@@ -250,8 +277,7 @@ public class MainController implements Initializable {
             }
 
         });
-        JFXTreeTableColumn<NaklTable, Double> NaklTable_clear = new JFXTreeTableColumn<>("صافى");
-        NaklTable_clear.setPrefWidth(88);
+
         NaklTable_clear.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
             @Override
             public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<NaklTable, Double> param) {
@@ -259,8 +285,7 @@ public class MainController implements Initializable {
             }
 
         });
-        JFXTreeTableColumn<NaklTable, String> NaklTable_type = new JFXTreeTableColumn<>("بيان");
-        NaklTable_type.setPrefWidth(88);
+
         NaklTable_type.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<NaklTable, String> param) {
@@ -269,8 +294,7 @@ public class MainController implements Initializable {
 
         });
 
-        JFXTreeTableColumn<NaklTable, String> NaklTable_notes = new JFXTreeTableColumn<>("ملاحظات");
-        NaklTable_notes.setPrefWidth(88);
+     
         NaklTable_notes.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<NaklTable, String> param) {
@@ -281,7 +305,7 @@ public class MainController implements Initializable {
 
         NaklTable_data.add(new NaklTable(1, "a", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "ss", "ss"));
         final TreeItem<NaklTable> root = new RecursiveTreeItem<NaklTable>(NaklTable_data, RecursiveTreeObject::getChildren);
-        tableview.getColumns().setAll(NaklTable_date, NaklTable_bolisa, NaklTable_carNum, NaklTable_weight, NaklTable_nawlon, NaklTable_ohda, NaklTable_agz, NaklTable_added, NaklTable_mezan, NaklTable_discount, NaklTable_office, NaklTable_clear, NaklTable_type, NaklTable_notes);
+//        tableview.getColumns().setAll(NaklTable_date, NaklTable_bolisa, NaklTable_carNum, NaklTable_weight, NaklTable_nawlon, NaklTable_ohda, NaklTable_agz, NaklTable_added, NaklTable_mezan, NaklTable_discount, NaklTable_office, NaklTable_clear, NaklTable_type, NaklTable_notes);
         tableview.setRoot(root);
         tableview.setShowRoot(false);
 
@@ -466,6 +490,8 @@ public class MainController implements Initializable {
         client_data.add(new ClientTable(1, "a", "a", "a"));
         final TreeItem<ClientTable> Client_root = new RecursiveTreeItem<ClientTable>(client_data, RecursiveTreeObject::getChildren);
         client_tableView.getColumns().setAll(ClientTable_name, ClientTable_address, ClientTable_phone);
+        tableview.setEditable(true);
+
         client_tableView.setRoot(Client_root);
         client_tableView.setShowRoot(false);
 
@@ -562,27 +588,22 @@ public class MainController implements Initializable {
 
     class NaklTable extends RecursiveTreeObject<NaklTable> {
 
-        StringProperty date;
+        SimpleStringProperty date;
 
-        DoubleProperty bolisa;
-        DoubleProperty carNum;
-        DoubleProperty weight;
-        DoubleProperty nawlon;
-
-        DoubleProperty ohda;
-        DoubleProperty agz;
-        DoubleProperty added;
-        DoubleProperty mezan;
-
-        DoubleProperty discount;
-        DoubleProperty office;
-
-        DoubleProperty clear;
-
-        StringProperty type;
-        StringProperty notes;
-
-        IntegerProperty id;
+        SimpleDoubleProperty bolisa;
+        SimpleDoubleProperty carNum;
+        SimpleDoubleProperty weight;
+        SimpleDoubleProperty nawlon;
+        SimpleDoubleProperty ohda;
+        SimpleDoubleProperty agz;
+        SimpleDoubleProperty added;
+        SimpleDoubleProperty mezan;
+        SimpleDoubleProperty discount;
+        SimpleDoubleProperty office;
+        SimpleDoubleProperty clear;
+        SimpleStringProperty type;
+        SimpleStringProperty notes;
+        SimpleIntegerProperty id;
 
         public NaklTable(int id, String date, double bolisa, double carNum, double weight, double nawlon, double ohda, double agz, double added, double mezan, double discount, double office, double clear, String type, String notes) {
             this.date = new SimpleStringProperty(date);
@@ -601,6 +622,187 @@ public class MainController implements Initializable {
             this.type = new SimpleStringProperty(type);
             this.notes = new SimpleStringProperty(notes);
             this.id = new SimpleIntegerProperty(id);
+        }
+
+
+        public String getDate() {
+            return date.get();
+        }
+
+        public StringProperty dateProperty() {
+            return date;
+        }
+
+        public void setDate(String date) {
+            this.date.set(date);
+        }
+
+        public double getBolisa() {
+            return bolisa.get();
+        }
+
+        public DoubleProperty bolisaProperty() {
+            return bolisa;
+        }
+
+        public void setBolisa(double bolisa) {
+            this.bolisa.set(bolisa);
+        }
+
+        public double getCarNum() {
+            return carNum.get();
+        }
+
+        public DoubleProperty carNumProperty() {
+            return carNum;
+        }
+
+        public void setCarNum(double carNum) {
+            this.carNum.set(carNum);
+        }
+
+        public double getWeight() {
+            return weight.get();
+        }
+
+        public DoubleProperty weightProperty() {
+            return weight;
+        }
+
+        public void setWeight(double weight) {
+            this.weight.set(weight);
+        }
+
+        public double getNawlon() {
+            return nawlon.get();
+        }
+
+        public DoubleProperty nawlonProperty() {
+            return nawlon;
+        }
+
+        public void setNawlon(double nawlon) {
+            this.nawlon.set(nawlon);
+        }
+
+        public double getOhda() {
+            return ohda.get();
+        }
+
+        public DoubleProperty ohdaProperty() {
+            return ohda;
+        }
+
+        public void setOhda(double ohda) {
+            this.ohda.set(ohda);
+        }
+
+        public double getAgz() {
+            return agz.get();
+        }
+
+        public DoubleProperty agzProperty() {
+            return agz;
+        }
+
+        public void setAgz(double agz) {
+            this.agz.set(agz);
+        }
+
+        public DoubleProperty getAdded() {
+            return added;
+        }
+
+        public DoubleProperty addedProperty() {
+            return added;
+        }
+
+        public void setAdded(double added) {
+            this.added.set(added);
+        }
+
+        public double getMezan() {
+            return mezan.get();
+        }
+
+        public DoubleProperty mezanProperty() {
+            return mezan;
+        }
+
+        public void setMezan(double mezan) {
+            this.mezan.set(mezan);
+        }
+
+        public double getDiscount() {
+            return discount.get();
+        }
+
+        public DoubleProperty discountProperty() {
+            return discount;
+        }
+
+        public void setDiscount(double discount) {
+            this.discount.set(discount);
+        }
+
+        public double getOffice() {
+            return office.get();
+        }
+
+        public DoubleProperty officeProperty() {
+            return office;
+        }
+
+        public void setOffice(double office) {
+            this.office.set(office);
+        }
+
+        public double getClear() {
+            return clear.get();
+        }
+
+        public DoubleProperty clearProperty() {
+            return clear;
+        }
+
+        public void setClear(double clear) {
+            this.clear.set(clear);
+        }
+
+        public String getType() {
+            return type.get();
+        }
+
+        public StringProperty typeProperty() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type.set(type);
+        }
+
+        public String getNotes() {
+            return notes.get();
+        }
+
+        public StringProperty notesProperty() {
+            return notes;
+        }
+
+        public void setNotes(String notes) {
+            this.notes.set(notes);
+        }
+
+        public int getId() {
+            return id.get();
+        }
+
+        public IntegerProperty idProperty() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id.set(id);
         }
     }
 
