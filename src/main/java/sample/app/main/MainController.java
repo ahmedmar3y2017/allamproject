@@ -4,6 +4,7 @@ import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import javafx.beans.property.*;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,12 +19,16 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.control.cell.TextFieldTreeTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
+import sample.app.Entities.Clients;
 import sample.app.Tab1.tab1PageController;
+import sample.app.Transactions.ClientDao.clientDao;
 import sample.shared.Validation.Validation;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 /**
  * Created by ahmed mar3y on 08/04/2018.
@@ -33,8 +38,25 @@ public class MainController implements Initializable {
 
     ObservableList<NaklTable> NaklTable_data = FXCollections.observableArrayList();
 
+    // --------------------- tabs -----------------------
     @FXML
-    private Tab tab1;
+    private JFXTabPane tabPane;
+
+    @FXML
+    private Tab nakl;
+
+    @FXML
+    private Tab kashfHesab;
+
+    @FXML
+    private Tab accounts;
+
+    @FXML
+    private Tab money;
+
+    @FXML
+    private Tab clients;
+
 
     @FXML
     private TreeTableView<NaklTable> tableview;
@@ -135,6 +157,16 @@ public class MainController implements Initializable {
     @FXML
     private JFXHamburger ham1;
 
+    // nakl variable
+    List<Clients> clientsList;
+    List<String> clientsList_Names;
+    List<Integer> clientsList_Ids;
+
+
+    // ----------------------------------------- Methods  -------------------------------------------
+
+    // nakl TabPane
+
     @FXML
     void addclientAction(ActionEvent event) {
 
@@ -159,6 +191,13 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+
+
+//        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+//        selectionModel.select(nakl); //select by object
+
+
+        // load
         FXMLLoader load = new FXMLLoader();
 
         Parent v = null;
@@ -185,6 +224,42 @@ public class MainController implements Initializable {
             }
 
         });
+
+
+        tabPane.getSelectionModel().selectedItemProperty().
+                addListener(new ChangeListener<Tab>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Tab> ov, Tab t, Tab t1) {
+                        if (t1.getId().equals("nakl")) {
+                            System.out.println("nakl");
+                            // select all cliets from table client
+                            clientsList = clientDao.SelectAllClients();
+                            clientsList_Names = clientsList.stream().map(map -> map.getName()).collect(Collectors.toList());
+                            clientsList_Ids = clientsList.stream().map(map -> map.getId()).collect(Collectors.toList());
+                            // set to combobox Values
+                            clientName.getItems().setAll(clientsList_Names);
+
+
+
+                        }
+                        if (t1.getId().equals("kashfHesab")) {
+                            System.out.println("kashfHesab");
+
+                        }
+                        if (t1.getId().equals("accounts")) {
+                            System.out.println("accounts");
+
+                        }
+                        if (t1.getId().equals("money")) {
+                            System.out.println("money");
+
+                        }
+                        if (t1.getId().equals("clients")) {
+                            System.out.println("clients");
+
+                        }
+                    }
+                });
 
 
 //       ******************************* Main************************************
@@ -294,7 +369,7 @@ public class MainController implements Initializable {
 
         });
 
-     
+
         NaklTable_notes.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<NaklTable, String> param) {
