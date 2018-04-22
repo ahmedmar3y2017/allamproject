@@ -51,27 +51,27 @@ public class homeController implements Initializable {
 
         if (event.getSource() == nakl) {
 
-            homepage = FXMLLoader.load(getClass().getResource("/fxml/supplier.fxml"));
+            homepage = FXMLLoader.load(getClass().getResource("/fxml/nakl.fxml"));
 
         }
         if (event.getSource() == kashfHesab) {
 
-            homepage = FXMLLoader.load(getClass().getResource("/fxml/supplier.fxml"));
+            homepage = FXMLLoader.load(getClass().getResource("/fxml/kashfHesab.fxml"));
 
         }
         if (event.getSource() == accounts) {
 
-            homepage = FXMLLoader.load(getClass().getResource("/fxml/supplier.fxml"));
+            homepage = FXMLLoader.load(getClass().getResource("/fxml/accounts.fxml"));
 
         }
         if (event.getSource() == money) {
-            homepage = FXMLLoader.load(getClass().getResource("/fxml/supplier.fxml"));
+            homepage = FXMLLoader.load(getClass().getResource("/fxml/money.fxml"));
 
 
         }
         if (event.getSource() == clients) {
 
-            homepage = FXMLLoader.load(getClass().getResource("/fxml/supplier.fxml"));
+            homepage = FXMLLoader.load(getClass().getResource("/fxml/clients.fxml"));
 
         }
         setNode(homepage);
