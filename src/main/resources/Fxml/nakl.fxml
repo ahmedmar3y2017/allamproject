@@ -1,14 +1,317 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.app.nakl.naklController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.nakl.naklController">
+   <children>
+      <Pane prefHeight="234.0" prefWidth="1107.0" style="-fx-background-color: ;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="TOP_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="45.0" prefWidth="1145.0">
+               <children>
+                  <TextField alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="180.0" promptText="0.0" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label prefHeight="21.0" prefWidth="110.0" text=" : خصم">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="170.0" promptText="0.0" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label prefHeight="21.0" prefWidth="110.0" text=" : النولون ">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <DatePicker nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="180.0" promptText="التاريخ " HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </DatePicker>
+                  <Label layoutX="888.0" layoutY="20.0" prefHeight="21.0" prefWidth="110.0" text=": التاريخ">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <ImageView fitHeight="19.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" styleClass="round-red">
+                     <image>
+                        <Image url="@../images/add.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="10.0" top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ComboBox prefHeight="33.0" prefWidth="180.0">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </ComboBox>
+                  <Label alignment="BOTTOM_LEFT" prefHeight="21.0" prefWidth="180.0" text=": اسم العميل  ">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" layoutX="-3.0" layoutY="114.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="75.0" prefWidth="1145.0">
+               <children>
+                  <TextField alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="175.0" promptText="0.0" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label prefHeight="21.0" prefWidth="110.0" text=" : صافى">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="175.0" promptText="0.0" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label prefHeight="21.0" prefWidth="110.0" text=" : إضافة">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField alignment="CENTER_RIGHT" layoutX="328.0" layoutY="20.0" prefHeight="33.0" prefWidth="170.0" promptText="شيفروليه" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label layoutX="888.0" layoutY="20.0" prefHeight="21.0" prefWidth="110.0" text=": السيارة">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField alignment="CENTER_RIGHT" layoutX="333.0" layoutY="20.0" prefHeight="33.0" prefWidth="180.0" promptText="مكان" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label prefHeight="21.0" prefWidth="172.0" text=": مكان التحميل " HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" layoutX="-3.0" layoutY="168.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="75.0" prefWidth="1145.0">
+               <children>
+                  <JFXButton fx:id="update" onAction="#updateAction" prefHeight="33.0" prefWidth="120.0" styleClass="round-red" text="تعديل" textFill="WHITE" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="15.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="save" layoutX="112.0" layoutY="20.0" onAction="#saveAction" prefHeight="33.0" prefWidth="120.0" styleClass="round-red" text="حفظ" textFill="WHITE" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <TextField alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="153.0" promptText="0.0" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="18.0" right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label prefHeight="21.0" prefWidth="110.0" text=" : الميزان">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField alignment="CENTER_RIGHT" layoutX="328.0" layoutY="20.0" prefHeight="33.0" prefWidth="180.0" promptText="ك.ج" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label layoutX="888.0" layoutY="20.0" prefHeight="21.0" prefWidth="110.0" text=": الوزن">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField alignment="CENTER_RIGHT" layoutX="333.0" layoutY="20.0" prefHeight="33.0" prefWidth="180.0" promptText="مكان" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" prefHeight="21.0" prefWidth="185.0" text=": مكان التنزيل " textAlignment="JUSTIFY" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" layoutX="2.0" layoutY="65.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="75.0" prefWidth="1145.0" style="-fx-background-color: ;">
+               <children>
+                  <TextField alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="180.0" promptText="0.0" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label prefHeight="21.0" prefWidth="110.0" text=" : مكتب">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="180.0" promptText="0.0" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label prefHeight="21.0" prefWidth="110.0" text=" : عهده">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField alignment="CENTER_RIGHT" layoutX="328.0" layoutY="20.0" prefHeight="33.0" prefWidth="180.0" promptText="0.0" styleClass="jfx-text-field" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label layoutX="888.0" layoutY="20.0" prefHeight="21.0" prefWidth="110.0" text=": البوليصة">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField alignment="CENTER_RIGHT" layoutX="333.0" layoutY="20.0" prefHeight="33.0" prefWidth="180.0" promptText="نوع" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label prefHeight="21.0" prefWidth="180.0" text=": نوع البضاعة " HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </Pane>
+      <TableView layoutX="-123.0" layoutY="251.0" styleClass="tree-table-view" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="180.0">
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+         <columns>
+            <TableColumn prefWidth="72.0" text="ملاحظات" />
+            <TableColumn prefWidth="82.0" text="بيان" />
+            <TableColumn prefWidth="86.0" text="صافى" />
+            <TableColumn text="مكتب" />
+            <TableColumn prefWidth="69.0" text="خصم" />
+            <TableColumn prefWidth="91.0" text="الميزان" />
+            <TableColumn prefWidth="87.0" text="إضافة" />
+            <TableColumn text="عجز" />
+            <TableColumn prefWidth="73.0" text="عهدة" />
+            <TableColumn text="النولون" />
+            <TableColumn prefWidth="86.0" text="الوزن" />
+            <TableColumn prefWidth="81.0" text="السيارة" />
+            <TableColumn prefWidth="104.0" text="البوليصة" />
+            <TableColumn prefWidth="70.0" text="التاريخ" />
+         </columns>
+      </TableView>
+      <HBox layoutX="61.0" layoutY="582.0" prefHeight="57.0" prefWidth="200.0">
+         <children>
+            <JFXButton fx:id="deleteTable" onAction="#deleteTableAction" prefHeight="38.0" prefWidth="85.0" styleClass="round-red" text="مسح" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="20.0" top="10.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="updateTable" layoutX="10.0" layoutY="20.0" onAction="#updateTableAction" prefHeight="38.0" prefWidth="85.0" styleClass="round-red" text="تعديل" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
 </AnchorPane>
