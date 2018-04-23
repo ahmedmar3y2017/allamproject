@@ -23,7 +23,7 @@ public class homeController implements Initializable {
 
     @FXML
     private Pane homepage;
-    AnchorPane holderPane;
+    Pane holderPane;
 
     @FXML
     private JFXButton nakl;
@@ -39,7 +39,10 @@ public class homeController implements Initializable {
 
     @FXML
     private JFXButton clients;
-
+    @FXML
+    void naklAction(ActionEvent event) {
+        System.out.println("DOne");
+    }
     @FXML
     void MainButtonAction(ActionEvent event) throws IOException {
 
@@ -106,7 +109,6 @@ public class homeController implements Initializable {
 
 
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
