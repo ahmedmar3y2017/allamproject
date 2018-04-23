@@ -40,6 +40,7 @@ public class mainHome extends Application {
         primaryStage.setY(primaryScreenBounds.getMinY());
         primaryStage.setWidth(primaryScreenBounds.getWidth());
         primaryStage.setHeight(primaryScreenBounds.getHeight());
+        primaryStage.setResizable(false);
 
 
         primaryStage.setTitle("Login");
