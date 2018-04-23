@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+    
+<AnchorPane prefHeight="688.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.Menu">
+   <children>
+      <VBox style="-fx-background-color: #2c2c54;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton contentDisplay="TOP" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="النقــــل" textAlignment="CENTER" textFill="#33d9b2">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../ahmedmar3y2016-allamproject-8e5936e4fa1d/src/main/resources/images/transposition.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton contentDisplay="TOP" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="كشف  حساب العملاء" textAlignment="CENTER" textFill="#33d9b2">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../ahmedmar3y2016-allamproject-8e5936e4fa1d/src/main/resources/images/transposition.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton contentDisplay="TOP" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="الحســــابات" textAlignment="CENTER" textFill="#33d9b2">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../ahmedmar3y2016-allamproject-8e5936e4fa1d/src/main/resources/images/account.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton contentDisplay="TOP" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="الخــــزينة" textAlignment="CENTER" textFill="#33d9b2">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../ahmedmar3y2016-allamproject-8e5936e4fa1d/src/main/resources/images/money.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton contentDisplay="TOP" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="العمـــــلاء" textAlignment="CENTER" textFill="#33d9b2">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView id="tab" fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../ahmedmar3y2016-allamproject-8e5936e4fa1d/src/main/resources/images/clients.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
