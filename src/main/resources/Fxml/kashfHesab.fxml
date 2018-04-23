@@ -1,16 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.KashfHesab.kashfHesabController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.KashfHesab.kashfHesabController">
    <children>
-      <Label layoutX="220.0" layoutY="160.0" text="كشف حساب">
-         <font>
-            <Font size="28.0" />
-         </font>
-      </Label>
+      <Pane>
+         <children>
+            <HBox layoutX="250.0" layoutY="582.0" />
+            <TableView layoutX="3.0" layoutY="69.0" prefHeight="509.0" prefWidth="1174.0" styleClass="tree-table-view">
+               <columns>
+                  <TableColumn prefWidth="72.0" resizable="false" text="ملاحظات" />
+                  <TableColumn prefWidth="82.0" text="بيان" />
+                  <TableColumn prefWidth="86.0" text="صافى" />
+                  <TableColumn text="مكــتب" />
+                  <TableColumn prefWidth="74.0" text="خصم" />
+                  <TableColumn prefWidth="74.0" text="الميزان" />
+                  <TableColumn prefWidth="84.0" text="إضافة" />
+                  <TableColumn prefWidth="84.0" text="عجز" />
+                  <TableColumn prefWidth="86.0" text="عهدة" />
+                  <TableColumn prefWidth="90.0" text="النولون" />
+                  <TableColumn prefWidth="90.0" text="الوزن" />
+                  <TableColumn prefWidth="90.0" text="السيارة" />
+                  <TableColumn prefWidth="90.0" text="البوليصة" />
+                  <TableColumn prefWidth="90.0" text="التاريخ" />
+               </columns>
+            </TableView>
+            <HBox alignment="TOP_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="1212.0">
+               <children>
+                  <JFXButton prefHeight="33.0" prefWidth="120.0" styleClass="round-red" text="بحث" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="30.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <DatePicker layoutX="10.0" layoutY="25.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="200.0" promptText="التاريخ " HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets right="4.0" />
+                     </HBox.margin>
+                  </DatePicker>
+                  <Label layoutX="184.0" layoutY="25.0" prefHeight="21.0" prefWidth="110.0" text="من :">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <DatePicker nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="200.0" promptText="التاريخ " HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets right="4.0" />
+                     </HBox.margin>
+                  </DatePicker>
+                  <Label layoutX="888.0" layoutY="20.0" prefHeight="21.0" prefWidth="110.0" text="من :">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="round-red">
+                     <image>
+                        <Image url="@../images/add.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="10.0" top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ComboBox editable="true" prefHeight="33.0" prefWidth="200.0" promptText="اسم العميل" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets right="4.0" />
+                     </HBox.margin>
+                  </ComboBox>
+                  <Label alignment="BOTTOM_LEFT" prefHeight="21.0" prefWidth="170.0" text=" اسم العميل :" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets right="20.0" top="15.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="TOP_CENTER" layoutX="478.0" layoutY="589.0" prefHeight="53.0" prefWidth="250.0">
+               <children>
+                  <TextField alignment="CENTER" prefHeight="38.0" prefWidth="133.0" text="الصافى" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="10.0" right="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label text="الصافى">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <JFXButton layoutX="228.0" layoutY="597.0" prefHeight="38.0" prefWidth="139.0" styleClass="round-red" text="طباعة" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="35.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" style="-fx-margin-right: 10px;">
+                     <image>
+                        <Image url="@../images/recarga_de_250520151038527662.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
