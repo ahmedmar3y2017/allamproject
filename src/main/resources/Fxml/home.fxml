@@ -350,20 +350,20 @@
          <center>
             <TableView prefHeight="319.0" prefWidth="1142.0" styleClass="tree-table-view" BorderPane.alignment="CENTER">
                <columns>
-                  <TableColumn prefWidth="72.0" resizable="false" text="ملاحظات" />
+                  <TableColumn prefWidth="72.0" text="ملاحظات" />
                   <TableColumn prefWidth="82.0" text="بيان" />
-                  <TableColumn prefWidth="86.0" resizable="false" text="صافى" />
-                  <TableColumn resizable="false" text="مكتب" />
-                  <TableColumn prefWidth="69.0" resizable="false" text="خصم" />
-                  <TableColumn prefWidth="91.0" resizable="false" text="الميزان" />
-                  <TableColumn prefWidth="87.0" resizable="false" text="إضافة" />
-                  <TableColumn resizable="false" text="عجز" />
-                  <TableColumn prefWidth="73.0" resizable="false" text="عهدة" />
-                  <TableColumn resizable="false" text="النولون" />
-                  <TableColumn prefWidth="86.0" resizable="false" text="الوزن" />
-                  <TableColumn prefWidth="81.0" resizable="false" text="السيارة" />
-                  <TableColumn prefWidth="104.0" resizable="false" text="البوليصة" />
-                  <TableColumn prefWidth="70.0" resizable="false" text="التاريخ" />
+                  <TableColumn prefWidth="86.0" text="صافى" />
+                  <TableColumn text="مكتب" />
+                  <TableColumn prefWidth="69.0" text="خصم" />
+                  <TableColumn prefWidth="91.0" text="الميزان" />
+                  <TableColumn prefWidth="87.0" text="إضافة" />
+                  <TableColumn text="عجز" />
+                  <TableColumn prefWidth="73.0" text="عهدة" />
+                  <TableColumn text="النولون" />
+                  <TableColumn prefWidth="86.0" text="الوزن" />
+                  <TableColumn prefWidth="81.0" text="السيارة" />
+                  <TableColumn prefWidth="104.0" text="البوليصة" />
+                  <TableColumn prefWidth="70.0" text="التاريخ" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
