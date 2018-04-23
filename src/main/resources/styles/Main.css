@@ -24,7 +24,7 @@
 
 }
 
-.tab:selected {
+.tab:selected , .tab:hover , .tab:focused{
 
     -fx-background-color: #FAFCFB;
     -fx-background-insets: 0.0;
@@ -66,12 +66,12 @@
 }
 
 .round-red {
-    -fx-background-color: #f5f5f5;
+    -fx-background-color: #2ed573;
     -fx-background-insets: 0;
 }
 
 .round-red:hover {
-    -fx-background-color: orange;
+    -fx-background-color: #7bed9f;
 }
 
 /******************** table view *******************************/
