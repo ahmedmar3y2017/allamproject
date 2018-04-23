@@ -1,80 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.Menu">
-   <children>
-      <Pane layoutX="-119.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="0.0" />
-      <VBox style="-fx-background-color: #2c2c54;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <JFXButton contentDisplay="TOP" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="النقــــل" textAlignment="CENTER" textFill="#33d9b2">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../ahmedmar3y2016-allamproject-8e5936e4fa1d/src/main/resources/images/transposition.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton contentDisplay="TOP" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="كشف  حساب العملاء" textAlignment="CENTER" textFill="#33d9b2">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../ahmedmar3y2016-allamproject-8e5936e4fa1d/src/main/resources/images/transposition.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton contentDisplay="TOP" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="الحســــابات" textAlignment="CENTER" textFill="#33d9b2">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../ahmedmar3y2016-allamproject-8e5936e4fa1d/src/main/resources/images/account.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton contentDisplay="TOP" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="الخــــزينة" textAlignment="CENTER" textFill="#33d9b2">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../ahmedmar3y2016-allamproject-8e5936e4fa1d/src/main/resources/images/money.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton contentDisplay="TOP" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="العمـــــلاء" textAlignment="CENTER" textFill="#33d9b2">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <graphic>
-                  <ImageView id="tab" fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../ahmedmar3y2016-allamproject-8e5936e4fa1d/src/main/resources/images/clients.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-         </children>
-      </VBox>
-   </children>
+<AnchorPane prefHeight="1500.0" prefWidth="318.0" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.Home.homeController">
+    <children>
+        <VBox style="-fx-background-color: #2c2c54;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <JFXButton fx:id="nakl" contentDisplay="TOP" onAction="#MainButtonAction" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="النقــــل" textAlignment="CENTER" textFill="#33d9b2">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/transposition.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+                <JFXButton fx:id="kashfHesab" contentDisplay="TOP" onAction="#MainButtonAction" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="كشف  حساب العملاء" textAlignment="CENTER" textFill="#33d9b2">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/kashf_client.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+                <JFXButton fx:id="accounts" contentDisplay="TOP" onAction="#MainButtonAction" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="الحســــابات" textAlignment="CENTER" textFill="#33d9b2">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/account.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+                <JFXButton fx:id="money" contentDisplay="TOP" onAction="#MainButtonAction" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="الخــــزينة" textAlignment="CENTER" textFill="#33d9b2">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/money.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+                <JFXButton fx:id="clients" contentDisplay="TOP" onAction="#MainButtonAction" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="العمـــــلاء" textAlignment="CENTER" textFill="#33d9b2">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                    <graphic>
+                        <ImageView id="tab" fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/clients.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+            </children>
+        </VBox>
+      <Pane fx:id="homepage" prefHeight="1500.0" prefWidth="137.0" />
+    </children>
 </AnchorPane>

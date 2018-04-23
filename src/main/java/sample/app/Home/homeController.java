@@ -9,6 +9,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -18,10 +20,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class homeController implements Initializable {
-    @FXML
-    private BorderPane holderPane;
 
-    AnchorPane homepage;
+    @FXML
+    private Pane homepage;
+    AnchorPane holderPane;
+
     @FXML
     private JFXButton nakl;
 
@@ -38,73 +41,48 @@ public class homeController implements Initializable {
     private JFXButton clients;
 
     @FXML
-    private JFXButton update;
-
-    @FXML
-    private JFXButton save;
-
-    @FXML
-    private JFXButton deleteTable;
-
-    @FXML
-    private JFXButton updateTable;
-
-    @FXML
     void MainButtonAction(ActionEvent event) throws IOException {
 
         if (event.getSource() == nakl) {
+            System.out.println("nakl");
 
-            homepage = FXMLLoader.load(getClass().getResource("/fxml/nakl.fxml"));
+            holderPane = FXMLLoader.load(getClass().getResource("/fxml/nakl.fxml"));
 
         }
         if (event.getSource() == kashfHesab) {
+            System.out.println("kashfHesab");
 
-            homepage = FXMLLoader.load(getClass().getResource("/fxml/kashfHesab.fxml"));
+            holderPane = FXMLLoader.load(getClass().getResource("/fxml/kashfHesab.fxml"));
 
         }
         if (event.getSource() == accounts) {
+            System.out.println("accounts");
 
-            homepage = FXMLLoader.load(getClass().getResource("/fxml/accounts.fxml"));
+            holderPane = FXMLLoader.load(getClass().getResource("/fxml/accounts.fxml"));
 
         }
         if (event.getSource() == money) {
-            homepage = FXMLLoader.load(getClass().getResource("/fxml/money.fxml"));
+            System.out.println("money");
+
+            holderPane = FXMLLoader.load(getClass().getResource("/fxml/money.fxml"));
 
 
         }
         if (event.getSource() == clients) {
+            System.out.println("clients");
 
-            homepage = FXMLLoader.load(getClass().getResource("/fxml/clients.fxml"));
+            holderPane = FXMLLoader.load(getClass().getResource("/fxml/clients.fxml"));
 
         }
-        setNode(homepage);
+        setNode(holderPane);
 
 
     }
 
-    @FXML
-    void deleteTableAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void saveAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void updateAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void updateTableAction(ActionEvent event) {
-
-    }
 
     private void setNode(Node node) {
-        holderPane.getChildren().clear();
-        holderPane.getChildren().add((Node) node);
+        homepage.getChildren().clear();
+        homepage.getChildren().add((Node) node);
 
         FadeTransition ft = new FadeTransition(Duration.millis(1500));
 
@@ -117,10 +95,11 @@ public class homeController implements Initializable {
         ft.play();
     }
 
+    //
     private void createPage() throws IOException {
         try {
-            homepage = FXMLLoader.load(getClass().getResource("/fxml/nakl.fxml"));
-            setNode(homepage);
+            holderPane = FXMLLoader.load(getClass().getResource("/fxml/nakl.fxml"));
+            setNode(holderPane);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -131,10 +110,10 @@ public class homeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        try {
-//            createPage();
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
+        try {
+            createPage();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 }
