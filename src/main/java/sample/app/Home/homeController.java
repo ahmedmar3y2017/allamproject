@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -17,6 +18,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class homeController implements Initializable {
+    @FXML
+    private BorderPane holderPane;
 
     AnchorPane homepage;
     @FXML
@@ -100,8 +103,8 @@ public class homeController implements Initializable {
     }
 
     private void setNode(Node node) {
-//        holderPane.getChildren().clear();
-//        holderPane.getChildren().add((Node) node);
+        holderPane.getChildren().clear();
+        holderPane.getChildren().add((Node) node);
 
         FadeTransition ft = new FadeTransition(Duration.millis(1500));
 
@@ -116,7 +119,7 @@ public class homeController implements Initializable {
 
     private void createPage() throws IOException {
         try {
-            homepage = FXMLLoader.load(getClass().getResource("/fxml/Employee.fxml"));
+            homepage = FXMLLoader.load(getClass().getResource("/fxml/nakl.fxml"));
             setNode(homepage);
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -128,10 +131,10 @@ public class homeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            createPage();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+//        try {
+//            createPage();
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//        }
     }
 }
