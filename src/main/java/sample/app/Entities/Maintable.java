@@ -84,6 +84,25 @@ public class Maintable implements Serializable {
     public Maintable() {
     }
 
+
+    public Maintable(Date date, Double polesa, Double carNumber, Double amount, Double nowlon, Double ohda, Double added, Double mezan, Double discount, Double office, Double total, String type, String cityFrom, String cityTo, Clients clientsid) {
+        this.date = date;
+        this.polesa = polesa;
+        this.carNumber = carNumber;
+        this.amount = amount;
+        this.nowlon = nowlon;
+        this.ohda = ohda;
+        this.added = added;
+        this.mezan = mezan;
+        this.discount = discount;
+        this.office = office;
+        this.total = total;
+        this.type = type;
+        this.cityFrom = cityFrom;
+        this.cityTo = cityTo;
+        this.clientsid = clientsid;
+    }
+
     public Maintable(Integer id) {
         this.id = id;
     }

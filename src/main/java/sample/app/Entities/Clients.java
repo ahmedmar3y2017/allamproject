@@ -60,6 +60,12 @@ public class Clients implements Serializable {
     public Clients() {
     }
 
+    public Clients(String name, String phone, String address) {
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+    }
+
     public Clients(Integer id) {
         this.id = id;
     }

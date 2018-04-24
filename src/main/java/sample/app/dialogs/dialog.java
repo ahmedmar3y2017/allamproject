@@ -5,11 +5,11 @@ package sample.app.dialogs;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
 
 /**
- *
  * @author programmer
  */
 public class dialog {
@@ -22,7 +22,7 @@ public class dialog {
         dialog.setHeaderText(null);
         DialogPane dialogPane = dialog.getDialogPane();
         dialogPane.getStylesheets().add(
-                getClass().getResource("css.css").toExternalForm());
+                getClass().getResource("/styles/cssDialog.css").toExternalForm());
         dialogPane.getStyleClass().add("myDialog");
         dialog.setContentText(content);
         dialog.showAndWait();

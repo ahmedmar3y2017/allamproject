@@ -1,5 +1,6 @@
 package sample.app.Transactions.ClientDao;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import sample.app.Entities.Clients;
@@ -99,4 +100,13 @@ public class clientDao {
     }
 
 
+    public static Clients checkClientByPhone(String phone) {
+        Session session = sessionFactory.openSession();
+        Query query = session.getNamedQuery("Clients.findByPhone").setCacheable(true)
+                .setCacheRegion("checkClientByPhone.cache");
+        query.setParameter("phone", phone);
+
+
+        return (Clients) query.uniqueResult();
+    }
 }

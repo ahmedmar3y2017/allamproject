@@ -23,6 +23,8 @@
         <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory
         </property>
         <property name="hibernate.javax.cache.provider">net.sf.ehcache.hibernate.EhCacheProvider</property>
+
+
         <mapping class="sample.app.Entities.Bank"/>
         <mapping class="sample.app.Entities.BankAccount"/>
         <mapping class="sample.app.Entities.Clients"/>

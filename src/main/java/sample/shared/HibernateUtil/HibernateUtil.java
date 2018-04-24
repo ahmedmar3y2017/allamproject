@@ -12,6 +12,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
+import sample.app.Entities.*;
 
 /**
  * Hibernate Utility class with a convenient method to get Session Factory
@@ -20,6 +21,7 @@ import org.hibernate.tool.hbm2ddl.SchemaExport;
  * @author ahmed mar3y
  */
 public class HibernateUtil {
+
 
     //XML based configuration
     private static SessionFactory sessionFactory;
@@ -30,6 +32,15 @@ public class HibernateUtil {
             // Create the SessionFactory from hibernate.cfg.xml
             Configuration configuration = new Configuration();
             configuration.configure("hibernate.cfg.xml");
+            // add classes Annotations
+            configuration.addAnnotatedClass(Clients.class);
+            configuration.addAnnotatedClass(Bank.class);
+            configuration.addAnnotatedClass(BankAccount.class);
+            configuration.addAnnotatedClass(Maintable.class);
+            configuration.addAnnotatedClass(Notes.class);
+            configuration.addAnnotatedClass(Safe.class);
+            configuration.addAnnotatedClass(Users.class);
+
             System.out.println("Hibernate Configuration loaded");
 
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();

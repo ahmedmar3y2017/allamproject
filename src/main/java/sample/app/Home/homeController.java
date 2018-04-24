@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.*;
 import javafx.stage.Screen;
 import javafx.util.Duration;
+import org.hibernate.SessionFactory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -55,6 +56,7 @@ public class homeController implements Initializable {
             System.out.println("nakl");
 
             holderPane = FXMLLoader.load(getClass().getResource("/fxml/nakl.fxml"));
+
 
         }
         if (event.getSource() == kashfHesab) {
@@ -114,8 +116,7 @@ public class homeController implements Initializable {
             holderPane.setPrefWidth(primaryScreenBounds.getWidth() - vbox.getPrefWidth());
 
 
-
-            System.out.println("Holder : "+holderPane.getPrefWidth());
+            System.out.println("Holder : " + holderPane.getPrefWidth());
             setNode(holderPane);
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -126,9 +127,13 @@ public class homeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+// start database
+        SessionFactory sessionFactory = sample.shared.HibernateUtil.HibernateUtil.getSessionFactory();
 
+
+        // width +height
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        homepage.setPrefWidth(primaryScreenBounds.getWidth() -vbox.getPrefWidth() );
+        homepage.setPrefWidth(primaryScreenBounds.getWidth() - vbox.getPrefWidth());
 
         System.out.println(primaryScreenBounds.getWidth());
         System.out.println(vbox.getPrefWidth());

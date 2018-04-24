@@ -192,7 +192,6 @@ public class MainController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
 
-
 //        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
 //        selectionModel.select(nakl); //select by object
 
@@ -238,7 +237,6 @@ public class MainController implements Initializable {
                             clientsList_Ids = clientsList.stream().map(map -> map.getId()).collect(Collectors.toList());
                             // set to combobox Values
                             clientName.getItems().setAll(clientsList_Names);
-
 
 
                         }
