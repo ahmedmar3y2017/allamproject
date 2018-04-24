@@ -24,6 +24,8 @@ public class homeController implements Initializable {
 
     @FXML
     private Pane homepage;
+
+
     Pane holderPane;
 
     @FXML
@@ -107,7 +109,13 @@ public class homeController implements Initializable {
 
         try {
             holderPane = FXMLLoader.load(getClass().getResource("/fxml/nakl.fxml"));
-            holderPane.setPrefWidth(primaryScreenBounds.getMinX());
+
+
+            holderPane.setPrefWidth(primaryScreenBounds.getWidth() - vbox.getPrefWidth());
+
+
+
+            System.out.println("Holder : "+holderPane.getPrefWidth());
             setNode(holderPane);
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -121,13 +129,19 @@ public class homeController implements Initializable {
 
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
         homepage.setPrefWidth(primaryScreenBounds.getWidth() -vbox.getPrefWidth() );
+
         System.out.println(primaryScreenBounds.getWidth());
         System.out.println(vbox.getPrefWidth());
+        System.out.println(homepage.getPrefWidth());
+        System.out.println(homepage.getMaxWidth());
+
 
         try {
             createPage();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+//        System.out.println(holderPane.getPrefWidth());
+
     }
 }

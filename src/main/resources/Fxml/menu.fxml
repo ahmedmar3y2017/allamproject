@@ -78,6 +78,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
         </VBox>
-      <Pane fx:id="homepage" prefHeight="200.0" prefWidth="139.0" style="-fx-background-color: ;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="0.0" />
+      <Pane fx:id="homepage" prefWidth="200.0" style="-fx-background-color: ;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="0.0" />
     </children>
 </AnchorPane>
