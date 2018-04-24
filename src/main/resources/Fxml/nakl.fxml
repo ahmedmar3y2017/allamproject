@@ -24,7 +24,7 @@
 
 <AnchorPane prefHeight="1000.0" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.nakl.naklController">
     <children>
-        <Pane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Pane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <HBox alignment="TOP_RIGHT" layoutY="95.0" nodeOrientation="LEFT_TO_RIGHT">
                     <children>

@@ -6,11 +6,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Screen;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -100,8 +102,11 @@ public class homeController implements Initializable {
 
     //
     private void createPage() throws IOException {
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+
         try {
             holderPane = FXMLLoader.load(getClass().getResource("/fxml/nakl.fxml"));
+            holderPane.setPrefWidth(primaryScreenBounds.getMinX());
             setNode(holderPane);
         } catch (IOException ex) {
             ex.printStackTrace();
