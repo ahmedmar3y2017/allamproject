@@ -8,10 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import javafx.stage.Screen;
 import javafx.util.Duration;
 
@@ -22,6 +19,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class homeController implements Initializable {
+    @FXML
+    private VBox vbox;
 
     @FXML
     private Pane homepage;
@@ -41,10 +40,12 @@ public class homeController implements Initializable {
 
     @FXML
     private JFXButton clients;
+
     @FXML
     void naklAction(ActionEvent event) {
         System.out.println("DOne");
     }
+
     @FXML
     void MainButtonAction(ActionEvent event) throws IOException {
 
@@ -117,6 +118,12 @@ public class homeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+        homepage.setPrefWidth(primaryScreenBounds.getWidth() -vbox.getPrefWidth() );
+        System.out.println(primaryScreenBounds.getWidth());
+        System.out.println(vbox.getPrefWidth());
+
         try {
             createPage();
         } catch (IOException ex) {
