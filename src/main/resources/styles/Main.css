@@ -1,4 +1,9 @@
 
+
+.main{
+    -fx-background-image: url("/images/30-large_default.jpg");
+}
+
 #tabpane {
     /*-fx-border-color: #3FE387;*/
     -fx-tab-min-height: 10em;
@@ -79,7 +84,7 @@
     -fx-tree-table-color: rgba(0, 150, 0, 0.4);
     -fx-tree-table-rippler-color: rgba(255, 0, 0, 0.9);
     -fx-font-size: 14px;
-
+    -fx-start-margin: 10;
 }
 
 .tree-table-view:focused .tree-table-row-cell:selected {

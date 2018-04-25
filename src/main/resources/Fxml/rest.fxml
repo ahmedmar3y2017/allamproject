@@ -82,9 +82,9 @@
                     </font>
                 </Label>
             </children>
-            <padding>
-                <Insets left="20.0" top="10.0" />
-            </padding>
+         <padding>
+            <Insets left="20.0" top="10.0" />
+         </padding>
         </HBox>
         <HBox fx:id="hbox2" alignment="TOP_RIGHT" layoutX="-10.0" layoutY="56.0" nodeOrientation="LEFT_TO_RIGHT">
             <children>
@@ -144,38 +144,38 @@
                     </font>
                 </Label>
             </children>
-            <padding>
-                <Insets left="20.0" top="7.0" />
-            </padding>
+         <padding>
+            <Insets left="20.0" top="7.0" />
+         </padding>
         </HBox>
-        <HBox layoutY="205.0">
-            <children>
-                <TreeTableView fx:id="table" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;">
-                    <columns>
-                        <TreeTableColumn fx:id="tableDate" prefWidth="75.0" text="التاريخ" />
-                        <TreeTableColumn fx:id="tableBolisa" prefWidth="75.0" text="البوليصه" />
-                        <TreeTableColumn fx:id="tableCarNum" prefWidth="75.0" text="السياره" />
-                        <TreeTableColumn fx:id="tableWeight" prefWidth="75.0" text="الوزن" />
-                        <TreeTableColumn fx:id="tableNawlon" prefWidth="75.0" text="النولون" />
-                        <TreeTableColumn fx:id="tableOhda" prefWidth="75.0" text="عهده" />
-                        <TreeTableColumn fx:id="tableAgz" prefWidth="75.0" text="عجز" />
-                        <TreeTableColumn fx:id="tableAdded" prefWidth="75.0" text="اضافة" />
-                        <TreeTableColumn fx:id="tableMezan" prefWidth="75.0" text="الميزان" />
-                        <TreeTableColumn fx:id="tableDiscount" prefWidth="75.0" text="خصم" />
-                        <TreeTableColumn fx:id="tableOffice" prefWidth="75.0" text="مكتب" />
-                        <TreeTableColumn fx:id="tableClear" prefWidth="75.0" text="صافى" />
-                        <TreeTableColumn fx:id="tableBian" prefWidth="75.0" text="بيان" />
-                        <TreeTableColumn fx:id="tableNotes" prefWidth="100.0" text="ملاحظات" />
-                    </columns>
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-                </TreeTableView>
-            </children>
-            <padding>
-                <Insets left="10.0" />
-            </padding>
-        </HBox>
+      <HBox layoutY="205.0">
+         <children>
+              <TreeTableView fx:id="table" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;">
+                  <columns>
+                      <TreeTableColumn fx:id="tableDate" prefWidth="75.0" text="التاريخ" />
+                      <TreeTableColumn fx:id="tableBolisa" prefWidth="75.0" text="البوليصه" />
+                      <TreeTableColumn fx:id="tableCarNum" prefWidth="75.0" text="السياره" />
+                      <TreeTableColumn fx:id="tableWeight" prefWidth="75.0" text="الوزن" />
+                      <TreeTableColumn fx:id="tableNawlon" prefWidth="75.0" text="النولون" />
+                      <TreeTableColumn fx:id="tableOhda" prefWidth="75.0" text="عهده" />
+                      <TreeTableColumn fx:id="tableAgz" prefWidth="75.0" text="عجز" />
+                      <TreeTableColumn fx:id="tableAdded" prefWidth="75.0" text="اضافة" />
+                      <TreeTableColumn fx:id="tableMezan" prefWidth="75.0" text="الميزان" />
+                      <TreeTableColumn fx:id="tableDiscount" prefWidth="75.0" text="خصم" />
+                      <TreeTableColumn fx:id="tableOffice" prefWidth="75.0" text="مكتب" />
+                      <TreeTableColumn fx:id="tableClear" prefWidth="75.0" text="صافى" />
+                      <TreeTableColumn fx:id="tableBian" prefWidth="75.0" text="بيان" />
+                      <TreeTableColumn fx:id="tableNotes" prefWidth="100.0" text="ملاحظات" />
+                  </columns>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+              </TreeTableView>
+         </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </HBox>
         <HBox fx:id="hbox1" alignment="TOP_RIGHT" layoutX="-10.0" nodeOrientation="LEFT_TO_RIGHT">
             <children>
                 <TextField fx:id="discount" alignment="CENTER" prefHeight="33.0" prefWidth="170.0" promptText="0.0" HBox.hgrow="ALWAYS">
@@ -225,9 +225,9 @@
                             </image>
                         </ImageView>
                     </graphic>
-                    <HBox.margin>
-                        <Insets right="10.0" />
-                    </HBox.margin>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
                 </Button>
                 <ComboBox fx:id="clientName" editable="true" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#clientNameMouseClick" prefHeight="33.0" prefWidth="140.0" promptText="اسم العميل" HBox.hgrow="ALWAYS">
                     <HBox.margin>
@@ -303,15 +303,15 @@
                         <Insets right="4.0" />
                     </HBox.margin>
                 </TextField>
-                <Label alignment="CENTER" prefHeight="21.0" prefWidth="115.0" text="مكان التنزيل :" HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                </Label>
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="115.0" text="مكان التنزيل :" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
             </children>
-            <padding>
-                <Insets left="23.0" top="15.0" />
-            </padding>
+         <padding>
+            <Insets left="23.0" top="15.0" />
+         </padding>
         </HBox>
         <Pane fx:id="lastHbox" layoutX="21.0" layoutY="628.0">
             <children>

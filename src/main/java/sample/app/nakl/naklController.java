@@ -16,6 +16,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.util.Callback;
 import sample.app.AddClient.mainAddClient;
@@ -161,6 +162,9 @@ public class naklController implements Initializable {
 
     @FXML
     private JFXButton print;
+
+    @FXML
+            private Pane lastHbox;
 
     List<Clients> clientsList;
     List<String> clientsList_Names;
@@ -324,8 +328,13 @@ public class naklController implements Initializable {
         hbox2.setPrefWidth(primaryScreenBounds.getWidth() - 185);
         hbox3.setPrefWidth(primaryScreenBounds.getWidth() - 185);
         hbox4.setPrefWidth(primaryScreenBounds.getWidth() - 185);
-        table.setPrefWidth(primaryScreenBounds.getWidth() - 185);
+        table.setPrefWidth(primaryScreenBounds.getWidth() - 200);
 
+        lastHbox.setLayoutY( primaryScreenBounds.getHeight() - 75);
+//        hbox4.setLayoutY(table.getPrefHeight());
+        table.setPrefHeight( primaryScreenBounds.getHeight() - 300 ) ;
+        System.out.println(lastHbox.getPrefHeight());
+        System.out.println( "table height " + table.getPrefHeight() );
         //set date on init
         String newstring = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
         date.setValue(LOCAL_DATE(newstring));
