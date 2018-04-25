@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65f7c3f1-d1d9-42dd-b653-288e610cc20d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/List.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/rest.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/app/Home/mainHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/app/Home/mainHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/app/nakl/naklController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/app/nakl/naklController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/nakl.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/nakl.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/Main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sample/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sample/app/login/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sample/app/login/LoginController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sample/shared/Validation/Validation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sample/shared/Validation/Validation.class" afterDir="false" />
@@ -83,7 +75,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="naklController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="naklController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/nakl/naklController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
@@ -92,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nakl.fxml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="nakl.fxml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/Fxml/nakl.fxml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="388">
-              <caret line="338" selection-start-line="338" selection-end-line="338" />
+              <caret line="338" lean-forward="true" selection-start-line="338" selection-end-line="338" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -129,8 +121,8 @@
       <file leaf-file-name="rest.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/Fxml/rest.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="223" column="66" lean-forward="true" selection-end-line="338" />
+            <state relative-caret-position="309">
+              <caret line="227" column="28" lean-forward="true" selection-end-line="338" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -195,8 +187,8 @@
         <option value="$PROJECT_DIR$/src/main/java/sample/app/Home/mainHome.java" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/styles/Main.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/Fxml/nakl.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/sample/app/nakl/naklController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/Fxml/nakl.fxml" />
       </list>
     </option>
   </component>
@@ -778,7 +770,7 @@
       <workItem from="1524566165517" duration="602000" />
       <workItem from="1524570644183" duration="6021000" />
       <workItem from="1524587241644" duration="7250000" />
-      <workItem from="1524642851574" duration="10424000" />
+      <workItem from="1524642851574" duration="10660000" />
     </task>
     <task id="LOCAL-00001" summary="mar3y">
       <created>1524492465767</created>
@@ -808,11 +800,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524529459677</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="finish nakl page &quot;Dynimkaly&quot;">
+      <created>1524654083791</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1524654083791</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34919000" />
+    <option name="totallyTimeSpent" value="35155000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
@@ -863,7 +862,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="mar3y" />
-    <option name="LAST_COMMIT_MESSAGE" value="mar3y" />
+    <MESSAGE value="finish nakl page &quot;Dynimkaly&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish nakl page &quot;Dynimkaly&quot;" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1344,10 +1344,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/nakl/naklController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="330" column="63" selection-start-line="330" selection-start-column="63" selection-end-line="330" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/Fxml/rest.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="223" column="66" lean-forward="true" selection-end-line="338" />
+        <state relative-caret-position="309">
+          <caret line="227" column="28" lean-forward="true" selection-end-line="338" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -1355,17 +1362,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/Fxml/nakl.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="388">
-          <caret line="338" selection-start-line="338" selection-end-line="338" />
+          <caret line="338" lean-forward="true" selection-start-line="338" selection-end-line="338" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/nakl/naklController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="330" column="63" selection-start-line="330" selection-start-column="63" selection-end-line="330" selection-end-column="63" />
-        </state>
-      </provider>
     </entry>
   </component>
   <component name="masterDetails">
