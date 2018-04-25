@@ -20,7 +20,7 @@ public class mainHome extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/menu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/List.fxml"));
 
         Scene scene = new Scene(root);
         // on stage event close
@@ -42,7 +42,7 @@ public class mainHome extends Application {
         primaryStage.setHeight(primaryScreenBounds.getHeight());
         primaryStage.setResizable(false);
 
-        primaryStage.setTitle("Login");
+        primaryStage.setTitle("الصفحه الرئيسية");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
