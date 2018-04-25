@@ -329,10 +329,11 @@ public class naklController implements Initializable {
         hbox3.setPrefWidth(primaryScreenBounds.getWidth() - 185);
         hbox4.setPrefWidth(primaryScreenBounds.getWidth() - 185);
         table.setPrefWidth(primaryScreenBounds.getWidth() - 200);
+        table.setPrefHeight( primaryScreenBounds.getHeight() - 300 ) ;
 
         lastHbox.setLayoutY( primaryScreenBounds.getHeight() - 75);
 //        hbox4.setLayoutY(table.getPrefHeight());
-        table.setPrefHeight( primaryScreenBounds.getHeight() - 300 ) ;
+
         System.out.println(lastHbox.getPrefHeight());
         System.out.println( "table height " + table.getPrefHeight() );
         //set date on init
