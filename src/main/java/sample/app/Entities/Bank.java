@@ -58,6 +58,11 @@ public class Bank implements Serializable {
     public Bank() {
     }
 
+    public Bank(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
+
     public Bank(Integer id) {
         this.id = id;
     }

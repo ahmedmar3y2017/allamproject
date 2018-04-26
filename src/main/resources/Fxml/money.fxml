@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import com.jfoenix.controls.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.Money.moneyController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.Money.moneyController">
    <children>
       <TabPane fx:id="tabPane" nodeOrientation="RIGHT_TO_LEFT" stylesheets="@../styles/Main.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -20,14 +29,14 @@
                <content>
                   <Pane fx:id="tapPane1">
                      <children>
-                        <Pane fx:id="infoPane" layoutX="11.0" layoutY="110.0" prefHeight="341.0" prefWidth="278.0">
+                        <Pane fx:id="infoPane" layoutX="11.0" layoutY="110.0" prefHeight="424.0" prefWidth="278.0">
                            <children>
                               <Label alignment="BOTTOM_LEFT" layoutX="5.0" layoutY="69.0" prefHeight="21.0" prefWidth="110.0" text="نوع العملية :">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <JFXRadioButton layoutX="85.0" layoutY="70.0" selected="true" text="سحب">
+                              <JFXRadioButton fx:id="bankSahb" layoutX="85.0" layoutY="70.0" selected="true" text="سحب">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
@@ -35,24 +44,24 @@
                                     <ToggleGroup fx:id="Type_of_Bank" />
                                  </toggleGroup>
                               </JFXRadioButton>
-                              <JFXRadioButton layoutX="166.0" layoutY="70.0" text="إيداع" toggleGroup="$Type_of_Bank">
+                              <JFXRadioButton fx:id="bankEdaa" layoutX="166.0" layoutY="70.0" text="إيداع" toggleGroup="$Type_of_Bank">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </JFXRadioButton>
-                              <Label alignment="BOTTOM_LEFT" layoutX="3.0" layoutY="115.0" prefHeight="21.0" prefWidth="110.0" text=" التاريخ :">
+                              <Label alignment="BOTTOM_LEFT" layoutX="3.0" layoutY="177.0" prefHeight="21.0" prefWidth="110.0" text=" التاريخ :">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <DatePicker layoutX="59.0" layoutY="113.0" prefHeight="33.0" prefWidth="190.0" />
-                              <JFXTextArea focusColor="#cccccc" labelFloat="true" layoutX="10.0" layoutY="193.0" maxWidth="251.0" minWidth="189.0" prefHeight="100.0" prefWidth="270.0" style="-fx-background-color: #ffffff; -fx-border-color: #ccc;" unFocusColor="#cccccc" />
-                              <Label alignment="BOTTOM_LEFT" layoutX="2.0" layoutY="160.0" prefHeight="21.0" prefWidth="110.0" text=" ملاحظات :">
+                              <DatePicker fx:id="bankDate" layoutX="59.0" layoutY="175.0" prefHeight="33.0" prefWidth="190.0" />
+                              <JFXTextArea fx:id="bankNotes" focusColor="#cccccc" labelFloat="true" layoutX="10.0" layoutY="255.0" maxWidth="251.0" minWidth="189.0" prefHeight="100.0" prefWidth="270.0" style="-fx-background-color: #ffffff; -fx-border-color: #ccc;" unFocusColor="#cccccc" />
+                              <Label alignment="BOTTOM_LEFT" layoutX="2.0" layoutY="222.0" prefHeight="21.0" prefWidth="110.0" text=" ملاحظات :">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <JFXButton contentDisplay="RIGHT" layoutX="159.0" layoutY="304.0" prefHeight="38.0" prefWidth="93.0" style="-fx-background-color: ;" styleClass="round-red" text="إضافة" textFill="WHITE">
+                              <JFXButton fx:id="bankSave" contentDisplay="RIGHT" layoutX="159.0" layoutY="366.0" onAction="#bankSaveAction" prefHeight="38.0" prefWidth="93.0" styleClass="round-red" text="إضافة" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="17.0" />
                                  </font>
@@ -64,7 +73,7 @@
                                     </ImageView>
                                  </graphic>
                               </JFXButton>
-                              <JFXButton contentDisplay="RIGHT" layoutX="43.0" layoutY="304.0" prefHeight="38.0" prefWidth="93.0" style="-fx-background-color: ;" styleClass="round-red" text="تعديل" textFill="WHITE">
+                              <JFXButton fx:id="bankUpdate" contentDisplay="RIGHT" layoutX="43.0" layoutY="366.0" onAction="#bankUpdateAction" prefHeight="38.0" prefWidth="93.0" styleClass="round-red" text="تعديل" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="17.0" />
                                  </font>
@@ -81,17 +90,31 @@
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <ComboBox editable="true" layoutX="75.0" layoutY="6.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="175.0" promptText="اسم البنك" />
-                              <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="254.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/add1.png" />
-                                 </image>
-                              </ImageView>
+                              <ComboBox fx:id="bankName" editable="true" layoutX="75.0" layoutY="6.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#bankNameMouseClick" prefHeight="33.0" prefWidth="143.0" promptText="اسم البنك" />
+                              <Button fx:id="addBank" layoutX="224.0" layoutY="6.0" mnemonicParsing="false" onAction="#addBankAction">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/add1.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Label alignment="BOTTOM_LEFT" layoutX="36.0" layoutY="118.0" prefHeight="21.0" prefWidth="47.0" text="المبلغ :">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="bankMoney" alignment="CENTER" layoutX="83.0" layoutY="108.0" prefHeight="41.0" prefWidth="166.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </TextField>
                            </children>
                         </Pane>
                         <HBox fx:id="hbox1" alignment="TOP_RIGHT" layoutY="20.0" nodeOrientation="LEFT_TO_RIGHT">
                            <children>
-                              <JFXButton layoutX="40.0" layoutY="25.0" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: ;" styleClass="round-red" text="بحث" textFill="WHITE">
+                              <JFXButton fx:id="bankSearch" layoutX="40.0" layoutY="25.0" onAction="#bankSearchAction" prefHeight="33.0" prefWidth="150.0" styleClass="round-red" text="بحث" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="17.0" />
                                  </font>
@@ -106,7 +129,7 @@
                                     <Insets bottom="30.0" right="50.0" top="-5.0" />
                                  </HBox.margin>
                               </JFXButton>
-                              <DatePicker nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                              <DatePicker fx:id="bankToSearch" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets right="4.0" />
                                  </HBox.margin>
@@ -116,7 +139,7 @@
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <DatePicker nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                              <DatePicker fx:id="bankFromSearch" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets right="4.0" />
                                  </HBox.margin>
@@ -126,7 +149,7 @@
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <ComboBox editable="true" layoutX="783.0" layoutY="25.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="200.0" promptText="اسم البنك">
+                              <ComboBox fx:id="bankNameSearch" editable="true" layoutX="783.0" layoutY="25.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#bankNameMouseClick" prefHeight="33.0" prefWidth="200.0" promptText="اسم البنك">
                                  <HBox.margin>
                                     <Insets right="4.0" />
                                  </HBox.margin>
@@ -154,12 +177,12 @@
                                     <Insets right="10.0" top="6.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField alignment="CENTER" editable="false" prefHeight="38.0" prefWidth="133.0" text="المتاح" HBox.hgrow="ALWAYS">
+                              <TextField fx:id="bankMoneyTable" alignment="CENTER" editable="false" prefHeight="38.0" prefWidth="133.0" text="المتاح" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets left="10.0" right="10.0" />
                                  </HBox.margin>
                               </TextField>
-                              <JFXButton fx:id="printBtn" contentDisplay="RIGHT" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: #e74c3c;" text="مسح" textFill="WHITE">
+                              <JFXButton fx:id="bankDelete" contentDisplay="RIGHT" onAction="#bankDeleteAction" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: #e74c3c;" text="مسح" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="17.0" />
                                  </font>
@@ -180,10 +203,17 @@
                         </HBox>
                         <HBox fx:id="tableHbox" layoutX="305.0" layoutY="100.0">
                            <children>
-                              <TreeTableView fx:id="table" layoutX="400.0" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="435.0" prefWidth="775.0" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;" HBox.hgrow="ALWAYS">
+                              <TreeTableView fx:id="bankTable" layoutX="400.0" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="435.0" prefWidth="775.0" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;" HBox.hgrow="ALWAYS">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
+                                 <columns>
+                                    <TreeTableColumn fx:id="tableBankName" prefWidth="158.0" text="اسم البنك" />
+                                    <TreeTableColumn fx:id="tableBankDate" prefWidth="116.0" text="التاريخ" />
+                                    <TreeTableColumn fx:id="tableBankType" prefWidth="159.0" text="نوع العمليه" />
+                                    <TreeTableColumn fx:id="tableNankMoney" prefWidth="115.0" text="المبلغ" />
+                                    <TreeTableColumn fx:id="tableBankNotes" prefWidth="216.0" text="ملاحظات" />
+                                 </columns>
                               </TreeTableView>
                            </children>
                            <padding>
@@ -206,7 +236,7 @@
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <JFXButton contentDisplay="RIGHT" layoutX="140.0" layoutY="205.0" prefHeight="38.0" prefWidth="93.0" style="-fx-background-color: ;" styleClass="round-red" text="إضافة" textFill="WHITE">
+                              <JFXButton contentDisplay="RIGHT" layoutX="140.0" layoutY="205.0" prefHeight="38.0" prefWidth="93.0" styleClass="round-red" text="إضافة" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="17.0" />
                                  </font>
@@ -218,7 +248,7 @@
                                     </ImageView>
                                  </graphic>
                               </JFXButton>
-                              <JFXButton contentDisplay="RIGHT" layoutX="24.0" layoutY="205.0" prefHeight="38.0" prefWidth="93.0" style="-fx-background-color: ;" styleClass="round-red" text="تعديل" textFill="WHITE">
+                              <JFXButton contentDisplay="RIGHT" layoutX="24.0" layoutY="205.0" prefHeight="38.0" prefWidth="93.0" styleClass="round-red" text="تعديل" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="17.0" />
                                  </font>
@@ -240,7 +270,7 @@
                         </Pane>
                         <HBox fx:id="hbox12" alignment="TOP_RIGHT" layoutY="20.0" nodeOrientation="LEFT_TO_RIGHT">
                            <children>
-                              <JFXButton layoutX="40.0" layoutY="25.0" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: ;" styleClass="round-red" text="بحث" textFill="WHITE">
+                              <JFXButton layoutX="40.0" layoutY="25.0" prefHeight="33.0" prefWidth="150.0" styleClass="round-red" text="بحث" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="17.0" />
                                  </font>
