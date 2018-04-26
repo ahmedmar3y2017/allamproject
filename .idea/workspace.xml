@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="65f7c3f1-d1d9-42dd-b653-288e610cc20d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/Fxml/nakl.fxml" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/nakl.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/app/nakl/naklController.java" afterPath="$PROJECT_DIR$/src/main/java/sample/app/nakl/naklController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,57 +54,89 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HibernateUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/shared/HibernateUtil/HibernateUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#2375#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="hibernate.cfg.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="408">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addClientController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/AddClient/addClientController.java">
+      <file leaf-file-name="naklController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/nakl/naklController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1037">
-              <caret line="74" column="9" lean-forward="false" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+            <state relative-caret-position="227">
+              <caret line="474" column="30" lean-forward="false" selection-start-line="474" selection-start-column="30" selection-end-line="474" selection-end-column="30" />
               <folding>
-                <element signature="imports" expanded="false" />
+                <element signature="e#9065#9076#0" expanded="true" />
+                <element signature="e#14056#14067#0" expanded="true" />
+                <element signature="e#23131#23142#0" expanded="true" />
+                <element signature="e#33130#33131#0" expanded="true" />
+                <element signature="e#33177#33178#0" expanded="true" />
+                <element signature="e#33237#33238#0" expanded="true" />
+                <element signature="e#33278#33279#0" expanded="true" />
+                <element signature="e#33334#33335#0" expanded="true" />
+                <element signature="e#33389#33390#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="naklController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/nakl/naklController.java">
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="752" column="0" lean-forward="true" selection-start-line="752" selection-start-column="0" selection-end-line="752" selection-end-column="0" />
+            <state relative-caret-position="221">
+              <caret line="13" column="42" lean-forward="false" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
               <folding>
-                <element signature="e#9065#9076#0" expanded="true" />
-                <element signature="e#14056#14067#0" expanded="true" />
-                <element signature="e#23066#23077#0" expanded="true" />
-                <element signature="e#33065#33066#0" expanded="true" />
-                <element signature="e#33112#33113#0" expanded="true" />
-                <element signature="e#33172#33173#0" expanded="true" />
-                <element signature="e#33213#33214#0" expanded="true" />
-                <element signature="e#33269#33270#0" expanded="true" />
-                <element signature="e#33324#33325#0" expanded="true" />
+                <marker date="1524756115453" expanded="true" signature="86425:86442" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="86425:86460" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="86425:86473" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="86425:86488" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="86523:88761" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="86536:88746" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="86590:86892" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="86609:86877" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="86672:86857" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="86712:86823" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="86733:86801" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="86942:87281" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="86961:87266" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="87061:87246" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="87101:87212" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="87122:87190" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="87332:87597" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="87351:87582" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="87384:87562" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="87424:87528" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="87445:87506" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="87640:87946" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="87659:87931" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="87733:87911" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="87773:87877" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="87794:87855" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="87997:88346" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="88016:88331" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="88094:88311" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="88134:88277" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="88155:88255" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="88398:88732" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="88417:88717" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="88512:88697" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="88552:88663" ph="..." />
+                <marker date="1524756115453" expanded="true" signature="88573:88641" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -129,11 +161,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainHome.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mainHome.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/Home/mainHome.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="26" column="43" lean-forward="true" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+            <state relative-caret-position="238">
+              <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -198,8 +230,9 @@
       <find>update</find>
       <find>resetFields</find>
       <find>deleteA</find>
-      <find>select</find>
       <find>updateAction</find>
+      <find>select</find>
+      <find>updateTableAc</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -216,7 +249,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/resources/Fxml/holder.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/Fxml/menu.fxml" />
-        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/Fxml/nakl.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/sample/app/Home/mainHome.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/app/main/MainController.java" />
@@ -233,6 +265,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/java/sample/app/Transactions/MainTableDao/mainTableDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/app/Entities/Maintable.java" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/main/java/sample/app/nakl/naklController.java" />
       </list>
     </option>
@@ -332,93 +365,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="allamproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="allamproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Fxml" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="allamproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="allamproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="allamproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="allamproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -520,7 +471,7 @@
     <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.34705883" />
-    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -1018,7 +969,7 @@
       <workItem from="1524675525581" duration="1413000" />
       <workItem from="1524741435183" duration="99000" />
       <workItem from="1524741686996" duration="3115000" />
-      <workItem from="1524745085057" duration="7485000" />
+      <workItem from="1524745085057" duration="8682000" />
     </task>
     <task id="LOCAL-00001" summary="mar3y">
       <created>1524492465767</created>
@@ -1076,14 +1027,22 @@
       <option name="project" value="LOCAL" />
       <updated>1524753981091</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="finish nakl develop &#10;ashraf test">
+      <created>1524754139752</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1524754139752</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49938000" />
+    <option name="totallyTimeSpent" value="51135000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1106,11 +1065,11 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.117839605" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41080198" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14069591" sideWeight="0.507326" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21558245" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21558245" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Flutter Inspector" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1143,13 +1102,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/dialogs/confirm_dialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/dialogs/dialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -1261,13 +1213,13 @@
           <folding>
             <element signature="e#9065#9076#0" expanded="true" />
             <element signature="e#14056#14067#0" expanded="true" />
-            <element signature="e#23066#23077#0" expanded="true" />
-            <element signature="e#33065#33066#0" expanded="true" />
-            <element signature="e#33112#33113#0" expanded="true" />
-            <element signature="e#33172#33173#0" expanded="true" />
-            <element signature="e#33213#33214#0" expanded="true" />
-            <element signature="e#33269#33270#0" expanded="true" />
-            <element signature="e#33324#33325#0" expanded="true" />
+            <element signature="e#23131#23142#0" expanded="true" />
+            <element signature="e#33130#33131#0" expanded="true" />
+            <element signature="e#33177#33178#0" expanded="true" />
+            <element signature="e#33237#33238#0" expanded="true" />
+            <element signature="e#33278#33279#0" expanded="true" />
+            <element signature="e#33334#33335#0" expanded="true" />
+            <element signature="e#33389#33390#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1352,13 +1304,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/Fxml/home.fxml" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/Fxml/holder.fxml" />
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="48" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/main/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6103">
@@ -1490,14 +1435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/Entities/Clients.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -1522,24 +1459,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/nakl/naklController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="752" column="0" lean-forward="true" selection-start-line="752" selection-start-column="0" selection-end-line="752" selection-end-column="0" />
-          <folding>
-            <element signature="e#9065#9076#0" expanded="true" />
-            <element signature="e#14056#14067#0" expanded="true" />
-            <element signature="e#23066#23077#0" expanded="true" />
-            <element signature="e#33065#33066#0" expanded="true" />
-            <element signature="e#33112#33113#0" expanded="true" />
-            <element signature="e#33172#33173#0" expanded="true" />
-            <element signature="e#33213#33214#0" expanded="true" />
-            <element signature="e#33269#33270#0" expanded="true" />
-            <element signature="e#33324#33325#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/Home/homeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
@@ -1550,9 +1469,88 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/Home/mainHome.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="26" column="43" lean-forward="true" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+        <state relative-caret-position="238">
+          <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="42" lean-forward="false" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
+          <folding>
+            <marker date="1524756115453" expanded="true" signature="86425:86442" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="86425:86460" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="86425:86473" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="86425:86488" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="86523:88761" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="86536:88746" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="86590:86892" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="86609:86877" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="86672:86857" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="86712:86823" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="86733:86801" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="86942:87281" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="86961:87266" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="87061:87246" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="87101:87212" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="87122:87190" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="87332:87597" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="87351:87582" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="87384:87562" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="87424:87528" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="87445:87506" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="87640:87946" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="87659:87931" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="87733:87911" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="87773:87877" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="87794:87855" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="87997:88346" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="88016:88331" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="88094:88311" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="88134:88277" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="88155:88255" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="88398:88732" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="88417:88717" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="88512:88697" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="88552:88663" ph="..." />
+            <marker date="1524756115453" expanded="true" signature="88573:88641" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/nakl/naklController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="474" column="30" lean-forward="false" selection-start-line="474" selection-start-column="30" selection-end-line="474" selection-end-column="30" />
+          <folding>
+            <element signature="e#9065#9076#0" expanded="true" />
+            <element signature="e#14056#14067#0" expanded="true" />
+            <element signature="e#23131#23142#0" expanded="true" />
+            <element signature="e#33130#33131#0" expanded="true" />
+            <element signature="e#33177#33178#0" expanded="true" />
+            <element signature="e#33237#33238#0" expanded="true" />
+            <element signature="e#33278#33279#0" expanded="true" />
+            <element signature="e#33334#33335#0" expanded="true" />
+            <element signature="e#33389#33390#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

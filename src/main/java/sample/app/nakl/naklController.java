@@ -471,6 +471,8 @@ public class naklController implements Initializable {
     @FXML
     void updateTableAction(ActionEvent event) {
         selectionUpdateTableAction();
+        update.setDisable(false);
+        save.setDisable(true);
 
 
     }
