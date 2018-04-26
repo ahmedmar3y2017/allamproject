@@ -13,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -206,6 +208,27 @@ public class naklController implements Initializable {
 
     @FXML
     void deleteAction(ActionEvent event) {
+        deleteFunction();
+
+
+    }
+
+    @FXML
+    void treeViewKeyPressed(KeyEvent event) {
+
+
+        // check SupplierSavedIdAccount
+
+        if (event.getCode().equals(KeyCode.DELETE)) {
+
+            deleteFunction();
+        }
+
+        //... other keyevents
+
+    }
+
+    private void deleteFunction() {
 
         RecursiveTreeItem item = (RecursiveTreeItem) table.getSelectionModel().getSelectedItem();
 
@@ -234,8 +257,6 @@ public class naklController implements Initializable {
 
 
         }
-
-
     }
 
     @FXML
