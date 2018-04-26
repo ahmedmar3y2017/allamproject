@@ -164,12 +164,13 @@ public class naklController implements Initializable {
     private JFXButton print;
 
     @FXML
-            private Pane lastHbox;
+    private Pane lastHbox;
 
     List<Clients> clientsList;
     List<String> clientsList_Names;
     List<Integer> clientsList_Ids;
 
+    List<Maintable> maintables;
 
     ObservableList<NaklTable> NaklTable_data = FXCollections.observableArrayList();
 
@@ -285,8 +286,7 @@ public class naklController implements Initializable {
             } else {
 
                 // insert into table design
-
-                NaklTable_data.add(new NaklTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getType(), "Notes"));
+                NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getType(), "Notes"));
                 final TreeItem<NaklTable> root = new RecursiveTreeItem<NaklTable>(NaklTable_data, RecursiveTreeObject::getChildren);
                 table.setRoot(root);
                 table.setShowRoot(false);
@@ -330,16 +330,22 @@ public class naklController implements Initializable {
         hbox4.setPrefWidth(primaryScreenBounds.getWidth() - 185);
         table.setPrefWidth(primaryScreenBounds.getWidth() - 200);
 
-        lastHbox.setLayoutY( primaryScreenBounds.getHeight() - 75);
+        lastHbox.setLayoutY(primaryScreenBounds.getHeight() - 75);
 //        hbox4.setLayoutY(table.getPrefHeight());
-        table.setPrefHeight( primaryScreenBounds.getHeight() - 300 ) ;
+        table.setPrefHeight(primaryScreenBounds.getHeight() - 300);
         System.out.println(lastHbox.getPrefHeight());
-        System.out.println( "table height " + table.getPrefHeight() );
+        System.out.println("table height " + table.getPrefHeight());
         //set date on init
         String newstring = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
         date.setValue(LOCAL_DATE(newstring));
         // ---------------------- init table --------------------------
+        maintables = mainTableDao.SelectAllMaintableToday();
+        maintables.stream().forEach(maintable1 -> {
 
+            NaklTable_data.add(new NaklTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getType(), "Notes"));
+
+
+        });
 
         tableDate.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, String>, ObservableValue<String>>() {
             @Override
@@ -453,6 +459,9 @@ public class naklController implements Initializable {
             }
 
         });
+
+        // select All From Database ------------
+
 
         NaklTable_data.add(new NaklTable(1, "a", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "ss", "ss"));
         final TreeItem<NaklTable> root = new RecursiveTreeItem<NaklTable>(NaklTable_data, RecursiveTreeObject::getChildren);
