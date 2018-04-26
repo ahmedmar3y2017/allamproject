@@ -99,4 +99,13 @@ public class mainTableDao {
     }
 
 
+    public static List<Maintable> SelectAllMaintableToday() {
+        Session session = sessionFactory.openSession();
+        List<Maintable> Maintablees = session.createQuery("from Maintable as main where main.date=current_date ").setCacheable(true)
+                .setCacheRegion("SelectAllMaintableToday.cache").list();
+
+        session.close();
+        return Maintablees;
+
+    }
 }
