@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
  */
 public class moneyController implements Initializable {
     @FXML
-    private HBox hbox1 , lasthbox;
+    private HBox hbox1 , lasthbox , tableHbox;
 
     @FXML
     private TabPane tabPane;
@@ -44,16 +44,14 @@ public class moneyController implements Initializable {
         tabPane.setPrefHeight(primaryScreenBounds.getHeight());
         tabPane.setTabMinWidth(screenWidth / 2 );
 //
-        infoPane.setPrefWidth(screenWidth / 3);
-        infoPane.setLayoutY(primaryScreenBounds.getHeight() / 2  - 300);
-
-//        table.setLayoutX(infoPane.getPrefWidth() );
-        table.setPrefHeight(primaryScreenBounds.getHeight() - 270);
+        infoPane.setPrefWidth(screenWidth / 4 +  10 );
 
 
+        tableHbox.setPrefWidth(screenWidth - infoPane.getPrefWidth() - 40  );
 
-//        lasthbox.setLayoutX( screenWidth / 2 );
-        lasthbox.setLayoutY(primaryScreenBounds.getHeight() - 500);
+        table.setPrefHeight(primaryScreenBounds.getHeight() - 250);
+
+        lasthbox.setLayoutY(primaryScreenBounds.getHeight() - 150);
 
 
 
