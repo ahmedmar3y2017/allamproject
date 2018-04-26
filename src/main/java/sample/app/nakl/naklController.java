@@ -477,7 +477,6 @@ public class naklController implements Initializable {
 
     }
     // localdate Formatter
-
     public static final LocalDate LOCAL_DATE(String dateString) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate localDate = LocalDate.parse(dateString, formatter);
@@ -525,6 +524,7 @@ public class naklController implements Initializable {
         //set date on init
         String newstring = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
         date.setValue(LOCAL_DATE(newstring));
+
         // ---------------------- init table --------------------------
         maintables = mainTableDao.SelectAllMaintableToday();
         maintables.stream().forEach(maintable1 -> {
