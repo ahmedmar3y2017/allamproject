@@ -78,7 +78,7 @@ public class Maintable implements Serializable {
     private String cityFrom;
     private String cityTo;
     @JoinColumn(name = "clientsid", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Clients clientsid;
 
     public Maintable() {

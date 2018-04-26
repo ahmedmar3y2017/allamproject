@@ -146,7 +146,8 @@
                 <TreeTableView fx:id="table" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;">
                     <columns>
                         <TreeTableColumn fx:id="tableDate" prefWidth="75.0" text="التاريخ" />
-                        <TreeTableColumn fx:id="tableBolisa" prefWidth="75.0" text="البوليصه" />
+                  <TreeTableColumn fx:id="tableType" prefWidth="84.0" text="نوع البضاعه" />
+                        <TreeTableColumn fx:id="tableBolisa" prefWidth="66.0" text="البوليصه" />
                         <TreeTableColumn fx:id="tableCarNum" prefWidth="75.0" text="السياره" />
                         <TreeTableColumn fx:id="tableWeight" prefWidth="75.0" text="الوزن" />
                         <TreeTableColumn fx:id="tableNawlon" prefWidth="75.0" text="النولون" />
@@ -157,8 +158,8 @@
                         <TreeTableColumn fx:id="tableDiscount" prefWidth="75.0" text="خصم" />
                         <TreeTableColumn fx:id="tableOffice" prefWidth="75.0" text="مكتب" />
                         <TreeTableColumn fx:id="tableClear" prefWidth="75.0" text="صافى" />
-                        <TreeTableColumn fx:id="tableBian" prefWidth="75.0" text="بيان" />
-                        <TreeTableColumn fx:id="tableNotes" prefWidth="100.0" text="ملاحظات" />
+                        <TreeTableColumn fx:id="tableBian" prefWidth="95.0" text="بيان" />
+                        <TreeTableColumn fx:id="tableNotes" text="ملاحظات" />
                     </columns>
                     <opaqueInsets>
                         <Insets />
@@ -318,7 +319,7 @@
                                 <Insets left="10.0" right="10.0" />
                             </HBox.margin>
                         </JFXButton>
-                        <JFXButton fx:id="print" onAction="#printAction" prefHeight="33.0" prefWidth="85.0" styleClass="round-red" text="مسح" textFill="WHITE">
+                        <JFXButton fx:id="delete" onAction="#deleteAction" prefHeight="33.0" prefWidth="85.0" styleClass="round-red" text="مسح" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="17.0" />
                             </font>

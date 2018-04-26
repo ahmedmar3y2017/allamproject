@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -36,9 +37,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -81,7 +80,8 @@ public class naklController implements Initializable {
 
     @FXML
     private TreeTableColumn<NaklTable, String> tableDate;
-
+    @FXML
+    private TreeTableColumn<NaklTable, String> tableType;
     @FXML
     private TreeTableColumn<NaklTable, Double> tableBolisa;
 
@@ -161,7 +161,7 @@ public class naklController implements Initializable {
     private JFXButton updateTable;
 
     @FXML
-    private JFXButton print;
+    private JFXButton delete;
 
     @FXML
     private Pane lastHbox;
@@ -173,6 +173,7 @@ public class naklController implements Initializable {
     List<Maintable> maintables;
 
     ObservableList<NaklTable> NaklTable_data = FXCollections.observableArrayList();
+    private NaklTable naklTable;
 
 
     @FXML
@@ -204,7 +205,36 @@ public class naklController implements Initializable {
 
 
     @FXML
-    void printAction(ActionEvent event) {
+    void deleteAction(ActionEvent event) {
+
+        RecursiveTreeItem item = (RecursiveTreeItem) table.getSelectionModel().getSelectedItem();
+
+        if (item == null) {
+            dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "اختر من الجدول للمسح");
+
+
+        } else {
+            NaklTable ct = (NaklTable) item.getValue();
+            Maintable maintable = mainTableDao.DeleteMaintable(ct.getId());
+            if (maintable == null) {
+                // done
+                // delete from table
+                boolean t = NaklTable_data.remove(ct);
+
+                if (t) {
+                    dialog dialog = new dialog(Alert.AlertType.CONFIRMATION, "تم", "تم المسح بنجاح");
+
+
+                }
+
+            } else {
+                dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "خطأ فى الميح من الداتابيز");
+
+            }
+
+
+        }
+
 
     }
 
@@ -261,7 +291,8 @@ public class naklController implements Initializable {
                     Double.parseDouble(added);
 
             Date date1 = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
-            Maintable maintable = new Maintable(date1,
+            Maintable maintable = new Maintable(
+                    date1,
                     Double.parseDouble(bolisa),
                     Double.parseDouble(carNum),
                     Double.parseDouble(weight),
@@ -286,11 +317,12 @@ public class naklController implements Initializable {
             } else {
 
                 // insert into table design
-                NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getType(), "Notes"));
+                NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + "-" + maintable1.getCityTo(), "Notes", clientName));
                 final TreeItem<NaklTable> root = new RecursiveTreeItem<NaklTable>(NaklTable_data, RecursiveTreeObject::getChildren);
                 table.setRoot(root);
                 table.setShowRoot(false);
-
+                // reset values
+                resetFields();
 
             }
 
@@ -300,13 +332,146 @@ public class naklController implements Initializable {
 
     }
 
-    @FXML
-    void updateAction(ActionEvent event) {
+    private void resetFields() {
+
+        this.clientName.setValue("");
+        this.type.setText("");
+        this.fromCity.setText("");
+        this.toCity.setText("");
+        // set init date
+        String newstring = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+        this.date.setValue(LOCAL_DATE(newstring));
+        bolisa.setText("0.0");
+        carNum.setText("0.0");
+        weight.setText("0.0");
+        nawlon.setText("0.0");
+        ohda.setText("0.0");
+        added.setText("0.0");
+        mezan.setText("0.0");
+        discount.setText("0.0");
+        office.setText("0.0");
+        clear.setText("0.0");
+
 
     }
 
     @FXML
+    void updateAction(ActionEvent event) {
+
+        if (naklTable != null) {
+
+
+            // save Function
+            String clientName = this.clientName.getValue().toString();
+            String type = this.type.getText();
+            String to = this.toCity.getText();
+            String from = this.fromCity.getText();
+            LocalDate date = this.date.getValue();
+            String bolisa = this.bolisa.getText();
+            String carNum = this.carNum.getText();
+            String weight = this.weight.getText();
+            String nawlon = this.nawlon.getText();
+            String ohda = this.ohda.getText();
+            String added = this.added.getText();
+            String mezan = this.mezan.getText();
+            String discount = this.discount.getText();
+            String office = this.office.getText();
+            String clear = this.clear.getText();
+
+            if (clientName.trim().isEmpty()
+                    || type.trim().isEmpty()
+                    || to.trim().isEmpty()
+                    || from.trim().isEmpty()
+                    || bolisa.trim().isEmpty()
+                    || carNum.trim().isEmpty()
+                    || weight.trim().isEmpty()
+                    || nawlon.trim().isEmpty()
+                    || ohda.trim().isEmpty()
+                    || added.trim().isEmpty()
+                    || mezan.trim().isEmpty()
+                    || discount.trim().isEmpty()
+                    || office.trim().isEmpty()
+                    || clear.trim().isEmpty()
+                    || date == null
+                    ) {
+
+
+                dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "ادخل جميع البيانات");
+
+            } else {
+
+                // select Client
+                int clientIndex = this.clientName.getSelectionModel().getSelectedIndex();
+                int clientId = clientsList_Ids.get(clientIndex);
+                // calculate total
+
+                double total = (Double.parseDouble(weight) * Double.parseDouble(nawlon)) -
+                        Double.parseDouble(ohda) +
+                        Double.parseDouble(office) +
+                        Double.parseDouble(added);
+
+                Date date1 = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
+                Maintable maintable = new Maintable(
+                        date1,
+                        Double.parseDouble(bolisa),
+                        Double.parseDouble(carNum),
+                        Double.parseDouble(weight),
+                        Double.parseDouble(nawlon),
+                        Double.parseDouble(ohda),
+                        Double.parseDouble(added),
+                        Double.parseDouble(mezan),
+                        Double.parseDouble(discount),
+                        Double.parseDouble(office),
+                        total,
+                        type,
+                        from,
+                        to,
+                        new Clients(clientId)
+                );
+                maintable.setId(naklTable.getId());
+
+
+                Maintable maintable1 = mainTableDao.UpdateMaintable(naklTable.getId(), maintable);
+
+                if (maintable1 == null) {
+                    dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "خطأ فى التعديل فى الداتابيز ");
+
+
+                } else {
+
+                    // remove from table
+                    boolean t = NaklTable_data.remove(naklTable);
+                    if (t) {
+                        // insert into table design
+
+                        NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + "-" + maintable1.getCityTo(), "Notes", clientName));
+                        final TreeItem<NaklTable> root = new RecursiveTreeItem<NaklTable>(NaklTable_data, RecursiveTreeObject::getChildren);
+                        table.setRoot(root);
+                        table.setShowRoot(false);
+// reset values
+                        naklTable = null;
+                        resetFields();
+                        // set disabled
+                        update.setDisable(true);
+                        save.setDisable(false);
+
+                    }
+
+                }
+
+
+            }
+
+        } else {
+            dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "اختر من الجدول للتعديل");
+
+        }
+    }
+
+    @FXML
     void updateTableAction(ActionEvent event) {
+        selectionUpdateTableAction();
+
 
     }
     // localdate Formatter
@@ -317,8 +482,28 @@ public class naklController implements Initializable {
         return localDate;
     }
 
+    public static final LocalDate LOCAL_DATEParse(String dateString) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate localDate = LocalDate.parse(dateString, formatter);
+        return localDate;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        // select All Clients
+        clientsList = clientDao.SelectAllClients();
+        if (clientsList != null) {
+            clientsList_Names = clientsList.stream().map(ee -> ee.getName()).collect(Collectors.toList());
+            clientsList_Ids = clientsList.stream().map(ee -> ee.getId()).collect(Collectors.toList());
+            clientName.getItems().setAll(clientsList_Names);
+
+        }
+
+
+        // set disabled
+        update.setDisable(true);
+        save.setDisable(false);
 
 
         // --------------- set size ---------------------------
@@ -342,7 +527,7 @@ public class naklController implements Initializable {
         maintables = mainTableDao.SelectAllMaintableToday();
         maintables.stream().forEach(maintable1 -> {
 
-            NaklTable_data.add(new NaklTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getType(), "Notes"));
+            NaklTable_data.add(new NaklTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
 
 
         });
@@ -351,6 +536,13 @@ public class naklController implements Initializable {
             @Override
             public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<NaklTable, String> param) {
                 return param.getValue().getValue().date;
+            }
+        });
+
+        tableType.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<NaklTable, String> param) {
+                return param.getValue().getValue().type;
             }
         });
 
@@ -446,7 +638,7 @@ public class naklController implements Initializable {
         tableBian.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<NaklTable, String> param) {
-                return param.getValue().getValue().type;
+                return param.getValue().getValue().bian;
             }
 
         });
@@ -463,10 +655,28 @@ public class naklController implements Initializable {
         // select All From Database ------------
 
 
-        NaklTable_data.add(new NaklTable(1, "a", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "ss", "ss"));
+//        NaklTable_data.add(new NaklTable(1, "a", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "ss", "ss"));
         final TreeItem<NaklTable> root = new RecursiveTreeItem<NaklTable>(NaklTable_data, RecursiveTreeObject::getChildren);
         table.setRoot(root);
         table.setShowRoot(false);
+
+        //
+        // double click Event
+        table.setRowFactory(tv -> {
+            TreeTableRow<NaklTable> row = new TreeTableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
+                        && event.getClickCount() == 2) {
+                    System.out.println("Click 2");
+                    selectionUpdateTableAction();
+                    update.setDisable(false);
+                    save.setDisable(true);
+//                    MyDataType clickedRow = row.getItem();
+//                    printRow(clickedRow);
+                }
+            });
+            return row;
+        });
 
 
         // validate TextFields
@@ -509,10 +719,48 @@ public class naklController implements Initializable {
 
     }
 
+    public List<String> getTokensWithCollection(String str) {
+        return Collections.list(new StringTokenizer(str, "-")).stream()
+                .map(token -> (String) token)
+                .collect(Collectors.toList());
+    }
+
+    private void selectionUpdateTableAction() {
+
+        RecursiveTreeItem item = (RecursiveTreeItem) table.getSelectionModel().getSelectedItem();
+        if (item != null) {
+            NaklTable ct = (NaklTable) item.getValue();
+            this.naklTable = ct;
+            this.type.setText(ct.getType());
+            this.fromCity.setText(getTokensWithCollection(ct.getBian()).get(0));
+            this.toCity.setText(getTokensWithCollection(ct.getBian()).get(1));
+            this.date.setValue(LOCAL_DATEParse(ct.getDate()));
+            this.bolisa.setText(ct.getBolisa() + "");
+            this.carNum.setText(ct.getCarNum() + "");
+            this.weight.setText(ct.getWeight() + "");
+            this.nawlon.setText(ct.getNawlon() + "");
+            this.ohda.setText(ct.getOhda() + "");
+            this.added.setText(ct.getAdded() + "");
+            this.mezan.setText(ct.getMezan() + "");
+            this.discount.setText(ct.getDiscount() + "");
+            this.office.setText(ct.getOffice() + "");
+            this.clear.setText(ct.getClear() + "");
+            this.clientName.getSelectionModel().select(ct.getClientName());
+
+
+        } else {
+            dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "اختر من الجدول للتعديل");
+
+        }
+
+
+    }
+
 
     class NaklTable extends RecursiveTreeObject<NaklTable> {
 
         SimpleStringProperty date;
+        SimpleStringProperty clientName;
 
         SimpleDoubleProperty bolisa;
         SimpleDoubleProperty carNum;
@@ -525,12 +773,14 @@ public class naklController implements Initializable {
         SimpleDoubleProperty discount;
         SimpleDoubleProperty office;
         SimpleDoubleProperty clear;
+        SimpleStringProperty bian;
         SimpleStringProperty type;
         SimpleStringProperty notes;
         SimpleIntegerProperty id;
 
-        public NaklTable(int id, String date, double bolisa, double carNum, double weight, double nawlon, double ohda, double agz, double added, double mezan, double discount, double office, double clear, String type, String notes) {
+        public NaklTable(int id, String date, String type, double bolisa, double carNum, double weight, double nawlon, double ohda, double agz, double added, double mezan, double discount, double office, double clear, String bian, String notes, String clientName) {
             this.date = new SimpleStringProperty(date);
+            this.type = new SimpleStringProperty(type);
             this.bolisa = new SimpleDoubleProperty(bolisa);
             this.carNum = new SimpleDoubleProperty(carNum);
             this.weight = new SimpleDoubleProperty(weight);
@@ -543,17 +793,17 @@ public class naklController implements Initializable {
             this.office = new SimpleDoubleProperty(office);
             this.clear = new SimpleDoubleProperty(clear);
 
-            this.type = new SimpleStringProperty(type);
+            this.bian = new SimpleStringProperty(bian);
             this.notes = new SimpleStringProperty(notes);
             this.id = new SimpleIntegerProperty(id);
+            this.clientName = new SimpleStringProperty(clientName);
         }
-
 
         public String getDate() {
             return date.get();
         }
 
-        public StringProperty dateProperty() {
+        public SimpleStringProperty dateProperty() {
             return date;
         }
 
@@ -565,7 +815,7 @@ public class naklController implements Initializable {
             return bolisa.get();
         }
 
-        public DoubleProperty bolisaProperty() {
+        public SimpleDoubleProperty bolisaProperty() {
             return bolisa;
         }
 
@@ -577,7 +827,7 @@ public class naklController implements Initializable {
             return carNum.get();
         }
 
-        public DoubleProperty carNumProperty() {
+        public SimpleDoubleProperty carNumProperty() {
             return carNum;
         }
 
@@ -589,7 +839,7 @@ public class naklController implements Initializable {
             return weight.get();
         }
 
-        public DoubleProperty weightProperty() {
+        public SimpleDoubleProperty weightProperty() {
             return weight;
         }
 
@@ -601,7 +851,7 @@ public class naklController implements Initializable {
             return nawlon.get();
         }
 
-        public DoubleProperty nawlonProperty() {
+        public SimpleDoubleProperty nawlonProperty() {
             return nawlon;
         }
 
@@ -613,7 +863,7 @@ public class naklController implements Initializable {
             return ohda.get();
         }
 
-        public DoubleProperty ohdaProperty() {
+        public SimpleDoubleProperty ohdaProperty() {
             return ohda;
         }
 
@@ -625,7 +875,7 @@ public class naklController implements Initializable {
             return agz.get();
         }
 
-        public DoubleProperty agzProperty() {
+        public SimpleDoubleProperty agzProperty() {
             return agz;
         }
 
@@ -633,11 +883,11 @@ public class naklController implements Initializable {
             this.agz.set(agz);
         }
 
-        public DoubleProperty getAdded() {
-            return added;
+        public double getAdded() {
+            return added.get();
         }
 
-        public DoubleProperty addedProperty() {
+        public SimpleDoubleProperty addedProperty() {
             return added;
         }
 
@@ -649,7 +899,7 @@ public class naklController implements Initializable {
             return mezan.get();
         }
 
-        public DoubleProperty mezanProperty() {
+        public SimpleDoubleProperty mezanProperty() {
             return mezan;
         }
 
@@ -661,7 +911,7 @@ public class naklController implements Initializable {
             return discount.get();
         }
 
-        public DoubleProperty discountProperty() {
+        public SimpleDoubleProperty discountProperty() {
             return discount;
         }
 
@@ -673,7 +923,7 @@ public class naklController implements Initializable {
             return office.get();
         }
 
-        public DoubleProperty officeProperty() {
+        public SimpleDoubleProperty officeProperty() {
             return office;
         }
 
@@ -685,7 +935,7 @@ public class naklController implements Initializable {
             return clear.get();
         }
 
-        public DoubleProperty clearProperty() {
+        public SimpleDoubleProperty clearProperty() {
             return clear;
         }
 
@@ -693,11 +943,23 @@ public class naklController implements Initializable {
             this.clear.set(clear);
         }
 
+        public String getBian() {
+            return bian.get();
+        }
+
+        public SimpleStringProperty bianProperty() {
+            return bian;
+        }
+
+        public void setBian(String bian) {
+            this.bian.set(bian);
+        }
+
         public String getType() {
             return type.get();
         }
 
-        public StringProperty typeProperty() {
+        public SimpleStringProperty typeProperty() {
             return type;
         }
 
@@ -709,7 +971,7 @@ public class naklController implements Initializable {
             return notes.get();
         }
 
-        public StringProperty notesProperty() {
+        public SimpleStringProperty notesProperty() {
             return notes;
         }
 
@@ -721,12 +983,24 @@ public class naklController implements Initializable {
             return id.get();
         }
 
-        public IntegerProperty idProperty() {
+        public SimpleIntegerProperty idProperty() {
             return id;
         }
 
         public void setId(int id) {
             this.id.set(id);
+        }
+
+        public String getClientName() {
+            return clientName.get();
+        }
+
+        public SimpleStringProperty clientNameProperty() {
+            return clientName;
+        }
+
+        public void setClientName(String clientName) {
+            this.clientName.set(clientName);
         }
     }
 
