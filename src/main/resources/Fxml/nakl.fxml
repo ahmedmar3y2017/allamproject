@@ -144,7 +144,7 @@
         </HBox>
         <HBox layoutY="205.0">
             <children>
-                <TreeTableView fx:id="table" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;">
+                <TreeTableView fx:id="table" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" onKeyPressed="#treeViewKeyPressed" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;">
                     <columns>
                         <TreeTableColumn fx:id="tableDate" prefWidth="75.0" text="التاريخ" />
                   <TreeTableColumn fx:id="tableType" prefWidth="84.0" text="نوع البضاعه" />
