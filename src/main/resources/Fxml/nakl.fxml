@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -16,7 +24,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane styleClass=".main" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.nakl.naklController">
+<Pane styleClass=".main" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.nakl.naklController">
     <children>
         <HBox fx:id="hbox3" alignment="TOP_RIGHT" layoutX="-10.0" layoutY="95.0" nodeOrientation="LEFT_TO_RIGHT">
             <children>
@@ -147,7 +155,7 @@
                 <TreeTableView fx:id="table" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" onKeyPressed="#treeViewKeyPressed" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;">
                     <columns>
                         <TreeTableColumn fx:id="tableDate" prefWidth="75.0" text="التاريخ" />
-                  <TreeTableColumn fx:id="tableType" prefWidth="84.0" text="نوع البضاعه" />
+                        <TreeTableColumn fx:id="tableType" prefWidth="84.0" text="نوع البضاعه" />
                         <TreeTableColumn fx:id="tableBolisa" prefWidth="66.0" text="البوليصه" />
                         <TreeTableColumn fx:id="tableCarNum" prefWidth="75.0" text="السياره" />
                         <TreeTableColumn fx:id="tableWeight" prefWidth="75.0" text="الوزن" />
@@ -241,29 +249,36 @@
         </HBox>
         <HBox fx:id="hbox4" alignment="TOP_RIGHT" layoutX="-10.0" layoutY="133.0" nodeOrientation="LEFT_TO_RIGHT">
             <children>
-                <JFXButton fx:id="update" onAction="#updateAction" prefHeight="33.0" prefWidth="85.0" styleClass="round-red" text="تعديل" textFill="WHITE">
+                <JFXButton fx:id="save1" layoutX="133.0" layoutY="25.0" onAction="#saveAction" prefHeight="33.0" prefWidth="120.0" styleClass="round-red" text="تفريغ الحقول" textFill="WHITE">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font name="System Bold" size="17.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="update" onAction="#updateAction" prefHeight="33.0" prefWidth="70.0" styleClass="round-red" text="تعديل" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="17.0" />
                     </font>
                     <HBox.margin>
-                        <Insets left="5.0" right="10.0" />
+                        <Insets left="5.0" right="4.0" />
                     </HBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
                 </JFXButton>
-                <JFXButton fx:id="save" onAction="#saveAction" prefHeight="33.0" prefWidth="85.0" styleClass="round-red" text="حفظ" textFill="WHITE">
+                <JFXButton fx:id="save" onAction="#saveAction" prefHeight="33.0" prefWidth="70.0" styleClass="round-red" text="حفظ" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="17.0" />
                     </font>
                     <HBox.margin>
-                        <Insets />
+                        <Insets right="20.0" />
                     </HBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
                 </JFXButton>
-                <Label prefWidth="110.0" />
                 <TextField fx:id="mezan" alignment="CENTER" prefHeight="33.0" prefWidth="170.0" promptText="0.0" HBox.hgrow="ALWAYS">
                     <font>
                         <Font size="15.0" />
@@ -325,17 +340,17 @@
                             <HBox.margin>
                                 <Insets left="10.0" right="10.0" />
                             </HBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
                         </JFXButton>
                         <JFXButton fx:id="delete" onAction="#deleteAction" prefHeight="33.0" prefWidth="85.0" styleClass="round-red" text="مسح" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="17.0" />
                             </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
                         </JFXButton>
                     </children>
                 </HBox>

@@ -75,7 +75,10 @@ public class clientsController implements Initializable {
     private TreeTableColumn<ClientTable, String> tablePhone;
 
     @FXML
-    private HBox lasthbox;
+    private HBox lasthbox , tableHbox;
+
+    @FXML
+    private Pane infoPane;
 
     @FXML
     private JFXButton delete;
@@ -247,20 +250,30 @@ public class clientsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-// set diabled
+    // set disabled
         this.update.setDisable(true);
         this.save.setDisable(false);
 
         // --------------- set size ---------------------------
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        hbox1.setPrefWidth(primaryScreenBounds.getWidth() - 185);
-        lasthbox.setLayoutY(primaryScreenBounds.getHeight() - 100);
-        table.setPrefWidth(primaryScreenBounds.getWidth() - 200);
-        table.setPrefHeight(primaryScreenBounds.getHeight() - 200);
+        double screenWidth = primaryScreenBounds.getWidth() - 180 ;
 
-        tablePhone.setPrefWidth(table.getPrefWidth() / 3);
-        tableAddress.setPrefWidth(table.getPrefWidth() / 3);
-        tableName.setPrefWidth(table.getPrefWidth() / 3);
+        kashfHesab.setPrefWidth(screenWidth);
+        kashfHesab.setPrefHeight(primaryScreenBounds.getHeight());
+
+        infoPane.setPrefWidth(screenWidth / 4 +  10 );
+
+
+
+        tableHbox.setPrefWidth(screenWidth - infoPane.getPrefWidth() - 80);
+
+        table.setPrefHeight(primaryScreenBounds.getHeight() - 150);
+
+        tablePhone.setPrefWidth(table.getPrefWidth() / 3 - 10 );
+        tableAddress.setPrefWidth(table.getPrefWidth() / 3 - 10 );
+        tableName.setPrefWidth(table.getPrefWidth() / 3 );
+
+        lasthbox.setLayoutY(primaryScreenBounds.getHeight() - 90);
 
 
         // select all clients
