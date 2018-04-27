@@ -190,6 +190,21 @@
                                     <Insets />
                                  </HBox.margin>
                               </Label>
+                              <JFXButton fx:id="bankDisplayAll" onAction="#bankDisplayAllAction" prefHeight="33.0" prefWidth="150.0" styleClass="round-red" text="عرض الكل" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/search.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
                            </children>
                            <padding>
                               <Insets left="20.0" top="15.0" />

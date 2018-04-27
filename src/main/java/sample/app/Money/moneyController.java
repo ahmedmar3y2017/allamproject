@@ -212,6 +212,28 @@ public class moneyController implements Initializable {
     }
 
     @FXML
+    void bankDisplayAllAction(ActionEvent event) {
+        // get all Banks Account
+
+        List<BankAccount> bankAccounts = bankAccountDao.SelectAllBankAccount();
+
+        if (!bankAccounts.isEmpty()) {
+            bank_data.clear();
+
+            bankAccounts.forEach(ee -> {
+
+                bank_data.add(new BankTable(ee.getId(), ee.getBankid().getName(), ee.getBankid().getNumber(), ee.getDate().toString(), ee.getType(), ee.getMoney(), ee.getNotes()));
+
+            });
+            final TreeItem<BankTable> Client_root = new RecursiveTreeItem<BankTable>(bank_data, RecursiveTreeObject::getChildren);
+            bankTable.setRoot(Client_root);
+
+        }
+
+    }
+
+
+    @FXML
     void treeViewKeyPressed(KeyEvent event) {
 
 
@@ -459,19 +481,6 @@ public class moneyController implements Initializable {
 
 
         // ------------------ init table --------------------
-
-        // get all Banks Account
-
-        List<BankAccount> bankAccounts = bankAccountDao.SelectAllBankAccount();
-
-        if (!bankAccounts.isEmpty()) {
-            bankAccounts.forEach(ee -> {
-
-                bank_data.add(new BankTable(ee.getId(), ee.getBankid().getName(), ee.getBankid().getNumber(), ee.getDate().toString(), ee.getType(), ee.getMoney(), ee.getNotes()));
-
-            });
-
-        }
 
 
         tableBankName.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<BankTable, String>, ObservableValue<String>>() {
