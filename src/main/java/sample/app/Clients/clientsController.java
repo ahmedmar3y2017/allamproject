@@ -8,6 +8,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,6 +20,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
@@ -27,17 +29,26 @@ import sample.app.Entities.Clients;
 import sample.app.Transactions.ClientDao.clientDao;
 import sample.app.dialogs.dialog;
 import sample.app.main.MainController;
+import sample.shared.AutoCompleteComboBoxListener;
+import sample.shared.Validation.Validation;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 /**
  * Created by ahmed mar3y on 22/04/2018.
  */
 public class clientsController implements Initializable {
     ObservableList<ClientTable> client_data = FXCollections.observableArrayList();
+
+    @FXML
+    private JFXButton displayAll;
+
+    @FXML
+    private ComboBox clientSearchName;
     @FXML
     private JFXButton refresh;
 
@@ -75,7 +86,7 @@ public class clientsController implements Initializable {
     private TreeTableColumn<ClientTable, String> tablePhone;
 
     @FXML
-    private HBox lasthbox , tableHbox;
+    private HBox lasthbox, tableHbox;
 
     @FXML
     private Pane infoPane;
@@ -83,6 +94,41 @@ public class clientsController implements Initializable {
     @FXML
     private JFXButton delete;
     private ClientTable clientTable;
+    private List<Clients> clientsList;
+
+    @FXML
+    void displayAllAction(ActionEvent event) {
+        // select all clients
+        List<Clients> clients = clientDao.SelectAllClients();
+        if (!clients.isEmpty()) {
+            client_data.clear();
+            clients.forEach(clients1 -> {
+
+                client_data.add(new ClientTable(clients1.getId(), clients1.getName(), clients1.getAddress(), clients1.getPhone()));
+
+            });
+            final TreeItem<ClientTable> Client_root = new RecursiveTreeItem<ClientTable>(client_data, RecursiveTreeObject::getChildren);
+            table.setRoot(Client_root);
+
+        }
+
+
+    }
+
+
+    @FXML
+    void clientNameMouseClick(MouseEvent event) {
+
+        // select All Clients
+        clientsList = clientDao.SelectAllClients();
+        if (clientsList != null) {
+
+            clientSearchName.getItems().setAll(clientsList.stream().map(ee -> ee.getName()).collect(Collectors.toList()));
+
+        }
+
+    }
+
 
     @FXML
     void deleteAction(ActionEvent event) {
@@ -250,43 +296,30 @@ public class clientsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    // set disabled
+        // set disabled
         this.update.setDisable(true);
         this.save.setDisable(false);
 
         // --------------- set size ---------------------------
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        double screenWidth = primaryScreenBounds.getWidth() - 180 ;
+        double screenWidth = primaryScreenBounds.getWidth() - 180;
 
         kashfHesab.setPrefWidth(screenWidth);
         kashfHesab.setPrefHeight(primaryScreenBounds.getHeight());
 
-        infoPane.setPrefWidth(screenWidth / 4 +  10 );
-
+        infoPane.setPrefWidth(screenWidth / 4 + 10);
 
 
         tableHbox.setPrefWidth(screenWidth - infoPane.getPrefWidth() - 80);
 
         table.setPrefHeight(primaryScreenBounds.getHeight() - 150);
 
-        tablePhone.setPrefWidth(table.getPrefWidth() / 3 - 10 );
-        tableAddress.setPrefWidth(table.getPrefWidth() / 3 - 10 );
-        tableName.setPrefWidth(table.getPrefWidth() / 3 );
+        tablePhone.setPrefWidth(table.getPrefWidth() / 3 - 10);
+        tableAddress.setPrefWidth(table.getPrefWidth() / 3 - 10);
+        tableName.setPrefWidth(table.getPrefWidth() / 3);
 
         lasthbox.setLayoutY(primaryScreenBounds.getHeight() - 90);
 
-
-        // select all clients
-        List<Clients> clients = clientDao.SelectAllClients();
-        if (!clients.isEmpty()) {
-            clients.forEach(clients1 -> {
-
-                client_data.add(new ClientTable(clients1.getId(), clients1.getName(), clients1.getAddress(), clients1.getPhone()));
-
-            });
-
-
-        }
 
         tableName.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<ClientTable, String>, ObservableValue<String>>() {
             @Override
@@ -327,6 +360,64 @@ public class clientsController implements Initializable {
             });
             return row;
         });
+
+
+        // ----------------- combobox search Item Select Event -----------------
+        clientSearchName.valueProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue ov, String t, String t1) {
+                if (!t1.trim().isEmpty()) {
+
+                    client_data.clear();
+
+                    clientsList.stream().filter(clients1 -> {
+                        if (clients1.getName().equals(t1)) {
+
+                            return true;
+                        }
+                        return false;
+
+                    }).forEach(clients1 -> {
+
+                        client_data.add(new ClientTable(clients1.getId(), clients1.getName(), clients1.getAddress(), clients1.getPhone()));
+
+
+                    });
+                    final TreeItem<ClientTable> Client_root = new RecursiveTreeItem<ClientTable>(client_data, RecursiveTreeObject::getChildren);
+                    table.setRoot(Client_root);
+
+
+                }
+            }
+        });
+
+
+        // combobox
+        this.clientSearchName.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue, Boolean newPropertyValue) {
+                if (!newPropertyValue) {
+
+                    if (!clientSearchName.getItems().contains(clientSearchName.getValue())) {
+                        clientSearchName.getEditor().clear();
+                        clientSearchName.setStyle(" -fx-border-width: 120%;   -fx-border-color: red;");
+
+                    }
+
+                }
+                if (newPropertyValue) {
+
+                    clientSearchName.setStyle("    -fx-border-color: transparent;");
+
+
+                }
+
+            }
+        });
+
+
+        new AutoCompleteComboBoxListener<>(this.clientSearchName);
+        Validation.phoneValidation(this.clientPhone);
 
 
     }

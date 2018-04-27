@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TreeTableColumn?>
@@ -22,11 +15,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.Clients.clientsController">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.Clients.clientsController">
    <children>
       <Pane fx:id="kashfHesab" layoutX="-98.0" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane fx:id="infoPane" layoutX="11.0" layoutY="50.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="300.0" prefWidth="320.0">
+            <Pane fx:id="infoPane" layoutX="11.0" layoutY="50.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="379.0" prefWidth="320.0">
                <children>
                   <Label alignment="BOTTOM_LEFT" layoutX="5.0" layoutY="21.0" prefHeight="21.0" prefWidth="110.0" text=" اسم العميل :">
                      <font>
@@ -38,27 +31,27 @@
                         <Font size="15.0" />
                      </font>
                   </TextField>
-                  <Label layoutX="5.0" layoutY="73.0" prefHeight="21.0" prefWidth="110.0" text="رقم التليفون :">
+                  <Label layoutX="5.0" layoutY="87.0" prefHeight="21.0" prefWidth="110.0" text="رقم التليفون :">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="clientPhone" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="67.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="220.0" promptText="رقم التليفون">
+                  <TextField fx:id="clientPhone" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="81.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="220.0" promptText="رقم التليفون">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </TextField>
-                  <Label layoutX="10.0" layoutY="116.0" prefHeight="21.0" prefWidth="110.0" text="العنوان :">
+                  <Label layoutX="10.0" layoutY="151.0" prefHeight="21.0" prefWidth="110.0" text="العنوان :">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="clientAddress" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="110.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="220.0" promptText="العنوان">
+                  <TextField fx:id="clientAddress" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="145.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="220.0" promptText="العنوان">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </TextField>
-                  <HBox fx:id="hbox1" alignment="TOP_RIGHT" layoutY="155.0" nodeOrientation="LEFT_TO_RIGHT">
+                  <HBox fx:id="hbox1" alignment="TOP_RIGHT" layoutY="196.0" nodeOrientation="LEFT_TO_RIGHT">
                      <children>
                         <JFXButton fx:id="update" onAction="#updateAction" prefHeight="33.0" prefWidth="110.0" style="-fx-background-color: #48dbfb;" text="تعديل" textFill="WHITE">
                            <font>
@@ -101,7 +94,7 @@
                         <Insets left="20.0" top="15.0" />
                      </padding>
                   </HBox>
-                  <JFXButton fx:id="refresh" layoutX="120.0" layoutY="237.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#refreshAction" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
+                  <JFXButton fx:id="refresh" layoutX="120.0" layoutY="278.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#refreshAction" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -163,12 +156,27 @@
                   <Insets top="10.0" />
                </padding>
             </HBox>
-            <ComboBox editable="true" layoutX="564.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="300.0" promptText="فيلتر" />
-            <Label alignment="BOTTOM_LEFT" layoutX="496.0" layoutY="16.0" prefHeight="21.0" prefWidth="110.0" text="فيلتر :">
+            <ComboBox fx:id="clientSearchName" editable="true" layoutX="564.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#clientNameMouseClick" prefHeight="38.0" prefWidth="300.0" promptText="اسم العميل" />
+            <Label alignment="BOTTOM_LEFT" layoutX="455.0" layoutY="18.0" prefHeight="21.0" prefWidth="110.0" text="اسم العميل :">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
+            <JFXButton fx:id="displayAll" layoutX="890.0" layoutY="14.0" onAction="#displayAllAction" prefHeight="38.0" prefWidth="207.0" style="-fx-background-color: #48dbfb;" text="عرض كل العملاء" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/update.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
          </children>
       </Pane>
    </children>

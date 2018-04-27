@@ -43,6 +43,7 @@ public class homeController implements Initializable {
 
     @FXML
     private JFXButton clients;
+    Object ppanel;
 
     @FXML
     void naklAction(ActionEvent event) {
@@ -52,39 +53,44 @@ public class homeController implements Initializable {
     @FXML
     void MainButtonAction(ActionEvent event) throws IOException {
 
-        if (event.getSource() == nakl) {
+        if (event.getSource() == nakl && ppanel != nakl) {
             System.out.println("nakl");
+            ppanel = event.getSource();
+
 
             holderPane = FXMLLoader.load(getClass().getResource("/fxml/nakl.fxml"));
 
-
+            setNode(holderPane);
         }
-        if (event.getSource() == kashfHesab) {
+        if (event.getSource() == kashfHesab && ppanel != kashfHesab) {
             System.out.println("kashfHesab");
+            ppanel = event.getSource();
 
             holderPane = FXMLLoader.load(getClass().getResource("/fxml/kashfHesab.fxml"));
-
+            setNode(holderPane);
         }
-        if (event.getSource() == accounts) {
+        if (event.getSource() == accounts && ppanel != accounts) {
             System.out.println("accounts");
+            ppanel = event.getSource();
 
             holderPane = FXMLLoader.load(getClass().getResource("/fxml/accounts.fxml"));
-
+            setNode(holderPane);
         }
-        if (event.getSource() == money) {
+        if (event.getSource() == money && ppanel != money) {
             System.out.println("money");
+            ppanel = event.getSource();
 
             holderPane = FXMLLoader.load(getClass().getResource("/fxml/money.fxml"));
-
+            setNode(holderPane);
 
         }
-        if (event.getSource() == clients) {
+        if (event.getSource() == clients && ppanel != clients) {
             System.out.println("clients");
+            ppanel = event.getSource();
 
             holderPane = FXMLLoader.load(getClass().getResource("/fxml/clients.fxml"));
-
+            setNode(holderPane);
         }
-        setNode(holderPane);
 
 
     }
@@ -127,6 +133,9 @@ public class homeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        ppanel = nakl;
+
 // start database
         SessionFactory sessionFactory = sample.shared.HibernateUtil.HibernateUtil.getSessionFactory();
 
