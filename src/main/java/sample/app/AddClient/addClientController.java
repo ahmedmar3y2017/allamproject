@@ -59,7 +59,7 @@ public class addClientController implements Initializable {
 
 
                 } else {
-
+                    resetFields();
 
                     dialog dialog = new dialog(Alert.AlertType.CONFIRMATION, "تم", "تم اضافه العميل");
 
@@ -74,6 +74,13 @@ public class addClientController implements Initializable {
 
         }
 
+
+    }
+
+    private void resetFields() {
+        this.phone.setText("");
+        this.address.setText("");
+        this.clientName.setText("");
 
     }
 

@@ -245,6 +245,10 @@ public class naklController implements Initializable {
                 boolean t = NaklTable_data.remove(ct);
 
                 if (t) {
+                    final TreeItem<NaklTable> root = new RecursiveTreeItem<NaklTable>(NaklTable_data, RecursiveTreeObject::getChildren);
+                    table.setRoot(root);
+
+
                     dialog dialog = new dialog(Alert.AlertType.CONFIRMATION, "تم", "تم المسح بنجاح");
 
 
@@ -497,6 +501,7 @@ public class naklController implements Initializable {
 
 
     }
+
     // localdate Formatter
     public static final LocalDate LOCAL_DATE(String dateString) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");

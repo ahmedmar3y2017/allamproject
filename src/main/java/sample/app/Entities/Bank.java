@@ -51,6 +51,8 @@ public class Bank implements Serializable {
     private Integer id;
     private String name;
     private String address;
+    private String number;
+
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bankid", fetch = FetchType.LAZY)
     private List<BankAccount> bankAccountList;
@@ -58,9 +60,18 @@ public class Bank implements Serializable {
     public Bank() {
     }
 
-    public Bank(String name, String address) {
+    public Bank(String name, String address, String number) {
         this.name = name;
         this.address = address;
+        this.number = number;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public Bank(Integer id) {

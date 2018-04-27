@@ -27,19 +27,26 @@ public class addBankController implements Initializable {
     private JFXButton addBank;
 
     @FXML
+    private TextField bankNumber;
+
+    @FXML
     void addBankAction(ActionEvent event) {
 
         String name = bankName.getText();
         String address = bankAddress.getText();
+        String number = bankNumber.getText();
+
         if (name.trim().isEmpty()
                 || address.trim().isEmpty()
+                || number.trim().isEmpty()
+
                 ) {
             dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "ادخل جميع البيانات");
 
 
         } else {
 
-            Bank bank = new Bank(name, address);
+            Bank bank = new Bank(name, address, number);
 
             Bank bank1 = bankDao.SaveBank(bank);
             if (bank1 == null) {

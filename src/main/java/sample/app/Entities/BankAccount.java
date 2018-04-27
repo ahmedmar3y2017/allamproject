@@ -28,18 +28,17 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
  * @author ahmed mar3y
  */
 @Entity
 @Table(name = "bank_account", catalog = "allam", schema = "")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "BankAccount.findAll", query = "SELECT b FROM BankAccount b"),
-    @NamedQuery(name = "BankAccount.findById", query = "SELECT b FROM BankAccount b WHERE b.id = :id"),
-    @NamedQuery(name = "BankAccount.findByType", query = "SELECT b FROM BankAccount b WHERE b.type = :type"),
-    @NamedQuery(name = "BankAccount.findByMoney", query = "SELECT b FROM BankAccount b WHERE b.money = :money"),
-    @NamedQuery(name = "BankAccount.findByDate", query = "SELECT b FROM BankAccount b WHERE b.date = :date")})
+        @NamedQuery(name = "BankAccount.findAll", query = "SELECT b FROM BankAccount b"),
+        @NamedQuery(name = "BankAccount.findById", query = "SELECT b FROM BankAccount b WHERE b.id = :id"),
+        @NamedQuery(name = "BankAccount.findByType", query = "SELECT b FROM BankAccount b WHERE b.type = :type"),
+        @NamedQuery(name = "BankAccount.findByMoney", query = "SELECT b FROM BankAccount b WHERE b.money = :money"),
+        @NamedQuery(name = "BankAccount.findByDate", query = "SELECT b FROM BankAccount b WHERE b.date = :date")})
 // add to all Entities
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @DynamicInsert
@@ -56,11 +55,29 @@ public class BankAccount implements Serializable {
     private Double money;
     @Temporal(TemporalType.DATE)
     private Date date;
+    private String notes;
     @JoinColumn(name = "bankid", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Bank bankid;
 
     public BankAccount() {
+    }
+
+
+    public BankAccount(String type, Double money, Date date, String notes, Bank bankid) {
+        this.type = type;
+        this.money = money;
+        this.date = date;
+        this.notes = notes;
+        this.bankid = bankid;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 
     public BankAccount(Integer id) {
@@ -131,5 +148,5 @@ public class BankAccount implements Serializable {
     public String toString() {
         return "Entities.BankAccount[ id=" + id + " ]";
     }
-    
+
 }
