@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="65f7c3f1-d1d9-42dd-b653-288e610cc20d" name="Default" comment="finish clients&#10;test ashraf">
+    <list default="true" id="65f7c3f1-d1d9-42dd-b653-288e610cc20d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/app/Clients/clientsController.java" afterPath="$PROJECT_DIR$/src/main/java/sample/app/Clients/clientsController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample/app/Money/moneyController.java" afterPath="$PROJECT_DIR$/src/main/java/sample/app/Money/moneyController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/Fxml/money.fxml" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/money.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,34 +55,30 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="moneyController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="moneyController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/Money/moneyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="224" column="30" lean-forward="false" selection-start-line="224" selection-start-column="30" selection-end-line="224" selection-end-column="30" />
+            <state relative-caret-position="93">
+              <caret line="497" column="77" lean-forward="true" selection-start-line="497" selection-start-column="77" selection-end-line="497" selection-end-column="77" />
               <folding>
-                <element signature="e#4101#4112#0" expanded="true" />
-                <element signature="e#5463#5474#0" expanded="true" />
-                <element signature="e#6589#6600#0" expanded="true" />
-                <element signature="e#10612#10623#0" expanded="true" />
-                <element signature="e#16053#16064#0" expanded="true" />
+                <element signature="e#4289#4300#0" expanded="true" />
+                <element signature="e#5633#5644#0" expanded="true" />
+                <element signature="e#6759#6770#0" expanded="true" />
+                <element signature="e#15481#15492#0" expanded="true" />
+                <element signature="e#17716#17727#0" expanded="true" />
+                <element signature="e#23157#23168#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="clientsController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="clientsController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/Clients/clientsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3883">
-              <caret line="103" column="32" lean-forward="false" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="32" />
+            <state relative-caret-position="238">
+              <caret line="195" column="36" lean-forward="false" selection-start-line="195" selection-start-column="36" selection-end-line="195" selection-end-column="36" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#3013#3026#0" expanded="false" />
-                <element signature="e#7214#7227#0" expanded="false" />
-                <element signature="e#9981#9994#0" expanded="false" />
-                <element signature="e#11667#11680#0" expanded="false" />
-                <marker date="1524843914277" expanded="true" signature="8763:12733" ph="{...}" />
+                <marker date="1524851686957" expanded="true" signature="9053:13023" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -349,9 +345,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>stage</find>
-      <find>int</find>
-      <find>addClientAction</find>
       <find>clientNameAction</find>
       <find>ini</find>
       <find>initiali</find>
@@ -378,6 +371,10 @@
       <find>clientNameMouseClick</find>
       <find>inita</find>
       <find>init</find>
+      <find>bankDisplayAllAction</find>
+      <find>refreshBank</find>
+      <find>bankSearchAction</find>
+      <find>refreshAction</find>
     </findStrings>
     <replaceStrings>
       <replace>banktableType</replace>
@@ -424,9 +421,9 @@
         <option value="$PROJECT_DIR$/src/main/java/sample/app/Entities/BankAccount.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/app/AddClient/addClientController.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/app/nakl/naklController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/app/Clients/clientsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/app/Home/homeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/app/Money/moneyController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/app/Clients/clientsController.java" />
       </list>
     </option>
   </component>
@@ -616,41 +613,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="nakl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="allamproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="allamproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Money" />
+              <option name="myItemId" value="Clients" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1330,7 +1293,7 @@
       <workItem from="1524745085057" duration="16255000" />
       <workItem from="1524770813125" duration="9826000" />
       <workItem from="1524784786874" duration="593000" />
-      <workItem from="1524827870091" duration="14335000" />
+      <workItem from="1524827870091" duration="17118000" />
     </task>
     <task id="LOCAL-00001" summary="mar3y">
       <created>1524492465767</created>
@@ -1458,11 +1421,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524845402603</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="finish clients&#10;test ashraf">
+      <created>1524848956974</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1524848956974</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83462000" />
+    <option name="totallyTimeSpent" value="86245000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
@@ -1489,7 +1459,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20294599" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23404256" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19639935" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21558245" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -2323,21 +2293,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/Clients/clientsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3883">
-          <caret line="103" column="32" lean-forward="false" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3013#3026#0" expanded="false" />
-            <element signature="e#7214#7227#0" expanded="false" />
-            <element signature="e#9981#9994#0" expanded="false" />
-            <element signature="e#11667#11680#0" expanded="false" />
-            <marker date="1524843914277" expanded="true" signature="8763:12733" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/Home/homeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -2348,14 +2303,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/Money/moneyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="224" column="30" lean-forward="false" selection-start-line="224" selection-start-column="30" selection-end-line="224" selection-end-column="30" />
+        <state relative-caret-position="93">
+          <caret line="497" column="77" lean-forward="true" selection-start-line="497" selection-start-column="77" selection-end-line="497" selection-end-column="77" />
           <folding>
-            <element signature="e#4101#4112#0" expanded="true" />
-            <element signature="e#5463#5474#0" expanded="true" />
-            <element signature="e#6589#6600#0" expanded="true" />
-            <element signature="e#10612#10623#0" expanded="true" />
-            <element signature="e#16053#16064#0" expanded="true" />
+            <element signature="e#4289#4300#0" expanded="true" />
+            <element signature="e#5633#5644#0" expanded="true" />
+            <element signature="e#6759#6770#0" expanded="true" />
+            <element signature="e#15481#15492#0" expanded="true" />
+            <element signature="e#17716#17727#0" expanded="true" />
+            <element signature="e#23157#23168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/Clients/clientsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="195" column="36" lean-forward="false" selection-start-line="195" selection-start-column="36" selection-end-line="195" selection-end-column="36" />
+          <folding>
+            <marker date="1524851686957" expanded="true" signature="9053:13023" ph="{...}" />
           </folding>
         </state>
       </provider>

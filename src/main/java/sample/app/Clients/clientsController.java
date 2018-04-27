@@ -191,6 +191,15 @@ public class clientsController implements Initializable {
         resetfields();
         this.update.setDisable(true);
         this.save.setDisable(false);
+
+        // set search null
+        clientSearchName.setValue("");
+
+        // clear table
+        client_data.clear();
+        final TreeItem<ClientTable> Client_root = new RecursiveTreeItem<ClientTable>(client_data, RecursiveTreeObject::getChildren);
+        table.setRoot(Client_root);
+
     }
 
     @FXML

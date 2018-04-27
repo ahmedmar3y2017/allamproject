@@ -168,6 +168,7 @@ public class moneyController implements Initializable {
     List<String> bank_Names;
     List<Integer> bank_Ids;
     private BankTable bankSelected;
+    private List<BankAccount> bankAccounts;
 
     @FXML
     void refreshBankAction(ActionEvent event) {
@@ -176,6 +177,12 @@ public class moneyController implements Initializable {
         // set disble
         bankUpdate.setDisable(true);
         bankSave.setDisable(false);
+
+        // clear search Data
+        bankNameSearch.setValue("");
+        bankFromSearch.setValue(null);
+        bankToSearch.setValue(null);
+
 
         // clear from table
         bank_data.clear();
@@ -215,7 +222,7 @@ public class moneyController implements Initializable {
     void bankDisplayAllAction(ActionEvent event) {
         // get all Banks Account
 
-        List<BankAccount> bankAccounts = bankAccountDao.SelectAllBankAccount();
+        bankAccounts = bankAccountDao.SelectAllBankAccount();
 
         if (!bankAccounts.isEmpty()) {
             bank_data.clear();
@@ -339,6 +346,183 @@ public class moneyController implements Initializable {
 
     @FXML
     void bankSearchAction(ActionEvent event) {
+
+
+        // search Method
+
+        boolean emptyName = bankNameSearch.getSelectionModel().isEmpty();
+        LocalDate from = bankFromSearch.getValue();
+        LocalDate to = bankToSearch.getValue();
+        bankAccounts = bankAccountDao.SelectAllBankAccount();
+        if (!bankAccounts.isEmpty()) {
+            bank_data.clear();
+
+            // name Only
+            if (!emptyName && from == null && to == null) {
+
+                String name = bankNameSearch.getSelectionModel().getSelectedItem().toString();
+
+                bankAccounts.stream().filter(bankAccount -> {
+                    if (bankAccount.getBankid().getName().equals(name)) {
+                        return true;
+
+                    }
+
+                    return false;
+                }).forEach(bankAccount -> {
+
+                    bank_data.add(new BankTable(bankAccount.getId(), bankAccount.getBankid().getName(), bankAccount.getBankid().getNumber(), bankAccount.getDate().toString(), bankAccount.getType(), bankAccount.getMoney(), bankAccount.getNotes()));
+
+
+                });
+
+
+            }
+            if (!emptyName && from != null && to == null) {
+
+                String name = bankNameSearch.getSelectionModel().getSelectedItem().toString();
+                Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+                bankAccounts.stream().filter(bankAccount -> {
+                    if (bankAccount.getBankid().getName().equals(name) && (bankAccount.getDate().after(fromDate) || bankAccount.getDate().compareTo(fromDate) == 0)) {
+                        return true;
+
+                    }
+
+                    return false;
+                }).forEach(bankAccount -> {
+
+                    bank_data.add(new BankTable(bankAccount.getId(), bankAccount.getBankid().getName(), bankAccount.getBankid().getNumber(), bankAccount.getDate().toString(), bankAccount.getType(), bankAccount.getMoney(), bankAccount.getNotes()));
+
+
+                });
+
+
+            }
+            if (!emptyName && from == null && to != null) {
+
+                String name = bankNameSearch.getSelectionModel().getSelectedItem().toString();
+                Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+                bankAccounts.stream().filter(bankAccount -> {
+                    if (bankAccount.getBankid().getName().equals(name) && (bankAccount.getDate().before(toDate) || bankAccount.getDate().compareTo(toDate) == 0)) {
+                        return true;
+
+                    }
+
+                    return false;
+                }).forEach(bankAccount -> {
+
+                    bank_data.add(new BankTable(bankAccount.getId(), bankAccount.getBankid().getName(), bankAccount.getBankid().getNumber(), bankAccount.getDate().toString(), bankAccount.getType(), bankAccount.getMoney(), bankAccount.getNotes()));
+
+
+                });
+
+
+            }
+
+            if (!emptyName && from != null && to != null) {
+
+                String name = bankNameSearch.getSelectionModel().getSelectedItem().toString();
+                Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
+                Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+                bankAccounts.stream().filter(bankAccount -> {
+                    if (bankAccount.getBankid().getName().equals(name) &&
+                            (bankAccount.getDate().before(toDate) || bankAccount.getDate().compareTo(toDate) == 0) &&
+                            (bankAccount.getDate().after(fromDate) || bankAccount.getDate().compareTo(fromDate) == 0)
+                            ) {
+                        return true;
+
+                    }
+
+                    return false;
+                }).forEach(bankAccount -> {
+
+                    bank_data.add(new BankTable(bankAccount.getId(), bankAccount.getBankid().getName(), bankAccount.getBankid().getNumber(), bankAccount.getDate().toString(), bankAccount.getType(), bankAccount.getMoney(), bankAccount.getNotes()));
+
+
+                });
+
+
+            }
+
+            if (emptyName && from != null && to != null) {
+
+                Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
+                Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+                bankAccounts.stream().filter(bankAccount -> {
+                    if (
+                            (bankAccount.getDate().before(toDate) || bankAccount.getDate().compareTo(toDate) == 0) &&
+                            (bankAccount.getDate().after(fromDate) || bankAccount.getDate().compareTo(fromDate) == 0)
+                            ) {
+                        return true;
+
+                    }
+
+                    return false;
+                }).forEach(bankAccount -> {
+
+                    bank_data.add(new BankTable(bankAccount.getId(), bankAccount.getBankid().getName(), bankAccount.getBankid().getNumber(), bankAccount.getDate().toString(), bankAccount.getType(), bankAccount.getMoney(), bankAccount.getNotes()));
+
+
+                });
+
+
+            }
+            if (emptyName && from != null && to == null) {
+
+                Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+                bankAccounts.stream().filter(bankAccount -> {
+                    if (
+                            (bankAccount.getDate().after(fromDate) || bankAccount.getDate().compareTo(fromDate) == 0)
+                            ) {
+                        return true;
+
+                    }
+
+                    return false;
+                }).forEach(bankAccount -> {
+
+                    bank_data.add(new BankTable(bankAccount.getId(), bankAccount.getBankid().getName(), bankAccount.getBankid().getNumber(), bankAccount.getDate().toString(), bankAccount.getType(), bankAccount.getMoney(), bankAccount.getNotes()));
+
+
+                });
+
+
+            }
+            if (emptyName && from == null && to != null) {
+
+                Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+                bankAccounts.stream().filter(bankAccount -> {
+                    if (
+                            (bankAccount.getDate().before(toDate) || bankAccount.getDate().compareTo(toDate) == 0)
+                            ) {
+                        return true;
+
+                    }
+
+                    return false;
+                }).forEach(bankAccount -> {
+
+                    bank_data.add(new BankTable(bankAccount.getId(), bankAccount.getBankid().getName(), bankAccount.getBankid().getNumber(), bankAccount.getDate().toString(), bankAccount.getType(), bankAccount.getMoney(), bankAccount.getNotes()));
+
+
+                });
+
+
+            }
+
+
+
+
+            final TreeItem<BankTable> Client_root = new RecursiveTreeItem<BankTable>(bank_data, RecursiveTreeObject::getChildren);
+            bankTable.setRoot(Client_root);
+
+        }
 
     }
 
