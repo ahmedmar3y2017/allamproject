@@ -297,7 +297,6 @@ public class kashfHesabController implements Initializable {
 
             }
             if (emptyName && from != null && to == null) {
-                System.err.println("From ");
 
                 Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
@@ -311,7 +310,6 @@ public class kashfHesabController implements Initializable {
 
                     return false;
                 }).forEach(maintable1 -> {
-                    System.err.println("From ");
 
                     HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
 

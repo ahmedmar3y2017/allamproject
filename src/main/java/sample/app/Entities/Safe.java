@@ -51,14 +51,31 @@ public class Safe implements Serializable {
     @Basic(optional = false)
     private Integer id;
     private String type;
+    private Double money;
     private String notes;
     @Temporal(TemporalType.DATE)
     private Date date;
     @JoinColumn(name = "usersid", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Users usersid;
 
     public Safe() {
+    }
+
+    public Safe(String type, double money, String notes, Date date, Users usersid) {
+        this.type = type;
+        this.notes = notes;
+        this.date = date;
+        this.usersid = usersid;
+        this.money = money;
+    }
+
+    public Double getMoney() {
+        return money;
+    }
+
+    public void setMoney(Double money) {
+        this.money = money;
     }
 
     public Safe(Integer id) {
