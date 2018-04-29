@@ -545,8 +545,8 @@ public class naklController implements Initializable {
         lastHbox.setLayoutY(primaryScreenBounds.getHeight() - 75);
 //        hbox4.setLayoutY(table.getPrefHeight());
         table.setPrefHeight(primaryScreenBounds.getHeight() - 300);
-        System.out.println(lastHbox.getPrefHeight());
-        System.out.println("table height " + table.getPrefHeight());
+
+
         //set date on init
         String newstring = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
         date.setValue(LOCAL_DATE(newstring));
