@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/accordion.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.Settings.seetingsController">
+   <children>
+      <Accordion fx:id="accordion" nodeOrientation="RIGHT_TO_LEFT" prefHeight="406.0" prefWidth="600.0">
+        <panes>
+          <TitledPane fx:id="pane1" text="تسجيل الخروج">
+            <content>
+                  <Pane fx:id="mainPane" layoutX="93.0">
+                     <children>
+                        <Label fx:id="label" layoutX="193.0" layoutY="43.0" text="أضغط هنا لتسجيل الخروج">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXButton fx:id="logoutBtn" layoutX="199.0" layoutY="99.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#logoutAction" style="-fx-background-color: #eb4d4b;" text="   تسجيل الخروج" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="50.0" fitWidth="40.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/logout.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton fx:id="closeBtn" layoutX="200.0" layoutY="174.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#closeAction" prefHeight="52.0" prefWidth="184.0" style="-fx-background-color: #6ab04c;" text="إغلاق البرنامج   " textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="50.0" fitWidth="40.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/close.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+            </content>
+          </TitledPane>
+          <TitledPane fx:id="pane22" text="معلومات الحساب">
+               <content>
+                  <Pane fx:id="pane2" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <HBox fx:id="hbox1" layoutX="58.0" layoutY="35.0">
+                           <children>
+                              <Label layoutX="58.0" layoutY="35.0" prefWidth="170.0" text="اسم المستخدم الحالى :">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="33.0" prefWidth="250.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="hbox2" layoutX="57.0" layoutY="84.0">
+                           <children>
+                              <Label layoutX="58.0" layoutY="35.0" prefWidth="170.0" text="كلمة السر الحالية :">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="33.0" prefWidth="250.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="hbox3" layoutX="55.0" layoutY="137.0">
+                           <children>
+                              <Label layoutX="58.0" layoutY="35.0" prefWidth="170.0" text="كلمة السر الجديدة :">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="33.0" prefWidth="250.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="hbox4" layoutX="57.0" layoutY="182.0">
+                           <children>
+                              <Label layoutX="58.0" layoutY="35.0" prefWidth="170.0" text="تأكيد كلمة السر  :">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="33.0" prefWidth="250.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="hbox5" layoutX="77.0" layoutY="233.0">
+                           <children>
+                              <Label layoutX="58.0" layoutY="35.0" prefWidth="200.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <JFXButton prefHeight="33.0" prefWidth="170.0" style="-fx-background-color: #6ab04c;" text="حفظ المعلومات" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold Italic" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+               </content>
+          </TitledPane>
+          <TitledPane fx:id="pane3" text="untitled 3">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+   </children>
+</AnchorPane>
