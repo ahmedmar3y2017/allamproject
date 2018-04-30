@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -17,29 +25,72 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.KashfHesab.kashfHesabController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.KashfHesab.kashfHesabController">
     <children>
         <Pane fx:id="kashfHesab">
             <children>
                 <HBox fx:id="hbox1" alignment="TOP_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
                     <children>
-                        <JFXButton fx:id="search" buttonType="RAISED" onAction="#searchAction" prefHeight="33.0" prefWidth="120.0" styleClass="round-red" text="بحث" textFill="WHITE">
+                        <JFXButton fx:id="refresh" buttonType="RAISED" onAction="#refreshAction" prefHeight="33.0" prefWidth="160.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="17.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/clear-icon-3.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="displayAll" buttonType="RAISED" onAction="#displayAllAction" prefHeight="33.0" prefWidth="140.0" styleClass="round-red" text="عرض الكل" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="17.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/eye.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="search" buttonType="RAISED" onAction="#searchAction" prefHeight="33.0" prefWidth="100.0" styleClass="round-red" text="بحث" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="17.0" />
                             </font>
                             <HBox.margin>
-                                <Insets left="10.0" right="30.0" />
+                                <Insets right="10.0" />
                             </HBox.margin>
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/search.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                         </JFXButton>
                         <DatePicker fx:id="to" layoutX="10.0" layoutY="25.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="200.0" promptText="التاريخ " HBox.hgrow="ALWAYS">
                             <HBox.margin>
                                 <Insets right="4.0" />
                             </HBox.margin>
                         </DatePicker>
-                        <Label layoutX="184.0" layoutY="25.0" prefHeight="21.0" prefWidth="110.0" text="من :">
+                        <Label layoutX="184.0" layoutY="25.0" prefHeight="21.0" prefWidth="50.0" text="من :">
                             <font>
                                 <Font name="System Bold" size="15.0" />
                             </font>
@@ -49,7 +100,7 @@
                                 <Insets right="4.0" />
                             </HBox.margin>
                         </DatePicker>
-                        <Label layoutX="888.0" layoutY="20.0" prefHeight="21.0" prefWidth="110.0" text="من :">
+                        <Label layoutX="888.0" layoutY="20.0" prefHeight="21.0" prefWidth="50.0" text="من :">
                             <font>
                                 <Font name="System Bold" size="15.0" />
                             </font>
@@ -68,6 +119,9 @@
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
+                     <HBox.margin>
+                        <Insets right="2.0" top="2.0" />
+                     </HBox.margin>
                         </Button>
                         <ComboBox fx:id="clientName" editable="true" onMouseClicked="#clientNameMouseClick" prefHeight="33.0" prefWidth="200.0" promptText="اسم العميل" HBox.hgrow="ALWAYS">
                             <HBox.margin>
@@ -79,22 +133,6 @@
                                 <Font name="System Bold" size="15.0" />
                             </font>
                         </Label>
-                        <JFXButton fx:id="displayAll" buttonType="RAISED" onAction="#displayAllAction" prefHeight="33.0" prefWidth="120.0" styleClass="round-red" text="عرض الكل" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="17.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </JFXButton>
-                        <JFXButton fx:id="refresh" buttonType="RAISED" onAction="#refreshAction" prefHeight="33.0" prefWidth="120.0" styleClass="round-red" text="تفريغ الحقول" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="17.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </JFXButton>
                     </children>
                     <padding>
                         <Insets left="20.0" top="15.0" />
@@ -131,7 +169,7 @@
                 </HBox>
                 <HBox fx:id="lasthbox" alignment="TOP_CENTER" layoutX="500.0" layoutY="500.0">
                     <children>
-                        <JFXButton fx:id="printBtn" buttonType="RAISED" onAction="#printAction" prefHeight="38.0" prefWidth="139.0" styleClass="round-red" text="طباعة" textFill="WHITE">
+                        <JFXButton fx:id="printBtn" buttonType="RAISED" onAction="#printAction" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: #c8d6e5;" text="طباعة" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="17.0" />
                             </font>

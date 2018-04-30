@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -15,7 +23,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.Clients.clientsController">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.Clients.clientsController">
    <children>
       <Pane fx:id="kashfHesab" layoutX="-98.0" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -53,7 +61,7 @@
                   </TextField>
                   <HBox fx:id="hbox1" alignment="TOP_RIGHT" layoutY="196.0" nodeOrientation="LEFT_TO_RIGHT">
                      <children>
-                        <JFXButton fx:id="update" onAction="#updateAction" prefHeight="33.0" prefWidth="110.0" style="-fx-background-color: #48dbfb;" text="تعديل" textFill="WHITE">
+                        <JFXButton fx:id="update" onAction="#updateAction" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #48dbfb;" text="تعديل" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font>
@@ -71,7 +79,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </JFXButton>
-                        <JFXButton fx:id="save" layoutX="40.0" layoutY="25.0" onAction="#saveAction" prefHeight="33.0" prefWidth="110.0" style="-fx-background-color: ;" styleClass="round-red" text="إضافة" textFill="WHITE">
+                        <JFXButton fx:id="save" layoutX="40.0" layoutY="25.0" onAction="#saveAction" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: ;" styleClass="round-red" text="إضافة" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font>
@@ -94,7 +102,7 @@
                         <Insets left="20.0" top="15.0" />
                      </padding>
                   </HBox>
-                  <JFXButton fx:id="refresh" layoutX="120.0" layoutY="278.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#refreshAction" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
+                  <JFXButton fx:id="refresh" layoutX="95.0" layoutY="278.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#refreshAction" prefHeight="33.0" prefWidth="140.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -131,9 +139,12 @@
                   <Insets left="10.0" />
                </padding>
             </HBox>
-            <HBox fx:id="lasthbox" alignment="TOP_CENTER" layoutX="688.0" layoutY="495.0" nodeOrientation="RIGHT_TO_LEFT">
+            <HBox fx:id="lasthbox" alignment="TOP_CENTER" layoutX="922.0" layoutY="495.0" nodeOrientation="RIGHT_TO_LEFT">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
                <children>
-                  <JFXButton fx:id="delete" nodeOrientation="LEFT_TO_RIGHT" onAction="#deleteAction" prefHeight="38.0" prefWidth="139.0" style="-fx-background-color: #ff6b6b;" text="مسح" textFill="WHITE">
+                  <JFXButton fx:id="delete" nodeOrientation="LEFT_TO_RIGHT" onAction="#deleteAction" prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #ff6b6b;" text="مسح" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -144,17 +155,11 @@
                            </image>
                         </ImageView>
                      </graphic>
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
                </children>
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
             </HBox>
             <ComboBox fx:id="clientSearchName" editable="true" layoutX="564.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#clientNameMouseClick" prefHeight="38.0" prefWidth="300.0" promptText="اسم العميل" />
             <Label alignment="BOTTOM_LEFT" layoutX="455.0" layoutY="18.0" prefHeight="21.0" prefWidth="110.0" text="اسم العميل :">
@@ -162,7 +167,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <JFXButton fx:id="displayAll" layoutX="890.0" layoutY="14.0" onAction="#displayAllAction" prefHeight="38.0" prefWidth="207.0" style="-fx-background-color: #48dbfb;" text="عرض كل العملاء" textFill="WHITE">
+            <JFXButton fx:id="displayAll" contentDisplay="RIGHT" layoutX="910.0" layoutY="14.0" onAction="#displayAllAction" prefHeight="38.0" prefWidth="170.0" style="-fx-background-color: #48dbfb;" text="عرض كل العملاء" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>

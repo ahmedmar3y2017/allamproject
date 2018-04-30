@@ -79,18 +79,18 @@
                         </ImageView>
                     </graphic>
                 </JFXButton>
-                <JFXButton fx:id="clients1" contentDisplay="TOP" layoutX="11.0" layoutY="1210.0" onAction="#MainButtonAction" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="الإعدادات" textAlignment="CENTER" textFill="#33d9b2">
-                    <font>
-                        <Font name="System Bold" size="18.0" />
-                    </font>
-                    <graphic>
-                        <ImageView id="tab" fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/Settings-icon.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </JFXButton>
+            <JFXButton fx:id="clients1" contentDisplay="TOP" layoutX="11.0" layoutY="1210.0" onAction="#MainButtonAction" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="الإعدادات" textAlignment="CENTER" textFill="#33d9b2">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView id="tab" fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Settings-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
             </children>
             <cursor>
                 <Cursor fx:constant="HAND" />
