@@ -1,9 +1,12 @@
 package sample.app.Transactions.UserDao;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import sample.app.Entities.Users;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -29,59 +32,41 @@ public class userDao {
     public static Users UpdateUsers(int id, Users Users) {
 
         Session session = sessionFactory.openSession();
-        if (SelectUsers(id) == null) {
-            session.close();
-            return null;
-
-        } else {
 
 
-            session.beginTransaction();
-            session.update(String.valueOf(id), Users);
+        session.beginTransaction();
+        session.update(String.valueOf(id), Users);
 
-            session.getTransaction().commit();
-            Users c = (Users) session.get(Users.class, id);
-            session.close();
-
-            return c;
-        }
-
-    }
-
-    public static Users DeleteUsers(int id) {
-        Session session = sessionFactory.openSession();
-
-        Users c = SelectUsers(id);
-        if (c == null) {
-            session.close();
-
-            return null;
-
-        } else {
-            session.beginTransaction();
-            session.delete(c);
-
-            session.getTransaction().commit();
-            Users s1 = (Users) session.get(Users.class, id);
-            session.close();
-
-            return s1;
-        }
-    }
-
-    public static Users SelectUsers(int id) {
-
-        Session session = sessionFactory.openSession();
-        Users Users = (Users) session.get(Users.class, id);
-
-        if (Users == null) {
-            session.close();
-
-            return null;
-        }
+        session.getTransaction().commit();
+        Users c = (Users) session.get(Users.class, id);
         session.close();
 
-        return Users;
+        return c;
+
+
+    }
+
+
+    public static int SelectUsers(String phone, String password) {
+
+        Session session = sessionFactory.openSession();
+        Criteria cr = session.createCriteria(Users.class);
+        // To get total salary.
+        System.out.println(phone);
+        cr.add(Restrictions.eq("phone", phone));
+        cr.add(Restrictions.eq("password", password));
+        List employees = cr.list();
+        int idEmployee = 0;
+
+//        System.out.println("" + totalSalary.get(0));
+        for (Iterator iterator = employees.iterator(); iterator.hasNext(); ) {
+            Users employee = (Users) iterator.next();
+            System.out.print("First Name: " + employee.getName());
+            System.out.print("  Last Name: " + employee.getId());
+            idEmployee = employee.getId();
+        }
+
+        return idEmployee;
 
     }
 

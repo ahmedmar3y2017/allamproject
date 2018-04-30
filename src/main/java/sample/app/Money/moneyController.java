@@ -32,6 +32,7 @@ import sample.app.Transactions.BankAccountDao.bankAccountDao;
 import sample.app.Transactions.BankDao.bankDao;
 import sample.app.Transactions.SafeDao.safeDao;
 import sample.app.dialogs.dialog;
+import sample.app.login.LoginController;
 import sample.shared.AutoCompleteComboBoxListener;
 import sample.shared.Validation.Validation;
 
@@ -979,6 +980,9 @@ public class moneyController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        this.userId = LoginController.idEmployee;
+
 // ------------ set gardio Button  ----------------
         bankEdaa.setToggleGroup(groupbank);
         bankSahb.setToggleGroup(groupbank);
