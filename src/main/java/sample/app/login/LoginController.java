@@ -7,6 +7,7 @@ import com.jfoenix.controls.JFXTextField;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +23,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.hibernate.SessionFactory;
+import sample.app.Entities.Users;
+import sample.app.Home.mainHome;
+import sample.app.Transactions.UserDao.userDao;
+import sample.shared.HibernateUtil.HibernateUtil;
 
 public class LoginController implements Initializable {
 
@@ -55,7 +62,7 @@ public class LoginController implements Initializable {
 
         Thread thread2 = new Thread() {
             public void run() {
-//                SessionFactory sessionFactory = com.shared.HibernateUtil.HibernateUtil.getSessionFactory();
+                SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
             }
         };
@@ -79,23 +86,24 @@ public class LoginController implements Initializable {
     @FXML
     private void btnLogin() {
 
+
         try {
             loginFunction();
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        if (usernameField.getText().isEmpty()) {
-//            errorMsg.show("Username is empty !", 1500);
-//            return;
-//        }
-//        if (passwordField.getText().isEmpty()) {
-//            errorMsg.show("Password is empty !", 1500);
-//            return;
-//        }
-//        System.out.println("Username : " + usernameField.getText());
-//        System.out.println("Password : " + passwordField.getText());
-//
-//        errorMsg.show("Success !", 2000);
+        if (usernameField.getText().isEmpty()) {
+            errorMsg.show("Username is empty !", 1500);
+            return;
+        }
+        if (passwordField.getText().isEmpty()) {
+            errorMsg.show("Password is empty !", 1500);
+            return;
+        }
+        System.out.println("Username : " + usernameField.getText());
+        System.out.println("Password : " + passwordField.getText());
+
+        errorMsg.show("Success !", 2000);
 
     }
 
@@ -105,18 +113,35 @@ public class LoginController implements Initializable {
     }
 
     private void loginFunction() throws IOException {
-//
-//        idEmployee = loginDao.SelectEmployees(usernameField.getText().toString(), passwordField.getText().toString());
-//        if (idEmployee != 0) {
-//
-//            errorMsg.show("Success !", 2000);
-//            // close this Stage
-//            ((Stage) this.usernameField.getScene().getWindow()).close();
-//            startProject x = new startProject("");
-//        } else {
-//            errorMsg.show("اسم المستخدم او الباسورد خطأ", 2000);
-//
-//        }
+
+        List<Users> employees = userDao.SelectAllUsers();
+        if (employees.isEmpty()) {
+
+            // insert into table database employee
+
+            Users employees1 = userDao.SaveUsers(new
+                    Users(
+                    "admin",
+                    "admin", "admin"));
+
+
+        }
+        idEmployee = userDao.SelectUsers(usernameField.getText().toString(), passwordField.getText().toString());
+        if (idEmployee != 0) {
+
+            errorMsg.show("Success !", 2000);
+            // close this Stage
+            ((Stage) this.usernameField.getScene().getWindow()).close();
+
+            mainHome mainHome = new mainHome();
+
+
+        } else {
+            errorMsg.show("اسم المستخدم او الباسورد خطأ", 2000);
+
+        }
+
+
     }
 
     @FXML

@@ -26,20 +26,20 @@ import java.util.ResourceBundle;
 
 public class seetingsController implements Initializable {
     @FXML
-    Accordion accordion ;
+    Accordion accordion;
 
     @FXML
-    Pane mainPane , pane2;
+    Pane mainPane, pane2;
     @FXML
     Label label;
 
     @FXML
-    JFXButton logoutBtn , closeBtn;
+    JFXButton logoutBtn, closeBtn;
 
     @FXML
-    HBox hbox1 , hbox2  , hbox3 , hbox4 , hbox5 ;
+    HBox hbox1, hbox2, hbox3, hbox4, hbox5;
     @FXML
-    private TitledPane pane1,pane22;
+    private TitledPane pane1, pane22;
 
     @Override
 
@@ -50,11 +50,11 @@ public class seetingsController implements Initializable {
         accordion.setPrefWidth(screenWidth);
 //        accordion.setPrefHeight(primaryScreenBounds.getHeight());
 
-     double   width = primaryScreenBounds.getWidth() - 250;
-            label.setLayoutX( width / 2 );
-        logoutBtn.setLayoutX( width/ 2 );
-        closeBtn.setLayoutX( width/ 2 );
-      pane2.setPrefWidth(screenWidth);
+        double width = primaryScreenBounds.getWidth() - 250;
+        label.setLayoutX(width / 2);
+        logoutBtn.setLayoutX(width / 2);
+        closeBtn.setLayoutX(width / 2);
+        pane2.setPrefWidth(screenWidth);
 
         hbox1.setPrefWidth(primaryScreenBounds.getWidth() - 185);
         hbox2.setPrefWidth(primaryScreenBounds.getWidth() - 185);
@@ -63,14 +63,10 @@ public class seetingsController implements Initializable {
         hbox5.setPrefWidth(primaryScreenBounds.getWidth() - 185);
 
 
-
         accordion.setExpandedPane(pane1);
 
 
-
     }
-
-
 
 
     public void logoutAction(javafx.event.ActionEvent actionEvent) {
@@ -84,8 +80,6 @@ public class seetingsController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
 
 
     }
