@@ -105,6 +105,11 @@ public class homeController implements Initializable {
 
     }
 
+    @FXML
+    void settingButtonAction(ActionEvent event) {
+
+    }
+
 
     private void setNode(Node node) {
         homepage.getChildren().clear();
