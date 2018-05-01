@@ -31,10 +31,10 @@ public class seetingsController implements Initializable {
     @FXML
     Pane mainPane, pane2;
     @FXML
-    Label label;
+    Label label ,label2;
 
     @FXML
-    JFXButton logoutBtn, closeBtn;
+    JFXButton logoutBtn, closeBtn , backup;
 
     @FXML
     HBox hbox1, hbox2, hbox3, hbox4, hbox5;
@@ -51,8 +51,11 @@ public class seetingsController implements Initializable {
 //        accordion.setPrefHeight(primaryScreenBounds.getHeight());
 
         double width = primaryScreenBounds.getWidth() - 250;
-        label.setLayoutX(width / 2);
-        logoutBtn.setLayoutX(width / 2);
+        label.setLayoutX(width / 2 );
+
+        label2.setLayoutX( (width / 2) - 160) ;
+        logoutBtn.setLayoutX( width / 2);
+        backup.setLayoutX((width / 2) - 130);
         closeBtn.setLayoutX(width / 2);
         pane2.setPrefWidth(screenWidth);
 
