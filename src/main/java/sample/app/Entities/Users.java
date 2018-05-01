@@ -5,23 +5,16 @@
  */
 package sample.app.Entities;
 
+import org.hibernate.annotations.*;
 import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
+import javax.persistence.*;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -29,6 +22,7 @@ import javax.xml.bind.annotation.XmlTransient;
 /**
  * @author ahmed mar3y
  */
+@Where(clause = "isActive=1")
 @Entity
 @Table(catalog = "allam", schema = "")
 @XmlRootElement
@@ -52,6 +46,9 @@ public class Users implements Serializable {
     private String name;
     private String phone;
     private String password;
+    @Column(name = "isActive", columnDefinition = "boolean default true")
+
+    private Boolean isActive;
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usersid", fetch = FetchType.LAZY)
     private List<Notes> notesList;
@@ -67,6 +64,14 @@ public class Users implements Serializable {
         this.name = name;
         this.phone = phone;
         this.password = password;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 
     public Users(Integer id) {
