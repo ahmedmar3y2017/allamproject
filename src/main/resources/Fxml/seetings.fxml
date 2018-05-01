@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/accordion.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.Settings.seetingsController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/accordion.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.Settings.seetingsController">
    <children>
       <Accordion fx:id="accordion" nodeOrientation="RIGHT_TO_LEFT" prefHeight="406.0" prefWidth="600.0">
         <panes>
@@ -63,15 +68,23 @@
                      <children>
                         <HBox fx:id="hbox1" layoutX="58.0" layoutY="35.0">
                            <children>
-                              <Label layoutX="58.0" layoutY="35.0" prefWidth="170.0" text="اسم المستخدم الحالى :">
+                              <Label layoutX="58.0" layoutY="35.0" prefWidth="170.0" text="رقم الموبايل  : ">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="33.0" prefWidth="250.0">
+                              <TextField fx:id="currentPhoneNumber" prefHeight="33.0" prefWidth="154.0">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="newPhoneNumber" prefHeight="33.0" prefWidth="145.0">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
                               </TextField>
                            </children>
                         </HBox>
@@ -82,11 +95,11 @@
                                     <Font name="System Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="33.0" prefWidth="250.0">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </TextField>
+                              <PasswordField fx:id="currentPassword" prefHeight="25.0" prefWidth="254.0">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </PasswordField>
                            </children>
                         </HBox>
                         <HBox fx:id="hbox3" layoutX="55.0" layoutY="137.0">
@@ -96,11 +109,11 @@
                                     <Font name="System Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="33.0" prefWidth="250.0">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </TextField>
+                              <PasswordField fx:id="newPassword" prefHeight="25.0" prefWidth="243.0">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </PasswordField>
                            </children>
                         </HBox>
                         <HBox fx:id="hbox4" layoutX="57.0" layoutY="182.0">
@@ -110,11 +123,11 @@
                                     <Font name="System Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="33.0" prefWidth="250.0">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </TextField>
+                              <PasswordField fx:id="newConfirmPassword" prefHeight="25.0" prefWidth="239.0">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </PasswordField>
                            </children>
                         </HBox>
                         <HBox fx:id="hbox5" layoutX="77.0" layoutY="233.0">
@@ -124,7 +137,15 @@
                                     <Font name="System Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <JFXButton prefHeight="33.0" prefWidth="170.0" style="-fx-background-color: #2ed573;" text="حفظ المعلومات" textFill="WHITE">
+                              <JFXButton fx:id="savePassword" onAction="#savePasswordAction" prefHeight="39.0" prefWidth="165.0" style="-fx-background-color: #2ed573;" text="تعديل كلمه السر " textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold Italic" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
+                              <JFXButton fx:id="savePhone" onAction="#savePhoneAction" prefHeight="33.0" prefWidth="170.0" style="-fx-background-color: #2ed573;" text="تعديل الموبايل" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold Italic" size="18.0" />
                                  </font>

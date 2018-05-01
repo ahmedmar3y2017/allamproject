@@ -20,13 +20,17 @@
             </plugin>
 
             <!--*********************** plugin to get jav with dependences ********************-->
+            <!--mvn clean compile assembly:single-->
+
             <plugin>
+
+
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
                     <archive>
                         <manifest>
                             <!--<addClasspath>true</addClasspath>-->
-                            <mainClass>sample.app.main.startMain</mainClass>
+                            <mainClass>sample.app.login.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

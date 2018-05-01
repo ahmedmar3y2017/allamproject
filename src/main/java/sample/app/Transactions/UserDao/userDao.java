@@ -1,6 +1,7 @@
 package sample.app.Transactions.UserDao;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -83,4 +84,55 @@ public class userDao {
     }
 
 
+    public static Users UpdatePassword(int idEmployee, String s) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+
+        Query query = session.createQuery("update Users as us set us.password=:pass where us.id=:id");
+        query.setParameter("pass", s);
+        query.setParameter("id", idEmployee);
+        query.executeUpdate();
+
+        session.getTransaction().commit();
+        Users users = session.get(Users.class, idEmployee);
+
+        session.close();
+
+
+        return users;
+    }
+
+    public static Users SelectUserById(int idEmployee) {
+
+        Session session = sessionFactory.openSession();
+        Users users = session.get(Users.class, idEmployee);
+
+        session.close();
+
+        return users;
+
+
+    }
+
+    public static Users UpdatePhone(int idEmployee, String s) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+
+        Query query = session.createQuery("update Users as us set us.phone=:phone where us.id=:id");
+        query.setParameter("phone", s);
+        query.setParameter("id", idEmployee);
+        query.executeUpdate();
+
+        session.getTransaction().commit();
+        Users users = session.get(Users.class, idEmployee);
+
+        session.close();
+
+
+        return users;
+
+
+    }
 }
