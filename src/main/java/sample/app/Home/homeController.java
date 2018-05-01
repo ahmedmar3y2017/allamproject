@@ -26,8 +26,6 @@ public class homeController implements Initializable {
     @FXML
     private Pane homepage;
 
-    @FXML
-    private JFXButton setting;
 
     Pane holderPane;
 
@@ -45,6 +43,9 @@ public class homeController implements Initializable {
 
     @FXML
     private JFXButton clients;
+
+    @FXML
+    private JFXButton setting;
     Object ppanel;
 
     @FXML
@@ -92,6 +93,8 @@ public class homeController implements Initializable {
 
             holderPane = FXMLLoader.load(getClass().getResource("/fxml/clients.fxml"));
             setNode(holderPane);
+            System.out.println(setting);
+            System.out.println(clients);
         }
 
         if (event.getSource() == setting && ppanel != setting) {

@@ -79,7 +79,7 @@
                         </ImageView>
                     </graphic>
                 </JFXButton>
-                <JFXButton fx:id="seetings" contentDisplay="TOP" layoutX="11.0" layoutY="1210.0" onAction="#MainButtonAction" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="الإعدادات" textAlignment="CENTER" textFill="#33d9b2">
+                <JFXButton fx:id="setting" contentDisplay="TOP" layoutX="11.0" layoutY="1210.0" onAction="#MainButtonAction" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="الإعدادت" textAlignment="CENTER" textFill="#33d9b2">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
