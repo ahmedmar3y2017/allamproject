@@ -299,6 +299,8 @@ public class moneyController implements Initializable {
             money_data.clear();
 
             if (to != null && from != null) {
+                final double[] totalSahb = {0.0};
+                final double[] totalEdaa = {0.0};
 
                 Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
                 Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -312,14 +314,25 @@ public class moneyController implements Initializable {
                     return false;
 
                 }).forEach(safe -> {
+                    if (safe.getType().equals("سحب")) {
 
+                        totalSahb[0] += safe.getMoney();
+                    }
+                    if (safe.getType().equals("إيداع")) {
+
+                        totalEdaa[0] += safe.getMoney();
+                    }
                     money_data.add(new MoneyTable(safe.getId(), safe.getUsersid().getName(), safe.getType(), safe.getDate().toString(), safe.getMoney(), safe.getNotes()));
 
                 });
 
+                moneyTotalMoney.setText((totalEdaa[0] - totalSahb[0]) + "");
 
             }
             if (to == null && from != null) {
+                final double[] totalSahb = {0.0};
+                final double[] totalEdaa = {0.0};
+
                 Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
                 saveList.stream().filter(safe -> {
 
@@ -331,14 +344,25 @@ public class moneyController implements Initializable {
                     return false;
 
                 }).forEach(safe -> {
+                    if (safe.getType().equals("سحب")) {
 
+                        totalSahb[0] += safe.getMoney();
+                    }
+                    if (safe.getType().equals("إيداع")) {
+
+                        totalEdaa[0] += safe.getMoney();
+                    }
                     money_data.add(new MoneyTable(safe.getId(), safe.getUsersid().getName(), safe.getType(), safe.getDate().toString(), safe.getMoney(), safe.getNotes()));
 
                 });
 
+                moneyTotalMoney.setText((totalEdaa[0] - totalSahb[0]) + "");
 
             }
             if (to != null && from == null) {
+                final double[] totalSahb = {0.0};
+                final double[] totalEdaa = {0.0};
+
                 Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
                 saveList.stream().filter(safe -> {
 
@@ -350,11 +374,19 @@ public class moneyController implements Initializable {
                     return false;
 
                 }).forEach(safe -> {
+                    if (safe.getType().equals("سحب")) {
 
+                        totalSahb[0] += safe.getMoney();
+                    }
+                    if (safe.getType().equals("إيداع")) {
+
+                        totalEdaa[0] += safe.getMoney();
+                    }
                     money_data.add(new MoneyTable(safe.getId(), safe.getUsersid().getName(), safe.getType(), safe.getDate().toString(), safe.getMoney(), safe.getNotes()));
 
                 });
 
+                moneyTotalMoney.setText((totalEdaa[0] - totalSahb[0]) + "");
 
             }
 
@@ -447,8 +479,19 @@ public class moneyController implements Initializable {
 
         if (!saveList.isEmpty()) {
             money_data.clear();
+            final double[] totalSahb = {0.0};
+            final double[] totalEdaa = {0.0};
 
             saveList.forEach(ee -> {
+
+                if (ee.getType().equals("سحب")) {
+
+                    totalSahb[0] += ee.getMoney();
+                }
+                if (ee.getType().equals("إيداع")) {
+
+                    totalEdaa[0] += ee.getMoney();
+                }
 
                 money_data.add(new MoneyTable(ee.getId(),
                         ee.getUsersid().getName(),
@@ -456,6 +499,8 @@ public class moneyController implements Initializable {
                         ee.getDate().toString(), ee.getMoney(),
                         ee.getNotes()));
             });
+            moneyTotalMoney.setText((totalEdaa[0] - totalSahb[0]) + "");
+
             final TreeItem<MoneyTable> Client_root = new RecursiveTreeItem<MoneyTable>(money_data, RecursiveTreeObject::getChildren);
             moneyTable.setRoot(Client_root);
 
@@ -592,6 +637,9 @@ public class moneyController implements Initializable {
     @FXML
     void bankDisplayAllAction(ActionEvent event) {
         // get all Banks Account
+        final double[] totalSahb = {0.0};
+        final double[] totalEdaa = {0.0};
+
 
         bankAccounts = bankAccountDao.SelectAllBankAccount();
 
@@ -599,10 +647,19 @@ public class moneyController implements Initializable {
             bank_data.clear();
 
             bankAccounts.forEach(ee -> {
+                if (ee.getType().equals("سحب")) {
 
+                    totalSahb[0] += ee.getMoney();
+                }
+                if (ee.getType().equals("إيداع")) {
+
+                    totalEdaa[0] += ee.getMoney();
+                }
                 bank_data.add(new BankTable(ee.getId(), ee.getBankid().getName(), ee.getBankid().getNumber(), ee.getDate().toString(), ee.getType(), ee.getMoney(), ee.getNotes()));
 
             });
+            bankMoneyTable.setText((totalEdaa[0] - totalSahb[0]) + "");
+
             final TreeItem<BankTable> Client_root = new RecursiveTreeItem<BankTable>(bank_data, RecursiveTreeObject::getChildren);
             bankTable.setRoot(Client_root);
 
@@ -726,6 +783,10 @@ public class moneyController implements Initializable {
             // name Only
             if (!emptyName && from == null && to == null) {
 
+                final double[] totalSahb = {0.0};
+                final double[] totalEdaa = {0.0};
+
+
                 String name = bankNameSearch.getSelectionModel().getSelectedItem().toString();
 
                 bankAccounts.stream().filter(bankAccount -> {
@@ -736,15 +797,25 @@ public class moneyController implements Initializable {
 
                     return false;
                 }).forEach(bankAccount -> {
+                    if (bankAccount.getType().equals("سحب")) {
 
+                        totalSahb[0] += bankAccount.getMoney();
+                    }
+                    if (bankAccount.getType().equals("إيداع")) {
+
+                        totalEdaa[0] += bankAccount.getMoney();
+                    }
                     bank_data.add(new BankTable(bankAccount.getId(), bankAccount.getBankid().getName(), bankAccount.getBankid().getNumber(), bankAccount.getDate().toString(), bankAccount.getType(), bankAccount.getMoney(), bankAccount.getNotes()));
 
 
                 });
 
-
+                bankMoneyTable.setText((totalEdaa[0] - totalSahb[0]) + "");
             }
             if (!emptyName && from != null && to == null) {
+                final double[] totalSahb = {0.0};
+                final double[] totalEdaa = {0.0};
+
 
                 String name = bankNameSearch.getSelectionModel().getSelectedItem().toString();
                 Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -757,15 +828,26 @@ public class moneyController implements Initializable {
 
                     return false;
                 }).forEach(bankAccount -> {
+                    if (bankAccount.getType().equals("سحب")) {
 
+                        totalSahb[0] += bankAccount.getMoney();
+                    }
+                    if (bankAccount.getType().equals("إيداع")) {
+
+                        totalEdaa[0] += bankAccount.getMoney();
+                    }
                     bank_data.add(new BankTable(bankAccount.getId(), bankAccount.getBankid().getName(), bankAccount.getBankid().getNumber(), bankAccount.getDate().toString(), bankAccount.getType(), bankAccount.getMoney(), bankAccount.getNotes()));
 
 
                 });
 
+                bankMoneyTable.setText((totalEdaa[0] - totalSahb[0]) + "");
 
             }
             if (!emptyName && from == null && to != null) {
+                final double[] totalSahb = {0.0};
+                final double[] totalEdaa = {0.0};
+
 
                 String name = bankNameSearch.getSelectionModel().getSelectedItem().toString();
                 Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -778,16 +860,27 @@ public class moneyController implements Initializable {
 
                     return false;
                 }).forEach(bankAccount -> {
+                    if (bankAccount.getType().equals("سحب")) {
 
+                        totalSahb[0] += bankAccount.getMoney();
+                    }
+                    if (bankAccount.getType().equals("إيداع")) {
+
+                        totalEdaa[0] += bankAccount.getMoney();
+                    }
                     bank_data.add(new BankTable(bankAccount.getId(), bankAccount.getBankid().getName(), bankAccount.getBankid().getNumber(), bankAccount.getDate().toString(), bankAccount.getType(), bankAccount.getMoney(), bankAccount.getNotes()));
 
 
                 });
 
+                bankMoneyTable.setText((totalEdaa[0] - totalSahb[0]) + "");
 
             }
 
             if (!emptyName && from != null && to != null) {
+                final double[] totalSahb = {0.0};
+                final double[] totalEdaa = {0.0};
+
 
                 String name = bankNameSearch.getSelectionModel().getSelectedItem().toString();
                 Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -804,16 +897,27 @@ public class moneyController implements Initializable {
 
                     return false;
                 }).forEach(bankAccount -> {
+                    if (bankAccount.getType().equals("سحب")) {
 
+                        totalSahb[0] += bankAccount.getMoney();
+                    }
+                    if (bankAccount.getType().equals("إيداع")) {
+
+                        totalEdaa[0] += bankAccount.getMoney();
+                    }
                     bank_data.add(new BankTable(bankAccount.getId(), bankAccount.getBankid().getName(), bankAccount.getBankid().getNumber(), bankAccount.getDate().toString(), bankAccount.getType(), bankAccount.getMoney(), bankAccount.getNotes()));
 
 
                 });
 
+                bankMoneyTable.setText((totalEdaa[0] - totalSahb[0]) + "");
 
             }
 
             if (emptyName && from != null && to != null) {
+                final double[] totalSahb = {0.0};
+                final double[] totalEdaa = {0.0};
+
 
                 Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
                 Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -829,15 +933,26 @@ public class moneyController implements Initializable {
 
                     return false;
                 }).forEach(bankAccount -> {
+                    if (bankAccount.getType().equals("سحب")) {
 
+                        totalSahb[0] += bankAccount.getMoney();
+                    }
+                    if (bankAccount.getType().equals("إيداع")) {
+
+                        totalEdaa[0] += bankAccount.getMoney();
+                    }
                     bank_data.add(new BankTable(bankAccount.getId(), bankAccount.getBankid().getName(), bankAccount.getBankid().getNumber(), bankAccount.getDate().toString(), bankAccount.getType(), bankAccount.getMoney(), bankAccount.getNotes()));
 
 
                 });
 
+                bankMoneyTable.setText((totalEdaa[0] - totalSahb[0]) + "");
 
             }
             if (emptyName && from != null && to == null) {
+                final double[] totalSahb = {0.0};
+                final double[] totalEdaa = {0.0};
+
 
                 Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
@@ -851,15 +966,26 @@ public class moneyController implements Initializable {
 
                     return false;
                 }).forEach(bankAccount -> {
+                    if (bankAccount.getType().equals("سحب")) {
 
+                        totalSahb[0] += bankAccount.getMoney();
+                    }
+                    if (bankAccount.getType().equals("إيداع")) {
+
+                        totalEdaa[0] += bankAccount.getMoney();
+                    }
                     bank_data.add(new BankTable(bankAccount.getId(), bankAccount.getBankid().getName(), bankAccount.getBankid().getNumber(), bankAccount.getDate().toString(), bankAccount.getType(), bankAccount.getMoney(), bankAccount.getNotes()));
 
 
                 });
+                bankMoneyTable.setText((totalEdaa[0] - totalSahb[0]) + "");
 
 
             }
             if (emptyName && from == null && to != null) {
+                final double[] totalSahb = {0.0};
+                final double[] totalEdaa = {0.0};
+
 
                 Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
@@ -873,11 +999,19 @@ public class moneyController implements Initializable {
 
                     return false;
                 }).forEach(bankAccount -> {
+                    if (bankAccount.getType().equals("سحب")) {
 
+                        totalSahb[0] += bankAccount.getMoney();
+                    }
+                    if (bankAccount.getType().equals("إيداع")) {
+
+                        totalEdaa[0] += bankAccount.getMoney();
+                    }
                     bank_data.add(new BankTable(bankAccount.getId(), bankAccount.getBankid().getName(), bankAccount.getBankid().getNumber(), bankAccount.getDate().toString(), bankAccount.getType(), bankAccount.getMoney(), bankAccount.getNotes()));
 
 
                 });
+                bankMoneyTable.setText((totalEdaa[0] - totalSahb[0]) + "");
 
 
             }

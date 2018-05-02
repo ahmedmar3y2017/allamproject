@@ -185,6 +185,8 @@ public class kashfHesabController implements Initializable {
             // name Only
             if (!emptyName && from == null && to == null) {
 
+                final double[] sum_clear = {0.0};
+
                 String name = clientName.getSelectionModel().getSelectedItem().toString();
 
                 maintables.stream().filter(maintable1 -> {
@@ -195,15 +197,19 @@ public class kashfHesabController implements Initializable {
 
                     return false;
                 }).forEach(maintable1 -> {
+                    sum_clear[0] += maintable1.getTotal();
 
                     HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
 
 
                 });
 
+                totalMoney.setText(sum_clear[0] + "");
+
 
             }
             if (!emptyName && from != null && to == null) {
+                final double[] sum_clear = {0.0};
 
                 String name = clientName.getSelectionModel().getSelectedItem().toString();
                 Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -216,15 +222,18 @@ public class kashfHesabController implements Initializable {
 
                     return false;
                 }).forEach(maintable1 -> {
+                    sum_clear[0] += maintable1.getTotal();
 
                     HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
 
 
                 });
+                totalMoney.setText(sum_clear[0] + "");
 
 
             }
             if (!emptyName && from == null && to != null) {
+                final double[] sum_clear = {0.0};
 
                 String name = clientName.getSelectionModel().getSelectedItem().toString();
                 Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -237,16 +246,19 @@ public class kashfHesabController implements Initializable {
 
                     return false;
                 }).forEach(maintable1 -> {
+                    sum_clear[0] += maintable1.getTotal();
 
                     HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
 
 
                 });
 
+                totalMoney.setText(sum_clear[0] + "");
 
             }
 
             if (!emptyName && from != null && to != null) {
+                final double[] sum_clear = {0.0};
 
                 String name = clientName.getSelectionModel().getSelectedItem().toString();
                 Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -263,16 +275,19 @@ public class kashfHesabController implements Initializable {
 
                     return false;
                 }).forEach(maintable1 -> {
+                    sum_clear[0] += maintable1.getTotal();
 
                     HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
 
 
                 });
 
+                totalMoney.setText(sum_clear[0] + "");
 
             }
 
             if (emptyName && from != null && to != null) {
+                final double[] sum_clear = {0.0};
 
                 Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
                 Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -288,15 +303,18 @@ public class kashfHesabController implements Initializable {
 
                     return false;
                 }).forEach(maintable1 -> {
+                    sum_clear[0] += maintable1.getTotal();
 
                     HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
 
 
                 });
+                totalMoney.setText(sum_clear[0] + "");
 
 
             }
             if (emptyName && from != null && to == null) {
+                final double[] sum_clear = {0.0};
 
                 Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
@@ -310,15 +328,18 @@ public class kashfHesabController implements Initializable {
 
                     return false;
                 }).forEach(maintable1 -> {
+                    sum_clear[0] += maintable1.getTotal();
 
                     HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
 
 
                 });
+                totalMoney.setText(sum_clear[0] + "");
 
 
             }
             if (emptyName && from == null && to != null) {
+                final double[] sum_clear = {0.0};
 
                 Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
@@ -332,11 +353,13 @@ public class kashfHesabController implements Initializable {
 
                     return false;
                 }).forEach(maintable1 -> {
+                    sum_clear[0] += maintable1.getTotal();
 
                     HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
 
 
                 });
+                totalMoney.setText(sum_clear[0] + "");
 
 
             }
@@ -357,15 +380,18 @@ public class kashfHesabController implements Initializable {
     @FXML
     void displayAllAction(ActionEvent event) {
         // get all and display into table
-        System.out.println("Done");
+        final double[] sum_clear = {0.0};
         HesabTable_data.clear();
         maintables = mainTableDao.SelectAllMaintable();
         maintables.stream().forEach(maintable1 -> {
+            sum_clear[0] += maintable1.getTotal();
 
             HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
 
 
         });
+        totalMoney.setText(sum_clear[0] + "");
+
         final TreeItem<HesabTable> root = new RecursiveTreeItem<HesabTable>(HesabTable_data, RecursiveTreeObject::getChildren);
         table.setRoot(root);
 
