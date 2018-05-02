@@ -7,9 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65f7c3f1-d1d9-42dd-b653-288e610cc20d" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/n.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/app/Settings/seetingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/app/Settings/seetingsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/seetings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/seetings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/nakl.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/nakl.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -64,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/Home/homeController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="124">
-              <caret line="182" selection-start-line="182" selection-end-line="182" />
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
             </state>
           </provider>
         </entry>
@@ -79,12 +79,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="seetings.fxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="seetings.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/Fxml/seetings.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="25" column="158" selection-start-line="25" selection-start-column="158" selection-end-line="25" selection-end-column="158" />
+            <state relative-caret-position="286">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
@@ -103,6 +103,26 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="149">
               <caret line="215" column="35" selection-start-line="215" selection-start-column="27" selection-end-line="215" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nakl.fxml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/Fxml/nakl.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="400" selection-start-line="400" selection-end-line="400" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="n.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/Fxml/n.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="396" column="20" lean-forward="true" selection-end-line="400" />
             </state>
           </provider>
         </entry>
@@ -134,16 +154,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="naklController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/nakl/naklController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3077">
-              <caret line="221" column="5" selection-start-line="221" selection-start-column="5" selection-end-line="225" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -172,7 +190,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/Fxml/menu.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/Fxml/Menu2.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/Fxml/money.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/Fxml/nakl.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/Fxml/rest.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/Fxml/SplashFXML.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/Fxml/tab1.fxml" />
@@ -187,6 +204,8 @@
         <option value="$PROJECT_DIR$/src/main/java/sample/app/Home/homeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/app/Settings/seetingsController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/Fxml/seetings.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/Fxml/n.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/Fxml/nakl.fxml" />
       </list>
     </option>
   </component>
@@ -217,7 +236,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="1294" />
     <option name="height" value="735" />
@@ -790,7 +809,7 @@
       <updated>1525257725782</updated>
       <workItem from="1525257771695" duration="8742000" />
       <workItem from="1525266724552" duration="456000" />
-      <workItem from="1525281460331" duration="2473000" />
+      <workItem from="1525281460331" duration="8524000" />
     </task>
     <task id="LOCAL-00003" summary="finish">
       <created>1525265814333</created>
@@ -803,7 +822,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21889000" />
+    <option name="totallyTimeSpent" value="27940000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -867,7 +886,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="dbDummy://dbtable:/370463d7/0ce53707-617b-4854-9bac-5dc07347a165/allam.clients" />
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/Entities/Bank.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
@@ -1125,14 +1143,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Fxml/nakl.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="130" selection-start-line="26" selection-start-column="130" selection-end-line="26" selection-end-column="130" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/login/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -1185,13 +1195,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/Home/homeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="182" selection-start-line="182" selection-end-line="182" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/Settings/seetingsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
@@ -1210,8 +1213,31 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/Fxml/seetings.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="25" column="158" selection-start-line="25" selection-start-column="158" selection-end-line="25" selection-end-column="158" />
+        <state relative-caret-position="286">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/app/Home/homeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Fxml/n.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="396" column="20" lean-forward="true" selection-end-line="400" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Fxml/nakl.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="400" selection-start-line="400" selection-end-line="400" />
         </state>
       </provider>
     </entry>
