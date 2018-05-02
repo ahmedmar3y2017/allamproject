@@ -439,12 +439,12 @@ public class moneyController implements Initializable {
                         resetMoneyFields();
 
                         //add to table
-                        money_data.add(new MoneyTable(safe.getId(),
-                                safe.getUsersid().getName(),
-                                safe.getType(),
-                                safe.getDate().toString(),
-                                safe.getMoney(),
-                                safe.getNotes()));
+                        money_data.add(new MoneyTable(safe1.getId(),
+                                safe1.getUsersid().getName(),
+                                safe1.getType(),
+                                safe1.getDate().toString(),
+                                safe1.getMoney(),
+                                safe1.getNotes()));
                         final TreeItem<MoneyTable> Client_root = new RecursiveTreeItem<MoneyTable>(money_data, RecursiveTreeObject::getChildren);
                         moneyTable.setRoot(Client_root);
 
