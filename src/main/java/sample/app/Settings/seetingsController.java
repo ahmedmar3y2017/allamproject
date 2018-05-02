@@ -96,7 +96,7 @@ public class seetingsController implements Initializable {
     private TitledPane pane3;
 
     @FXML
-    private Pane mainPane2;
+    private Pane mainPane2 , infoPane , phonPane;
 
     @FXML
     private Label label2;
@@ -211,9 +211,9 @@ public class seetingsController implements Initializable {
 //        accordion.setPrefHeight(primaryScreenBounds.getHeight());
 
         double width = primaryScreenBounds.getWidth() - 250;
-//        phonepane.setPrefWidth(screenWidth / 2 );
-//        infoPane.setLayoutX(phonepane.getPrefWidth() + 10);
-//        System.out.println(phonepane.getPrefWidth());
+        phonPane.setPrefWidth(screenWidth / 2 );
+        infoPane.setLayoutX(phonPane.getPrefWidth() + 10);
+        System.out.println(phonPane.getPrefWidth());
         label.setLayoutX(width / 2);
 
         label2.setLayoutX((width / 2) - 160);
