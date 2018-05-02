@@ -19,7 +19,7 @@ public class MainStart {
     public MainStart() throws IOException {
 
         Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/List.fxml"));
 
         Scene scene = new Scene(root);
         // on stage event close

@@ -32,13 +32,20 @@
 .cus_tab:hover , .cus_tab:selected ,.cus_tab:focused{
     -fx-border: 3 0 3 0 ;
 }
-.tab:selected , .tab:hover , .tab:focused{
+.tab:selected , .tab:hover , .tab:focused , .tab:pressed {
+
     /*#FAFCFB*/
     -fx-background-color: #ecf0f1 ;
     -fx-background-insets: 0.0;
     -fx-border-width: 3 0 0 0;
     -fx-border-color: #3FE387;
 
+}
+.activeOne{
+    -fx-background-color: #ecf0f1 ;
+    -fx-background-insets: 0.0;
+    -fx-border-width: 3 0 0 0;
+    -fx-border-color: #3FE387;
 }
 
 .contenttab {

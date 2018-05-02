@@ -54,7 +54,7 @@ public class seetingsController implements Initializable {
     private TitledPane pane22;
 
     @FXML
-    private Pane pane2;
+    private Pane pane2 , phonepane , infoPane;
 
     @FXML
     private HBox hbox1;
@@ -211,6 +211,9 @@ public class seetingsController implements Initializable {
 //        accordion.setPrefHeight(primaryScreenBounds.getHeight());
 
         double width = primaryScreenBounds.getWidth() - 250;
+        phonepane.setPrefWidth(screenWidth / 2 );
+        infoPane.setLayoutX(phonepane.getPrefWidth() + 10);
+        System.out.println(phonepane.getPrefWidth());
         label.setLayoutX(width / 2);
 
         label2.setLayoutX((width / 2) - 160);
@@ -219,11 +222,11 @@ public class seetingsController implements Initializable {
         closeBtn.setLayoutX(width / 2);
         pane2.setPrefWidth(screenWidth);
 
-        hbox1.setPrefWidth(primaryScreenBounds.getWidth() - 185);
-        hbox2.setPrefWidth(primaryScreenBounds.getWidth() - 185);
-        hbox3.setPrefWidth(primaryScreenBounds.getWidth() - 185);
-        hbox4.setPrefWidth(primaryScreenBounds.getWidth() - 185);
-        hbox5.setPrefWidth(primaryScreenBounds.getWidth() - 185);
+//        hbox1.setPrefWidth(primaryScreenBounds.getWidth() - 185);
+//        hbox2.setPrefWidth(primaryScreenBounds.getWidth() - 185);
+//        hbox3.setPrefWidth(primaryScreenBounds.getWidth() - 185);
+//        hbox4.setPrefWidth(primaryScreenBounds.getWidth() - 185);
+//        hbox5.setPrefWidth(primaryScreenBounds.getWidth() - 185);
 
 
         accordion.setExpandedPane(pane1);

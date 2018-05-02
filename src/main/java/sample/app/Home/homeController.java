@@ -48,6 +48,7 @@ public class homeController implements Initializable {
     private JFXButton setting;
     Object ppanel;
 
+    Boolean selected = false , selectedSetting = false;
     @FXML
     void naklAction(ActionEvent event) {
         System.out.println("DOne");
@@ -57,7 +58,14 @@ public class homeController implements Initializable {
     void MainButtonAction(ActionEvent event) throws IOException {
 
         if (event.getSource() == nakl && ppanel != nakl) {
-            System.out.println("nakl");
+            setting.getStyleClass().remove("activeOne");
+            nakl.getStyleClass().add("activeOne");
+
+            money.getStyleClass().remove("activeOne");
+            accounts.getStyleClass().remove("activeOne");
+
+            kashfHesab.getStyleClass().remove("activeOne");
+
             ppanel = event.getSource();
 
 
@@ -66,21 +74,40 @@ public class homeController implements Initializable {
             setNode(holderPane);
         }
         if (event.getSource() == kashfHesab && ppanel != kashfHesab) {
-            System.out.println("kashfHesab");
-            ppanel = event.getSource();
+            setting.getStyleClass().remove("activeOne");
+            kashfHesab.getStyleClass().add("activeOne");
+
+            money.getStyleClass().remove("activeOne");
+            accounts.getStyleClass().remove("activeOne");
+
+            nakl.getStyleClass().remove("activeOne");            ppanel = event.getSource();
 
             holderPane = FXMLLoader.load(getClass().getResource("/fxml/kashfHesab.fxml"));
             setNode(holderPane);
         }
         if (event.getSource() == accounts && ppanel != accounts) {
-            System.out.println("accounts");
+            setting.getStyleClass().remove("activeOne");
+            accounts.getStyleClass().add("activeOne");
+
+            money.getStyleClass().remove("activeOne");
+            accounts.getStyleClass().remove("activeOne");
+            kashfHesab.getStyleClass().remove("activeOne");
+            nakl.getStyleClass().remove("activeOne");
+
             ppanel = event.getSource();
 
             holderPane = FXMLLoader.load(getClass().getResource("/fxml/accounts.fxml"));
             setNode(holderPane);
         }
         if (event.getSource() == money && ppanel != money) {
-            System.out.println("money");
+            setting.getStyleClass().remove("activeOne");
+            money.getStyleClass().add("activeOne");
+
+            clients.getStyleClass().remove("activeOne");
+            accounts.getStyleClass().remove("activeOne");
+            kashfHesab.getStyleClass().remove("activeOne");
+            nakl.getStyleClass().remove("activeOne");
+
             ppanel = event.getSource();
 
             holderPane = FXMLLoader.load(getClass().getResource("/fxml/money.fxml"));
@@ -88,17 +115,35 @@ public class homeController implements Initializable {
 
         }
         if (event.getSource() == clients && ppanel != clients) {
-            System.out.println("clients");
+
+            setting.getStyleClass().remove("activeOne");
+            clients.getStyleClass().add("activeOne");
+
+            money.getStyleClass().remove("activeOne");
+            accounts.getStyleClass().remove("activeOne");
+            kashfHesab.getStyleClass().remove("activeOne");
+            nakl.getStyleClass().remove("activeOne");
+
+
             ppanel = event.getSource();
 
             holderPane = FXMLLoader.load(getClass().getResource("/fxml/clients.fxml"));
             setNode(holderPane);
-            System.out.println(setting);
-            System.out.println(clients);
+
         }
 
         if (event.getSource() == setting && ppanel != setting) {
-            System.out.println("setting");
+            selected = true;
+            selectedSetting = false;
+            setting.getStyleClass().add("activeOne");
+
+
+            clients.getStyleClass().remove("activeOne");
+            money.getStyleClass().remove("activeOne");
+            accounts.getStyleClass().remove("activeOne");
+            kashfHesab.getStyleClass().remove("activeOne");
+            nakl.getStyleClass().remove("activeOne");
+
             ppanel = event.getSource();
 
             holderPane = FXMLLoader.load(getClass().getResource("/fxml/seetings.fxml"));
@@ -113,6 +158,15 @@ public class homeController implements Initializable {
 
     }
 
+    @FXML
+    void active( JFXButton btn  ) {
+        btn.getStyleClass().removeAll("activeOne");
+        //In this way you're sure you have no styles applied to your object button
+        btn.getStyleClass().add("activeOne");
+        //then you specify the class you would give to the button
+
+
+    }
 
     private void setNode(Node node) {
         homepage.getChildren().clear();
