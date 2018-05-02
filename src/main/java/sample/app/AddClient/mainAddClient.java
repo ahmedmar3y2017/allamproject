@@ -18,7 +18,14 @@ public class mainAddClient {
     public mainAddClient() throws IOException {
 
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/AddClient.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/AddClient.fxml"));
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setController(new addClientController());
+        loader.setLocation(getClass().getResource("/Fxml/AddClient.fxml"));
+        Parent root = loader.load();
+
+
 
         Scene scene = new Scene(root);
         stage.setScene(scene);

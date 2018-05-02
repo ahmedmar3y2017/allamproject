@@ -12,6 +12,12 @@ import javafx.scene.layout.*;
 import javafx.stage.Screen;
 import javafx.util.Duration;
 import org.hibernate.SessionFactory;
+import sample.app.Accounts.accountController;
+import sample.app.Clients.clientsController;
+import sample.app.KashfHesab.kashfHesabController;
+import sample.app.Money.moneyController;
+import sample.app.Settings.seetingsController;
+import sample.app.nakl.naklController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -48,7 +54,8 @@ public class homeController implements Initializable {
     private JFXButton setting;
     Object ppanel;
 
-    Boolean selected = false , selectedSetting = false;
+    Boolean selected = false, selectedSetting = false;
+
     @FXML
     void naklAction(ActionEvent event) {
         System.out.println("DOne");
@@ -67,9 +74,11 @@ public class homeController implements Initializable {
             kashfHesab.getStyleClass().remove("activeOne");
 
             ppanel = event.getSource();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setController(new naklController());
+            loader.setLocation(getClass().getResource("/Fxml/nakl.fxml"));
+            holderPane = loader.load();
 
-
-            holderPane = FXMLLoader.load(getClass().getResource("/fxml/nakl.fxml"));
 
             setNode(holderPane);
         }
@@ -80,9 +89,15 @@ public class homeController implements Initializable {
             money.getStyleClass().remove("activeOne");
             accounts.getStyleClass().remove("activeOne");
 
-            nakl.getStyleClass().remove("activeOne");            ppanel = event.getSource();
+            nakl.getStyleClass().remove("activeOne");
+            ppanel = event.getSource();
 
-            holderPane = FXMLLoader.load(getClass().getResource("/fxml/kashfHesab.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+            loader.setController(new kashfHesabController());
+            loader.setLocation(getClass().getResource("/Fxml/kashfHesab.fxml"));
+            holderPane = loader.load();
+
+
             setNode(holderPane);
         }
         if (event.getSource() == accounts && ppanel != accounts) {
@@ -96,7 +111,13 @@ public class homeController implements Initializable {
 
             ppanel = event.getSource();
 
-            holderPane = FXMLLoader.load(getClass().getResource("/fxml/accounts.fxml"));
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setController(new accountController());
+            loader.setLocation(getClass().getResource("/Fxml/accounts.fxml"));
+            holderPane = loader.load();
+
+
             setNode(holderPane);
         }
         if (event.getSource() == money && ppanel != money) {
@@ -110,7 +131,13 @@ public class homeController implements Initializable {
 
             ppanel = event.getSource();
 
-            holderPane = FXMLLoader.load(getClass().getResource("/fxml/money.fxml"));
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setController(new moneyController());
+            loader.setLocation(getClass().getResource("/Fxml/money.fxml"));
+            holderPane = loader.load();
+
+
             setNode(holderPane);
 
         }
@@ -127,7 +154,11 @@ public class homeController implements Initializable {
 
             ppanel = event.getSource();
 
-            holderPane = FXMLLoader.load(getClass().getResource("/fxml/clients.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+            loader.setController(new clientsController());
+            loader.setLocation(getClass().getResource("/Fxml/clients.fxml"));
+            holderPane = loader.load();
+
             setNode(holderPane);
 
         }
@@ -146,7 +177,12 @@ public class homeController implements Initializable {
 
             ppanel = event.getSource();
 
-            holderPane = FXMLLoader.load(getClass().getResource("/fxml/seetings.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+            loader.setController(new seetingsController());
+            loader.setLocation(getClass().getResource("/Fxml/seetings.fxml"));
+            holderPane = loader.load();
+
+
             setNode(holderPane);
         }
 
@@ -159,7 +195,7 @@ public class homeController implements Initializable {
     }
 
     @FXML
-    void active( JFXButton btn  ) {
+    void active(JFXButton btn) {
         btn.getStyleClass().removeAll("activeOne");
         //In this way you're sure you have no styles applied to your object button
         btn.getStyleClass().add("activeOne");
@@ -188,7 +224,11 @@ public class homeController implements Initializable {
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 
         try {
-            holderPane = FXMLLoader.load(getClass().getResource("/fxml/nakl.fxml"));
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setController(new naklController());
+            loader.setLocation(getClass().getResource("/Fxml/nakl.fxml"));
+            holderPane = loader.load();
 
 
             holderPane.setPrefWidth(primaryScreenBounds.getWidth() - vbox.getPrefWidth());

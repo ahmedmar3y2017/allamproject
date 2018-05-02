@@ -25,184 +25,200 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.KashfHesab.kashfHesabController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Pane fx:id="kashfHesab">
             <children>
                 <HBox fx:id="hbox1" alignment="TOP_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
                     <children>
-                        <JFXButton fx:id="refresh" buttonType="RAISED" onAction="#refreshAction" prefHeight="33.0" prefWidth="160.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
+                        <JFXButton fx:id="refresh" buttonType="RAISED" onAction="#refreshAction" prefHeight="33.0"
+                                   prefWidth="160.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول"
+                                   textFill="WHITE">
                             <font>
-                                <Font name="System Bold" size="17.0" />
+                                <Font name="System Bold" size="17.0"/>
                             </font>
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
-                     <HBox.margin>
-                        <Insets right="5.0" />
-                     </HBox.margin>
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/clear-icon-3.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
+                            <HBox.margin>
+                                <Insets right="5.0"/>
+                            </HBox.margin>
+                            <graphic>
+                                <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/clear-icon-3.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="displayAll" buttonType="RAISED" onAction="#displayAllAction" prefHeight="33.0" prefWidth="140.0" styleClass="round-red" text="عرض الكل" textFill="WHITE">
+                        <JFXButton fx:id="displayAll" buttonType="RAISED" onAction="#displayAllAction" prefHeight="33.0"
+                                   prefWidth="140.0" styleClass="round-red" text="عرض الكل" textFill="WHITE">
                             <font>
-                                <Font name="System Bold" size="17.0" />
+                                <Font name="System Bold" size="17.0"/>
                             </font>
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
-                     <HBox.margin>
-                        <Insets right="5.0" />
-                     </HBox.margin>
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/eye.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
+                            <HBox.margin>
+                                <Insets right="5.0"/>
+                            </HBox.margin>
+                            <graphic>
+                                <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/eye.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="search" buttonType="RAISED" onAction="#searchAction" prefHeight="33.0" prefWidth="100.0" styleClass="round-red" text="بحث" textFill="WHITE">
+                        <JFXButton fx:id="search" buttonType="RAISED" onAction="#searchAction" prefHeight="33.0"
+                                   prefWidth="100.0" styleClass="round-red" text="بحث" textFill="WHITE">
                             <font>
-                                <Font name="System Bold" size="17.0" />
+                                <Font name="System Bold" size="17.0"/>
                             </font>
                             <HBox.margin>
-                                <Insets right="10.0" />
+                                <Insets right="10.0"/>
                             </HBox.margin>
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/search.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
+                            <graphic>
+                                <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/search.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
                         </JFXButton>
-                        <DatePicker fx:id="to" layoutX="10.0" layoutY="25.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="200.0" promptText="التاريخ " HBox.hgrow="ALWAYS">
+                        <DatePicker fx:id="to" layoutX="10.0" layoutY="25.0" nodeOrientation="RIGHT_TO_LEFT"
+                                    prefHeight="33.0" prefWidth="200.0" promptText="التاريخ " HBox.hgrow="ALWAYS">
                             <HBox.margin>
-                                <Insets right="4.0" />
+                                <Insets right="4.0"/>
                             </HBox.margin>
                         </DatePicker>
                         <Label layoutX="184.0" layoutY="25.0" prefHeight="21.0" prefWidth="50.0" text="من :">
                             <font>
-                                <Font name="System Bold" size="15.0" />
+                                <Font name="System Bold" size="15.0"/>
                             </font>
                         </Label>
-                        <DatePicker fx:id="from" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="200.0" promptText="التاريخ " HBox.hgrow="ALWAYS">
+                        <DatePicker fx:id="from" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="200.0"
+                                    promptText="التاريخ " HBox.hgrow="ALWAYS">
                             <HBox.margin>
-                                <Insets right="4.0" />
+                                <Insets right="4.0"/>
                             </HBox.margin>
                         </DatePicker>
                         <Label layoutX="888.0" layoutY="20.0" prefHeight="21.0" prefWidth="50.0" text="من :">
                             <font>
-                                <Font name="System Bold" size="15.0" />
+                                <Font name="System Bold" size="15.0"/>
                             </font>
                             <HBox.margin>
-                                <Insets />
+                                <Insets/>
                             </HBox.margin>
                         </Label>
-                        <Button fx:id="addClient" mnemonicParsing="false" onAction="#addClientAction" styleClass="round-red">
+                        <Button fx:id="addClient" mnemonicParsing="false" onAction="#addClientAction"
+                                styleClass="round-red">
                             <graphic>
-                                <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="round-red">
+                                <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true"
+                                           styleClass="round-red">
                                     <image>
-                                        <Image url="@../images/add.png" />
+                                        <Image url="@../images/add.png"/>
                                     </image>
                                 </ImageView>
                             </graphic>
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
-                     <HBox.margin>
-                        <Insets right="2.0" top="2.0" />
-                     </HBox.margin>
-                        </Button>
-                        <ComboBox fx:id="clientName" editable="true" onMouseClicked="#clientNameMouseClick" prefHeight="33.0" prefWidth="200.0" promptText="اسم العميل" HBox.hgrow="ALWAYS">
                             <HBox.margin>
-                                <Insets right="4.0" />
+                                <Insets right="2.0" top="2.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <ComboBox fx:id="clientName" editable="true" onMouseClicked="#clientNameMouseClick"
+                                  prefHeight="33.0" prefWidth="200.0" promptText="اسم العميل" HBox.hgrow="ALWAYS">
+                            <HBox.margin>
+                                <Insets right="4.0"/>
                             </HBox.margin>
                         </ComboBox>
-                        <Label alignment="BOTTOM_LEFT" prefHeight="21.0" prefWidth="110.0" text=" اسم العميل :" HBox.hgrow="ALWAYS">
+                        <Label alignment="BOTTOM_LEFT" prefHeight="21.0" prefWidth="110.0" text=" اسم العميل :"
+                               HBox.hgrow="ALWAYS">
                             <font>
-                                <Font name="System Bold" size="15.0" />
+                                <Font name="System Bold" size="15.0"/>
                             </font>
                         </Label>
                     </children>
                     <padding>
-                        <Insets left="20.0" top="15.0" />
+                        <Insets left="20.0" top="15.0"/>
                     </padding>
                 </HBox>
                 <HBox layoutY="90.0">
                     <children>
-                        <TreeTableView fx:id="table" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;" HBox.hgrow="ALWAYS">
+                        <TreeTableView fx:id="table" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT"
+                                       style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;" HBox.hgrow="ALWAYS">
                             <opaqueInsets>
-                                <Insets />
+                                <Insets/>
                             </opaqueInsets>
                             <columns>
-                                <TreeTableColumn fx:id="tableDate" prefWidth="75.0" text="التاريخ" />
-                                <TreeTableColumn fx:id="tableType" prefWidth="84.0" text="نوع البضاعه" />
-                                <TreeTableColumn fx:id="tableBolisa" prefWidth="66.0" text="البوليصه" />
-                                <TreeTableColumn fx:id="tableCarNum" prefWidth="75.0" text="السياره" />
-                                <TreeTableColumn fx:id="tableWeight" prefWidth="75.0" text="الوزن" />
-                                <TreeTableColumn fx:id="tableNawlon" prefWidth="75.0" text="النولون" />
-                                <TreeTableColumn fx:id="tableOhda" prefWidth="75.0" text="عهده" />
-                                <TreeTableColumn fx:id="tableAgz" prefWidth="75.0" text="عجز" />
-                                <TreeTableColumn fx:id="tableAdded" prefWidth="75.0" text="اضافة" />
-                                <TreeTableColumn fx:id="tableMezan" prefWidth="75.0" text="الميزان" />
-                                <TreeTableColumn fx:id="tableDiscount" prefWidth="75.0" text="خصم" />
-                                <TreeTableColumn fx:id="tableOffice" prefWidth="75.0" text="مكتب" />
-                                <TreeTableColumn fx:id="tableClear" prefWidth="75.0" text="صافى" />
-                                <TreeTableColumn fx:id="tableBian" prefWidth="95.0" text="بيان" />
-                                <TreeTableColumn fx:id="tableNotes" text="ملاحظات" />
+                                <TreeTableColumn fx:id="tableDate" prefWidth="75.0" text="التاريخ"/>
+                                <TreeTableColumn fx:id="tableType" prefWidth="84.0" text="نوع البضاعه"/>
+                                <TreeTableColumn fx:id="tableBolisa" prefWidth="66.0" text="البوليصه"/>
+                                <TreeTableColumn fx:id="tableCarNum" prefWidth="75.0" text="السياره"/>
+                                <TreeTableColumn fx:id="tableWeight" prefWidth="75.0" text="الوزن"/>
+                                <TreeTableColumn fx:id="tableNawlon" prefWidth="75.0" text="النولون"/>
+                                <TreeTableColumn fx:id="tableOhda" prefWidth="75.0" text="عهده"/>
+                                <TreeTableColumn fx:id="tableAgz" prefWidth="75.0" text="عجز"/>
+                                <TreeTableColumn fx:id="tableAdded" prefWidth="75.0" text="اضافة"/>
+                                <TreeTableColumn fx:id="tableMezan" prefWidth="75.0" text="الميزان"/>
+                                <TreeTableColumn fx:id="tableDiscount" prefWidth="75.0" text="خصم"/>
+                                <TreeTableColumn fx:id="tableOffice" prefWidth="75.0" text="مكتب"/>
+                                <TreeTableColumn fx:id="tableClear" prefWidth="75.0" text="صافى"/>
+                                <TreeTableColumn fx:id="tableBian" prefWidth="95.0" text="بيان"/>
+                                <TreeTableColumn fx:id="tableNotes" text="ملاحظات"/>
                             </columns>
                         </TreeTableView>
                     </children>
                     <padding>
-                        <Insets left="10.0" />
+                        <Insets left="10.0"/>
                     </padding>
                 </HBox>
                 <HBox fx:id="lasthbox" alignment="TOP_CENTER" layoutX="500.0" layoutY="500.0">
                     <children>
-                        <JFXButton fx:id="printBtn" buttonType="RAISED" onAction="#printAction" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: #c8d6e5;" text="طباعة" textFill="WHITE">
+                        <JFXButton fx:id="printBtn" buttonType="RAISED" onAction="#printAction" prefHeight="38.0"
+                                   prefWidth="120.0" style="-fx-background-color: #c8d6e5;" text="طباعة"
+                                   textFill="WHITE">
                             <font>
-                                <Font name="System Bold" size="17.0" />
+                                <Font name="System Bold" size="17.0"/>
                             </font>
                             <graphic>
-                                <ImageView fitHeight="23.0" fitWidth="35.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" style="-fx-margin-right: 10px;">
+                                <ImageView fitHeight="23.0" fitWidth="35.0" nodeOrientation="RIGHT_TO_LEFT"
+                                           pickOnBounds="true" preserveRatio="true" style="-fx-margin-right: 10px;">
                                     <image>
-                                        <Image url="@../images/recarga_de_250520151038527662.png" />
+                                        <Image url="@../images/recarga_de_250520151038527662.png"/>
                                     </image>
                                 </ImageView>
                             </graphic>
                             <HBox.margin>
-                                <Insets right="20.0" />
+                                <Insets right="20.0"/>
                             </HBox.margin>
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
                         </JFXButton>
-                        <TextField fx:id="totalMoney" alignment="CENTER" editable="false" onAction="#totalMoneyAction" prefHeight="38.0" prefWidth="133.0" text="الصافى" HBox.hgrow="ALWAYS">
+                        <TextField fx:id="totalMoney" alignment="CENTER" editable="false" onAction="#totalMoneyAction"
+                                   prefHeight="38.0" prefWidth="133.0" text="الصافى" HBox.hgrow="ALWAYS">
                             <HBox.margin>
-                                <Insets left="10.0" right="10.0" />
+                                <Insets left="10.0" right="10.0"/>
                             </HBox.margin>
                         </TextField>
                         <Label text="الصافى : ">
                             <font>
-                                <Font name="System Bold" size="16.0" />
+                                <Font name="System Bold" size="16.0"/>
                             </font>
                             <HBox.margin>
-                                <Insets right="10.0" top="6.0" />
+                                <Insets right="10.0" top="6.0"/>
                             </HBox.margin>
                         </Label>
                     </children>
                     <padding>
-                        <Insets top="10.0" />
+                        <Insets top="10.0"/>
                     </padding>
                 </HBox>
             </children>

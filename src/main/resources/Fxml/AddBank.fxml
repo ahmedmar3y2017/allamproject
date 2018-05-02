@@ -7,47 +7,53 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.AddBank.addBankController">
-   <children>
-      <Label layoutX="260.0" layoutY="14.0" text="اضافه بنك" underline="true">
-         <font>
-            <Font name="Andalus" size="25.0" />
-         </font>
-      </Label>
-      <TextField fx:id="bankName" alignment="TOP_RIGHT" layoutX="122.0" layoutY="80.0" prefHeight="40.0" prefWidth="260.0" promptText="اسم البنك">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </TextField>
-      <Label layoutX="385.0" layoutY="87.0" text="اسم البنك : ">
-         <font>
-            <Font name="Arial" size="22.0" />
-         </font>
-      </Label>
-      <TextField fx:id="bankAddress" alignment="TOP_RIGHT" layoutX="122.0" layoutY="211.0" prefHeight="40.0" prefWidth="260.0" promptText="العنوان">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </TextField>
-      <Label layoutX="385.0" layoutY="218.0" text="العنوان : ">
-         <font>
-            <Font name="Arial" size="22.0" />
-         </font>
-      </Label>
-      <JFXButton fx:id="addBank" buttonType="RAISED" layoutX="233.0" layoutY="281.0" onAction="#addBankAction" prefHeight="40.0" prefWidth="135.0" styleClass="round-red" stylesheets="@../styles/Main.css" text="اضافه">
-         <font>
-            <Font name="Arial" size="27.0" />
-         </font>
-      </JFXButton>
-      <TextField fx:id="bankNumber" alignment="TOP_RIGHT" layoutX="122.0" layoutY="145.0" prefHeight="40.0" prefWidth="260.0" promptText="حساب البنك">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </TextField>
-      <Label layoutX="385.0" layoutY="152.0" text="رقم حساب البنك : ">
-         <font>
-            <Font name="Arial" size="22.0" />
-         </font>
-      </Label>
-   </children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;"
+            xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label layoutX="260.0" layoutY="14.0" text="اضافه بنك" underline="true">
+            <font>
+                <Font name="Andalus" size="25.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="bankName" alignment="TOP_RIGHT" layoutX="122.0" layoutY="80.0" prefHeight="40.0"
+                   prefWidth="260.0" promptText="اسم البنك">
+            <font>
+                <Font name="System Bold" size="17.0"/>
+            </font>
+        </TextField>
+        <Label layoutX="385.0" layoutY="87.0" text="اسم البنك : ">
+            <font>
+                <Font name="Arial" size="22.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="bankAddress" alignment="TOP_RIGHT" layoutX="122.0" layoutY="211.0" prefHeight="40.0"
+                   prefWidth="260.0" promptText="العنوان">
+            <font>
+                <Font name="System Bold" size="17.0"/>
+            </font>
+        </TextField>
+        <Label layoutX="385.0" layoutY="218.0" text="العنوان : ">
+            <font>
+                <Font name="Arial" size="22.0"/>
+            </font>
+        </Label>
+        <JFXButton fx:id="addBank" buttonType="RAISED" layoutX="233.0" layoutY="281.0" onAction="#addBankAction"
+                   prefHeight="40.0" prefWidth="135.0" styleClass="round-red" stylesheets="@../styles/Main.css"
+                   text="اضافه">
+            <font>
+                <Font name="Arial" size="27.0"/>
+            </font>
+        </JFXButton>
+        <TextField fx:id="bankNumber" alignment="TOP_RIGHT" layoutX="122.0" layoutY="145.0" prefHeight="40.0"
+                   prefWidth="260.0" promptText="حساب البنك">
+            <font>
+                <Font name="System Bold" size="17.0"/>
+            </font>
+        </TextField>
+        <Label layoutX="385.0" layoutY="152.0" text="رقم حساب البنك : ">
+            <font>
+                <Font name="Arial" size="22.0"/>
+            </font>
+        </Label>
+    </children>
 </AnchorPane>

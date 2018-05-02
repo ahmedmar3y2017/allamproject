@@ -16,7 +16,13 @@ public class mainAddBank {
 
     public mainAddBank() throws IOException {
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/AddBank.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/AddBank.fxml"));
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setController(new addBankController());
+        loader.setLocation(getClass().getResource("/Fxml/AddBank.fxml"));
+        Parent root = loader.load();
+
 
         Scene scene = new Scene(root);
         stage.setScene(scene);

@@ -30,493 +30,616 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.Money.moneyController">
-   <children>
-      <TabPane fx:id="tabPane" nodeOrientation="RIGHT_TO_LEFT" stylesheets="@../styles/Main.css" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab fx:id="tab1" styleClass="cus_tab" text="البنوك">
-               <content>
-                  <Pane fx:id="tapPane1">
-                     <children>
-                        <Pane fx:id="infoPane" layoutX="11.0" layoutY="110.0" prefHeight="469.0" prefWidth="278.0">
-                           <children>
-                              <Label alignment="BOTTOM_LEFT" layoutX="5.0" layoutY="69.0" prefHeight="21.0" prefWidth="110.0" text="نوع العملية :">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <JFXRadioButton fx:id="bankSahb" layoutX="85.0" layoutY="70.0" selected="true" text="سحب">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <toggleGroup>
-                                    <ToggleGroup fx:id="Type_of_Bank" />
-                                 </toggleGroup>
-                              </JFXRadioButton>
-                              <JFXRadioButton fx:id="bankEdaa" layoutX="166.0" layoutY="70.0" text="إيداع" toggleGroup="$Type_of_Bank">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </JFXRadioButton>
-                              <Label alignment="BOTTOM_LEFT" layoutX="3.0" layoutY="177.0" prefHeight="21.0" prefWidth="110.0" text=" التاريخ :">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <DatePicker fx:id="bankDate" layoutX="59.0" layoutY="175.0" prefHeight="33.0" prefWidth="190.0" />
-                              <JFXTextArea fx:id="bankNotes" focusColor="#cccccc" labelFloat="true" layoutX="10.0" layoutY="255.0" maxWidth="251.0" minWidth="189.0" prefHeight="100.0" prefWidth="270.0" style="-fx-background-color: #ffffff; -fx-border-color: #ccc;" unFocusColor="#cccccc" />
-                              <Label alignment="BOTTOM_LEFT" layoutX="2.0" layoutY="222.0" prefHeight="21.0" prefWidth="110.0" text=" ملاحظات :">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <JFXButton fx:id="bankSave" contentDisplay="RIGHT" layoutX="41.0" layoutY="366.0" onAction="#bankSaveAction" prefHeight="38.0" prefWidth="100.0" styleClass="round-red" text="إضافة" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="17.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/add1.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </JFXButton>
-                              <JFXButton fx:id="bankUpdate" contentDisplay="RIGHT" layoutX="149.0" layoutY="366.0" onAction="#bankUpdateAction" prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #48dbfb;" text="تعديل" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="17.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/update.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </JFXButton>
-                              <Label alignment="BOTTOM_LEFT" layoutX="-1.0" layoutY="12.0" prefHeight="21.0" prefWidth="110.0" text=" اسم البنك :">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox fx:id="bankName" editable="true" layoutX="75.0" layoutY="6.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#bankNameMouseClick" prefHeight="33.0" prefWidth="143.0" promptText="اسم البنك" />
-                              <Button fx:id="addBank" layoutX="224.0" layoutY="6.0" mnemonicParsing="false" onAction="#addBankAction">
-                                 <graphic>
-                                    <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/add1.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <Label alignment="BOTTOM_LEFT" layoutX="36.0" layoutY="118.0" prefHeight="21.0" prefWidth="47.0" text="المبلغ :">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="bankMoney" alignment="CENTER" layoutX="83.0" layoutY="108.0" prefHeight="41.0" prefWidth="166.0">
-                                 <font>
-                                    <Font name="System Bold" size="18.0" />
-                                 </font>
-                              </TextField>
-                              <JFXButton fx:id="refreshBank" contentDisplay="RIGHT" layoutX="58.0" layoutY="416.0" onAction="#refreshBankAction" prefHeight="38.0" prefWidth="146.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="17.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/clear-icon-3.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </JFXButton>
-                           </children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TabPane fx:id="tabPane" nodeOrientation="RIGHT_TO_LEFT" stylesheets="@../styles/Main.css"
+                 tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="tab1" styleClass="cus_tab" text="البنوك">
+                    <content>
+                        <Pane fx:id="tapPane1">
+                            <children>
+                                <Pane fx:id="infoPane" layoutX="11.0" layoutY="110.0" prefHeight="469.0"
+                                      prefWidth="278.0">
+                                    <children>
+                                        <Label alignment="BOTTOM_LEFT" layoutX="5.0" layoutY="69.0" prefHeight="21.0"
+                                               prefWidth="110.0" text="نوع العملية :">
+                                            <font>
+                                                <Font name="System Bold" size="15.0"/>
+                                            </font>
+                                        </Label>
+                                        <JFXRadioButton fx:id="bankSahb" layoutX="85.0" layoutY="70.0" selected="true"
+                                                        text="سحب">
+                                            <font>
+                                                <Font name="System Bold" size="14.0"/>
+                                            </font>
+                                            <toggleGroup>
+                                                <ToggleGroup fx:id="Type_of_Bank"/>
+                                            </toggleGroup>
+                                        </JFXRadioButton>
+                                        <JFXRadioButton fx:id="bankEdaa" layoutX="166.0" layoutY="70.0" text="إيداع"
+                                                        toggleGroup="$Type_of_Bank">
+                                            <font>
+                                                <Font name="System Bold" size="14.0"/>
+                                            </font>
+                                        </JFXRadioButton>
+                                        <Label alignment="BOTTOM_LEFT" layoutX="3.0" layoutY="177.0" prefHeight="21.0"
+                                               prefWidth="110.0" text=" التاريخ :">
+                                            <font>
+                                                <Font name="System Bold" size="15.0"/>
+                                            </font>
+                                        </Label>
+                                        <DatePicker fx:id="bankDate" layoutX="59.0" layoutY="175.0" prefHeight="33.0"
+                                                    prefWidth="190.0"/>
+                                        <JFXTextArea fx:id="bankNotes" focusColor="#cccccc" labelFloat="true"
+                                                     layoutX="10.0" layoutY="255.0" maxWidth="251.0" minWidth="189.0"
+                                                     prefHeight="100.0" prefWidth="270.0"
+                                                     style="-fx-background-color: #ffffff; -fx-border-color: #ccc;"
+                                                     unFocusColor="#cccccc"/>
+                                        <Label alignment="BOTTOM_LEFT" layoutX="2.0" layoutY="222.0" prefHeight="21.0"
+                                               prefWidth="110.0" text=" ملاحظات :">
+                                            <font>
+                                                <Font name="System Bold" size="15.0"/>
+                                            </font>
+                                        </Label>
+                                        <JFXButton fx:id="bankSave" contentDisplay="RIGHT" layoutX="41.0"
+                                                   layoutY="366.0" onAction="#bankSaveAction" prefHeight="38.0"
+                                                   prefWidth="100.0" styleClass="round-red" text="إضافة"
+                                                   textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="17.0"/>
+                                            </font>
+                                            <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../images/add1.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </JFXButton>
+                                        <JFXButton fx:id="bankUpdate" contentDisplay="RIGHT" layoutX="149.0"
+                                                   layoutY="366.0" onAction="#bankUpdateAction" prefHeight="38.0"
+                                                   prefWidth="100.0" style="-fx-background-color: #48dbfb;" text="تعديل"
+                                                   textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="17.0"/>
+                                            </font>
+                                            <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../images/update.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </JFXButton>
+                                        <Label alignment="BOTTOM_LEFT" layoutX="-1.0" layoutY="12.0" prefHeight="21.0"
+                                               prefWidth="110.0" text=" اسم البنك :">
+                                            <font>
+                                                <Font name="System Bold" size="15.0"/>
+                                            </font>
+                                        </Label>
+                                        <ComboBox fx:id="bankName" editable="true" layoutX="75.0" layoutY="6.0"
+                                                  nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#bankNameMouseClick"
+                                                  prefHeight="33.0" prefWidth="143.0" promptText="اسم البنك"/>
+                                        <Button fx:id="addBank" layoutX="224.0" layoutY="6.0" mnemonicParsing="false"
+                                                onAction="#addBankAction">
+                                            <graphic>
+                                                <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../images/add1.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                        <Label alignment="BOTTOM_LEFT" layoutX="36.0" layoutY="118.0" prefHeight="21.0"
+                                               prefWidth="47.0" text="المبلغ :">
+                                            <font>
+                                                <Font name="System Bold" size="15.0"/>
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="bankMoney" alignment="CENTER" layoutX="83.0" layoutY="108.0"
+                                                   prefHeight="41.0" prefWidth="166.0">
+                                            <font>
+                                                <Font name="System Bold" size="18.0"/>
+                                            </font>
+                                        </TextField>
+                                        <JFXButton fx:id="refreshBank" contentDisplay="RIGHT" layoutX="58.0"
+                                                   layoutY="416.0" onAction="#refreshBankAction" prefHeight="38.0"
+                                                   prefWidth="146.0" style="-fx-background-color: #ff9f43;"
+                                                   text="تفريغ الحقول" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="17.0"/>
+                                            </font>
+                                            <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../images/clear-icon-3.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </JFXButton>
+                                    </children>
+                                </Pane>
+                                <HBox fx:id="hbox1" alignment="TOP_RIGHT" layoutY="20.0"
+                                      nodeOrientation="LEFT_TO_RIGHT">
+                                    <children>
+                                        <JFXButton fx:id="bankDisplayAll" onAction="#bankDisplayAllAction"
+                                                   prefHeight="33.0" prefWidth="125.0" styleClass="round-red"
+                                                   text="عرض الكل" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="17.0"/>
+                                            </font>
+                                            <graphic>
+                                                <ImageView fitHeight="18.0" fitWidth="30.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../images/eye.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                            <HBox.margin>
+                                                <Insets right="10.0"/>
+                                            </HBox.margin>
+                                        </JFXButton>
+                                        <JFXButton fx:id="bankSearch" layoutX="40.0" layoutY="25.0"
+                                                   onAction="#bankSearchAction" prefHeight="33.0" prefWidth="100.0"
+                                                   styleClass="round-red" text="بحث" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="17.0"/>
+                                            </font>
+                                            <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../images/search.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <HBox.margin>
+                                                <Insets right="10.0"/>
+                                            </HBox.margin>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </JFXButton>
+                                        <DatePicker fx:id="bankToSearch" nodeOrientation="RIGHT_TO_LEFT"
+                                                    prefHeight="33.0" prefWidth="160.0" HBox.hgrow="ALWAYS">
+                                            <HBox.margin>
+                                                <Insets right="4.0"/>
+                                            </HBox.margin>
+                                        </DatePicker>
+                                        <Label prefHeight="21.0" prefWidth="60.0" text="الى :">
+                                            <font>
+                                                <Font name="System Bold" size="15.0"/>
+                                            </font>
+                                        </Label>
+                                        <DatePicker fx:id="bankFromSearch" nodeOrientation="RIGHT_TO_LEFT"
+                                                    prefHeight="33.0" prefWidth="160.0" HBox.hgrow="ALWAYS">
+                                            <HBox.margin>
+                                                <Insets right="4.0"/>
+                                            </HBox.margin>
+                                        </DatePicker>
+                                        <Label layoutX="184.0" layoutY="25.0" prefHeight="21.0" prefWidth="50.0"
+                                               text="من :">
+                                            <font>
+                                                <Font name="System Bold" size="15.0"/>
+                                            </font>
+                                        </Label>
+                                        <ComboBox fx:id="bankNameSearch" editable="true" layoutX="783.0" layoutY="25.0"
+                                                  nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#bankNameMouseClick"
+                                                  prefHeight="33.0" prefWidth="170.0" promptText="اسم البنك">
+                                            <HBox.margin>
+                                                <Insets right="4.0"/>
+                                            </HBox.margin>
+                                        </ComboBox>
+                                        <Label layoutX="888.0" layoutY="20.0" prefHeight="21.0" prefWidth="110.0"
+                                               text="اسم البنك :">
+                                            <font>
+                                                <Font name="System Bold" size="15.0"/>
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                        </Label>
+                                        <Label layoutX="1032.0" layoutY="25.0" prefHeight="21.0" prefWidth="230.0">
+                                            <font>
+                                                <Font name="System Bold" size="15.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                    <padding>
+                                        <Insets left="20.0" top="15.0"/>
+                                    </padding>
+                                </HBox>
+                                <HBox fx:id="lasthbox" alignment="TOP_CENTER" layoutX="658.0" layoutY="541.0">
+                                    <children>
+                                        <Label text="  الرصيد المتاح :">
+                                            <font>
+                                                <Font name="System Bold" size="16.0"/>
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets right="10.0" top="6.0"/>
+                                            </HBox.margin>
+                                        </Label>
+                                        <TextField fx:id="bankMoneyTable" alignment="CENTER" editable="false"
+                                                   prefHeight="38.0" prefWidth="133.0" text="المتاح"
+                                                   HBox.hgrow="ALWAYS">
+                                            <HBox.margin>
+                                                <Insets left="10.0" right="10.0"/>
+                                            </HBox.margin>
+                                        </TextField>
+                                        <JFXButton fx:id="bankDelete" contentDisplay="RIGHT"
+                                                   onAction="#bankDeleteAction" prefHeight="33.0" prefWidth="100.0"
+                                                   style="-fx-background-color: #e74c3c;" text="مسح" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="17.0"/>
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets right="10.0"/>
+                                            </HBox.margin>
+                                            <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="30.0"
+                                                           nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../images/Cancel_delete_remove_stop_x_no_close_cross.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </JFXButton>
+                                        <JFXButton fx:id="bankDelete1" contentDisplay="RIGHT" layoutX="277.0"
+                                                   layoutY="20.0" onAction="#bankDeleteAction" prefHeight="33.0"
+                                                   prefWidth="100.0" style="-fx-background-color: #c8d6e5;" text="طباعة"
+                                                   textFill="WHITE">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                            <font>
+                                                <Font name="System Bold" size="17.0"/>
+                                            </font>
+                                            <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="30.0"
+                                                           nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../images/recarga_de_250520151038527662.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </JFXButton>
+                                    </children>
+                                    <padding>
+                                        <Insets top="10.0"/>
+                                    </padding>
+                                </HBox>
+                                <HBox fx:id="tableHbox" layoutX="305.0" layoutY="100.0">
+                                    <children>
+                                        <TreeTableView fx:id="bankTable" layoutX="400.0" layoutY="205.0"
+                                                       nodeOrientation="RIGHT_TO_LEFT"
+                                                       onKeyPressed="#treeViewKeyPressed" prefHeight="435.0"
+                                                       prefWidth="775.0"
+                                                       style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;"
+                                                       HBox.hgrow="ALWAYS">
+                                            <opaqueInsets>
+                                                <Insets/>
+                                            </opaqueInsets>
+                                            <columns>
+                                                <TreeTableColumn fx:id="tableBankName" prefWidth="150.0"
+                                                                 text="اسم البنك"/>
+                                                <TreeTableColumn fx:id="tableBankNumber" prefWidth="122.0"
+                                                                 text="رقم الحساب"/>
+                                                <TreeTableColumn fx:id="tableBankDate" prefWidth="132.0"
+                                                                 text="التاريخ"/>
+                                                <TreeTableColumn fx:id="tableBankType" prefWidth="100.0"
+                                                                 text="نوع العمليه"/>
+                                                <TreeTableColumn fx:id="tableNankMoney" prefWidth="125.0"
+                                                                 text="المبلغ"/>
+                                                <TreeTableColumn fx:id="tableBankNotes" minWidth="0.0" prefWidth="138.0"
+                                                                 text="ملاحظات"/>
+                                            </columns>
+                                        </TreeTableView>
+                                    </children>
+                                    <padding>
+                                        <Insets left="10.0"/>
+                                    </padding>
+                                </HBox>
+                            </children>
                         </Pane>
-                        <HBox fx:id="hbox1" alignment="TOP_RIGHT" layoutY="20.0" nodeOrientation="LEFT_TO_RIGHT">
-                           <children>
-                              <JFXButton fx:id="bankDisplayAll" onAction="#bankDisplayAllAction" prefHeight="33.0" prefWidth="125.0" styleClass="round-red" text="عرض الكل" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="17.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="18.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/eye.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                              </JFXButton>
-                              <JFXButton fx:id="bankSearch" layoutX="40.0" layoutY="25.0" onAction="#bankSearchAction" prefHeight="33.0" prefWidth="100.0" styleClass="round-red" text="بحث" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="17.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/search.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </JFXButton>
-                              <DatePicker fx:id="bankToSearch" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="160.0" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets right="4.0" />
-                                 </HBox.margin>
-                              </DatePicker>
-                              <Label prefHeight="21.0" prefWidth="60.0" text="الى :">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <DatePicker fx:id="bankFromSearch" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="160.0" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets right="4.0" />
-                                 </HBox.margin>
-                              </DatePicker>
-                              <Label layoutX="184.0" layoutY="25.0" prefHeight="21.0" prefWidth="50.0" text="من :">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox fx:id="bankNameSearch" editable="true" layoutX="783.0" layoutY="25.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#bankNameMouseClick" prefHeight="33.0" prefWidth="170.0" promptText="اسم البنك">
-                                 <HBox.margin>
-                                    <Insets right="4.0" />
-                                 </HBox.margin>
-                              </ComboBox>
-                              <Label layoutX="888.0" layoutY="20.0" prefHeight="21.0" prefWidth="110.0" text="اسم البنك :">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </Label>
-                              <Label layoutX="1032.0" layoutY="25.0" prefHeight="21.0" prefWidth="230.0">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets left="20.0" top="15.0" />
-                           </padding>
-                        </HBox>
-                        <HBox fx:id="lasthbox" alignment="TOP_CENTER" layoutX="658.0" layoutY="541.0">
-                           <children>
-                              <Label text="  الرصيد المتاح :">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets right="10.0" top="6.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <TextField fx:id="bankMoneyTable" alignment="CENTER" editable="false" prefHeight="38.0" prefWidth="133.0" text="المتاح" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets left="10.0" right="10.0" />
-                                 </HBox.margin>
-                              </TextField>
-                              <JFXButton fx:id="bankDelete" contentDisplay="RIGHT" onAction="#bankDeleteAction" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #e74c3c;" text="مسح" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="17.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                                 <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="30.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/Cancel_delete_remove_stop_x_no_close_cross.png" />
-                                       </image></ImageView>
-                                 </graphic>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </JFXButton>
-                              <JFXButton fx:id="bankDelete1" contentDisplay="RIGHT" layoutX="277.0" layoutY="20.0" onAction="#bankDeleteAction" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #c8d6e5;" text="طباعة" textFill="WHITE">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="System Bold" size="17.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="30.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/recarga_de_250520151038527662.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </JFXButton>
-                           </children>
-                           <padding>
-                              <Insets top="10.0" />
-                           </padding>
-                        </HBox>
-                        <HBox fx:id="tableHbox" layoutX="305.0" layoutY="100.0">
-                           <children>
-                              <TreeTableView fx:id="bankTable" layoutX="400.0" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" onKeyPressed="#treeViewKeyPressed" prefHeight="435.0" prefWidth="775.0" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;" HBox.hgrow="ALWAYS">
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <columns>
-                                    <TreeTableColumn fx:id="tableBankName" prefWidth="150.0" text="اسم البنك" />
-                                    <TreeTableColumn fx:id="tableBankNumber" prefWidth="122.0" text="رقم الحساب" />
-                                    <TreeTableColumn fx:id="tableBankDate" prefWidth="132.0" text="التاريخ" />
-                                    <TreeTableColumn fx:id="tableBankType" prefWidth="100.0" text="نوع العمليه" />
-                                    <TreeTableColumn fx:id="tableNankMoney" prefWidth="125.0" text="المبلغ" />
-                                    <TreeTableColumn fx:id="tableBankNotes" minWidth="0.0" prefWidth="138.0" text="ملاحظات" />
-                                 </columns>
-                              </TreeTableView>
-                           </children>
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding>
-                        </HBox>
-                     </children>
-                  </Pane>
-               </content>
-          </Tab>
-          <Tab fx:id="tab2" text="المصاريف">
-               <content>
-                  <Pane fx:id="tapPane2" prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <Pane fx:id="infoPane2" layoutX="11.0" layoutY="80.0" prefHeight="440.0" prefWidth="423.0">
-                           <children>
-                              <JFXTextArea fx:id="moneyNotes" focusColor="#cccccc" labelFloat="true" layoutX="10.0" layoutY="205.0" maxWidth="251.0" minWidth="189.0" prefHeight="100.0" prefWidth="270.0" style="-fx-background-color: #ffffff; -fx-border-color: #ccc;" unFocusColor="#cccccc" />
-                              <Label alignment="BOTTOM_LEFT" layoutX="2.0" layoutY="178.0" prefHeight="21.0" prefWidth="110.0" text=" ملاحظات :">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <JFXButton fx:id="moneySave" contentDisplay="RIGHT" layoutX="33.0" layoutY="322.0" onAction="#moneySaveAction" prefHeight="38.0" prefWidth="93.0" styleClass="round-red" text="إضافة" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="17.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/add1.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </JFXButton>
-                              <JFXButton fx:id="moneyUpdate" contentDisplay="RIGHT" layoutX="138.0" layoutY="322.0" onAction="#moneyUpdateAction" prefHeight="38.0" prefWidth="93.0" style="-fx-background-color: #48dbfb;" text="تعديل" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="17.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/update.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </JFXButton>
-                              <Label alignment="BOTTOM_LEFT" layoutX="6.0" layoutY="74.0" prefHeight="21.0" prefWidth="110.0" text=" المبلغ :">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="moneyMoney" layoutX="67.0" layoutY="64.0" prefHeight="33.0" prefWidth="210.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font></TextField>
-                              <JFXRadioButton fx:id="moneySahb" layoutX="93.0" layoutY="20.0" selected="true" text="سحب">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                                 <toggleGroup>
-                                    <ToggleGroup fx:id="Type_of_Bank1" />
-                                 </toggleGroup>
-                              </JFXRadioButton>
-                              <JFXRadioButton fx:id="moneyEdaa" layoutX="179.0" layoutY="20.0" text="إيداع" toggleGroup="$Type_of_Bank1">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </JFXRadioButton>
-                              <Label layoutX="1.0" layoutY="22.0" prefHeight="21.0" prefWidth="102.0" text="نوع العملية :">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="BOTTOM_LEFT" layoutX="8.0" layoutY="139.0" prefHeight="21.0" prefWidth="110.0" text="التاريخ : ">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <DatePicker fx:id="moneyDate" layoutX="66.0" layoutY="127.0" prefHeight="41.0" prefWidth="209.0" />
-                              <JFXButton fx:id="moneyRefresh" contentDisplay="RIGHT" layoutX="64.0" layoutY="371.0" onAction="#moneyRefreshAction" prefHeight="38.0" prefWidth="143.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="17.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/clear-icon-3.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </JFXButton>
-                           </children>
+                    </content>
+                </Tab>
+                <Tab fx:id="tab2" text="المصاريف">
+                    <content>
+                        <Pane fx:id="tapPane2" prefHeight="200.0" prefWidth="200.0">
+                            <children>
+                                <Pane fx:id="infoPane2" layoutX="11.0" layoutY="80.0" prefHeight="440.0"
+                                      prefWidth="423.0">
+                                    <children>
+                                        <JFXTextArea fx:id="moneyNotes" focusColor="#cccccc" labelFloat="true"
+                                                     layoutX="10.0" layoutY="205.0" maxWidth="251.0" minWidth="189.0"
+                                                     prefHeight="100.0" prefWidth="270.0"
+                                                     style="-fx-background-color: #ffffff; -fx-border-color: #ccc;"
+                                                     unFocusColor="#cccccc"/>
+                                        <Label alignment="BOTTOM_LEFT" layoutX="2.0" layoutY="178.0" prefHeight="21.0"
+                                               prefWidth="110.0" text=" ملاحظات :">
+                                            <font>
+                                                <Font name="System Bold" size="15.0"/>
+                                            </font>
+                                        </Label>
+                                        <JFXButton fx:id="moneySave" contentDisplay="RIGHT" layoutX="33.0"
+                                                   layoutY="322.0" onAction="#moneySaveAction" prefHeight="38.0"
+                                                   prefWidth="93.0" styleClass="round-red" text="إضافة"
+                                                   textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="17.0"/>
+                                            </font>
+                                            <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../images/add1.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </JFXButton>
+                                        <JFXButton fx:id="moneyUpdate" contentDisplay="RIGHT" layoutX="138.0"
+                                                   layoutY="322.0" onAction="#moneyUpdateAction" prefHeight="38.0"
+                                                   prefWidth="93.0" style="-fx-background-color: #48dbfb;" text="تعديل"
+                                                   textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="17.0"/>
+                                            </font>
+                                            <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../images/update.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </JFXButton>
+                                        <Label alignment="BOTTOM_LEFT" layoutX="6.0" layoutY="74.0" prefHeight="21.0"
+                                               prefWidth="110.0" text=" المبلغ :">
+                                            <font>
+                                                <Font name="System Bold" size="15.0"/>
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="moneyMoney" layoutX="67.0" layoutY="64.0" prefHeight="33.0"
+                                                   prefWidth="210.0">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </TextField>
+                                        <JFXRadioButton fx:id="moneySahb" layoutX="93.0" layoutY="20.0" selected="true"
+                                                        text="سحب">
+                                            <font>
+                                                <Font name="System Bold" size="14.0"/>
+                                            </font>
+                                            <toggleGroup>
+                                                <ToggleGroup fx:id="Type_of_Bank1"/>
+                                            </toggleGroup>
+                                        </JFXRadioButton>
+                                        <JFXRadioButton fx:id="moneyEdaa" layoutX="179.0" layoutY="20.0" text="إيداع"
+                                                        toggleGroup="$Type_of_Bank1">
+                                            <font>
+                                                <Font name="System Bold" size="14.0"/>
+                                            </font>
+                                        </JFXRadioButton>
+                                        <Label layoutX="1.0" layoutY="22.0" prefHeight="21.0" prefWidth="102.0"
+                                               text="نوع العملية :">
+                                            <font>
+                                                <Font name="System Bold" size="15.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label alignment="BOTTOM_LEFT" layoutX="8.0" layoutY="139.0" prefHeight="21.0"
+                                               prefWidth="110.0" text="التاريخ : ">
+                                            <font>
+                                                <Font name="System Bold" size="15.0"/>
+                                            </font>
+                                        </Label>
+                                        <DatePicker fx:id="moneyDate" layoutX="66.0" layoutY="127.0" prefHeight="41.0"
+                                                    prefWidth="209.0"/>
+                                        <JFXButton fx:id="moneyRefresh" contentDisplay="RIGHT" layoutX="64.0"
+                                                   layoutY="371.0" onAction="#moneyRefreshAction" prefHeight="38.0"
+                                                   prefWidth="143.0" style="-fx-background-color: #ff9f43;"
+                                                   text="تفريغ الحقول" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="17.0"/>
+                                            </font>
+                                            <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../images/clear-icon-3.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </JFXButton>
+                                    </children>
+                                </Pane>
+                                <HBox fx:id="hbox12" alignment="TOP_RIGHT" layoutY="20.0"
+                                      nodeOrientation="LEFT_TO_RIGHT">
+                                    <children>
+                                        <JFXButton fx:id="moneyDisplayAll" layoutX="42.0" layoutY="25.0"
+                                                   onAction="#moneyDisplayAllAction" prefHeight="33.0" prefWidth="140.0"
+                                                   styleClass="round-red" text="عرض الكل" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="17.0"/>
+                                            </font>
+                                            <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../images/eye.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <HBox.margin>
+                                                <Insets right="10.0" top="-5.0"/>
+                                            </HBox.margin>
+                                        </JFXButton>
+                                        <JFXButton fx:id="moneySearch" layoutX="40.0" layoutY="25.0"
+                                                   onAction="#moneySearchAction" prefHeight="33.0" prefWidth="100.0"
+                                                   styleClass="round-red" text="بحث" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="17.0"/>
+                                            </font>
+                                            <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../images/search.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <HBox.margin>
+                                                <Insets bottom="30.0" right="50.0" top="-5.0"/>
+                                            </HBox.margin>
+                                        </JFXButton>
+                                        <DatePicker fx:id="moneyTo" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0"
+                                                    prefWidth="220.0" HBox.hgrow="ALWAYS">
+                                            <HBox.margin>
+                                                <Insets right="4.0"/>
+                                            </HBox.margin>
+                                        </DatePicker>
+                                        <Label prefHeight="21.0" prefWidth="60.0" text="الى :">
+                                            <font>
+                                                <Font name="System Bold" size="15.0"/>
+                                            </font>
+                                        </Label>
+                                        <DatePicker fx:id="moneyFrom" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0"
+                                                    prefWidth="220.0" HBox.hgrow="ALWAYS">
+                                            <HBox.margin>
+                                                <Insets right="4.0"/>
+                                            </HBox.margin>
+                                        </DatePicker>
+                                        <Label layoutX="184.0" layoutY="25.0" prefHeight="21.0" prefWidth="60.0"
+                                               text="من :">
+                                            <font>
+                                                <Font name="System Bold" size="15.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="738.0" layoutY="25.0" prefHeight="21.0" prefWidth="260.0">
+                                            <font>
+                                                <Font name="System Bold" size="15.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                    <padding>
+                                        <Insets left="20.0" top="15.0"/>
+                                    </padding>
+                                </HBox>
+                                <HBox fx:id="lasthbox2" alignment="TOP_CENTER" layoutX="558.0" layoutY="527.0">
+                                    <children>
+                                        <Label text="  الرصيد المتاح :">
+                                            <font>
+                                                <Font name="System Bold" size="16.0"/>
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets right="10.0" top="6.0"/>
+                                            </HBox.margin>
+                                        </Label>
+                                        <TextField fx:id="moneyTotalMoney" alignment="CENTER" editable="false"
+                                                   prefHeight="38.0" prefWidth="133.0" text="المتاح"
+                                                   HBox.hgrow="ALWAYS">
+                                            <HBox.margin>
+                                                <Insets left="10.0" right="10.0"/>
+                                            </HBox.margin>
+                                        </TextField>
+                                        <JFXButton fx:id="moneyDelete" contentDisplay="RIGHT"
+                                                   onAction="#moneyDeleteAction" prefHeight="33.0" prefWidth="100.0"
+                                                   style="-fx-background-color: #e74c3c;" text="مسح" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="17.0"/>
+                                            </font>
+                                            <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="30.0"
+                                                           nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../images/Cancel_delete_remove_stop_x_no_close_cross.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <HBox.margin>
+                                                <Insets right="20.0"/>
+                                            </HBox.margin>
+                                        </JFXButton>
+                                        <JFXButton fx:id="moneyPrint" contentDisplay="RIGHT" layoutX="277.0"
+                                                   layoutY="20.0" prefHeight="33.0" prefWidth="100.0"
+                                                   style="-fx-background-color: #c8d6e5;" text="طباعة" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="17.0"/>
+                                            </font>
+                                            <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="30.0"
+                                                           nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../images/recarga_de_250520151038527662.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </JFXButton>
+                                    </children>
+                                    <padding>
+                                        <Insets top="10.0"/>
+                                    </padding>
+                                </HBox>
+                                <HBox fx:id="tableHbox2" layoutX="305.0" layoutY="90.0">
+                                    <children>
+                                        <TreeTableView fx:id="moneyTable" layoutX="400.0" layoutY="205.0"
+                                                       nodeOrientation="RIGHT_TO_LEFT" prefHeight="435.0"
+                                                       prefWidth="775.0"
+                                                       style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;"
+                                                       HBox.hgrow="ALWAYS">
+                                            <opaqueInsets>
+                                                <Insets/>
+                                            </opaqueInsets>
+                                            <columns>
+                                                <TreeTableColumn fx:id="moneyTableUserName" prefWidth="192.0"
+                                                                 text="اسم المستخدم"/>
+                                                <TreeTableColumn fx:id="moneyTableType" prefWidth="109.0"
+                                                                 text="نوع العمليه"/>
+                                                <TreeTableColumn fx:id="moneyTableDate" prefWidth="140.0"
+                                                                 text="التاريخ"/>
+                                                <TreeTableColumn fx:id="moneyTableMoney" prefWidth="120.0"
+                                                                 text="المبلغ"/>
+                                                <TreeTableColumn fx:id="moneyTableNotes" minWidth="0.0"
+                                                                 prefWidth="198.0" text="ملاحظات"/>
+                                            </columns>
+                                        </TreeTableView>
+                                    </children>
+                                    <padding>
+                                        <Insets left="10.0"/>
+                                    </padding>
+                                </HBox>
+                            </children>
                         </Pane>
-                        <HBox fx:id="hbox12" alignment="TOP_RIGHT" layoutY="20.0" nodeOrientation="LEFT_TO_RIGHT">
-                           <children>
-                              <JFXButton fx:id="moneyDisplayAll" layoutX="42.0" layoutY="25.0" onAction="#moneyDisplayAllAction" prefHeight="33.0" prefWidth="140.0" styleClass="round-red" text="عرض الكل" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="17.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/eye.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <HBox.margin>
-                                    <Insets right="10.0" top="-5.0" />
-                                 </HBox.margin>
-                              </JFXButton>
-                              <JFXButton fx:id="moneySearch" layoutX="40.0" layoutY="25.0" onAction="#moneySearchAction" prefHeight="33.0" prefWidth="100.0" styleClass="round-red" text="بحث" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="17.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/search.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <HBox.margin>
-                                    <Insets bottom="30.0" right="50.0" top="-5.0" />
-                                 </HBox.margin>
-                              </JFXButton>
-                              <DatePicker fx:id="moneyTo" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="220.0" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets right="4.0" />
-                                 </HBox.margin>
-                              </DatePicker>
-                              <Label prefHeight="21.0" prefWidth="60.0" text="الى :">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <DatePicker fx:id="moneyFrom" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="220.0" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets right="4.0" />
-                                 </HBox.margin>
-                              </DatePicker>
-                              <Label layoutX="184.0" layoutY="25.0" prefHeight="21.0" prefWidth="60.0" text="من :">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="738.0" layoutY="25.0" prefHeight="21.0" prefWidth="260.0">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets left="20.0" top="15.0" />
-                           </padding>
-                        </HBox>
-                        <HBox fx:id="lasthbox2" alignment="TOP_CENTER" layoutX="558.0" layoutY="527.0">
-                           <children>
-                              <Label text="  الرصيد المتاح :">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets right="10.0" top="6.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <TextField fx:id="moneyTotalMoney" alignment="CENTER" editable="false" prefHeight="38.0" prefWidth="133.0" text="المتاح" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets left="10.0" right="10.0" />
-                                 </HBox.margin>
-                              </TextField>
-                              <JFXButton fx:id="moneyDelete" contentDisplay="RIGHT" onAction="#moneyDeleteAction" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #e74c3c;" text="مسح" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="17.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="30.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/Cancel_delete_remove_stop_x_no_close_cross.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <HBox.margin>
-                                    <Insets right="20.0" />
-                                 </HBox.margin>
-                              </JFXButton>
-                              <JFXButton fx:id="moneyPrint" contentDisplay="RIGHT" layoutX="277.0" layoutY="20.0" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #c8d6e5;" text="طباعة" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="17.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="30.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/recarga_de_250520151038527662.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </JFXButton>
-                           </children>
-                           <padding>
-                              <Insets top="10.0" />
-                           </padding>
-                        </HBox>
-                        <HBox fx:id="tableHbox2" layoutX="305.0" layoutY="90.0">
-                           <children>
-                              <TreeTableView fx:id="moneyTable" layoutX="400.0" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="435.0" prefWidth="775.0" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;" HBox.hgrow="ALWAYS">
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <columns>
-                                    <TreeTableColumn fx:id="moneyTableUserName" prefWidth="192.0" text="اسم المستخدم" />
-                                    <TreeTableColumn fx:id="moneyTableType" prefWidth="109.0" text="نوع العمليه" />
-                                    <TreeTableColumn fx:id="moneyTableDate" prefWidth="140.0" text="التاريخ" />
-                                    <TreeTableColumn fx:id="moneyTableMoney" prefWidth="120.0" text="المبلغ" />
-                                    <TreeTableColumn fx:id="moneyTableNotes" minWidth="0.0" prefWidth="198.0" text="ملاحظات" />
-                                 </columns>
-                              </TreeTableView>
-                           </children>
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding>
-                        </HBox>
-                     </children>
-                  </Pane>
-               </content></Tab>
-        </tabs>
-      </TabPane>
-   </children>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
 </AnchorPane>

@@ -23,166 +23,193 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.app.Clients.clientsController">
-   <children>
-      <Pane fx:id="kashfHesab" layoutX="-98.0" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Pane fx:id="infoPane" layoutX="11.0" layoutY="50.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="379.0" prefWidth="320.0">
-               <children>
-                  <Label alignment="BOTTOM_LEFT" layoutX="5.0" layoutY="21.0" prefHeight="21.0" prefWidth="110.0" text=" اسم العميل :">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="clientName" alignment="CENTER_RIGHT" layoutX="89.0" layoutY="15.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="220.0" promptText="اسم العميل">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </TextField>
-                  <Label layoutX="5.0" layoutY="87.0" prefHeight="21.0" prefWidth="110.0" text="رقم التليفون :">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="clientPhone" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="81.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="220.0" promptText="رقم التليفون">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </TextField>
-                  <Label layoutX="10.0" layoutY="151.0" prefHeight="21.0" prefWidth="110.0" text="العنوان :">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="clientAddress" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="145.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="220.0" promptText="العنوان">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </TextField>
-                  <HBox fx:id="hbox1" alignment="TOP_RIGHT" layoutY="196.0" nodeOrientation="LEFT_TO_RIGHT">
-                     <children>
-                        <JFXButton fx:id="update" onAction="#updateAction" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #48dbfb;" text="تعديل" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" right="15.0" />
-                           </HBox.margin>
-                           <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/update.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Pane fx:id="kashfHesab" layoutX="-98.0" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Pane fx:id="infoPane" layoutX="11.0" layoutY="50.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="379.0"
+                      prefWidth="320.0">
+                    <children>
+                        <Label alignment="BOTTOM_LEFT" layoutX="5.0" layoutY="21.0" prefHeight="21.0" prefWidth="110.0"
+                               text=" اسم العميل :">
+                            <font>
+                                <Font name="System Bold" size="15.0"/>
+                            </font>
+                        </Label>
+                        <TextField fx:id="clientName" alignment="CENTER_RIGHT" layoutX="89.0" layoutY="15.0"
+                                   nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="220.0"
+                                   promptText="اسم العميل">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </TextField>
+                        <Label layoutX="5.0" layoutY="87.0" prefHeight="21.0" prefWidth="110.0" text="رقم التليفون :">
+                            <font>
+                                <Font name="System Bold" size="15.0"/>
+                            </font>
+                        </Label>
+                        <TextField fx:id="clientPhone" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="81.0"
+                                   nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="220.0"
+                                   promptText="رقم التليفون">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </TextField>
+                        <Label layoutX="10.0" layoutY="151.0" prefHeight="21.0" prefWidth="110.0" text="العنوان :">
+                            <font>
+                                <Font name="System Bold" size="15.0"/>
+                            </font>
+                        </Label>
+                        <TextField fx:id="clientAddress" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="145.0"
+                                   nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="220.0"
+                                   promptText="العنوان">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </TextField>
+                        <HBox fx:id="hbox1" alignment="TOP_RIGHT" layoutY="196.0" nodeOrientation="LEFT_TO_RIGHT">
+                            <children>
+                                <JFXButton fx:id="update" onAction="#updateAction" prefHeight="33.0" prefWidth="100.0"
+                                           style="-fx-background-color: #48dbfb;" text="تعديل" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="17.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="10.0" right="15.0"/>
+                                    </HBox.margin>
+                                    <graphic>
+                                        <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <image>
+                                                <Image url="@../images/update.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </JFXButton>
+                                <JFXButton fx:id="save" layoutX="40.0" layoutY="25.0" onAction="#saveAction"
+                                           prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: ;"
+                                           styleClass="round-red" text="إضافة" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="17.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets right="70.0"/>
+                                    </HBox.margin>
+                                    <graphic>
+                                        <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <image>
+                                                <Image url="@../images/add1.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </JFXButton>
+                            </children>
+                            <padding>
+                                <Insets left="20.0" top="15.0"/>
+                            </padding>
+                        </HBox>
+                        <JFXButton fx:id="refresh" layoutX="95.0" layoutY="278.0" nodeOrientation="LEFT_TO_RIGHT"
+                                   onAction="#refreshAction" prefHeight="33.0" prefWidth="140.0"
+                                   style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="17.0"/>
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/clear-icon-3.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
                         </JFXButton>
-                        <JFXButton fx:id="save" layoutX="40.0" layoutY="25.0" onAction="#saveAction" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: ;" styleClass="round-red" text="إضافة" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets right="70.0" />
-                           </HBox.margin>
-                           <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/add1.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
+                    </children>
+                </Pane>
+                <HBox fx:id="tableHbox" layoutX="350.0" layoutY="50.0" nodeOrientation="RIGHT_TO_LEFT">
+                    <children>
+                        <TreeTableView fx:id="table" layoutX="400.0" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT"
+                                       onKeyPressed="#treeViewKeyPressed" prefHeight="435.0" prefWidth="775.0"
+                                       style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;" HBox.hgrow="ALWAYS">
+                            <columns>
+                                <TreeTableColumn fx:id="tableName" prefWidth="75.0" text="اسم العميل"/>
+                                <TreeTableColumn fx:id="tableAddress" prefWidth="75.0" text="العنوان"/>
+                                <TreeTableColumn fx:id="tablePhone" prefWidth="100.0" text="رقم التليفون"/>
+                            </columns>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <HBox.margin>
+                                <Insets top="10.0"/>
+                            </HBox.margin>
+                        </TreeTableView>
+                    </children>
+                    <padding>
+                        <Insets left="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox fx:id="lasthbox" alignment="TOP_CENTER" layoutX="922.0" layoutY="495.0"
+                      nodeOrientation="RIGHT_TO_LEFT">
+                    <padding>
+                        <Insets top="10.0"/>
+                    </padding>
+                    <children>
+                        <JFXButton fx:id="delete" nodeOrientation="LEFT_TO_RIGHT" onAction="#deleteAction"
+                                   prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #ff6b6b;" text="مسح"
+                                   textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="17.0"/>
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="23.0" fitWidth="35.0" nodeOrientation="RIGHT_TO_LEFT"
+                                           pickOnBounds="true" preserveRatio="true" style="-fx-margin-right: 10px;">
+                                    <image>
+                                        <Image url="@../images/Cancel_delete_remove_stop_x_no_close_cross.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
                         </JFXButton>
-                     </children>
-                     <padding>
-                        <Insets left="20.0" top="15.0" />
-                     </padding>
-                  </HBox>
-                  <JFXButton fx:id="refresh" layoutX="95.0" layoutY="278.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#refreshAction" prefHeight="33.0" prefWidth="140.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="17.0" />
-                     </font>
-                     <graphic>
+                    </children>
+                </HBox>
+                <ComboBox fx:id="clientSearchName" editable="true" layoutX="564.0" layoutY="14.0"
+                          nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#clientNameMouseClick" prefHeight="38.0"
+                          prefWidth="300.0" promptText="اسم العميل"/>
+                <Label alignment="BOTTOM_LEFT" layoutX="455.0" layoutY="18.0" prefHeight="21.0" prefWidth="110.0"
+                       text="اسم العميل :">
+                    <font>
+                        <Font name="System Bold" size="15.0"/>
+                    </font>
+                </Label>
+                <JFXButton fx:id="displayAll" contentDisplay="RIGHT" layoutX="910.0" layoutY="14.0"
+                           onAction="#displayAllAction" prefHeight="38.0" prefWidth="170.0"
+                           style="-fx-background-color: #48dbfb;" text="عرض كل العملاء" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="17.0"/>
+                    </font>
+                    <graphic>
                         <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/clear-icon-3.png" />
-                           </image>
+                            <image>
+                                <Image url="@../images/update.png"/>
+                            </image>
                         </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </JFXButton>
-               </children>
-            </Pane>
-            <HBox fx:id="tableHbox" layoutX="350.0" layoutY="50.0" nodeOrientation="RIGHT_TO_LEFT">
-               <children>
-                  <TreeTableView fx:id="table" layoutX="400.0" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" onKeyPressed="#treeViewKeyPressed" prefHeight="435.0" prefWidth="775.0" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;" HBox.hgrow="ALWAYS">
-                     <columns>
-                        <TreeTableColumn fx:id="tableName" prefWidth="75.0" text="اسم العميل" />
-                        <TreeTableColumn fx:id="tableAddress" prefWidth="75.0" text="العنوان" />
-                        <TreeTableColumn fx:id="tablePhone" prefWidth="100.0" text="رقم التليفون" />
-                     </columns>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets top="10.0" />
-                     </HBox.margin>
-                  </TreeTableView>
-               </children>
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-            </HBox>
-            <HBox fx:id="lasthbox" alignment="TOP_CENTER" layoutX="922.0" layoutY="495.0" nodeOrientation="RIGHT_TO_LEFT">
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
-               <children>
-                  <JFXButton fx:id="delete" nodeOrientation="LEFT_TO_RIGHT" onAction="#deleteAction" prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #ff6b6b;" text="مسح" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="17.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="35.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" style="-fx-margin-right: 10px;">
-                           <image>
-                              <Image url="@../images/Cancel_delete_remove_stop_x_no_close_cross.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </JFXButton>
-               </children>
-            </HBox>
-            <ComboBox fx:id="clientSearchName" editable="true" layoutX="564.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#clientNameMouseClick" prefHeight="38.0" prefWidth="300.0" promptText="اسم العميل" />
-            <Label alignment="BOTTOM_LEFT" layoutX="455.0" layoutY="18.0" prefHeight="21.0" prefWidth="110.0" text="اسم العميل :">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-            <JFXButton fx:id="displayAll" contentDisplay="RIGHT" layoutX="910.0" layoutY="14.0" onAction="#displayAllAction" prefHeight="38.0" prefWidth="170.0" style="-fx-background-color: #48dbfb;" text="عرض كل العملاء" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/update.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-         </children>
-      </Pane>
-   </children>
+                    </graphic>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </JFXButton>
+            </children>
+        </Pane>
+    </children>
 </AnchorPane>
