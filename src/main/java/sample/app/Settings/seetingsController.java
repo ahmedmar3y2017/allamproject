@@ -23,12 +23,18 @@ import sample.app.Transactions.UserDao.userDao;
 import sample.app.dialogs.dialog;
 import sample.app.login.LoginController;
 import sample.app.login.MainStart;
+import sample.shared.Validation.Validation;
 
+import javax.swing.*;
 import java.awt.*;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class seetingsController implements Initializable {
@@ -96,7 +102,7 @@ public class seetingsController implements Initializable {
     private TitledPane pane3;
 
     @FXML
-    private Pane mainPane2 , infoPane , phonPane;
+    private Pane mainPane2, infoPane, phonPane;
 
     @FXML
     private Label label2;
@@ -104,6 +110,38 @@ public class seetingsController implements Initializable {
     @FXML
     private JFXButton backup;
 
+    @FXML
+    void backupAction(ActionEvent event) {
+        try {
+            dataBackup();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        } catch (URISyntaxException ex) {
+            ex.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void dataBackup() throws IOException, InterruptedException, URISyntaxException {
+        String dbName = "allam";
+        String dbUser = "root";
+        String dbPass = "root";
+        JFrame parentFrame = new JFrame();
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Specify a file to save");
+        int userSelection = fileChooser.showSaveDialog(parentFrame);
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = fileChooser.getSelectedFile();
+            String jarDir = fileToSave.getAbsolutePath();
+            String executeCmd = "C:\\Program Files\\MySQL\\MySQL Server 5.7\\bin\\mysqldump -u " + dbUser + " -h localhost --port=3306" + " -p" + dbPass
+                    + " " + dbName + " -r " + jarDir + ".sql\"";
+            System.out.println(executeCmd);
+            Process runtimeProcess = Runtime.getRuntime().exec(executeCmd);
+            int processComplete = runtimeProcess.waitFor();
+            System.out.println(processComplete);
+        }
+    }
 
     @FXML
     void savePasswordAction(ActionEvent event) {
@@ -204,6 +242,11 @@ public class seetingsController implements Initializable {
     @Override
 
     public void initialize(URL location, ResourceBundle resources) {
+
+        Validation.phoneValidation(this.currentPhoneNumber);
+        Validation.phoneValidation(this.newPhoneNumber);
+
+
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
         double screenWidth = primaryScreenBounds.getWidth() - 186;
 
@@ -211,7 +254,7 @@ public class seetingsController implements Initializable {
 //        accordion.setPrefHeight(primaryScreenBounds.getHeight());
 
         double width = primaryScreenBounds.getWidth() - 250;
-        phonPane.setPrefWidth(screenWidth / 2 );
+        phonPane.setPrefWidth(screenWidth / 2);
         infoPane.setLayoutX(phonPane.getPrefWidth() + 10);
         System.out.println(phonPane.getPrefWidth());
         label.setLayoutX(width / 2);

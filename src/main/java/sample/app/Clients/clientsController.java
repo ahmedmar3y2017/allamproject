@@ -28,7 +28,6 @@ import javafx.util.Callback;
 import sample.app.Entities.Clients;
 import sample.app.Transactions.ClientDao.clientDao;
 import sample.app.dialogs.dialog;
-import sample.app.main.MainController;
 import sample.shared.AutoCompleteComboBoxListener;
 import sample.shared.Validation.Validation;
 

@@ -9,6 +9,11 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
+    <properties>
+        <jasperreports.version>5.5.0</jasperreports.version>
+        <groovy.version>2.0.1</groovy.version>
+    </properties>
+
     <build>
 
         <resources>
@@ -19,6 +24,8 @@
                     <include>images/</include>
                     <include>styles/</include>
                     <include>font/</include>
+                    <include>reports/</include>
+
                     <include>*.xml</include>
 
                 </includes>
@@ -67,7 +74,98 @@
 
             </plugin>
 
-            <!--*****************************************************************************-->
+
+             <!--******************* report plugin *********************-->
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>jasperreports-maven-plugin</artifactId>-->
+                <!--<version>2.0</version>-->
+                <!--<configuration>-->
+                    <!--<sourceFileExt>.jrxml</sourceFileExt>-->
+                    <!--<compiler>net.sf.jasperreports.engine.design.JRJavacCompiler</compiler>-->
+                    <!--<outputDirectory>${project.build.outputDirectory}/reports</outputDirectory>-->
+                <!--</configuration>-->
+
+                <!--<executions>-->
+                    <!--&lt;!&ndash; We need to wait until after the java classes have been compiled to compile the reports &ndash;&gt;-->
+                    <!--<execution>-->
+                        <!--<phase>compile</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>compile-reports</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+
+                <!--<dependencies>-->
+                    <!--<dependency>-->
+                        <!--<groupId>org.codehaus.mojo</groupId>-->
+                        <!--<artifactId>jasperreports-maven-plugin</artifactId>-->
+                        <!--<version>1.0-beta-2</version>-->
+                        <!--<exclusions>-->
+                            <!--<exclusion>-->
+                                <!--<groupId>jasperreports</groupId>-->
+                                <!--<artifactId>jasperreports</artifactId>-->
+                            <!--</exclusion>-->
+                        <!--</exclusions>-->
+                    <!--</dependency>-->
+                    <!--<dependency>-->
+                        <!--<groupId>net.sf.jasperreports</groupId>-->
+                        <!--<artifactId>jasperreports</artifactId>-->
+                        <!--<version>${jasperreports.version}</version>-->
+                        <!--<exclusions>-->
+                            <!--<exclusion>-->
+                                <!--<groupId>commons-logging</groupId>-->
+                                <!--<artifactId>commons-logging</artifactId>-->
+                            <!--</exclusion>-->
+                        <!--</exclusions>-->
+                    <!--</dependency>-->
+                    <!--<dependency>-->
+                        <!--<groupId>org.codehaus.groovy</groupId>-->
+                        <!--<artifactId>groovy-all</artifactId>-->
+                        <!--<version>${groovy.version}</version>-->
+                    <!--</dependency>-->
+                <!--</dependencies>-->
+            <!--</plugin>-->
+            <plugin>
+                <groupId>com.alexnederlof</groupId>
+                <artifactId>jasperreports-plugin</artifactId>
+                <version>2.0</version>
+                <executions>
+                    <execution>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>jasper</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- These are the default configurations: -->
+                    <compiler>net.sf.jasperreports.engine.design.JRJdtCompiler</compiler>
+                    <sourceDirectory>src/main/jasperreports</sourceDirectory>
+                    <outputDirectory>${project.build.outputDirectory}/reports</outputDirectory>
+                    <outputFileExt>.jasper</outputFileExt>
+                    <xmlValidation>true</xmlValidation>
+                    <verbose>false</verbose>
+                    <numberOfThreads>4</numberOfThreads>
+                    <!--<failOnMissingSourceDirectory>true</failOnMissingSourceDirectory>-->
+                    <!--<sourceScanner>org.codehaus.plexus.compiler.util.scan.StaleSourceScanner</sourceScanner>-->
+                </configuration>
+
+                <dependencies>
+
+                <dependency>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy-all</artifactId>
+                <version>${groovy.version}</version>
+                </dependency>
+                    <dependency>
+                        <groupId>jetty</groupId>
+                        <artifactId>javax.servlet</artifactId>
+                        <version>5.1.12</version>
+                    </dependency>
+                </dependencies>
+
+            </plugin>
 
         </plugins>
     </build>
@@ -125,6 +223,183 @@
             <artifactId>fontawesomefx-materialicons</artifactId>
             <version>2.2.0-9.1.2</version>
         </dependency>
+
+        <!--<dependency>-->
+        <!--<groupId>barbecue-1.5-beta1</groupId>-->
+        <!--<artifactId>barbecue-1.5-beta1</artifactId>-->
+        <!--<version>1.0</version>-->
+        <!--<scope>system</scope>-->
+        <!--<systemPath>${project.basedir}/libs/jasperreport/barbecue-1.5-beta1.jar</systemPath>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+        <!--<groupId>commons-beanutils-1.8.2</groupId>-->
+        <!--<artifactId>commons-beanutils-1.8.2</artifactId>-->
+        <!--<version>1.0</version>-->
+        <!--<scope>system</scope>-->
+        <!--<systemPath>${project.basedir}/libs/jasperreport/commons-beanutils-1.8.2.jar</systemPath>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>commons-collections-3.2.1</groupId>-->
+        <!--<artifactId>commons-collections-3.2.1</artifactId>-->
+        <!--<version>1.0</version>-->
+        <!--<scope>system</scope>-->
+        <!--<systemPath>${project.basedir}/libs/jasperreport/commons-collections-3.2.1.jar</systemPath>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>commons-digester-2.1</groupId>-->
+        <!--<artifactId>commons-digester-2.1</artifactId>-->
+        <!--<version>1.0</version>-->
+        <!--<scope>system</scope>-->
+        <!--<systemPath>${project.basedir}/libs/jasperreport/commons-digester-2.1.jar</systemPath>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>commons-javaflow-20060411</groupId>-->
+        <!--<artifactId>commons-javaflow-20060411</artifactId>-->
+        <!--<version>1.0</version>-->
+        <!--<scope>system</scope>-->
+        <!--<systemPath>${project.basedir}/libs/jasperreport/commons-javaflow-20060411.jar</systemPath>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>commons-logging-1.1</groupId>-->
+        <!--<artifactId>commons-logging-1.1</artifactId>-->
+        <!--<version>1.0</version>-->
+        <!--<scope>system</scope>-->
+        <!--<systemPath>${project.basedir}/libs/jasperreport/commons-logging-1.1.jar</systemPath>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>groovy-all-2.0.1</groupId>-->
+        <!--<artifactId>groovy-all-2.0.1</artifactId>-->
+        <!--<version>1.0</version>-->
+        <!--<scope>system</scope>-->
+        <!--<systemPath>${project.basedir}/libs/jasperreport/groovy-all-2.0.1.jar</systemPath>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>iText-2.1.7.js2</groupId>-->
+        <!--<artifactId>iText-2.1.7.js2</artifactId>-->
+        <!--<version>1.0</version>-->
+        <!--<scope>system</scope>-->
+        <!--<systemPath>${project.basedir}/libs/jasperreport/iText-2.1.7.js2.jar</systemPath>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>iTextAsian</groupId>-->
+        <!--<artifactId>iTextAsian</artifactId>-->
+        <!--<version>1.0</version>-->
+        <!--<scope>system</scope>-->
+        <!--<systemPath>${project.basedir}/libs/jasperreport/iTextAsian.jar</systemPath>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>jasperreports-5.5.0</groupId>-->
+        <!--<artifactId>jasperreports-5.5.0</artifactId>-->
+        <!--<version>1.0</version>-->
+        <!--<scope>system</scope>-->
+        <!--<systemPath>${project.basedir}/libs/jasperreport/jasperreports-5.5.0.jar</systemPath>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>javax.servlet-5.1.12</groupId>-->
+        <!--<artifactId>javax.servlet-5.1.12</artifactId>-->
+        <!--<version>1.0</version>-->
+        <!--<scope>system</scope>-->
+        <!--<systemPath>${project.basedir}/libs/jasperreport/javax.servlet-5.1.12.jar</systemPath>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>poi-3.7-20101029</groupId>-->
+        <!--<artifactId>poi-3.7-20101029</artifactId>-->
+        <!--<version>1.0</version>-->
+        <!--<scope>system</scope>-->
+        <!--<systemPath>${project.basedir}/libs/jasperreport/poi-3.7-20101029.jar</systemPath>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>ReportsEngine</groupId>-->
+        <!--<artifactId>ReportsEngine</artifactId>-->
+        <!--<version>1.0</version>-->
+        <!--<scope>system</scope>-->
+        <!--<systemPath>${project.basedir}/libs/jasperreport/ReportsEngine.jar</systemPath>-->
+        <!--</dependency>-->
+        <!-- https://mvnrepository.com/artifact/net.sourceforge.barbecue/barbecue -->
+        <dependency>
+            <groupId>net.sourceforge.barbecue</groupId>
+            <artifactId>barbecue</artifactId>
+            <version>1.5-beta1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.8.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-collections/commons-collections -->
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-digester/commons-digester -->
+        <dependency>
+            <groupId>commons-digester</groupId>
+            <artifactId>commons-digester</artifactId>
+            <version>2.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.lowagie/itext -->
+        <dependency>
+            <groupId>com.lowagie</groupId>
+            <artifactId>itext</artifactId>
+            <version>2.1.7</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.itextpdf/itext-asian -->
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itext-asian</artifactId>
+            <version>5.2.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>${jasperreports.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>jetty</groupId>
+            <artifactId>javax.servlet</artifactId>
+            <version>5.1.12</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.7</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.eclipse.birt/report-engine -->
+        <!--<dependency>-->
+            <!--<groupId>org.eclipse.birt</groupId>-->
+            <!--<artifactId>report-engine</artifactId>-->
+            <!--<version>2.3.2</version>-->
+        <!--</dependency>-->
+
+
 
     </dependencies>
 

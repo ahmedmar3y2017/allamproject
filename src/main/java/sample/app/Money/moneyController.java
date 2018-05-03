@@ -23,6 +23,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.util.Callback;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import sample.app.AddBank.mainAddBank;
 import sample.app.Entities.Bank;
 import sample.app.Entities.BankAccount;
@@ -30,6 +34,7 @@ import sample.app.Entities.Safe;
 import sample.app.Entities.Users;
 import sample.app.Transactions.BankAccountDao.bankAccountDao;
 import sample.app.Transactions.BankDao.bankDao;
+import sample.app.Transactions.DBConnection;
 import sample.app.Transactions.SafeDao.safeDao;
 import sample.app.dialogs.dialog;
 import sample.app.login.LoginController;
@@ -37,12 +42,15 @@ import sample.shared.AutoCompleteComboBoxListener;
 import sample.shared.Validation.Validation;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -51,6 +59,10 @@ import java.util.stream.Collectors;
  * Created by ahmed mar3y on 22/04/2018.
  */
 public class moneyController implements Initializable {
+
+    @FXML
+    private JFXButton bankPrint;
+
     ObservableList<BankTable> bank_data = FXCollections.observableArrayList();
     @FXML
     private JFXButton refreshBank;
@@ -236,6 +248,73 @@ public class moneyController implements Initializable {
     private MoneyTable moneySelected;
 
     @FXML
+    void moneyPrintAction(ActionEvent event) throws JRException {
+
+        LocalDate sDate = this.moneyFrom.getValue();
+        Date StartDate = java.util.Date.from(Instant.from(sDate.atStartOfDay(ZoneId.systemDefault())));
+        LocalDate eDate = this.moneyTo.getValue();
+        Date EndDate = java.util.Date.from(Instant.from(eDate.atStartOfDay(ZoneId.systemDefault())));
+
+
+        HashMap<String, Object> hm = new HashMap<>();
+        hm.put("datefrom", new SimpleDateFormat("yyyy-MM-dd").format(StartDate));
+        hm.put("dateto", new SimpleDateFormat("yyyy-MM-dd").format(EndDate));
+        hm.put("total", moneyTotalMoney.getText());           // الرصيدالمتاح
+        hm.put("logoPath", getClass().getResource("src/main/jasperreports/logo.png"));
+
+
+        JasperReport jr = JasperCompileManager.compileReport("C:\\jasperreports\\safe.jrxml");
+        JasperPrint jp = null;
+        try {
+            jp = JasperFillManager.fillReport(jr, hm, DBConnection.getConnection());
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+        JasperViewer jasperViewer = new JasperViewer(jp, false);
+        jasperViewer.setVisible(true);
+        jasperViewer.setTitle("كشف حساب المصاريف");
+
+
+    }
+
+
+    @FXML
+    void bankPrintAction(ActionEvent event) throws JRException {
+
+        LocalDate sDate = this.bankFromSearch.getValue();
+        Date StartDate = java.util.Date.from(Instant.from(sDate.atStartOfDay(ZoneId.systemDefault())));
+        LocalDate eDate = this.bankToSearch.getValue();
+        Date EndDate = java.util.Date.from(Instant.from(eDate.atStartOfDay(ZoneId.systemDefault())));
+
+        int bankIndex = bankNameSearch.getSelectionModel().getSelectedIndex();
+        int bankId = bank_Ids.get(bankIndex);
+
+        System.err.println(bankIndex + "    " + bankId);
+
+        HashMap<String, Object> hm = new HashMap<>();
+        hm.put("datefrom", new SimpleDateFormat("yyyy-MM-dd").format(StartDate));
+        hm.put("dateto", new SimpleDateFormat("yyyy-MM-dd").format(EndDate));
+        hm.put("total", bankMoneyTable.getText());           // الرصيدالمتاح
+        hm.put("bankid", bankId);
+        hm.put("logoPath", getClass().getResource("src/main/jasperreports/logo.png"));
+
+
+        JasperReport jr = JasperCompileManager.compileReport("C:\\jasperreports\\bank.jrxml");
+        JasperPrint jp = null;
+        try {
+            jp = JasperFillManager.fillReport(jr, hm, DBConnection.getConnection());
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+        JasperViewer jasperViewer = new JasperViewer(jp, false);
+        jasperViewer.setVisible(true);
+        jasperViewer.setTitle("كشف حساب البنك");
+
+
+    }
+
+
+    @FXML
     void moneySaveAction(ActionEvent event) {
 
 
@@ -299,6 +378,7 @@ public class moneyController implements Initializable {
             money_data.clear();
 
             if (to != null && from != null) {
+                moneyPrint.setDisable(false);
                 final double[] totalSahb = {0.0};
                 final double[] totalEdaa = {0.0};
 
@@ -330,6 +410,8 @@ public class moneyController implements Initializable {
 
             }
             if (to == null && from != null) {
+                moneyPrint.setDisable(true);
+
                 final double[] totalSahb = {0.0};
                 final double[] totalEdaa = {0.0};
 
@@ -360,6 +442,8 @@ public class moneyController implements Initializable {
 
             }
             if (to != null && from == null) {
+                moneyPrint.setDisable(true);
+
                 final double[] totalSahb = {0.0};
                 final double[] totalEdaa = {0.0};
 
@@ -782,7 +866,7 @@ public class moneyController implements Initializable {
 
             // name Only
             if (!emptyName && from == null && to == null) {
-
+                bankPrint.setDisable(true);
                 final double[] totalSahb = {0.0};
                 final double[] totalEdaa = {0.0};
 
@@ -815,6 +899,7 @@ public class moneyController implements Initializable {
             if (!emptyName && from != null && to == null) {
                 final double[] totalSahb = {0.0};
                 final double[] totalEdaa = {0.0};
+                bankPrint.setDisable(true);
 
 
                 String name = bankNameSearch.getSelectionModel().getSelectedItem().toString();
@@ -847,6 +932,7 @@ public class moneyController implements Initializable {
             if (!emptyName && from == null && to != null) {
                 final double[] totalSahb = {0.0};
                 final double[] totalEdaa = {0.0};
+                bankPrint.setDisable(true);
 
 
                 String name = bankNameSearch.getSelectionModel().getSelectedItem().toString();
@@ -880,7 +966,7 @@ public class moneyController implements Initializable {
             if (!emptyName && from != null && to != null) {
                 final double[] totalSahb = {0.0};
                 final double[] totalEdaa = {0.0};
-
+                this.bankPrint.setDisable(false);
 
                 String name = bankNameSearch.getSelectionModel().getSelectedItem().toString();
                 Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -917,6 +1003,7 @@ public class moneyController implements Initializable {
             if (emptyName && from != null && to != null) {
                 final double[] totalSahb = {0.0};
                 final double[] totalEdaa = {0.0};
+                bankPrint.setDisable(true);
 
 
                 Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -953,6 +1040,7 @@ public class moneyController implements Initializable {
                 final double[] totalSahb = {0.0};
                 final double[] totalEdaa = {0.0};
 
+                bankPrint.setDisable(true);
 
                 Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
@@ -985,6 +1073,7 @@ public class moneyController implements Initializable {
             if (emptyName && from == null && to != null) {
                 final double[] totalSahb = {0.0};
                 final double[] totalEdaa = {0.0};
+                bankPrint.setDisable(true);
 
 
                 Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -1114,6 +1203,8 @@ public class moneyController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        this.bankPrint.setDisable(true);
+        moneyPrint.setDisable(true);
 
         this.userId = LoginController.idEmployee;
 

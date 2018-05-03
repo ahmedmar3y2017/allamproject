@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="mainreport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="92dff1cb-0421-464d-b78d-ed196a385393">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="datefrom" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dateto" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="total" class="java.lang.String"/>
+	<parameter name="bankid" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="logopath" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     bank.`id` AS bank_id,
+     bank.`address` AS bank_address,
+     bank.`name` AS bank_name,
+     bank.`number` AS bank_number,
+     bank_account.`id` AS bank_account_id,
+     bank_account.`date` AS bank_account_date,
+     bank_account.`money` AS bank_account_money,
+     bank_account.`notes` AS bank_account_notes,
+     bank_account.`type` AS bank_account_type,
+     bank_account.`bankid` AS bank_account_bankid
+FROM
+     `bank` bank INNER JOIN `bank_account` bank_account ON bank.`id` = bank_account.`bankid`
+    where bank_account.`date` between $P{datefrom} and $P{dateto} and bank.`id`= $P{bankid}]]>
+	</queryString>
+	<field name="bank_id" class="java.lang.Integer"/>
+	<field name="bank_address" class="java.lang.String"/>
+	<field name="bank_name" class="java.lang.String"/>
+	<field name="bank_number" class="java.lang.String"/>
+	<field name="bank_account_id" class="java.lang.Integer"/>
+	<field name="bank_account_date" class="java.sql.Date"/>
+	<field name="bank_account_money" class="java.lang.Double"/>
+	<field name="bank_account_notes" class="java.lang.String"/>
+	<field name="bank_account_type" class="java.lang.String"/>
+	<field name="bank_account_bankid" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="145" splitType="Stretch">
+			<staticText>
+				<reportElement x="240" y="86" width="150" height="33" uuid="5d470f73-8b8d-4f2f-959c-cf02dd298e4a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[كشف حساب البنك : ]]></text>
+			</staticText>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="207" y="0" width="147" height="75" uuid="92e8db85-4e37-420c-8fb4-c1349a6901b1"/>
+				<imageExpression><![CDATA[$P{logopath}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="375" y="0" width="180" height="33" uuid="1e676cc6-f55a-47e5-bdb4-ab876fc7bff3"/>
+				<textElement textAlignment="Right">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[شركة أولاد علام لخدمات النقل ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="81" y="25" width="68" height="20" uuid="440f3df5-bad2-4e40-ae36-4be390a6b0f2"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[التاريخ الى : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="81" y="1" width="68" height="20" uuid="fa447201-bafb-487b-81d5-65d273b2bcf1"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[التاريخ من : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="57" y="86" width="200" height="33" uuid="f97c7b05-6b05-4d4f-81dd-fa87f62831ba"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bank_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="0" width="80" height="20" uuid="ca608e0c-ac8e-48cd-b4af-2385a54f534e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{datefrom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="25" width="80" height="20" uuid="4516f5cf-606c-4d9b-8439-e76d0e57ece3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dateto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="414" y="0" width="112" height="28" backcolor="#ECECEC" uuid="6bc8720a-80b5-4742-b06e-b78871dfab45"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<topPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<leftPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<bottomPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<rightPen lineWidth="0.5" lineColor="#CCCCCC"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[التاريخ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="526" y="0" width="25" height="28" backcolor="#ECECEC" uuid="96c7c294-7a4c-4d7b-a14e-bc5685a7081e"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<topPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<leftPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<bottomPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<rightPen lineWidth="0.5" lineColor="#CCCCCC"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[م]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="332" y="0" width="82" height="28" backcolor="#ECECEC" uuid="c090b9c6-fa19-49d4-a80b-1a9529b35e13"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<topPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<leftPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<bottomPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<rightPen lineWidth="0.5" lineColor="#CCCCCC"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[نوع العملية ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="207" y="0" width="125" height="28" backcolor="#ECECEC" uuid="6669c993-49c2-4c96-b8e8-a9f3939ff4b9"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<topPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<leftPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<bottomPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<rightPen lineWidth="0.5" lineColor="#CCCCCC"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[المبلغ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="0" width="206" height="28" backcolor="#ECECEC" uuid="bcb6f5cb-5501-4c42-964d-737564fa6a64"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<topPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<leftPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<bottomPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<rightPen lineWidth="0.5" lineColor="#CCCCCC"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ملاحظات ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="526" y="0" width="25" height="20" uuid="24687977-a0b3-4357-85b1-73f7bd3b2a86"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<topPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<leftPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<bottomPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<rightPen lineWidth="0.5" lineColor="#CCCCCC"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd">
+				<reportElement x="414" y="0" width="112" height="20" uuid="d4ba7402-2293-4b47-8782-7ab4c9d1ed27"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<topPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<leftPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<bottomPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<rightPen lineWidth="0.5" lineColor="#CCCCCC"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bank_account_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="332" y="0" width="82" height="20" uuid="6def0b44-7a7a-46c4-b1ad-62c26ea5cd9d"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<topPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<leftPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<bottomPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<rightPen lineWidth="0.5" lineColor="#CCCCCC"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bank_account_type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="207" y="0" width="125" height="20" uuid="34f3623c-3bee-4a06-a48a-02ab03501cd4"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<topPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<leftPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<bottomPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<rightPen lineWidth="0.5" lineColor="#CCCCCC"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bank_account_money}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="207" height="20" uuid="299b5373-5967-4830-b6da-579d239a08b9"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<topPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<leftPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<bottomPen lineWidth="0.5" lineColor="#CCCCCC"/>
+					<rightPen lineWidth="0.5" lineColor="#CCCCCC"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bank_account_notes}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="20" y="13" width="220" height="34" uuid="db51f673-6c3b-41b7-9e87-eb27b2f5f0fb"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="162" y="22" width="74" height="20" uuid="5ae84101-47fd-417e-a690-8ca0c1795281"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[الرصيد المتاح : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="20" y="22" width="146" height="20" uuid="08b4079a-f55c-4e72-956a-fd5213786b8a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

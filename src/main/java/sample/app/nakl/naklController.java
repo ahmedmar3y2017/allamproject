@@ -22,18 +22,22 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.util.Callback;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import sample.app.AddClient.mainAddClient;
 import sample.app.Entities.Clients;
 import sample.app.Entities.Maintable;
 import sample.app.Transactions.ClientDao.clientDao;
+import sample.app.Transactions.DBConnection;
 import sample.app.Transactions.MainTableDao.mainTableDao;
 import sample.app.dialogs.dialog;
-import sample.app.main.MainController;
 import sample.shared.AutoCompleteComboBoxListener;
 import sample.shared.Validation.Validation;
 
 import javax.swing.text.TableView;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -179,6 +183,40 @@ public class naklController implements Initializable {
 
 
     @FXML
+    void printAction(ActionEvent event) throws JRException, FileNotFoundException {
+        //check table data
+
+        if (NaklTable_data.isEmpty()) {
+            dialog dialog = new dialog(Alert.AlertType.WARNING, "خطأ", "لايوجد كشف نقل اليوم");
+
+
+        } else {
+
+            Date date = new Date();
+            HashMap<String, Object> hm = new HashMap<>();
+            hm.put("date", new SimpleDateFormat("yyyy/MM/dd").format(date));
+            hm.put("logoPath", getClass().getResource("src/main/jasperreports/logo.png"));
+
+//            JasperCompileManager.compileReportToFile("src/main/jasperreports/mainreport.jrxml", "src/main/jasperreports/mainreport.jasper");
+
+//            JasperReport jr = JasperCompileManager.compileReport("src/main/jasperreports/mainreport.jrxml");
+
+            InputStream url7 = new FileInputStream(new File("C:\\jasperreports\\mainreport.jrxml"));
+//            InputStream url7 = getClass().getResourceAsStream("src/main/jasperreports/mainreport.jrxml");
+            JasperDesign dis = JRXmlLoader.load(url7);
+            JasperReport jr = JasperCompileManager.compileReport(dis);
+            JasperPrint jp = JasperFillManager.fillReport(jr, hm, DBConnection.getConnection());
+
+            JasperViewer jasperViewer = new JasperViewer(jp, false);
+            jasperViewer.setVisible(true);
+            jasperViewer.setTitle("كشف النقل");
+        }
+
+
+    }
+
+
+    @FXML
     void addClientAction(ActionEvent event) throws IOException {
 
         mainAddClient mainAddClient = new mainAddClient();
@@ -267,7 +305,7 @@ public class naklController implements Initializable {
     void saveAction(ActionEvent event) {
 
         // save Function
-        String clientName = this.clientName.getValue().toString();
+        boolean clientName = this.clientName.getSelectionModel().isEmpty();
         String type = this.type.getText();
         String to = this.toCity.getText();
         String from = this.fromCity.getText();
@@ -283,7 +321,7 @@ public class naklController implements Initializable {
         String office = this.office.getText();
         String clear = this.clear.getText();
 
-        if (clientName.trim().isEmpty()
+        if (clientName
                 || type.trim().isEmpty()
                 || to.trim().isEmpty()
                 || from.trim().isEmpty()
@@ -342,7 +380,7 @@ public class naklController implements Initializable {
             } else {
 
                 // insert into table design
-                NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + "-" + maintable1.getCityTo(), "Notes", clientName));
+                NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + "-" + maintable1.getCityTo(), "Notes", this.clientName.getValue().toString()));
                 final TreeItem<NaklTable> root = new RecursiveTreeItem<NaklTable>(NaklTable_data, RecursiveTreeObject::getChildren);
                 table.setRoot(root);
                 table.setShowRoot(false);
@@ -387,7 +425,7 @@ public class naklController implements Initializable {
 
 
             // save Function
-            String clientName = this.clientName.getValue().toString();
+            boolean clientName = this.clientName.getSelectionModel().isEmpty();
             String type = this.type.getText();
             String to = this.toCity.getText();
             String from = this.fromCity.getText();
@@ -403,7 +441,7 @@ public class naklController implements Initializable {
             String office = this.office.getText();
             String clear = this.clear.getText();
 
-            if (clientName.trim().isEmpty()
+            if (clientName
                     || type.trim().isEmpty()
                     || to.trim().isEmpty()
                     || from.trim().isEmpty()
@@ -469,7 +507,7 @@ public class naklController implements Initializable {
                     if (t) {
                         // insert into table design
 
-                        NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + "-" + maintable1.getCityTo(), "Notes", clientName));
+                        NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + "-" + maintable1.getCityTo(), "Notes", this.clientName.getValue().toString()));
                         final TreeItem<NaklTable> root = new RecursiveTreeItem<NaklTable>(NaklTable_data, RecursiveTreeObject::getChildren);
                         table.setRoot(root);
                         table.setShowRoot(false);

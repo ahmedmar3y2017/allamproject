@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -24,7 +16,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane styleClass=".main" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane styleClass=".main" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <HBox fx:id="hbox1" alignment="TOP_RIGHT" nodeOrientation="RIGHT_TO_LEFT">
             <children>
@@ -376,7 +368,7 @@
                             </cursor>
                         </JFXButton>
 
-                        <JFXButton fx:id="print" prefHeight="33.0" prefWidth="95.0" style="-fx-background-color: #c8d6e5;" text="طباعة" textFill="WHITE">
+                        <JFXButton fx:id="print" onAction="#printAction" prefHeight="33.0" prefWidth="95.0" style="-fx-background-color: #c8d6e5;" text="طباعة" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="17.0" />
                             </font>
