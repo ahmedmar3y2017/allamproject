@@ -44,5 +44,6 @@
     <orderEntry type="library" name="Maven: de.jensd:fontawesomefx:8.9" level="project" />
     <orderEntry type="library" name="Maven: de.jensd:fontawesomefx-materialicons:2.2.0-9.1.2" level="project" />
     <orderEntry type="library" name="Maven: de.jensd:fontawesomefx-commons:9.1.2" level="project" />
+    <orderEntry type="library" name="jasperreport" level="project" />
   </component>
 </module>

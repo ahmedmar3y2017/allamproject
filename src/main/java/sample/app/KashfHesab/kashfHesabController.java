@@ -20,19 +20,29 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.util.Callback;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import sample.app.AddClient.mainAddClient;
 import sample.app.Entities.Clients;
 import sample.app.Entities.Maintable;
 import sample.app.Transactions.ClientDao.clientDao;
+import sample.app.Transactions.DBConnection;
 import sample.app.Transactions.MainTableDao.mainTableDao;
+import sample.app.dialogs.dialog;
 import sample.app.nakl.naklController;
 import sample.shared.AutoCompleteComboBoxListener;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -139,6 +149,7 @@ public class kashfHesabController implements Initializable {
 
     @FXML
     void clientNameMouseClick(MouseEvent event) {
+
         // select All Clients
         clientsList = clientDao.SelectAllClients();
         if (clientsList != null) {
@@ -151,7 +162,41 @@ public class kashfHesabController implements Initializable {
     }
 
     @FXML
-    void printAction(ActionEvent event) {
+    void printAction(ActionEvent event) throws JRException {
+
+        // check Search By All
+        System.out.println("Print Action");
+
+        LocalDate sDate = this.from.getValue();
+        Date StartDate = java.util.Date.from(Instant.from(sDate.atStartOfDay(ZoneId.systemDefault())));
+        LocalDate eDate = this.to.getValue();
+        Date EndDate = java.util.Date.from(Instant.from(eDate.atStartOfDay(ZoneId.systemDefault())));
+
+        int clientIndex = clientName.getSelectionModel().getSelectedIndex();
+        int clientId = clientsList_Ids.get(clientIndex);
+
+        HashMap<String, Object> hm = new HashMap<>();
+        hm.put("datefrom", new SimpleDateFormat("yyyy-MM-dd").format(StartDate));
+        hm.put("dateto", new SimpleDateFormat("yyyy-MM-dd").format(EndDate));
+        hm.put("clientid", clientId);
+        hm.put("total", totalMoney.getText());            // الصافى
+        hm.put("logoPath", getClass().getResource("src/main/jasperreports/logo.png"));
+
+
+        // url
+
+
+        JasperReport jr = JasperCompileManager.compileReport("src/main/jasperreports/mainclient.jrxml");
+        JasperPrint jp = null;
+        try {
+            jp = JasperFillManager.fillReport(jr, hm, DBConnection.getConnection());
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+        JasperViewer jasperViewer = new JasperViewer(jp, false);
+        jasperViewer.setVisible(true);
+        jasperViewer.setTitle("كشف حساب عميل");
+
 
     }
 
@@ -184,6 +229,7 @@ public class kashfHesabController implements Initializable {
 
             // name Only
             if (!emptyName && from == null && to == null) {
+                printBtn.setDisable(true);
 
                 final double[] sum_clear = {0.0};
 
@@ -210,6 +256,7 @@ public class kashfHesabController implements Initializable {
             }
             if (!emptyName && from != null && to == null) {
                 final double[] sum_clear = {0.0};
+                printBtn.setDisable(true);
 
                 String name = clientName.getSelectionModel().getSelectedItem().toString();
                 Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -234,6 +281,7 @@ public class kashfHesabController implements Initializable {
             }
             if (!emptyName && from == null && to != null) {
                 final double[] sum_clear = {0.0};
+                printBtn.setDisable(true);
 
                 String name = clientName.getSelectionModel().getSelectedItem().toString();
                 Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -259,7 +307,7 @@ public class kashfHesabController implements Initializable {
 
             if (!emptyName && from != null && to != null) {
                 final double[] sum_clear = {0.0};
-
+                printBtn.setDisable(false);
                 String name = clientName.getSelectionModel().getSelectedItem().toString();
                 Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
                 Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -288,6 +336,7 @@ public class kashfHesabController implements Initializable {
 
             if (emptyName && from != null && to != null) {
                 final double[] sum_clear = {0.0};
+                printBtn.setDisable(true);
 
                 Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
                 Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -315,6 +364,7 @@ public class kashfHesabController implements Initializable {
             }
             if (emptyName && from != null && to == null) {
                 final double[] sum_clear = {0.0};
+                printBtn.setDisable(true);
 
                 Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
@@ -340,6 +390,7 @@ public class kashfHesabController implements Initializable {
             }
             if (emptyName && from == null && to != null) {
                 final double[] sum_clear = {0.0};
+                printBtn.setDisable(true);
 
                 Date toDate = Date.from(to.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
@@ -399,6 +450,9 @@ public class kashfHesabController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        printBtn.setDisable(true);
+
 
         // select All Clients
         clientsList = clientDao.SelectAllClients();
@@ -576,10 +630,6 @@ public class kashfHesabController implements Initializable {
         new AutoCompleteComboBoxListener<>(this.clientName);
 
 
-    }
-
-    @FXML
-    void printAction() {
     }
 
 
