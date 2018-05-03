@@ -40,8 +40,9 @@ public class bankAccountDao {
             session.update(String.valueOf(id), BankAccount);
 
             session.getTransaction().commit();
-            BankAccount c = (BankAccount) session.get(BankAccount.class, id);
+//            BankAccount c = (BankAccount) session.get(BankAccount.class, id);
             session.close();
+            BankAccount c = SelectBankAccount(id);
 
             return c;
         }

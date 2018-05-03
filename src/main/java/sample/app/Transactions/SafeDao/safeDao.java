@@ -40,8 +40,9 @@ public class safeDao {
             session.update(String.valueOf(id), Safe);
 
             session.getTransaction().commit();
-            Safe c = (Safe) session.get(Safe.class, id);
+//            Safe c = (Safe) session.get(Safe.class, id);
             session.close();
+            Safe c = SelectSafe(id);
 
             return c;
         }
@@ -74,11 +75,6 @@ public class safeDao {
         Session session = sessionFactory.openSession();
         Safe Safe = (Safe) session.get(Safe.class, id);
 
-        if (Safe == null) {
-            session.close();
-
-            return null;
-        }
         session.close();
 
         return Safe;
