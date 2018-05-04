@@ -122,7 +122,7 @@ public class LoginController implements Initializable {
             Users employees1 = userDao.SaveUsers(new
                     Users(
                     "admin",
-                    "admin", "admin"));
+                    "admin", "admin", "admin"));
 
 
         }
