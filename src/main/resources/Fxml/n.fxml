@@ -2,399 +2,250 @@
 
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
-<?import javafx.geometry.*?>
+<?import java.net.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane styleClass=".main" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <HBox fx:id="hbox1" alignment="TOP_RIGHT" nodeOrientation="RIGHT_TO_LEFT">
-            <children>
-                <Label alignment="CENTER" prefHeight="21.0" prefWidth="115.0" text=" اسم العميل : " HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                </Label>
-                <ComboBox fx:id="clientName" editable="true" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#clientNameMouseClick" prefHeight="33.0" prefWidth="140.0" promptText="اسم العميل" HBox.hgrow="ALWAYS">
-                    <HBox.margin>
-                        <Insets right="4.0" />
-                    </HBox.margin>
-                </ComboBox>
-                <Button fx:id="addClient" mnemonicParsing="false" onAction="#addClientAction" prefHeight="33.0" prefWidth="20.0">
-                    <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true" styleClass="round-red">
-                            <image>
-                                <Image url="@../images/add.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                    <HBox.margin>
-                        <Insets right="10.0" />
-                    </HBox.margin>
-                </Button>
-                <Label alignment="CENTER" layoutX="888.0" layoutY="20.0" prefHeight="21.0" prefWidth="110.0" text="التاريخ :">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets />
-                    </HBox.margin>
-                </Label>
-                <DatePicker fx:id="date" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="170.0" promptText="التاريخ " HBox.hgrow="ALWAYS">
-                    <HBox.margin>
-                        <Insets right="4.0" />
-                    </HBox.margin>
-                </DatePicker>
-                <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text="  النولون :">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="nawlon" alignment="CENTER" prefHeight="33.0" prefWidth="170.0" promptText="0.0" HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="4.0" />
-                    </HBox.margin>
-                </TextField>
-                <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text="   خصم :">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="discount" alignment="CENTER" prefHeight="33.0" prefWidth="170.0" promptText="0.0" HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets left="10.0" right="4.0" />
-                    </HBox.margin>
-                </TextField>
-            </children>
-            <padding>
-                <Insets top="15.0" />
-            </padding>
-        </HBox>
-        <HBox fx:id="hbox2" alignment="TOP_RIGHT" layoutY="56.0" nodeOrientation="RIGHT_TO_LEFT">
-            <children>
-                <Label alignment="CENTER" prefHeight="21.0" prefWidth="115.0" text="نوع البضاعة : " HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="type" alignment="CENTER" layoutX="333.0" layoutY="20.0" prefHeight="33.0" prefWidth="170.0" promptText="نوع البضاعه " HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="4.0" />
-                    </HBox.margin>
-                </TextField>
-                <Label alignment="CENTER" layoutX="888.0" layoutY="20.0" prefHeight="21.0" prefWidth="110.0" text="البوليصة :">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="20.0" />
-                    </HBox.margin>
-                </Label>
-                <TextField fx:id="bolisa" alignment="CENTER" layoutX="328.0" layoutY="20.0" prefHeight="33.0" prefWidth="170.0" promptText="0.0" styleClass="jfx-text-field" HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="4.0" />
-                    </HBox.margin>
-                </TextField>
-                <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text=" عهده :">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="ohda" alignment="CENTER" prefHeight="33.0" prefWidth="170.0" promptText="0.0" HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="4.0" />
-                    </HBox.margin>
-                </TextField>
-                <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text=" مكتب :">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="office" alignment="CENTER" prefHeight="33.0" prefWidth="170.0" promptText="0.0" HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets left="10.0" right="4.0" />
-                    </HBox.margin>
-                </TextField>
-            </children>
-            <padding>
-                <Insets top="7.0" />
-            </padding>
-        </HBox>
-        <HBox fx:id="hbox3" alignment="TOP_RIGHT" layoutY="95.0" nodeOrientation="RIGHT_TO_LEFT">
-            <children>
-                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="115.0" text="مكان التحميل : " HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="fromCity" alignment="CENTER" layoutX="333.0" layoutY="20.0" prefHeight="33.0" prefWidth="170.0" promptText="مكان" HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="4.0" />
-                    </HBox.margin>
-                </TextField>
-                <Label alignment="CENTER" layoutX="888.0" layoutY="20.0" prefHeight="21.0" prefWidth="110.0" text="السيارة :">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="20.0" />
-                    </HBox.margin>
-                </Label>
-                <TextField fx:id="carNum" alignment="CENTER" layoutX="328.0" layoutY="20.0" prefHeight="33.0" prefWidth="170.0" promptText="0.0" HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="4.0" />
-                    </HBox.margin>
-                </TextField>
-                <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text="   إضافة :">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="added" alignment="CENTER" prefHeight="33.0" prefWidth="170.0" promptText="0.0" HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="4.0" />
-                    </HBox.margin>
-                </TextField>
-                <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text="صافى :">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="clear" alignment="CENTER" prefHeight="33.0" prefWidth="170.0" promptText="0.0" HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets left="10.0" right="4.0" />
-                    </HBox.margin>
-                </TextField>
-            </children>
-            <padding>
-                <Insets top="10.0" />
-            </padding>
-        </HBox>
-        <HBox fx:id="hbox4" alignment="TOP_RIGHT" layoutY="133.0" nodeOrientation="RIGHT_TO_LEFT">
-            <children>
-                <Label alignment="CENTER" prefHeight="21.0" prefWidth="115.0" text="مكان التنزيل :" HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="toCity" alignment="CENTER" layoutX="333.0" layoutY="20.0" prefHeight="33.0" prefWidth="170.0" promptText="مكان" HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="4.0" />
-                    </HBox.margin>
-                </TextField>
-                <Label alignment="CENTER" layoutX="888.0" layoutY="20.0" prefHeight="21.0" prefWidth="110.0" text="الوزن :">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="20.0" />
-                    </HBox.margin>
-                </Label>
-                <TextField fx:id="weight" alignment="CENTER" layoutX="328.0" layoutY="20.0" prefHeight="33.0" prefWidth="170.0" promptText="0.0" HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="4.0" />
-                    </HBox.margin>
-                </TextField>
-                <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text=" الميزان :">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets />
-                    </HBox.margin>
-                </Label>
-                <TextField fx:id="mezan" alignment="CENTER" prefHeight="33.0" prefWidth="170.0" promptText="0.0" HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="4.0" />
-                    </HBox.margin>
-                </TextField>
-                <JFXButton fx:id="save1" layoutX="133.0" layoutY="25.0" onAction="#saveAction" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                    <font>
-                        <Font name="System Bold" size="17.0" />
-                    </font>
-               <HBox.margin>
-                  <Insets left="15.0" />
-               </HBox.margin>
-                </JFXButton>
-                <JFXButton fx:id="update" onAction="#updateAction" prefHeight="33.0" prefWidth="70.0" style="-fx-background-color: #48dbfb;" text="تعديل" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="17.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets left="5.0" right="4.0" />
-                    </HBox.margin>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
+        <Accordion fx:id="accordion" nodeOrientation="RIGHT_TO_LEFT" prefHeight="406.0" prefWidth="600.0">
+            <panes>
+                <TitledPane fx:id="pane1" text="تسجيل الخروج">
+                    <content>
+                        <Pane fx:id="mainPane" layoutX="93.0">
+                            <children>
+                                <Label fx:id="label" layoutX="193.0" layoutY="43.0" text="أضغط هنا لتسجيل الخروج">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <JFXButton fx:id="logoutBtn" layoutX="199.0" layoutY="99.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#logoutAction" style="-fx-background-color: #eb4d4b;" text="   تسجيل الخروج" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="50.0" fitWidth="40.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../images/logout.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </JFXButton>
+                                <JFXButton fx:id="closeBtn" layoutX="200.0" layoutY="174.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#closeAction" prefHeight="52.0" prefWidth="184.0" style="-fx-background-color: #2ed573;" text="إغلاق البرنامج   " textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="50.0" fitWidth="40.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../images/close.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </JFXButton>
+                            </children>
+                        </Pane>
+                    </content>
+                </TitledPane>
+                <TitledPane animated="false" text="المستخدمين">
+                    <content>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                            <children>
+                        <Pane fx:id="tablePane" layoutX="440.0" layoutY="20.0" prefHeight="266.0" prefWidth="367.0">
+                           <children>
+                                      <TreeTableView fx:id="tableUser" onKeyPressed="#UserkeyEnterEvent" prefHeight="181.0" prefWidth="367.0">
+                                          <columns>
+                                              <TreeTableColumn fx:id="tableUserName" prefWidth="101.0" text="الاسم" />
+                                              <TreeTableColumn fx:id="tableMobile" prefWidth="136.0" text="الموبايل" />
+                                              <TreeTableColumn fx:id="tablePassword" prefWidth="129.0" text="كلمه السر" />
+                                          </columns>
+                                      </TreeTableView>
+                                      <JFXButton fx:id="deleteUser" buttonType="RAISED" layoutX="289.0" layoutY="187.0" onAction="#deleteUserAction" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #e74c3c;" text="مسح" textFill="WHITE">
+                                          <font>
+                                              <Font size="18.0" />
+                                          </font>
+                                      </JFXButton>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="userPane" layoutX="10.0" layoutY="20.0" prefHeight="201.0" prefWidth="395.0" style="-fx-background-color: ;">
+                           <children>
+                                      <TextField fx:id="userName" layoutX="5.0" prefHeight="31.0" prefWidth="295.0" promptText="اسم المستخدم">
+                                          <font>
+                                              <Font size="15.0" />
+                                          </font>
+                                      </TextField>
+                                      <TextField fx:id="userMobile" layoutX="5.0" layoutY="40.0" prefHeight="31.0" prefWidth="294.0" promptText="رقم الموبايل">
+                                          <font>
+                                              <Font size="15.0" />
+                                          </font>
+                                      </TextField>
+                                      <PasswordField fx:id="userPassword" layoutX="5.0" layoutY="80.0" prefHeight="31.0" prefWidth="294.0" promptText="الرقم السرى">
+                                          <font>
+                                              <Font size="15.0" />
+                                          </font>
+                                      </PasswordField>
+                                      <JFXButton fx:id="refreshTable" buttonType="RAISED" layoutX="224.0" layoutY="141.0" onAction="#refreshTableAction" prefHeight="39.0" prefWidth="126.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
+                                          <font>
+                                              <Font size="18.0" />
+                                          </font>
+                                      </JFXButton>
+                                      <JFXButton fx:id="updateUser" buttonType="RAISED" layoutX="115.0" layoutY="141.0" onAction="#updateUserAction" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #48dbfb;" text="تعديل" textFill="WHITE">
+                                          <font>
+                                              <Font size="18.0" />
+                                          </font>
+                                      </JFXButton>
+                                      <JFXButton fx:id="addUser" buttonType="RAISED" layoutX="5.0" layoutY="141.0" onAction="#addUserAction" prefHeight="37.0" prefWidth="100.0" styleClass="round-red" text="اضافة" textFill="WHITE">
+                                          <font>
+                                              <Font size="18.0" />
+                                          </font>
+                                      </JFXButton>
+                           </children>
+                        </Pane>
+                            </children>
+                        </Pane>
+                    </content>
+                </TitledPane>
+                <TitledPane fx:id="pane22" text="معلومات الحساب">
+                    <content>
+                        <Pane fx:id="pane2">
+                            <children>
+                                <Pane fx:id="infoPane" layoutX="400.0" layoutY="30.0">
+                                    <children>
+                                        <JFXButton fx:id="savePassword" layoutX="168.0" layoutY="146.0" onAction="#savePasswordAction" prefHeight="39.0" prefWidth="165.0" style="-fx-background-color: #2ed573;" text="تعديل كلمه السر " textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </JFXButton>
+                                        <Label prefWidth="170.0" text="كلمة السر الحالية :">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <PasswordField fx:id="currentPassword" layoutX="149.0" prefHeight="25.0" prefWidth="200.0">
+                                            <font>
+                                                <Font size="17.0" />
+                                            </font>
+                                        </PasswordField>
+                                        <Label layoutX="-0.0" layoutY="48.0" prefWidth="170.0" text="كلمة السر الجديدة :">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <PasswordField fx:id="currentPassword1" layoutX="150.0" layoutY="46.0" prefHeight="25.0" prefWidth="200.0">
+                                            <font>
+                                                <Font size="17.0" />
+                                            </font>
+                                        </PasswordField>
+                                        <Label layoutY="91.0" prefWidth="170.0" text="تأكيد كلمة السر :">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <PasswordField fx:id="currentPassword11" layoutX="150.0" layoutY="92.0" prefHeight="25.0" prefWidth="200.0">
+                                            <font>
+                                                <Font size="17.0" />
+                                            </font>
+                                        </PasswordField>
+                                    </children>
+                                </Pane>
+                                <Pane fx:id="phonPane" layoutY="30.0">
+                                    <children>
+                                        <Label layoutX="32.0" layoutY="12.0" prefWidth="170.0" text="رقم الموبايل  : ">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="currentPhoneNumber" layoutX="141.0" layoutY="8.0" prefHeight="33.0" prefWidth="200.0">
+                                            <font>
+                                                <Font size="17.0" />
+                                            </font>
+                                        </TextField>
+                                        <TextField fx:id="newPhoneNumber" layoutX="141.0" layoutY="67.0" prefHeight="33.0" prefWidth="200.0">
+                                            <font>
+                                                <Font size="17.0" />
+                                            </font>
+                                        </TextField>
+                                        <JFXButton fx:id="savePhone" layoutX="174.0" layoutY="128.0" onAction="#savePhoneAction" prefHeight="33.0" style="-fx-background-color: #2ed573;" text="تعديل الموبايل" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </JFXButton>
+                                        <Label layoutX="4.0" layoutY="70.0" prefWidth="170.0" text="رقم الموبايل الجديد : ">
+                                            <font>
+                                                <Font name="System Bold" size="16.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </Pane>
+                    </content>
+                </TitledPane>
+                <TitledPane fx:id="pane3" text="عمل نسخة احتياطية">
+                    <content>
+                        <Pane fx:id="mainPane2" layoutX="93.0">
+                            <children>
+                                <Label fx:id="label2" layoutX="193.0" layoutY="43.0" text="من هنا يمكنك عمل نسخة احتياطيه من الداتا بيز">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <JFXButton fx:id="backup" layoutX="199.0" layoutY="99.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#backupAction" style="-fx-background-color: #2ed573;" text="  عمل نسخة احتياطية " textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="70.0" fitWidth="70.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../images/Backups.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </JFXButton>
 
+                            </children>
+                        </Pane>
+                    </content>
 
-                </JFXButton>
-                <JFXButton fx:id="save" onAction="#saveAction" prefHeight="33.0" prefWidth="70.0" styleClass="round-red" text="حفظ" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="17.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="10.0" />
-                    </HBox.margin>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </JFXButton>
-            </children>
-            <padding>
-                <Insets top="15.0" />
-            </padding>
-        </HBox>
-        <HBox layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT">
-            <children>
-                <TreeTableView fx:id="table" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" onKeyPressed="#treeViewKeyPressed" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;">
-                    <columns>
-                        <TreeTableColumn fx:id="tableDate" prefWidth="75.0" text="التاريخ" />
-                        <TreeTableColumn fx:id="tableType" prefWidth="84.0" text="نوع البضاعه" />
-                        <TreeTableColumn fx:id="tableBolisa" prefWidth="66.0" text="البوليصه" />
-                        <TreeTableColumn fx:id="tableCarNum" prefWidth="75.0" text="السياره" />
-                        <TreeTableColumn fx:id="tableWeight" prefWidth="75.0" text="الوزن" />
-                        <TreeTableColumn fx:id="tableNawlon" prefWidth="75.0" text="النولون" />
-                        <TreeTableColumn fx:id="tableOhda" prefWidth="75.0" text="عهده" />
-                        <TreeTableColumn fx:id="tableAgz" prefWidth="75.0" text="عجز" />
-                        <TreeTableColumn fx:id="tableAdded" prefWidth="75.0" text="اضافة" />
-                        <TreeTableColumn fx:id="tableMezan" prefWidth="75.0" text="الميزان" />
-                        <TreeTableColumn fx:id="tableDiscount" prefWidth="75.0" text="خصم" />
-                        <TreeTableColumn fx:id="tableOffice" prefWidth="75.0" text="مكتب" />
-                        <TreeTableColumn fx:id="tableClear" prefWidth="75.0" text="صافى" />
-                        <TreeTableColumn fx:id="tableBian" prefWidth="95.0" text="بيان" />
-                        <TreeTableColumn fx:id="tableNotes" text="ملاحظات" />
-                    </columns>
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-                </TreeTableView>
-            </children>
-            <padding>
-                <Insets left="10.0" />
-            </padding>
-        </HBox>
-        <Pane fx:id="lastHbox" layoutX="21.0" layoutY="628.0" nodeOrientation="RIGHT_TO_LEFT">
-            <children>
-                <HBox fx:id="hbox5" nodeOrientation="LEFT_TO_RIGHT">
-                    <children>
-                        <JFXButton fx:id="updateTable" layoutY="404.0" onAction="#updateTableAction" prefHeight="33.0" prefWidth="95.0" style="-fx-background-color: #48dbfb;" text="تعديل" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="17.0" />
-                            </font>
-                            <HBox.margin>
-                                <Insets left="10.0" right="10.0" />
-                            </HBox.margin>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                            <graphic>
-                                <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../images/update.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                        </JFXButton>
-                        <JFXButton fx:id="delete" onAction="#deleteAction" prefHeight="33.0" prefWidth="85.0" style="-fx-background-color: #e74c3c;" text="مسح" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="17.0" />
-                            </font>
-                            <graphic>
-                                <ImageView fitHeight="20.0" fitWidth="30.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../images/Cancel_delete_remove_stop_x_no_close_cross.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-
-                            <HBox.margin>
-                                <Insets left="10.0" right="10.0" />
-                            </HBox.margin>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </JFXButton>
-
-                        <JFXButton fx:id="print" prefHeight="33.0" prefWidth="95.0" style="-fx-background-color: #c8d6e5;" text="طباعة" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="17.0" />
-                            </font>
-                            <graphic>
-                                <ImageView fitHeight="23.0" fitWidth="35.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" style="-fx-margin-right: 10px;">
-                                    <image>
-                                        <Image url="@../images/recarga_de_250520151038527662.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </JFXButton>
-
-                    </children>
-                </HBox>
-            </children>
-        </Pane>
+                </TitledPane>
+            </panes>
+        </Accordion>
     </children>
-</Pane>
+    <stylesheets>
+        <URL value="@../styles/accordion.css" />
+        <URL value="@../styles/Main.css" />
+    </stylesheets>
+</AnchorPane>

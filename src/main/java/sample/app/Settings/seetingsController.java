@@ -152,7 +152,7 @@ public class seetingsController implements Initializable {
     private TitledPane pane3;
 
     @FXML
-    private Pane mainPane2, infoPane, phonPane;
+    private Pane mainPane2, infoPane, phonPane ,tablePane , userPane;
 
     @FXML
     private Label label2;
@@ -476,7 +476,16 @@ public class seetingsController implements Initializable {
         double width = primaryScreenBounds.getWidth() - 250;
         phonPane.setPrefWidth(screenWidth / 2);
         infoPane.setLayoutX(phonPane.getPrefWidth() + 10);
-        System.out.println(phonPane.getPrefWidth());
+
+        userPane.setPrefWidth(screenWidth / 2);
+        tablePane.setLayoutX(userPane.getPrefWidth() + 10);
+
+        tableUser.setPrefWidth(screenWidth -  userPane.getPrefWidth() -20 );
+        tableUserName.setPrefWidth(tableUser.getPrefWidth() / 3 );
+        tableMobile.setPrefWidth(tableUser.getPrefWidth() / 3 );
+        tablePassword.setPrefWidth(tableUser.getPrefWidth() / 3 );
+
+        infoPane.setLayoutX(phonPane.getPrefWidth() + 10);
         label.setLayoutX(width / 2);
 
         label2.setLayoutX((width / 2) - 160);

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import java.net.URL?>
 <?import javafx.scene.Cursor?>
@@ -16,60 +24,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Accordion fx:id="accordion" nodeOrientation="RIGHT_TO_LEFT" prefHeight="406.0" prefWidth="600.0">
          <panes>
-            <TitledPane animated="false" text="المستخدمين">
-               <content>
-                  <Pane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <TreeTableView fx:id="tableUser" layoutX="217.0" layoutY="16.0" onKeyPressed="#UserkeyEnterEvent" prefHeight="181.0" prefWidth="367.0">
-                          <columns>
-                            <TreeTableColumn fx:id="tableUserName" prefWidth="101.0" text="الاسم" />
-                            <TreeTableColumn fx:id="tableMobile" prefWidth="136.0" text="الموبايل" />
-                              <TreeTableColumn fx:id="tablePassword" prefWidth="129.0" text="كلمه السر" />
-                          </columns>
-                        </TreeTableView>
-                        <JFXButton fx:id="deleteUser" buttonType="RAISED" layoutX="437.0" layoutY="206.0" onAction="#deleteUserAction" prefHeight="37.0" prefWidth="100.0" styleClass="round-red" text="مسح">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton fx:id="updateUser" buttonType="RAISED" layoutX="149.0" layoutY="178.0" onAction="#updateUserAction" prefHeight="37.0" prefWidth="100.0" styleClass="round-red" text="تعديل">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton fx:id="addUser" buttonType="RAISED" layoutX="33.0" layoutY="178.0" onAction="#addUserAction" prefHeight="37.0" prefWidth="100.0" styleClass="round-red" text="اضافه">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </JFXButton>
-                        <TextField fx:id="userName" layoutX="24.0" layoutY="29.0" promptText="اسم المستخدم">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="userMobile" layoutX="19.0" layoutY="80.0" promptText="رقم الموبايل">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                        <PasswordField fx:id="userPassword" layoutX="25.0" layoutY="129.0" promptText="الرقم السرى">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </PasswordField>
-                        <JFXButton fx:id="refreshTable" buttonType="RAISED" layoutX="115.0" layoutY="206.0" onAction="#refreshTableAction" prefHeight="39.0" prefWidth="126.0" styleClass="round-red" text="تفريغ الحقول">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                  </Pane>
-               </content>
-            </TitledPane>
             <TitledPane fx:id="pane1" text="تسجيل الخروج">
                <content>
                   <Pane fx:id="mainPane" layoutX="93.0">
@@ -109,6 +67,64 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </JFXButton>
+                     </children>
+                  </Pane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" text="المستخدمين">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Pane fx:id="tablePane" layoutX="440.0" layoutY="20.0" prefHeight="266.0" prefWidth="367.0">
+                           <children>
+                              <TreeTableView fx:id="tableUser" onKeyPressed="#UserkeyEnterEvent" prefHeight="181.0" prefWidth="367.0">
+                                 <columns>
+                                    <TreeTableColumn fx:id="tableUserName" prefWidth="101.0" text="الاسم" />
+                                    <TreeTableColumn fx:id="tableMobile" prefWidth="136.0" text="الموبايل" />
+                                    <TreeTableColumn fx:id="tablePassword" prefWidth="129.0" text="كلمه السر" />
+                                 </columns>
+                              </TreeTableView>
+                              <JFXButton fx:id="deleteUser" buttonType="RAISED" layoutX="289.0" layoutY="187.0" onAction="#deleteUserAction" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #e74c3c;" text="مسح" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="userPane" layoutX="10.0" layoutY="20.0" prefHeight="201.0" prefWidth="395.0" style="-fx-background-color: ;">
+                           <children>
+                              <TextField fx:id="userName" layoutX="5.0" prefHeight="31.0" prefWidth="295.0" promptText="اسم المستخدم">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="userMobile" layoutX="5.0" layoutY="40.0" prefHeight="31.0" prefWidth="294.0" promptText="رقم الموبايل">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </TextField>
+                              <PasswordField fx:id="userPassword" layoutX="5.0" layoutY="80.0" prefHeight="31.0" prefWidth="294.0" promptText="الرقم السرى">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </PasswordField>
+                              <JFXButton fx:id="refreshTable" buttonType="RAISED" layoutX="224.0" layoutY="141.0" onAction="#refreshTableAction" prefHeight="39.0" prefWidth="126.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="updateUser" buttonType="RAISED" layoutX="115.0" layoutY="141.0" onAction="#updateUserAction" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #48dbfb;" text="تعديل" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="addUser" buttonType="RAISED" layoutX="5.0" layoutY="141.0" onAction="#addUserAction" prefHeight="37.0" prefWidth="100.0" styleClass="round-red" text="اضافة" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </Pane>
                      </children>
                   </Pane>
                </content>
@@ -209,9 +225,9 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                            <graphic>
-                              <ImageView fitHeight="70.0" fitWidth="50.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="70.0" fitWidth="70.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/forbidden.png" />
+                                    <Image url="@../images/Backups.png" />
                                  </image>
                               </ImageView>
                            </graphic>
