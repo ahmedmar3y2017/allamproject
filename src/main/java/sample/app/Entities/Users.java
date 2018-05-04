@@ -46,6 +46,8 @@ public class Users implements Serializable {
     private String name;
     private String phone;
     private String password;
+    @Column(name = "type", columnDefinition = "varchar(20) default 'user'")
+    private String type;
     @Column(name = "isActive", columnDefinition = "boolean default true")
 
     private Boolean isActive;
@@ -64,6 +66,23 @@ public class Users implements Serializable {
         this.name = name;
         this.phone = phone;
         this.password = password;
+    }
+
+    public Users(String name, String phone, String password, String type) {
+        this.name = name;
+        this.phone = phone;
+        this.password = password;
+        this.type = type;
+    }
+
+
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Boolean getActive() {

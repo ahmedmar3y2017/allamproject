@@ -260,7 +260,7 @@ public class moneyController implements Initializable {
         hm.put("datefrom", new SimpleDateFormat("yyyy-MM-dd").format(StartDate));
         hm.put("dateto", new SimpleDateFormat("yyyy-MM-dd").format(EndDate));
         hm.put("total", moneyTotalMoney.getText());           // الرصيدالمتاح
-        hm.put("logoPath", getClass().getResource("src/main/jasperreports/logo.png"));
+        hm.put("logoPath", getClass().getResource("C:\\jasperreports\\logo.png"));
 
 
         JasperReport jr = JasperCompileManager.compileReport("C:\\jasperreports\\safe.jrxml");
@@ -296,7 +296,7 @@ public class moneyController implements Initializable {
         hm.put("dateto", new SimpleDateFormat("yyyy-MM-dd").format(EndDate));
         hm.put("total", bankMoneyTable.getText());           // الرصيدالمتاح
         hm.put("bankid", bankId);
-        hm.put("logoPath", getClass().getResource("src/main/jasperreports/logo.png"));
+        hm.put("logoPath", getClass().getResource("C:\\jasperreports\\logo.png"));
 
 
         JasperReport jr = JasperCompileManager.compileReport("C:\\jasperreports\\bank.jrxml");

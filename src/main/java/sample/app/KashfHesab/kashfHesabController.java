@@ -180,7 +180,7 @@ public class kashfHesabController implements Initializable {
         hm.put("dateto", new SimpleDateFormat("yyyy-MM-dd").format(EndDate));
         hm.put("clientid", clientId);
         hm.put("total", totalMoney.getText());            // الصافى
-        hm.put("logoPath", getClass().getResource("src/main/jasperreports/logo.png"));
+        hm.put("logoPath", getClass().getResource("C:\\jasperreports\\logo.png"));
 
 
         // url

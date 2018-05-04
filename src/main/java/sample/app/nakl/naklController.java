@@ -195,7 +195,7 @@ public class naklController implements Initializable {
             Date date = new Date();
             HashMap<String, Object> hm = new HashMap<>();
             hm.put("date", new SimpleDateFormat("yyyy/MM/dd").format(date));
-            hm.put("logoPath", getClass().getResource("src/main/jasperreports/logo.png"));
+            hm.put("logoPath", getClass().getResource("C:\\jasperreports\\logo.png"));
 
 //            JasperCompileManager.compileReportToFile("src/main/jasperreports/mainreport.jrxml", "src/main/jasperreports/mainreport.jasper");
 

@@ -135,4 +135,25 @@ public class userDao {
 
 
     }
+
+    public static Users UpdateActive(int id) {
+
+
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+
+        Query query = session.createQuery("update Users as us set us.isActive=false where us.id=:id");
+        query.setParameter("id", id);
+
+        query.executeUpdate();
+
+        session.getTransaction().commit();
+        Users users = session.get(Users.class, id);
+
+        session.close();
+        return users;
+
+
+    }
 }
