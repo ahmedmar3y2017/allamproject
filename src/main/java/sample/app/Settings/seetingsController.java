@@ -53,6 +53,8 @@ import java.util.stream.Collectors;
 
 public class seetingsController implements Initializable {
     // **************************************
+    @FXML
+    private TitledPane usersPane;
     ObservableList<userTable> user_data = FXCollections.observableArrayList();
     @FXML
     private JFXButton refreshTable;
@@ -152,7 +154,7 @@ public class seetingsController implements Initializable {
     private TitledPane pane3;
 
     @FXML
-    private Pane mainPane2, infoPane, phonPane ,tablePane , userPane;
+    private Pane mainPane2, infoPane, phonPane, tablePane, userPane;
 
     @FXML
     private Label label2;
@@ -458,6 +460,17 @@ public class seetingsController implements Initializable {
     @Override
 
     public void initialize(URL location, ResourceBundle resources) {
+
+        // check User
+
+        Users usersCheck = userDao.SelectUserById(LoginController.idEmployee);
+        if (usersCheck.getType().equals("user")) {
+
+            this.usersPane.setVisible(false);
+
+        }
+
+
         // set disabled
         this.updateUser.setDisable(true);
         this.addUser.setDisable(false);
@@ -480,10 +493,10 @@ public class seetingsController implements Initializable {
         userPane.setPrefWidth(screenWidth / 2);
         tablePane.setLayoutX(userPane.getPrefWidth() + 10);
 
-        tableUser.setPrefWidth(screenWidth -  userPane.getPrefWidth() -20 );
-        tableUserName.setPrefWidth(tableUser.getPrefWidth() / 3 );
-        tableMobile.setPrefWidth(tableUser.getPrefWidth() / 3 );
-        tablePassword.setPrefWidth(tableUser.getPrefWidth() / 3 );
+        tableUser.setPrefWidth(screenWidth - userPane.getPrefWidth() - 20);
+        tableUserName.setPrefWidth(tableUser.getPrefWidth() / 3);
+        tableMobile.setPrefWidth(tableUser.getPrefWidth() / 3);
+        tablePassword.setPrefWidth(tableUser.getPrefWidth() / 3);
 
         infoPane.setLayoutX(phonPane.getPrefWidth() + 10);
         label.setLayoutX(width / 2);
