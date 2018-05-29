@@ -110,6 +110,7 @@ public class LoginController implements Initializable {
     @FXML
     private void btnExit() {
         Platform.exit();
+        System.exit(0);
     }
 
     private void loginFunction() throws IOException {
