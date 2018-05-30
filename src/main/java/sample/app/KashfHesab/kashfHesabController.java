@@ -212,6 +212,8 @@ public class kashfHesabController implements Initializable {
         final TreeItem<HesabTable> Client_root = new RecursiveTreeItem<HesabTable>(HesabTable_data, RecursiveTreeObject::getChildren);
         table.setRoot(Client_root);
 
+        totalMoney.setText("0.0");
+
     }
 
     @FXML
@@ -224,6 +226,7 @@ public class kashfHesabController implements Initializable {
         LocalDate from = this.from.getValue();
         LocalDate to = this.to.getValue();
         maintables = mainTableDao.SelectAllMaintable();
+        totalMoney.setText("0.0");
         if (!maintables.isEmpty()) {
             HesabTable_data.clear();
 
@@ -431,6 +434,14 @@ public class kashfHesabController implements Initializable {
     @FXML
     void displayAllAction(ActionEvent event) {
         // get all and display into table
+        totalMoney.setText("0.0");
+        printBtn.setDisable(true);
+        clientName.setValue("");
+        from.setValue(null);
+        to.setValue(null);
+
+
+        //start
         final double[] sum_clear = {0.0};
         HesabTable_data.clear();
         maintables = mainTableDao.SelectAllMaintable();

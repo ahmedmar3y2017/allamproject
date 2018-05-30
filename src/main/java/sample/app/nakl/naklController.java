@@ -252,6 +252,45 @@ public class naklController implements Initializable {
     }
 
     @FXML
+    void refreshFields(ActionEvent event) {
+
+
+        // refresh All Fields
+
+        bolisa.setText("0.0");
+        carNum.setText("0.0");
+        weight.setText("0.0");
+        nawlon.setText("0.0");
+        ohda.setText("0.0");
+        added.setText("0.0");
+        mezan.setText("0.0");
+        discount.setText("0.0");
+        office.setText("0.0");
+
+        type.setText("");
+        fromCity.setText("");
+        toCity.setText("");
+        clientName.setValue(null);
+
+
+        // set init date
+        //set date on init
+        String newstring = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+        date.setValue(LOCAL_DATE(newstring));
+
+
+
+        // set disabled
+        update.setDisable(true);
+        save.setDisable(false);
+
+
+
+
+    }
+
+
+    @FXML
     void treeViewKeyPressed(KeyEvent event) {
 
 
@@ -401,9 +440,7 @@ public class naklController implements Initializable {
         this.type.setText("");
         this.fromCity.setText("");
         this.toCity.setText("");
-        // set init date
-        String newstring = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-        this.date.setValue(LOCAL_DATE(newstring));
+
         bolisa.setText("0.0");
         carNum.setText("0.0");
         weight.setText("0.0");
@@ -415,6 +452,9 @@ public class naklController implements Initializable {
         office.setText("0.0");
         clear.setText("0.0");
 
+        // set init date
+        String newstring = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+        this.date.setValue(LOCAL_DATE(newstring));
 
     }
 
@@ -593,7 +633,7 @@ public class naklController implements Initializable {
         maintables = mainTableDao.SelectAllMaintableToday();
         maintables.stream().forEach(maintable1 -> {
 
-            NaklTable_data.add(new NaklTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
+            NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
 
 
         });
@@ -800,7 +840,7 @@ public class naklController implements Initializable {
             this.type.setText(ct.getType());
             this.fromCity.setText(getTokensWithCollection(ct.getBian()).get(0));
             this.toCity.setText(getTokensWithCollection(ct.getBian()).get(1));
-            this.date.setValue(LOCAL_DATEParse(ct.getDate()));
+            this.date.setValue(LOCAL_DATE(ct.getDate()));
             this.bolisa.setText(ct.getBolisa() + "");
             this.carNum.setText(ct.getCarNum() + "");
             this.weight.setText(ct.getWeight() + "");

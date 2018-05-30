@@ -334,22 +334,34 @@ public class moneyController implements Initializable {
 
 
         } else {
-            Safe safe = new Safe(((RadioButton) groupMoney.getSelectedToggle()).getText(),
-                    Double.parseDouble(money),
-                    moneyNotes.getText(),
-                    Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                    new Users(userId));
 
-            Safe safe1 = safeDao.SaveSafe(safe);
-            if (safe1 == null) {
-                dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "خطأ فى الحفظ فى الداتابيز ");
+            if (money.equalsIgnoreCase("0.0")) {
 
+
+                dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "ادخل المبلغ اولا ");
+                moneyMoney.requestFocus();
 
             } else {
+
+
+                Safe safe = new Safe(((RadioButton) groupMoney.getSelectedToggle()).getText(),
+                        Double.parseDouble(money),
+                        moneyNotes.getText(),
+                        Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant()),
+                        new Users(userId));
+
+                Safe safe1 = safeDao.SaveSafe(safe);
+                if (safe1 == null) {
+                    dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "خطأ فى الحفظ فى الداتابيز ");
+
+
+                } else {
 //                resetFields();
-                resetMoneyFields();
-                dialog dialog = new dialog(Alert.AlertType.CONFIRMATION, "تم", "تمت الاضافه  ");
+                    resetMoneyFields();
+                    dialog dialog = new dialog(Alert.AlertType.CONFIRMATION, "تم", "تمت الاضافه  ");
+                }
             }
+
         }
     }
 
@@ -501,48 +513,58 @@ public class moneyController implements Initializable {
 
 
             } else {
-                Safe safe = new Safe(((RadioButton) groupMoney.getSelectedToggle()).getText(),
-                        Double.parseDouble(money),
-                        moneyNotes.getText(),
-                        Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                        new Users(userId));
-                safe.setId(moneySelected.getId());
+                if (money.equalsIgnoreCase("0.0")) {
 
-                Safe safe1 = safeDao.UpdateSafe(moneySelected.getId(), safe);
 
-                if (safe1 == null) {
-                    dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "خطأ فى التعديل فى الداتابيز ");
-
+                    dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "ادخل المبلغ اولا ");
+                    moneyMoney.requestFocus();
 
                 } else {
 
+                    Safe safe = new Safe(((RadioButton) groupMoney.getSelectedToggle()).getText(),
+                            Double.parseDouble(money),
+                            moneyNotes.getText(),
+                            Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant()),
+                            new Users(userId));
+                    safe.setId(moneySelected.getId());
 
-                    boolean t = money_data.remove(moneySelected);
-                    if (t) {
+                    Safe safe1 = safeDao.UpdateSafe(moneySelected.getId(), safe);
 
-                        resetMoneyFields();
-
-                        //add to table
-                        money_data.add(new MoneyTable(safe1.getId(),
-                                safe1.getUsersid().getName(),
-                                safe1.getType(),
-                                safe1.getDate().toString(),
-                                safe1.getMoney(),
-                                safe1.getNotes()));
-                        final TreeItem<MoneyTable> Client_root = new RecursiveTreeItem<MoneyTable>(money_data, RecursiveTreeObject::getChildren);
-                        moneyTable.setRoot(Client_root);
+                    if (safe1 == null) {
+                        dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "خطأ فى التعديل فى الداتابيز ");
 
 
-                        moneySelected = null;
-                        resetFields();
-                        // set disabled
-                        moneyUpdate.setDisable(true);
-                        moneySave.setDisable(false);
+                    } else {
 
+
+                        boolean t = money_data.remove(moneySelected);
+                        if (t) {
+
+                            resetMoneyFields();
+
+                            //add to table
+                            money_data.add(new MoneyTable(safe1.getId(),
+                                    safe1.getUsersid().getName(),
+                                    safe1.getType(),
+                                    safe1.getDate().toString(),
+                                    safe1.getMoney(),
+                                    safe1.getNotes()));
+                            final TreeItem<MoneyTable> Client_root = new RecursiveTreeItem<MoneyTable>(money_data, RecursiveTreeObject::getChildren);
+                            moneyTable.setRoot(Client_root);
+
+
+                            moneySelected = null;
+                            resetFields();
+                            // set disabled
+                            moneyUpdate.setDisable(true);
+                            moneySave.setDisable(false);
+
+
+                        }
 
                     }
-
                 }
+
 
             }
 
@@ -595,11 +617,11 @@ public class moneyController implements Initializable {
 
     @FXML
     void moneyDeleteAction(ActionEvent event) {
-/*
-*
-*
-*
-* */
+        /*
+         *
+         *
+         *
+         * */
 
         deleteMoneyFunction();
     }
@@ -633,6 +655,17 @@ public class moneyController implements Initializable {
                     final TreeItem<MoneyTable> Client_root = new RecursiveTreeItem<MoneyTable>(money_data, RecursiveTreeObject::getChildren);
                     moneyTable.setRoot(Client_root);
 
+                    //clear from total money
+                    if (ct.monetType.get().trim().equals("سحب")) {
+                        moneyTotalMoney.setText((Double.parseDouble(moneyTotalMoney.getText().toString()) + ct.moneyMoney.get()) + "");
+
+                    } else {
+                        moneyTotalMoney.setText((Double.parseDouble(moneyTotalMoney.getText().toString()) - ct.moneyMoney.get()) + "");
+
+
+                    }
+
+
                     dialog dialog = new dialog(Alert.AlertType.CONFIRMATION, "تم", "تم المسح بنجاح");
 
 
@@ -651,7 +684,8 @@ public class moneyController implements Initializable {
 
     @FXML
     void moneyRefreshAction(ActionEvent event) {
-
+        moneyPrint.setDisable(true);
+        moneyTotalMoney.setText("0.0");
         // reset Fields
         resetMoneyFields();
         moneyFrom.setValue(null);
@@ -672,7 +706,12 @@ public class moneyController implements Initializable {
 
     @FXML
     void refreshBankAction(ActionEvent event) {
+        refreshBank();
+    }
 
+    public void refreshBank() {
+        bankPrint.setDisable(true);
+        bankMoneyTable.setText("0.0");
         resetFields();
         // set disble
         bankUpdate.setDisable(true);
@@ -689,6 +728,7 @@ public class moneyController implements Initializable {
         final TreeItem<BankTable> Client_root = new RecursiveTreeItem<BankTable>(bank_data, RecursiveTreeObject::getChildren);
         bankTable.setRoot(Client_root);
     }
+
 
     @FXML
     void bankNameMouseClick(MouseEvent event) {
@@ -794,6 +834,18 @@ public class moneyController implements Initializable {
                     final TreeItem<BankTable> Client_root = new RecursiveTreeItem<BankTable>(bank_data, RecursiveTreeObject::getChildren);
                     bankTable.setRoot(Client_root);
 
+
+                    //clear from total money
+                    if (ct.banktableType.get().trim().equals("سحب")) {
+                        bankMoneyTable.setText((Double.parseDouble(bankMoneyTable.getText().toString()) + ct.banktableMoney.get()) + "");
+
+                    } else {
+                        bankMoneyTable.setText((Double.parseDouble(bankMoneyTable.getText().toString()) - ct.banktableMoney.get()) + "");
+
+
+                    }
+
+
                     dialog dialog = new dialog(Alert.AlertType.CONFIRMATION, "تم", "تم المسح بنجاح");
 
 
@@ -830,24 +882,36 @@ public class moneyController implements Initializable {
 
 
         } else {
-            int bankIndex = this.bankName.getSelectionModel().getSelectedIndex();
-            int bankId = bank_Ids.get(bankIndex);
+            if (money.equalsIgnoreCase("0.0")) {
 
-            BankAccount bankAccount = new BankAccount(((RadioButton) groupbank.getSelectedToggle()).getText(),
-                    Double.parseDouble(money),
-                    Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                    notes,
-                    new Bank(bankId));
-
-            BankAccount bankAccount1 = bankAccountDao.SaveBankAccount(bankAccount);
-            if (bankAccount1 == null) {
-                dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "خطأ فى الحفظ فى الداتابيز ");
+                dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "ادخل المبلغ اولا ");
+                bankMoney.requestFocus();
 
 
             } else {
-                resetFields();
-                dialog dialog = new dialog(Alert.AlertType.CONFIRMATION, "تم", "تمت اضافه الحساب  ");
+
+                int bankIndex = this.bankName.getSelectionModel().getSelectedIndex();
+                int bankId = bank_Ids.get(bankIndex);
+
+                BankAccount bankAccount = new BankAccount(((RadioButton) groupbank.getSelectedToggle()).getText(),
+                        Double.parseDouble(money),
+                        Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant()),
+                        notes,
+                        new Bank(bankId));
+
+                BankAccount bankAccount1 = bankAccountDao.SaveBankAccount(bankAccount);
+                if (bankAccount1 == null) {
+                    dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "خطأ فى الحفظ فى الداتابيز ");
+
+
+                } else {
+                    resetFields();
+                    refreshBank();
+                    dialog dialog = new dialog(Alert.AlertType.CONFIRMATION, "تم", "تمت اضافه الحساب  ");
+                }
             }
+
+
         }
     }
 
@@ -1135,45 +1199,56 @@ public class moneyController implements Initializable {
 
 
             } else {
-                int bankIndex = this.bankName.getSelectionModel().getSelectedIndex();
-                int bankId = bank_Ids.get(bankIndex);
 
-                BankAccount bankAccount = new BankAccount(((RadioButton) groupbank.getSelectedToggle()).getText(),
-                        Double.parseDouble(money),
-                        Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                        notes,
-                        new Bank(bankId));
-                bankAccount.setId(bankSelected.id.get());
+                if (money.equalsIgnoreCase("0.0")) {
 
-                BankAccount bankAccount1 = bankAccountDao.UpdateBankAccount(bankSelected.id.get(), bankAccount);
-
-                if (bankAccount1 == null) {
-                    dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "خطأ فى التعديل فى الداتابيز ");
+                    dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "ادخل المبلغ اولا ");
+                    bankMoney.requestFocus();
 
 
                 } else {
+                    int bankIndex = this.bankName.getSelectionModel().getSelectedIndex();
+                    int bankId = bank_Ids.get(bankIndex);
 
-                    // remove from table
-                    boolean t = bank_data.remove(bankSelected);
-                    if (t) {
-                        // insert into table design
+                    BankAccount bankAccount = new BankAccount(((RadioButton) groupbank.getSelectedToggle()).getText(),
+                            Double.parseDouble(money),
+                            Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant()),
+                            notes,
+                            new Bank(bankId));
+                    bankAccount.setId(bankSelected.id.get());
+
+                    BankAccount bankAccount1 = bankAccountDao.UpdateBankAccount(bankSelected.id.get(), bankAccount);
+
+                    if (bankAccount1 == null) {
+                        dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "خطأ فى التعديل فى الداتابيز ");
+
+
+                    } else {
+
+                        // remove from table
+                        boolean t = bank_data.remove(bankSelected);
+                        if (t) {
+                            // insert into table design
 //
 //     new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate())
-                        bank_data.add(new BankTable(bankAccount1.getId(), bankAccount1.getBankid().getName(), bankAccount1.getBankid().getNumber(), new SimpleDateFormat("dd-MM-yyyy").format(bankAccount1.getDate()), bankAccount1.getType(), bankAccount1.getMoney(), bankAccount1.getNotes()));
-                        final TreeItem<BankTable> root = new RecursiveTreeItem<BankTable>(bank_data, RecursiveTreeObject::getChildren);
-                        bankTable.setRoot(root);
-                        bankTable.setShowRoot(false);
+                            bank_data.add(new BankTable(bankAccount1.getId(), bankAccount1.getBankid().getName(), bankAccount1.getBankid().getNumber(), new SimpleDateFormat("dd-MM-yyyy").format(bankAccount1.getDate()), bankAccount1.getType(), bankAccount1.getMoney(), bankAccount1.getNotes()));
+                            final TreeItem<BankTable> root = new RecursiveTreeItem<BankTable>(bank_data, RecursiveTreeObject::getChildren);
+                            bankTable.setRoot(root);
+                            bankTable.setShowRoot(false);
 // reset values
-                        bankSelected = null;
-                        resetFields();
-                        // set disabled
-                        bankUpdate.setDisable(true);
-                        bankSave.setDisable(false);
+                            bankSelected = null;
+                            resetFields();
+                            // set disabled
+                            bankUpdate.setDisable(true);
+                            bankSave.setDisable(false);
+
+                            refreshBank();
+
+
+                        }
 
 
                     }
-
-
                 }
 
 

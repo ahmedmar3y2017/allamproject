@@ -257,7 +257,7 @@
                         <Insets right="4.0" />
                     </HBox.margin>
                 </TextField>
-                <JFXButton fx:id="save1" layoutX="133.0" layoutY="25.0" onAction="#saveAction" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
+                <JFXButton fx:id="save1" layoutX="133.0" layoutY="25.0" onAction="#refreshFields" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
