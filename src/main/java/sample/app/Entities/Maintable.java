@@ -64,8 +64,8 @@ public class Maintable implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date date;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    private Double polesa;
-    private Double carNumber;
+    private String polesa;
+    private String carNumber;
     private Double amount;
     private Double nowlon;
     private Double ohda;
@@ -85,7 +85,7 @@ public class Maintable implements Serializable {
     }
 
 
-    public Maintable(Date date, Double polesa, Double carNumber, Double amount, Double nowlon, Double ohda, Double added, Double mezan, Double discount, Double office, Double total, String type, String cityFrom, String cityTo, Clients clientsid) {
+    public Maintable(Date date, String polesa, String carNumber, Double amount, Double nowlon, Double ohda, Double added, Double mezan, Double discount, Double office, Double total, String type, String cityFrom, String cityTo, Clients clientsid) {
         this.date = date;
         this.polesa = polesa;
         this.carNumber = carNumber;
@@ -123,19 +123,19 @@ public class Maintable implements Serializable {
         this.date = date;
     }
 
-    public Double getPolesa() {
+    public String getPolesa() {
         return polesa;
     }
 
-    public void setPolesa(Double polesa) {
+    public void setPolesa(String polesa) {
         this.polesa = polesa;
     }
 
-    public Double getCarNumber() {
+    public String getCarNumber() {
         return carNumber;
     }
 
-    public void setCarNumber(Double carNumber) {
+    public void setCarNumber(String carNumber) {
         this.carNumber = carNumber;
     }
 

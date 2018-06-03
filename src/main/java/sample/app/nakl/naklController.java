@@ -39,6 +39,7 @@ import sample.shared.Validation.Validation;
 import javax.swing.text.TableView;
 import java.io.*;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -79,7 +80,7 @@ public class naklController implements Initializable {
     private TextField bolisa;
 
     @FXML
-    private TextField type;
+    private ComboBox type;
 
     @FXML
     private TreeTableView<NaklTable> table;
@@ -89,10 +90,10 @@ public class naklController implements Initializable {
     @FXML
     private TreeTableColumn<NaklTable, String> tableType;
     @FXML
-    private TreeTableColumn<NaklTable, Double> tableBolisa;
+    private TreeTableColumn<NaklTable, String> tableBolisa;
 
     @FXML
-    private TreeTableColumn<NaklTable, Double> tableCarNum;
+    private TreeTableColumn<NaklTable, String> tableCarNum;
 
     @FXML
     private TreeTableColumn<NaklTable, Double> tableWeight;
@@ -126,6 +127,8 @@ public class naklController implements Initializable {
 
     @FXML
     private TreeTableColumn<NaklTable, String> tableNotes;
+    @FXML
+    private TreeTableColumn<NaklTable, String> tableClientName;
 
     @FXML
     private HBox hbox1;
@@ -257,8 +260,8 @@ public class naklController implements Initializable {
 
         // refresh All Fields
 
-        bolisa.setText("0.0");
-        carNum.setText("0.0");
+        bolisa.setText("");
+        carNum.setText("");
         weight.setText("0.0");
         nawlon.setText("0.0");
         ohda.setText("0.0");
@@ -267,7 +270,6 @@ public class naklController implements Initializable {
         discount.setText("0.0");
         office.setText("0.0");
 
-        type.setText("");
         fromCity.setText("");
         toCity.setText("");
         clientName.setValue(null);
@@ -279,12 +281,9 @@ public class naklController implements Initializable {
         date.setValue(LOCAL_DATE(newstring));
 
 
-
         // set disabled
         update.setDisable(true);
         save.setDisable(false);
-
-
 
 
     }
@@ -345,7 +344,7 @@ public class naklController implements Initializable {
 
         // save Function
         boolean clientName = this.clientName.getSelectionModel().isEmpty();
-        String type = this.type.getText();
+        String type = this.type.getValue().toString();
         String to = this.toCity.getText();
         String from = this.fromCity.getText();
         LocalDate date = this.date.getValue();
@@ -388,15 +387,15 @@ public class naklController implements Initializable {
             // calculate total
 
             double total = (Double.parseDouble(weight) * Double.parseDouble(nawlon)) -
-                    Double.parseDouble(ohda) +
+                    Double.parseDouble(ohda) -
                     Double.parseDouble(office) +
                     Double.parseDouble(added);
 
             Date date1 = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
             Maintable maintable = new Maintable(
                     date1,
-                    Double.parseDouble(bolisa),
-                    Double.parseDouble(carNum),
+                    bolisa,
+                    carNum,
                     Double.parseDouble(weight),
                     Double.parseDouble(nawlon),
                     Double.parseDouble(ohda),
@@ -404,7 +403,7 @@ public class naklController implements Initializable {
                     Double.parseDouble(mezan),
                     Double.parseDouble(discount),
                     Double.parseDouble(office),
-                    total,
+                    Double.parseDouble(new DecimalFormat(".##").format(total)),
                     type,
                     from,
                     to,
@@ -437,12 +436,12 @@ public class naklController implements Initializable {
     private void resetFields() {
 
         this.clientName.setValue("");
-        this.type.setText("");
+//        this.type.setText("");
         this.fromCity.setText("");
         this.toCity.setText("");
 
-        bolisa.setText("0.0");
-        carNum.setText("0.0");
+        bolisa.setText("");
+        carNum.setText("");
         weight.setText("0.0");
         nawlon.setText("0.0");
         ohda.setText("0.0");
@@ -466,7 +465,7 @@ public class naklController implements Initializable {
 
             // save Function
             boolean clientName = this.clientName.getSelectionModel().isEmpty();
-            String type = this.type.getText();
+            String type = this.type.getValue().toString();
             String to = this.toCity.getText();
             String from = this.fromCity.getText();
             LocalDate date = this.date.getValue();
@@ -509,15 +508,15 @@ public class naklController implements Initializable {
                 // calculate total
 
                 double total = (Double.parseDouble(weight) * Double.parseDouble(nawlon)) -
-                        Double.parseDouble(ohda) +
+                        Double.parseDouble(ohda) -
                         Double.parseDouble(office) +
                         Double.parseDouble(added);
 
                 Date date1 = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
                 Maintable maintable = new Maintable(
                         date1,
-                        Double.parseDouble(bolisa),
-                        Double.parseDouble(carNum),
+                        bolisa,
+                        carNum,
                         Double.parseDouble(weight),
                         Double.parseDouble(nawlon),
                         Double.parseDouble(ohda),
@@ -525,7 +524,7 @@ public class naklController implements Initializable {
                         Double.parseDouble(mezan),
                         Double.parseDouble(discount),
                         Double.parseDouble(office),
-                        total,
+                        Double.parseDouble(new DecimalFormat(".##").format(total)),
                         type,
                         from,
                         to,
@@ -596,6 +595,15 @@ public class naklController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+
+        // set type to combobox
+        ObservableList<String> options =
+                FXCollections.observableArrayList(
+                        "قمح", "أذره", "صويا", "فول", "جيلاتين", "dg"
+                );
+        type.setItems(options);
+
+
         // select All Clients
         clientsList = clientDao.SelectAllClients();
         if (clientsList != null) {
@@ -645,6 +653,13 @@ public class naklController implements Initializable {
             }
         });
 
+        tableClientName.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<NaklTable, String> param) {
+                return param.getValue().getValue().clientName;
+            }
+        });
+
         tableType.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<NaklTable, String> param) {
@@ -653,18 +668,18 @@ public class naklController implements Initializable {
         });
 
 
-        tableBolisa.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
+        tableBolisa.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, String>, ObservableValue<String>>() {
             @Override
-            public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<NaklTable, Double> param) {
-                return param.getValue().getValue().bolisa.asObject();
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<NaklTable, String> param) {
+                return param.getValue().getValue().bolisa;
             }
 
         });
 
-        tableCarNum.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
+        tableCarNum.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, String>, ObservableValue<String>>() {
             @Override
-            public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<NaklTable, Double> param) {
-                return param.getValue().getValue().carNum.asObject();
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<NaklTable, String> param) {
+                return param.getValue().getValue().carNum;
             }
 
         });
@@ -786,8 +801,8 @@ public class naklController implements Initializable {
 
 
         // validate TextFields
-        this.bolisa.setTextFormatter(Validation.DoubleValidation());
-        this.carNum.setTextFormatter(Validation.DoubleValidation());
+//        this.bolisa.setTextFormatter(Validation.DoubleValidation());
+//        this.carNum.setTextFormatter(Validation.DoubleValidation());
         this.weight.setTextFormatter(Validation.DoubleValidation());
         this.nawlon.setTextFormatter(Validation.DoubleValidation());
         this.ohda.setTextFormatter(Validation.DoubleValidation());
@@ -837,7 +852,7 @@ public class naklController implements Initializable {
         if (item != null) {
             NaklTable ct = (NaklTable) item.getValue();
             this.naklTable = ct;
-            this.type.setText(ct.getType());
+            this.type.setValue(ct.getType());
             this.fromCity.setText(getTokensWithCollection(ct.getBian()).get(0));
             this.toCity.setText(getTokensWithCollection(ct.getBian()).get(1));
             this.date.setValue(LOCAL_DATE(ct.getDate()));
@@ -868,8 +883,8 @@ public class naklController implements Initializable {
         SimpleStringProperty date;
         SimpleStringProperty clientName;
 
-        SimpleDoubleProperty bolisa;
-        SimpleDoubleProperty carNum;
+        SimpleStringProperty bolisa;
+        SimpleStringProperty carNum;
         SimpleDoubleProperty weight;
         SimpleDoubleProperty nawlon;
         SimpleDoubleProperty ohda;
@@ -884,11 +899,11 @@ public class naklController implements Initializable {
         SimpleStringProperty notes;
         SimpleIntegerProperty id;
 
-        public NaklTable(int id, String date, String type, double bolisa, double carNum, double weight, double nawlon, double ohda, double agz, double added, double mezan, double discount, double office, double clear, String bian, String notes, String clientName) {
+        public NaklTable(int id, String date, String type, String bolisa, String carNum, double weight, double nawlon, double ohda, double agz, double added, double mezan, double discount, double office, double clear, String bian, String notes, String clientName) {
             this.date = new SimpleStringProperty(date);
             this.type = new SimpleStringProperty(type);
-            this.bolisa = new SimpleDoubleProperty(bolisa);
-            this.carNum = new SimpleDoubleProperty(carNum);
+            this.bolisa = new SimpleStringProperty(bolisa);
+            this.carNum = new SimpleStringProperty(carNum);
             this.weight = new SimpleDoubleProperty(weight);
             this.nawlon = new SimpleDoubleProperty(nawlon);
             this.ohda = new SimpleDoubleProperty(ohda);
@@ -917,27 +932,27 @@ public class naklController implements Initializable {
             this.date.set(date);
         }
 
-        public double getBolisa() {
+        public String getBolisa() {
             return bolisa.get();
         }
 
-        public SimpleDoubleProperty bolisaProperty() {
+        public SimpleStringProperty bolisaProperty() {
             return bolisa;
         }
 
-        public void setBolisa(double bolisa) {
+        public void setBolisa(String bolisa) {
             this.bolisa.set(bolisa);
         }
 
-        public double getCarNum() {
+        public String getCarNum() {
             return carNum.get();
         }
 
-        public SimpleDoubleProperty carNumProperty() {
+        public SimpleStringProperty carNumProperty() {
             return carNum;
         }
 
-        public void setCarNum(double carNum) {
+        public void setCarNum(String carNum) {
             this.carNum.set(carNum);
         }
 

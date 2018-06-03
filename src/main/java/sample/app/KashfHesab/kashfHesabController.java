@@ -85,10 +85,10 @@ public class kashfHesabController implements Initializable {
     @FXML
     private TreeTableColumn<HesabTable, String> tableType;
     @FXML
-    private TreeTableColumn<HesabTable, Double> tableBolisa;
+    private TreeTableColumn<HesabTable, String> tableBolisa;
 
     @FXML
-    private TreeTableColumn<HesabTable, Double> tableCarNum;
+    private TreeTableColumn<HesabTable, String> tableCarNum;
 
     @FXML
     private TreeTableColumn<HesabTable, Double> tableWeight;
@@ -503,18 +503,18 @@ public class kashfHesabController implements Initializable {
         });
 
 
-        tableBolisa.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<HesabTable, Double>, ObservableValue<Double>>() {
+        tableBolisa.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<HesabTable, String>, ObservableValue<String>>() {
             @Override
-            public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<HesabTable, Double> param) {
-                return param.getValue().getValue().bolisa.asObject();
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<HesabTable, String> param) {
+                return param.getValue().getValue().bolisa;
             }
 
         });
 
-        tableCarNum.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<HesabTable, Double>, ObservableValue<Double>>() {
+        tableCarNum.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<HesabTable, String>, ObservableValue<String>>() {
             @Override
-            public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<HesabTable, Double> param) {
-                return param.getValue().getValue().carNum.asObject();
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<HesabTable, String> param) {
+                return param.getValue().getValue().carNum;
             }
 
         });
@@ -649,8 +649,8 @@ public class kashfHesabController implements Initializable {
         SimpleStringProperty date;
         SimpleStringProperty clientName;
 
-        SimpleDoubleProperty bolisa;
-        SimpleDoubleProperty carNum;
+        SimpleStringProperty bolisa;
+        SimpleStringProperty carNum;
         SimpleDoubleProperty weight;
         SimpleDoubleProperty nawlon;
         SimpleDoubleProperty ohda;
@@ -665,11 +665,11 @@ public class kashfHesabController implements Initializable {
         SimpleStringProperty notes;
         SimpleIntegerProperty id;
 
-        public HesabTable(int id, String date, String type, double bolisa, double carNum, double weight, double nawlon, double ohda, double agz, double added, double mezan, double discount, double office, double clear, String bian, String notes, String clientName) {
+        public HesabTable(int id, String date, String type, String bolisa, String carNum, double weight, double nawlon, double ohda, double agz, double added, double mezan, double discount, double office, double clear, String bian, String notes, String clientName) {
             this.date = new SimpleStringProperty(date);
             this.type = new SimpleStringProperty(type);
-            this.bolisa = new SimpleDoubleProperty(bolisa);
-            this.carNum = new SimpleDoubleProperty(carNum);
+            this.bolisa = new SimpleStringProperty(bolisa);
+            this.carNum = new SimpleStringProperty(carNum);
             this.weight = new SimpleDoubleProperty(weight);
             this.nawlon = new SimpleDoubleProperty(nawlon);
             this.ohda = new SimpleDoubleProperty(ohda);
@@ -698,27 +698,27 @@ public class kashfHesabController implements Initializable {
             this.date.set(date);
         }
 
-        public double getBolisa() {
+        public String getBolisa() {
             return bolisa.get();
         }
 
-        public SimpleDoubleProperty bolisaProperty() {
+        public SimpleStringProperty bolisaProperty() {
             return bolisa;
         }
 
-        public void setBolisa(double bolisa) {
+        public void setBolisa(String bolisa) {
             this.bolisa.set(bolisa);
         }
 
-        public double getCarNum() {
+        public String getCarNum() {
             return carNum.get();
         }
 
-        public SimpleDoubleProperty carNumProperty() {
+        public SimpleStringProperty carNumProperty() {
             return carNum;
         }
 
-        public void setCarNum(double carNum) {
+        public void setCarNum(String carNum) {
             this.carNum.set(carNum);
         }
 
