@@ -18,6 +18,7 @@ import sample.app.KashfHesab.kashfHesabController;
 import sample.app.Money.moneyController;
 import sample.app.Settings.seetingsController;
 import sample.app.nakl.naklController;
+import sample.app.screenPlus.screenPlusController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -113,8 +114,8 @@ public class homeController implements Initializable {
 
 
             FXMLLoader loader = new FXMLLoader();
-            loader.setController(new accountController());
-            loader.setLocation(getClass().getResource("/Fxml/accounts.fxml"));
+            loader.setController(new screenPlusController());
+            loader.setLocation(getClass().getResource("/Fxml/screenPlus.fxml"));
             holderPane = loader.load();
 
 

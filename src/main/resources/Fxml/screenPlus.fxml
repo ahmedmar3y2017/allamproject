@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane styleClass=".main" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox fx:id="hbox2" alignment="TOP_RIGHT" layoutX="39.0" layoutY="27.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="1110.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="115.0" text="التاريخ : " HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="date" prefHeight="34.0" prefWidth="170.0" />
+            <Label alignment="CENTER" layoutX="888.0" layoutY="20.0" prefHeight="21.0" prefWidth="110.0" text="رقم البوليصة :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="bolisa" alignment="CENTER" layoutX="328.0" layoutY="20.0" prefHeight="33.0" prefWidth="170.0" styleClass="jfx-text-field" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="4.0" />
+               </HBox.margin>
+            </TextField>
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text="رقم السياره :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="carNum" alignment="CENTER" prefHeight="33.0" prefWidth="170.0" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="4.0" />
+               </HBox.margin>
+            </TextField>
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text="اسم السائق :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="driverName" alignment="CENTER" prefHeight="33.0" prefWidth="170.0" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" right="4.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+         <padding>
+            <Insets top="7.0" />
+         </padding>
+      </HBox>
+      <HBox layoutX="35.0" layoutY="183.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="400.0" prefWidth="1118.0">
+         <children>
+            <TreeTableView fx:id="table" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" onKeyPressed="#treeViewKeyPressed" prefHeight="400.0" prefWidth="1098.0" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;">
+               <columns>
+                  <TreeTableColumn fx:id="tableDate" prefWidth="160.0" text="التاريخ" />
+                  <TreeTableColumn fx:id="tableBolisa" prefWidth="202.0" text="رقم البوليصه" />
+                  <TreeTableColumn fx:id="tableCarNum" prefWidth="184.0" text="رقم السياره" />
+                  <TreeTableColumn fx:id="tableDriverName" prefWidth="153.0" text="اسم السائق" />
+                  <TreeTableColumn fx:id="tableWeight" prefWidth="182.0" text="الوزن" />
+                  <TreeTableColumn fx:id="tableNotes" prefWidth="208.0" text="ملاحظات" />
+               </columns>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TreeTableView>
+         </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </HBox>
+      <Pane fx:id="lastHbox" layoutX="21.0" layoutY="628.0" nodeOrientation="RIGHT_TO_LEFT" />
+      <HBox fx:id="hbox21" alignment="TOP_RIGHT" layoutX="39.0" layoutY="81.0" nodeOrientation="RIGHT_TO_LEFT">
+         <children>
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text=" الوزن :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="weight" alignment="CENTER" prefHeight="33.0" prefWidth="170.0" promptText="0.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="115.0" text="ملاحظات : " HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="notes" alignment="CENTER" layoutX="333.0" layoutY="20.0" prefHeight="33.0" prefWidth="170.0" promptText="ملاحظات " HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="4.0" />
+               </HBox.margin>
+            </TextField>
+            <JFXButton fx:id="add" onAction="#addAction" prefHeight="35.0" prefWidth="129.0" text="حفظ" />
+            <JFXButton fx:id="update" onAction="#updateAction" prefHeight="35.0" prefWidth="129.0" text="تعديل" />
+            <JFXButton fx:id="refresh" onAction="#refreshAction" prefHeight="35.0" prefWidth="129.0" text="تفريغ الحقول" />
+         </children>
+         <padding>
+            <Insets top="7.0" />
+         </padding>
+      </HBox>
+      <HBox fx:id="hbox5" layoutX="102.0" layoutY="584.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="206.0">
+         <children>
+            <JFXButton fx:id="delete" onAction="#deleteAction" prefHeight="35.0" prefWidth="109.0" text="مسح" />
+            <JFXButton fx:id="print" onAction="#printAction" prefHeight="34.0" prefWidth="132.0" text="طباعه" />
+         </children>
+      </HBox>
+      <HBox fx:id="hbox211" alignment="TOP_RIGHT" layoutX="633.0" layoutY="134.0" nodeOrientation="RIGHT_TO_LEFT">
+         <children>
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text="اسم السائق :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="searchDriverName" alignment="CENTER" prefHeight="33.0" prefWidth="170.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <JFXButton fx:id="search" onAction="#searchAction" prefHeight="35.0" prefWidth="129.0" text="بحث" />
+         </children>
+         <padding>
+            <Insets top="7.0" />
+         </padding>
+      </HBox>
+   </children>
+</Pane>

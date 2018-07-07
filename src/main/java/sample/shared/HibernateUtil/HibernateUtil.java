@@ -40,6 +40,7 @@ public class HibernateUtil {
             configuration.addAnnotatedClass(Notes.class);
             configuration.addAnnotatedClass(Safe.class);
             configuration.addAnnotatedClass(Users.class);
+            configuration.addAnnotatedClass(ScreenPlus.class);
 
             System.out.println("Hibernate Configuration loaded");
 

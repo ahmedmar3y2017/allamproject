@@ -31,7 +31,7 @@
         <mapping class="sample.app.Entities.Notes"/>
         <mapping class="sample.app.Entities.Safe"/>
         <mapping class="sample.app.Entities.Users"/>
-
+        <mapping class="sample.app.Entities.ScreenPlus"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>
