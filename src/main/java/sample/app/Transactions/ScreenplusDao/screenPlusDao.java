@@ -1,5 +1,6 @@
 package sample.app.Transactions.ScreenplusDao;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import sample.app.Entities.ScreenPlus;
@@ -92,6 +93,21 @@ public class screenPlusDao {
         session.close();
 
         return ScreenPluses;
+
+    }
+
+    public static List<ScreenPlus> SelectAllScreenPlusByBolisa(String bloisaNum) {
+
+        Session session = sessionFactory.openSession();
+        Query query = session.createQuery("from ScreenPlus as main where main.bolisa=:blisaNum ").setCacheable(true)
+                .setCacheRegion("SelectAllMaintableToday.cache");
+
+        query.setParameter("blisaNum", bloisaNum);
+
+        List<ScreenPlus> screenPluses = query.list();
+
+        session.close();
+        return screenPluses;
 
     }
 

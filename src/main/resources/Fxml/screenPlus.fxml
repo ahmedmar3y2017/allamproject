@@ -13,6 +13,7 @@
 
 <Pane styleClass=".main" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <Pane layoutX="205.0" layoutY="134.0" prefHeight="3.0" prefWidth="675.0" style="-fx-background-color: #000000;" />
       <HBox fx:id="hbox2" alignment="TOP_RIGHT" layoutX="39.0" layoutY="27.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="1110.0">
          <children>
             <Label alignment="CENTER" prefHeight="21.0" prefWidth="115.0" text="التاريخ : " HBox.hgrow="ALWAYS">
@@ -88,7 +89,6 @@
             <Insets left="10.0" />
          </padding>
       </HBox>
-      <Pane fx:id="lastHbox" layoutX="21.0" layoutY="628.0" nodeOrientation="RIGHT_TO_LEFT" />
       <HBox fx:id="hbox21" alignment="TOP_RIGHT" layoutX="39.0" layoutY="81.0" nodeOrientation="RIGHT_TO_LEFT">
          <children>
             <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text=" الوزن :">
@@ -125,22 +125,22 @@
       <HBox fx:id="hbox5" layoutX="102.0" layoutY="584.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="206.0">
          <children>
             <JFXButton fx:id="delete" onAction="#deleteAction" prefHeight="35.0" prefWidth="109.0" text="مسح" />
-            <JFXButton fx:id="print" onAction="#printAction" prefHeight="34.0" prefWidth="132.0" text="طباعه" />
          </children>
       </HBox>
       <HBox fx:id="hbox211" alignment="TOP_RIGHT" layoutX="633.0" layoutY="134.0" nodeOrientation="RIGHT_TO_LEFT">
          <children>
-            <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text="اسم السائق :">
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text="رقم البوليصه :">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="searchDriverName" alignment="CENTER" prefHeight="33.0" prefWidth="170.0">
+            <TextField fx:id="searchBolisa" alignment="CENTER" prefHeight="33.0" prefWidth="170.0">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
             <JFXButton fx:id="search" onAction="#searchAction" prefHeight="35.0" prefWidth="129.0" text="بحث" />
+            <JFXButton fx:id="showToday" onAction="#showTodayAction" prefHeight="35.0" prefWidth="129.0" text="عرض اليوم" />
          </children>
          <padding>
             <Insets top="7.0" />

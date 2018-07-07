@@ -36,6 +36,13 @@ import java.util.ResourceBundle;
 
 public class screenPlusController implements Initializable {
     private screenPlusTable screenTable;
+    @FXML
+    private JFXButton showToday;
+    @FXML
+    private TextField searchBolisa;
+
+    @FXML
+    private JFXButton search;
 
 
     List<ScreenPlus> screenPluses;
@@ -47,8 +54,7 @@ public class screenPlusController implements Initializable {
     @FXML
     private JFXButton delete;
 
-    @FXML
-    private JFXButton print;
+
     @FXML
     private JFXButton add;
 
@@ -450,11 +456,6 @@ public class screenPlusController implements Initializable {
 
 
     @FXML
-    void printAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void refreshAction(ActionEvent event) {
         resetFields();
         driverName.setText("");
@@ -472,6 +473,60 @@ public class screenPlusController implements Initializable {
     @FXML
     void searchAction(ActionEvent event) {
 
+        String bolisaSearch = searchBolisa.getText();
+
+
+        if (bolisaSearch.trim().isEmpty()) {
+            dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "ادخل رقم البوليصه للبحث");
+
+
+        } else {
+
+            // Select From Database
+
+            List<ScreenPlus> screenPluses = screenPlusDao.SelectAllScreenPlusByBolisa(bolisaSearch);
+            if (screenPluses.size() <= 0) {
+                dialog dialog = new dialog(Alert.AlertType.WARNING, "", "لا توجد نتائج");
+
+            } else {
+                // clear all table
+
+                screenPlusTable_data.clear();
+
+                screenPluses.stream().forEach(screenPlus1 -> {
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                    String screenDate = sdf.format(screenPlus1.getDate());
+                    screenPlusTable_data.add(new screenPlusTable(screenPlus1.getId(), screenDate
+                            , screenPlus1.getBolisa(), screenPlus1.getCarNum(), screenPlus1.getDriverName(), screenPlus1.getWeight(), screenPlus1.getNotes()));
+
+
+                });
+                final TreeItem<screenPlusTable> root = new RecursiveTreeItem<screenPlusTable>(screenPlusTable_data, RecursiveTreeObject::getChildren);
+                table.setRoot(root);
+
+            }
+
+        }
+
+
+    }
+
+    @FXML
+    void showTodayAction(ActionEvent event) {
+        // select all today
+        screenPlusTable_data.clear();
+        screenPluses = screenPlusDao.SelectAllToday();
+        screenPluses.stream().forEach(screenPlus1 -> {
+
+            screenPlusTable_data.add(new screenPlusTable(screenPlus1.getId(),
+                    new SimpleDateFormat("dd-MM-yyyy").format(screenPlus1.getDate()), screenPlus1.getBolisa(), screenPlus1.getCarNum(), screenPlus1.getDriverName(), screenPlus1.getWeight(), screenPlus1.getNotes()));
+
+
+        });
+
+
+        final TreeItem<screenPlusTable> root = new RecursiveTreeItem<screenPlusTable>(screenPlusTable_data, RecursiveTreeObject::getChildren);
+        table.setRoot(root);
     }
 
     class screenPlusTable extends RecursiveTreeObject<screenPlusTable> {
