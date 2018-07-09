@@ -73,6 +73,18 @@
                         </ImageView>
                     </graphic>
                 </JFXButton>
+            <JFXButton fx:id="mandob" contentDisplay="TOP" onAction="#MainButtonAction" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="المناديب" textAlignment="CENTER" textFill="#33d9b2">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/account.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
                 <JFXButton fx:id="setting" contentDisplay="TOP" layoutX="11.0" layoutY="1210.0" onAction="#MainButtonAction" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="الإعدادت" textAlignment="CENTER" textFill="#33d9b2">
                     <font>
                         <Font name="System Bold" size="18.0" />

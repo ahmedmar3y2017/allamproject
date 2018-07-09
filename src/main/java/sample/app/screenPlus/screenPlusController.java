@@ -533,7 +533,6 @@ public class screenPlusController implements Initializable {
 
         SimpleStringProperty date;
         SimpleStringProperty driverName;
-
         SimpleStringProperty bolisa;
         SimpleStringProperty carNum;
         SimpleDoubleProperty weight;

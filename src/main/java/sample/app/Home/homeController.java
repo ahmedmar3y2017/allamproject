@@ -12,24 +12,23 @@ import javafx.scene.layout.*;
 import javafx.stage.Screen;
 import javafx.util.Duration;
 import org.hibernate.SessionFactory;
-import sample.app.Accounts.accountController;
 import sample.app.Clients.clientsController;
 import sample.app.KashfHesab.kashfHesabController;
 import sample.app.Money.moneyController;
 import sample.app.Settings.seetingsController;
+import sample.app.mandob.mandobController;
 import sample.app.nakl.naklController;
 import sample.app.screenPlus.screenPlusController;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class homeController implements Initializable {
     @FXML
     private VBox vbox;
-
+    @FXML
+    private JFXButton mandob;
     @FXML
     private Pane homepage;
 
@@ -68,11 +67,12 @@ public class homeController implements Initializable {
         if (event.getSource() == nakl && ppanel != nakl) {
             setting.getStyleClass().remove("activeOne");
             nakl.getStyleClass().add("activeOne");
-
             money.getStyleClass().remove("activeOne");
             accounts.getStyleClass().remove("activeOne");
-
             kashfHesab.getStyleClass().remove("activeOne");
+            clients.getStyleClass().remove("activeOne");
+            mandob.getStyleClass().remove("activeOne");
+
 
             ppanel = event.getSource();
             FXMLLoader loader = new FXMLLoader();
@@ -86,11 +86,13 @@ public class homeController implements Initializable {
         if (event.getSource() == kashfHesab && ppanel != kashfHesab) {
             setting.getStyleClass().remove("activeOne");
             kashfHesab.getStyleClass().add("activeOne");
-
             money.getStyleClass().remove("activeOne");
             accounts.getStyleClass().remove("activeOne");
-
             nakl.getStyleClass().remove("activeOne");
+            clients.getStyleClass().remove("activeOne");
+            mandob.getStyleClass().remove("activeOne");
+
+
             ppanel = event.getSource();
 
             FXMLLoader loader = new FXMLLoader();
@@ -104,11 +106,11 @@ public class homeController implements Initializable {
         if (event.getSource() == accounts && ppanel != accounts) {
             setting.getStyleClass().remove("activeOne");
             accounts.getStyleClass().add("activeOne");
-
             money.getStyleClass().remove("activeOne");
-            accounts.getStyleClass().remove("activeOne");
             kashfHesab.getStyleClass().remove("activeOne");
             nakl.getStyleClass().remove("activeOne");
+            clients.getStyleClass().remove("activeOne");
+            mandob.getStyleClass().remove("activeOne");
 
             ppanel = event.getSource();
 
@@ -121,14 +123,34 @@ public class homeController implements Initializable {
 
             setNode(holderPane);
         }
+        if (event.getSource() == mandob && ppanel != mandob) {
+            setting.getStyleClass().remove("activeOne");
+            mandob.getStyleClass().add("activeOne");
+            money.getStyleClass().remove("activeOne");
+            kashfHesab.getStyleClass().remove("activeOne");
+            nakl.getStyleClass().remove("activeOne");
+            clients.getStyleClass().remove("activeOne");
+            accounts.getStyleClass().remove("activeOne");
+
+            ppanel = event.getSource();
+
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setController(new mandobController());
+            loader.setLocation(getClass().getResource("/Fxml/mandob.fxml"));
+            holderPane = loader.load();
+
+
+            setNode(holderPane);
+        }
         if (event.getSource() == money && ppanel != money) {
             setting.getStyleClass().remove("activeOne");
             money.getStyleClass().add("activeOne");
-
-            clients.getStyleClass().remove("activeOne");
-            accounts.getStyleClass().remove("activeOne");
+            mandob.getStyleClass().remove("activeOne");
             kashfHesab.getStyleClass().remove("activeOne");
             nakl.getStyleClass().remove("activeOne");
+            clients.getStyleClass().remove("activeOne");
+            accounts.getStyleClass().remove("activeOne");
 
             ppanel = event.getSource();
 
@@ -146,11 +168,11 @@ public class homeController implements Initializable {
 
             setting.getStyleClass().remove("activeOne");
             clients.getStyleClass().add("activeOne");
-
-            money.getStyleClass().remove("activeOne");
-            accounts.getStyleClass().remove("activeOne");
+            mandob.getStyleClass().remove("activeOne");
             kashfHesab.getStyleClass().remove("activeOne");
             nakl.getStyleClass().remove("activeOne");
+            money.getStyleClass().remove("activeOne");
+            accounts.getStyleClass().remove("activeOne");
 
 
             ppanel = event.getSource();
@@ -167,14 +189,13 @@ public class homeController implements Initializable {
         if (event.getSource() == setting && ppanel != setting) {
             selected = true;
             selectedSetting = false;
-            setting.getStyleClass().add("activeOne");
-
-
             clients.getStyleClass().remove("activeOne");
-            money.getStyleClass().remove("activeOne");
-            accounts.getStyleClass().remove("activeOne");
+            setting.getStyleClass().add("activeOne");
+            mandob.getStyleClass().remove("activeOne");
             kashfHesab.getStyleClass().remove("activeOne");
             nakl.getStyleClass().remove("activeOne");
+            money.getStyleClass().remove("activeOne");
+            accounts.getStyleClass().remove("activeOne");
 
             ppanel = event.getSource();
 
