@@ -12,12 +12,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.Screen;
 import javafx.util.Callback;
 import sample.app.Entities.ScreenPlus;
 import sample.app.Transactions.ScreenplusDao.screenPlusDao;
@@ -100,10 +102,9 @@ public class screenPlusController implements Initializable {
     private Pane lastHbox;
 
     @FXML
-    private HBox hbox5;
+    private HBox hbox1 ,  hbox3 , tableHbox  ;
 
-    @FXML
-    private HBox hbox21;
+
 
     @FXML
     private TextField weight;
@@ -121,6 +122,43 @@ public class screenPlusController implements Initializable {
         //set date on init
         String newstring = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
         date.setValue(LOCAL_DATE(newstring));
+
+
+
+
+
+//        set size  Ashraf
+
+        // --------------- set size ---------------------------
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+        hbox1.setPrefWidth(primaryScreenBounds.getWidth() - 250);
+        hbox2.setPrefWidth(primaryScreenBounds.getWidth() - 310);
+        hbox3.setPrefWidth(primaryScreenBounds.getWidth() - 250);
+
+        hbox3.setLayoutX( (primaryScreenBounds.getWidth() -  650  ) / 2  );
+        tableHbox.setPrefWidth(primaryScreenBounds.getWidth() - 250);
+//
+        lastHbox.setLayoutY(primaryScreenBounds.getHeight() - 75);
+//        hbox4.setLayoutY(table.getPrefHeight());
+        table.setPrefHeight(primaryScreenBounds.getHeight() - 300);
+        tableBolisa.setPrefWidth( (table.getPrefWidth() / 5 )  - 10);
+        tableCarNum.setPrefWidth(table.getPrefWidth() / 5 );
+
+        tableWeight.setPrefWidth(table.getPrefWidth() / 5 );
+        tableDriverName.setPrefWidth(table.getPrefWidth() / 5 );
+        tableDate.setPrefWidth(table.getPrefWidth() / 5 );
+
+
+
+        double screenPlus = primaryScreenBounds.getWidth() - 360;
+//       System.out.println("Kashfe hsab width"  + kashfHesabWid);
+
+
+
+
+
+
+
 
 
         // init table design
