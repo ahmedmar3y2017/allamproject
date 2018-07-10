@@ -268,7 +268,7 @@ public class screenPlusController implements Initializable {
 
 
         } else {
-            dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "اختر من الجدول للتعديل");
+            dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط§ط®طھط± ظ…ظ† ط§ظ„ط¬ط¯ظˆظ„ ظ„ظ„طھط¹ط¯ظٹظ„");
 
         }
 
@@ -289,7 +289,7 @@ public class screenPlusController implements Initializable {
                 ) {
 
 
-            dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "ادخل التاريخ اولا");
+            dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط§ط¯ط®ظ„ ط§ظ„طھط§ط±ظٹط® ط§ظˆظ„ط§");
 
         } else {
 
@@ -307,7 +307,7 @@ public class screenPlusController implements Initializable {
 
             ScreenPlus screenPlus1 = screenPlusDao.SaveScreenPlus(screenPlus);
             if (screenPlus1 == null) {
-                dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "خطأ فى الحفظ فى الداتابيز ");
+                dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط®ط·ط£ ظپظ‰ ط§ظ„ط­ظپط¸ ظپظ‰ ط§ظ„ط¯ط§طھط§ط¨ظٹط² ");
 
 
             } else {
@@ -367,7 +367,7 @@ public class screenPlusController implements Initializable {
                     ) {
 
 
-                dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "ادخل التاريخ اولا");
+                dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط§ط¯ط®ظ„ ط§ظ„طھط§ط±ظٹط® ط§ظˆظ„ط§");
 
             } else {
                 ScreenPlus screenPlus = new ScreenPlus(Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant()),
@@ -382,7 +382,7 @@ public class screenPlusController implements Initializable {
                 ScreenPlus screenPlus1 = screenPlusDao.UpdateScreenPlus(screenTable.id.get(), screenPlus);
 
                 if (screenPlus1 == null) {
-                    dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "خطأ فى التعديل فى الداتابيز ");
+                    dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط®ط·ط£ ظپظ‰ ط§ظ„طھط¹ط¯ظٹظ„ ظپظ‰ ط§ظ„ط¯ط§طھط§ط¨ظٹط² ");
 
 
                 } else {
@@ -411,7 +411,7 @@ public class screenPlusController implements Initializable {
             }
 
         } else {
-            dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "اختر من الجدول للتعديل");
+            dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط§ط®طھط± ظ…ظ† ط§ظ„ط¬ط¯ظˆظ„ ظ„ظ„طھط¹ط¯ظٹظ„");
 
         }
 
@@ -462,7 +462,7 @@ public class screenPlusController implements Initializable {
         RecursiveTreeItem item = (RecursiveTreeItem) table.getSelectionModel().getSelectedItem();
 
         if (item == null) {
-            dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "اختر من الجدول للمسح");
+            dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط§ط®طھط± ظ…ظ† ط§ظ„ط¬ط¯ظˆظ„ ظ„ظ„ظ…ط³ط­");
 
 
         } else {
@@ -478,13 +478,13 @@ public class screenPlusController implements Initializable {
                     table.setRoot(root);
 
 
-                    dialog dialog = new dialog(Alert.AlertType.CONFIRMATION, "تم", "تم المسح بنجاح");
+                    dialog dialog = new dialog(Alert.AlertType.CONFIRMATION, "طھظ…", "طھظ… ط§ظ„ظ…ط³ط­ ط¨ظ†ط¬ط§ط­");
 
 
                 }
 
             } else {
-                dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "خطأ فى الميح من الداتابيز");
+                dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط®ط·ط£ ظپظ‰ ط§ظ„ظ…ظٹط­ ظ…ظ† ط§ظ„ط¯ط§طھط§ط¨ظٹط²");
 
             }
 
@@ -515,7 +515,7 @@ public class screenPlusController implements Initializable {
 
 
         if (bolisaSearch.trim().isEmpty()) {
-            dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "ادخل رقم البوليصه للبحث");
+            dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط§ط¯ط®ظ„ ط±ظ‚ظ… ط§ظ„ط¨ظˆظ„ظٹطµظ‡ ظ„ظ„ط¨ط­ط«");
 
 
         } else {
@@ -524,7 +524,7 @@ public class screenPlusController implements Initializable {
 
             List<ScreenPlus> screenPluses = screenPlusDao.SelectAllScreenPlusByBolisa(bolisaSearch);
             if (screenPluses.size() <= 0) {
-                dialog dialog = new dialog(Alert.AlertType.WARNING, "", "لا توجد نتائج");
+                dialog dialog = new dialog(Alert.AlertType.WARNING, "", "ظ„ط§ طھظˆط¬ط¯ ظ†طھط§ط¦ط¬");
 
             } else {
                 // clear all table
