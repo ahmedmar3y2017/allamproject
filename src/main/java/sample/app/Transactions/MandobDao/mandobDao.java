@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import sample.app.Entities.mandob;
 
 
+import java.util.Date;
 import java.util.List;
 
 public class mandobDao {
@@ -97,15 +98,28 @@ public class mandobDao {
     }
 
 
-
     public static List<mandob> SelectAllToday() {
 
         Session session = sessionFactory.openSession();
-        List<mandob> screenPluses = session.createQuery("from mandob as main where main.date=current_date ").setCacheable(true)
-                .setCacheRegion("SelectAllMaintableToday.cache").list();
+        List<mandob> mandobs = session.createQuery("from mandob as main where main.date=current_date ").setCacheable(true)
+                .setCacheRegion("SelectAllMandobToday.cache").list();
 
         session.close();
-        return screenPluses;
+        return mandobs;
+
+
+    }
+
+    public static List<mandob> SelectAllmandobByDate(Date ddate) {
+
+        Session session = sessionFactory.openSession();
+        Query query = session.createQuery("from mandob as main where main.date=:da").setCacheable(true)
+                .setCacheRegion("SelectAllMandobDate.cache");
+        query.setParameter("da", ddate);
+        List<mandob> mandobs = query.list();
+
+        session.close();
+        return mandobs;
 
 
     }

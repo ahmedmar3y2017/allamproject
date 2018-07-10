@@ -170,11 +170,10 @@
          <children>
             <TreeTableView fx:id="table" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" onKeyPressed="#treeViewKeyPressed" prefHeight="400.0" prefWidth="1098.0" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;">
                <columns>
-                  <TreeTableColumn fx:id="tableDate" prefWidth="229.0" text="التاريخ" />
-                  <TreeTableColumn fx:id="tableDate" maxWidth="-Infinity" prefWidth="-1.0" text="التاريخ" />
-                  <TreeTableColumn fx:id="tableOhda" prefWidth="283.0" text="عهده" />
-                  <TreeTableColumn fx:id="tableMasrof" prefWidth="293.0" text="مصروف" />
-                  <TreeTableColumn fx:id="tableRest" prefWidth="275.0" text="الباقى " />
+                  <TreeTableColumn fx:id="tableDate" maxWidth="305.0" prefWidth="305.0" text="التاريخ" />
+                  <TreeTableColumn fx:id="tableOhda" prefWidth="264.0" text="عهده" />
+                  <TreeTableColumn fx:id="tableMasrof" prefWidth="263.0" text="مصروف" />
+                  <TreeTableColumn fx:id="tableRest" prefWidth="258.0" text="الباقى " />
                </columns>
                <opaqueInsets>
                   <Insets />
@@ -185,7 +184,7 @@
             <Insets left="10.0" />
          </padding>
       </HBox>
-      <HBox fx:id="lastHbox" layoutX="102.0" layoutY="700.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="206.0">
+      <HBox fx:id="lastHbox" layoutX="98.0" layoutY="640.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="206.0">
          <children>
             <JFXButton fx:id="delete" contentDisplay="RIGHT" onAction="#deleteAction" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #e74c3c;" text="مسح" textFill="WHITE">
                <font>

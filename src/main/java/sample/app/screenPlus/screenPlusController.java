@@ -102,8 +102,7 @@ public class screenPlusController implements Initializable {
     private Pane lastHbox;
 
     @FXML
-    private HBox hbox1 ,  hbox3 , tableHbox  ;
-
+    private HBox hbox1, hbox3, tableHbox;
 
 
     @FXML
@@ -124,9 +123,6 @@ public class screenPlusController implements Initializable {
         date.setValue(LOCAL_DATE(newstring));
 
 
-
-
-
 //        set size  Ashraf
 
         // --------------- set size ---------------------------
@@ -135,30 +131,22 @@ public class screenPlusController implements Initializable {
         hbox2.setPrefWidth(primaryScreenBounds.getWidth() - 310);
         hbox3.setPrefWidth(primaryScreenBounds.getWidth() - 250);
 
-        hbox3.setLayoutX( (primaryScreenBounds.getWidth() -  650  ) / 2  );
+        hbox3.setLayoutX((primaryScreenBounds.getWidth() - 650) / 2);
         tableHbox.setPrefWidth(primaryScreenBounds.getWidth() - 250);
 //
         lastHbox.setLayoutY(primaryScreenBounds.getHeight() - 75);
 //        hbox4.setLayoutY(table.getPrefHeight());
         table.setPrefHeight(primaryScreenBounds.getHeight() - 300);
-        tableBolisa.setPrefWidth( (table.getPrefWidth() / 5 )  - 10);
-        tableCarNum.setPrefWidth(table.getPrefWidth() / 5 );
+        tableBolisa.setPrefWidth((table.getPrefWidth() / 5) - 10);
+        tableCarNum.setPrefWidth(table.getPrefWidth() / 5);
 
-        tableWeight.setPrefWidth(table.getPrefWidth() / 5 );
-        tableDriverName.setPrefWidth(table.getPrefWidth() / 5 );
-        tableDate.setPrefWidth(table.getPrefWidth() / 5 );
-
+        tableWeight.setPrefWidth(table.getPrefWidth() / 5);
+        tableDriverName.setPrefWidth(table.getPrefWidth() / 5);
+        tableDate.setPrefWidth(table.getPrefWidth() / 5);
 
 
         double screenPlus = primaryScreenBounds.getWidth() - 360;
 //       System.out.println("Kashfe hsab width"  + kashfHesabWid);
-
-
-
-
-
-
-
 
 
         // init table design
@@ -348,6 +336,11 @@ public class screenPlusController implements Initializable {
         weight.setText("0.0");
         notes.setText("");
 
+
+        //set date on init
+//        String newstring = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+//        date.setValue(LOCAL_DATE(newstring));
+
     }
 
 
@@ -515,7 +508,7 @@ public class screenPlusController implements Initializable {
 
 
         if (bolisaSearch.trim().isEmpty()) {
-            dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط§ط¯ط®ظ„ ط±ظ‚ظ… ط§ظ„ط¨ظˆظ„ظٹطµظ‡ ظ„ظ„ط¨ط­ط«");
+            dialog dialog = new dialog(Alert.AlertType.WARNING, "خطأ", "لا توجدنتائج");
 
 
         } else {
