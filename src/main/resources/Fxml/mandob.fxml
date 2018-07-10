@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.ImageCursor?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane styleClass=".main" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox fx:id="hbox1" alignment="TOP_RIGHT" layoutX="40.0" layoutY="25.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="1110.0">
+         <children>
+            <Label alignment="CENTER" layoutY="20.0" prefHeight="21.0" prefWidth="110.0" text="عهده" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="ohda" alignment="CENTER" layoutX="328.0" layoutY="20.0" prefHeight="33.0" prefWidth="170.0" styleClass="jfx-text-field" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="4.0" />
+               </HBox.margin>
+            </TextField>
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text="مصروف :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="masrof" alignment="CENTER" prefHeight="33.0" prefWidth="170.0" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" right="4.0" />
+               </HBox.margin>
+            </TextField>
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="115.0" text="التاريخ : " HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="date" prefHeight="34.0" prefWidth="170.0" />
+         </children>
+         <padding>
+            <Insets top="7.0" />
+         </padding>
+      </HBox>
+      <HBox fx:id="hbox2" alignment="TOP_RIGHT" layoutX="120.0" layoutY="80.0" nodeOrientation="RIGHT_TO_LEFT">
+         <children>
+            <JFXButton fx:id="add" contentDisplay="RIGHT" onAction="#addAction" prefHeight="35.0" prefWidth="129.0" styleClass="round-red" text="حفظ" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/save.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="update" contentDisplay="RIGHT" onAction="#updateAction" prefHeight="35.0" prefWidth="129.0" style="-fx-background-color: #48dbfb;" text="تعديل" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/update.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="refresh" contentDisplay="RIGHT" onAction="#refreshAction" prefHeight="35.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/clear-icon-3.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets top="7.0" />
+         </padding>
+      </HBox>
+      <HBox fx:id="hbox3" alignment="TOP_RIGHT" layoutX="150.0" layoutY="160.0" nodeOrientation="RIGHT_TO_LEFT">
+         <children>
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="115.0" text="التاريخ : ">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="datesearch" prefHeight="34.0" prefWidth="170.0" />
+            <JFXButton fx:id="search" contentDisplay="RIGHT" onAction="#searchAction" prefHeight="35.0" prefWidth="129.0" styleClass="round-red" text="بحث" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="30.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+               <cursor>
+                  <ImageCursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="showToday" contentDisplay="RIGHT" onAction="#showTodayAction" prefHeight="35.0" prefWidth="129.0" style="-fx-background-color: #48dbfb;" text="عرض اليوم" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System bold" size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/update.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets top="7.0" />
+         </padding>
+      </HBox>
+      <HBox fx:id="tableHbox" layoutX="35.0" layoutY="240.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="400.0" prefWidth="1118.0">
+         <children>
+            <TreeTableView fx:id="table" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" onKeyPressed="#treeViewKeyPressed" prefHeight="400.0" prefWidth="1098.0" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;">
+               <columns>
+                  <TreeTableColumn fx:id="tableDate" prefWidth="229.0" text="التاريخ" />
+                  <TreeTableColumn fx:id="tableDate" maxWidth="-Infinity" prefWidth="-1.0" text="التاريخ" />
+                  <TreeTableColumn fx:id="tableOhda" prefWidth="283.0" text="عهده" />
+                  <TreeTableColumn fx:id="tableMasrof" prefWidth="293.0" text="مصروف" />
+                  <TreeTableColumn fx:id="tableRest" prefWidth="275.0" text="الباقى " />
+               </columns>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TreeTableView>
+         </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </HBox>
+      <HBox fx:id="lastHbox" layoutX="102.0" layoutY="700.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="206.0">
+         <children>
+            <JFXButton fx:id="delete" contentDisplay="RIGHT" onAction="#deleteAction" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #e74c3c;" text="مسح" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="30.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Cancel_delete_remove_stop_x_no_close_cross.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+</Pane>
