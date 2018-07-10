@@ -18,7 +18,6 @@ import java.util.Date;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @DynamicInsert
 @DynamicUpdate
-
 public class mandob implements Serializable {
 
     @Id
