@@ -44,6 +44,9 @@ public class screenPlusController implements Initializable {
     private TextField searchBolisa;
 
     @FXML
+    private Pane pans;
+
+    @FXML
     private JFXButton search;
 
 
@@ -79,6 +82,9 @@ public class screenPlusController implements Initializable {
 
     @FXML
     private TreeTableView<screenPlusTable> table;
+
+    @FXML
+    private Separator hr;
 
     @FXML
     private TreeTableColumn<screenPlusTable, String> tableDate;
@@ -127,16 +133,27 @@ public class screenPlusController implements Initializable {
 
         // --------------- set size ---------------------------
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        hbox1.setPrefWidth(primaryScreenBounds.getWidth() - 250);
-        hbox2.setPrefWidth(primaryScreenBounds.getWidth() - 310);
-        hbox3.setPrefWidth(primaryScreenBounds.getWidth() - 250);
 
+
+        hbox1.setPrefWidth(primaryScreenBounds.getWidth() - 180);
+        hbox2.setPrefWidth(primaryScreenBounds.getWidth() - 180);
+//        pans.setPrefWidth(o);
+//        System.out.println(pans.getPrefWidth() + " hrrrrrrrrrrr"  );
+        hr.setPrefWidth((primaryScreenBounds.getWidth() - 200));
+
+//        hbox2.setLayoutX(hbox1.getLayoutX() + 87 );
+//        hbox3.setPrefWidth(primaryScreenBounds.getWidth() - 250);
+
+        hbox3.setLayoutX( (primaryScreenBounds.getWidth() -  750  ) / 2  );
+        tableHbox.setPrefWidth(primaryScreenBounds.getWidth() - 235);
+        hbox3.setLayoutX( (primaryScreenBounds.getWidth() -  650  ) / 2  );
+        tableHbox.setPrefWidth(primaryScreenBounds.getWidth() - 250);
         hbox3.setLayoutX((primaryScreenBounds.getWidth() - 650) / 2);
         tableHbox.setPrefWidth(primaryScreenBounds.getWidth() - 250);
 //
         lastHbox.setLayoutY(primaryScreenBounds.getHeight() - 75);
 //        hbox4.setLayoutY(table.getPrefHeight());
-        table.setPrefHeight(primaryScreenBounds.getHeight() - 300);
+        tableHbox.setPrefHeight(primaryScreenBounds.getHeight() - 350);
         tableBolisa.setPrefWidth((table.getPrefWidth() / 5) - 10);
         tableCarNum.setPrefWidth(table.getPrefWidth() / 5);
 
@@ -145,8 +162,11 @@ public class screenPlusController implements Initializable {
         tableDate.setPrefWidth(table.getPrefWidth() / 5);
 
 
-        double screenPlus = primaryScreenBounds.getWidth() - 360;
-//       System.out.println("Kashfe hsab width"  + kashfHesabWid);
+
+
+
+
+
 
 
         // init table design
@@ -256,7 +276,7 @@ public class screenPlusController implements Initializable {
 
 
         } else {
-            dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط§ط®طھط± ظ…ظ† ط§ظ„ط¬ط¯ظˆظ„ ظ„ظ„طھط¹ط¯ظٹظ„");
+            dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "اختر اولا من الجدول ");
 
         }
 
@@ -277,7 +297,7 @@ public class screenPlusController implements Initializable {
                 ) {
 
 
-            dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط§ط¯ط®ظ„ ط§ظ„طھط§ط±ظٹط® ط§ظˆظ„ط§");
+            dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "ادخل جميع البيانات ");
 
         } else {
 
@@ -295,7 +315,7 @@ public class screenPlusController implements Initializable {
 
             ScreenPlus screenPlus1 = screenPlusDao.SaveScreenPlus(screenPlus);
             if (screenPlus1 == null) {
-                dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط®ط·ط£ ظپظ‰ ط§ظ„ط­ظپط¸ ظپظ‰ ط§ظ„ط¯ط§طھط§ط¨ظٹط² ");
+                dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "خطأ فى الحفظ فى الداتابيز");
 
 
             } else {
@@ -360,7 +380,7 @@ public class screenPlusController implements Initializable {
                     ) {
 
 
-                dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط§ط¯ط®ظ„ ط§ظ„طھط§ط±ظٹط® ط§ظˆظ„ط§");
+                dialog dialog = new dialog(Alert.AlertType.ERROR, "?®?·?£", "?§?¯?®?„ ?§?„???§?±???® ?§?ˆ?„?§");
 
             } else {
                 ScreenPlus screenPlus = new ScreenPlus(Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant()),
@@ -375,7 +395,7 @@ public class screenPlusController implements Initializable {
                 ScreenPlus screenPlus1 = screenPlusDao.UpdateScreenPlus(screenTable.id.get(), screenPlus);
 
                 if (screenPlus1 == null) {
-                    dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط®ط·ط£ ظپظ‰ ط§ظ„طھط¹ط¯ظٹظ„ ظپظ‰ ط§ظ„ط¯ط§طھط§ط¨ظٹط² ");
+                    dialog dialog = new dialog(Alert.AlertType.ERROR, "?®?·?£", "?®?·?£ ???‰ ?§?„???¹?¯???„ ???‰ ?§?„?¯?§???§?¨???² ");
 
 
                 } else {
@@ -404,7 +424,7 @@ public class screenPlusController implements Initializable {
             }
 
         } else {
-            dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط§ط®طھط± ظ…ظ† ط§ظ„ط¬ط¯ظˆظ„ ظ„ظ„طھط¹ط¯ظٹظ„");
+            dialog dialog = new dialog(Alert.AlertType.ERROR, "?®?·?£", "?§?®???± ?…?† ?§?„?¬?¯?ˆ?„ ?„?„???¹?¯???„");
 
         }
 
@@ -455,7 +475,7 @@ public class screenPlusController implements Initializable {
         RecursiveTreeItem item = (RecursiveTreeItem) table.getSelectionModel().getSelectedItem();
 
         if (item == null) {
-            dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط§ط®طھط± ظ…ظ† ط§ظ„ط¬ط¯ظˆظ„ ظ„ظ„ظ…ط³ط­");
+            dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "اختر من الجدول للحذف");
 
 
         } else {
@@ -471,13 +491,13 @@ public class screenPlusController implements Initializable {
                     table.setRoot(root);
 
 
-                    dialog dialog = new dialog(Alert.AlertType.CONFIRMATION, "طھظ…", "طھظ… ط§ظ„ظ…ط³ط­ ط¨ظ†ط¬ط§ط­");
+                    dialog dialog = new dialog(Alert.AlertType.CONFIRMATION, "تم", "تم الحذف");
 
 
                 }
 
             } else {
-                dialog dialog = new dialog(Alert.AlertType.ERROR, "ط®ط·ط£", "ط®ط·ط£ ظپظ‰ ط§ظ„ظ…ظٹط­ ظ…ظ† ط§ظ„ط¯ط§طھط§ط¨ظٹط²");
+                dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "خطأ فى الحذف ");
 
             }
 
@@ -508,7 +528,7 @@ public class screenPlusController implements Initializable {
 
 
         if (bolisaSearch.trim().isEmpty()) {
-            dialog dialog = new dialog(Alert.AlertType.WARNING, "خطأ", "لا توجدنتائج");
+            dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "اكتب البوليصه اولا");
 
 
         } else {
@@ -517,7 +537,7 @@ public class screenPlusController implements Initializable {
 
             List<ScreenPlus> screenPluses = screenPlusDao.SelectAllScreenPlusByBolisa(bolisaSearch);
             if (screenPluses.size() <= 0) {
-                dialog dialog = new dialog(Alert.AlertType.WARNING, "", "ظ„ط§ طھظˆط¬ط¯ ظ†طھط§ط¦ط¬");
+                dialog dialog = new dialog(Alert.AlertType.WARNING, "خطأ", "لا توجدنتائج");
 
             } else {
                 // clear all table

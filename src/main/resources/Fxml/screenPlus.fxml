@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
 <?import com.jfoenix.controls.*?>
@@ -22,16 +23,16 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.ImageCursor?>
 
-<Pane styleClass=".main" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="pans" styleClass=".main" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox fx:id="hbox1" alignment="TOP_RIGHT" layoutX="40.0" layoutY="25.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="1110.0">
+      <HBox fx:id="hbox1" alignment="TOP_RIGHT" layoutY="25.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="1110.0">
          <children>
-            <Label alignment="CENTER" layoutY="20.0" prefHeight="21.0" prefWidth="110.0" text="رقم البوليصة :" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutY="20.0" prefHeight="21.0" prefWidth="115.0" text="رقم البوليصة :" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
                <HBox.margin>
-                  <Insets right="20.0" />
+                  <Insets />
                </HBox.margin>
             </Label>
             <TextField fx:id="bolisa" alignment="CENTER" layoutX="328.0" layoutY="20.0" prefHeight="33.0" prefWidth="170.0" styleClass="jfx-text-field" HBox.hgrow="ALWAYS">
@@ -73,20 +74,23 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <DatePicker fx:id="date" prefHeight="34.0" prefWidth="170.0" />
+            <DatePicker fx:id="date" prefHeight="34.0" prefWidth="170.0">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></DatePicker>
          </children>
          <padding>
             <Insets top="7.0" />
          </padding>
       </HBox>
-      <HBox fx:id="hbox2" alignment="TOP_RIGHT" layoutX="120.0" layoutY="80.0" nodeOrientation="RIGHT_TO_LEFT">
+      <HBox fx:id="hbox2" alignment="TOP_RIGHT" layoutY="80.0" nodeOrientation="RIGHT_TO_LEFT">
          <children>
-            <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text=" الوزن :" textAlignment="CENTER">
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="115.0" text=" الوزن :" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
                <HBox.margin>
-                  <Insets right="20.0" />
+                  <Insets />
                </HBox.margin>
             </Label>
             <TextField fx:id="weight" alignment="CENTER" prefHeight="33.0" prefWidth="170.0" promptText="0.0" HBox.hgrow="ALWAYS">
@@ -94,25 +98,28 @@
                   <Font size="15.0" />
                </font>
                <HBox.margin>
-                  <Insets right="4.0" />
+                  <Insets left="5.0" right="4.0" />
                </HBox.margin>
             </TextField>
-            <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text="ملاحظات : " HBox.hgrow="ALWAYS">
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="110.0" text="ملاحظات : ">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </Label>
             <TextField fx:id="notes" alignment="CENTER" layoutX="333.0" layoutY="20.0" prefHeight="33.0" prefWidth="170.0" promptText="ملاحظات " HBox.hgrow="ALWAYS">
                <font>
                   <Font size="15.0" />
                </font>
                <HBox.margin>
-                  <Insets right="4.0" />
+                  <Insets left="10.0" right="4.0" />
                </HBox.margin>
             </TextField>
-            <JFXButton fx:id="add" contentDisplay="RIGHT" onAction="#addAction" prefHeight="35.0" prefWidth="129.0" styleClass="round-red" text="حفظ" textFill="WHITE">
+            <JFXButton fx:id="add" contentDisplay="RIGHT" onAction="#addAction" prefHeight="33.0" prefWidth="100.0" styleClass="round-red" text="حفظ" textFill="WHITE">
                <HBox.margin>
-                  <Insets left="20.0" right="20.0" />
+                  <Insets bottom="5.0" left="5.0" />
                </HBox.margin>
                <font>
                   <Font name="System Bold" size="17.0" />
@@ -131,7 +138,7 @@
                </cursor>
 
             </JFXButton>
-            <JFXButton fx:id="update" contentDisplay="RIGHT" onAction="#updateAction" prefHeight="35.0" prefWidth="129.0" style="-fx-background-color: #48dbfb;" text="تعديل" textFill="WHITE">
+            <JFXButton fx:id="update" contentDisplay="RIGHT" onAction="#updateAction" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: #48dbfb;" text="تعديل" textFill="WHITE" HBox.hgrow="ALWAYS">
 
                <font>
                   <Font name="System Bold" size="17.0" />
@@ -146,9 +153,12 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <HBox.margin>
+                  <Insets left="10.0" right="14.0" />
+               </HBox.margin>
 
             </JFXButton>
-            <JFXButton fx:id="refresh" contentDisplay="RIGHT" onAction="#refreshAction" prefHeight="35.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
+            <JFXButton fx:id="refresh" contentDisplay="RIGHT" onAction="#refreshAction" prefHeight="33.0" prefWidth="170.0" style="-fx-background-color: #ff9f43;" text="تفريغ الحقول" textFill="WHITE">
 
                <font>
                   <Font name="System Bold" size="17.0" />
@@ -164,11 +174,16 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <HBox.margin>
-                  <Insets left="20.0" />
+                  <Insets right="5.0" />
                </HBox.margin>
 
 
             </JFXButton>
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="158.8">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
          </children>
          <padding>
             <Insets top="7.0" />
@@ -177,7 +192,7 @@
       <HBox fx:id="hbox3" alignment="TOP_RIGHT" layoutX="150.0" layoutY="160.0" nodeOrientation="RIGHT_TO_LEFT">
          <children>
 
-            <Label alignment="CENTER" layoutY="25.0" prefHeight="21.0" prefWidth="184.0" text="رقم البوليصه :" HBox.hgrow="ALWAYS">
+            <Label alignment="CENTER" layoutY="25.0" prefHeight="21.0" prefWidth="184.0" text="رقم البوليصة :" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -281,5 +296,6 @@
             </JFXButton>
          </children>
       </HBox>
+      <Separator fx:id="hr" layoutX="10.0" layoutY="148.0" />
    </children>
 </Pane>
