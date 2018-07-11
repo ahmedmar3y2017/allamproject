@@ -18,7 +18,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 import sample.app.Entities.mandob;
+import sample.app.Transactions.DBConnection;
 import sample.app.Transactions.MandobDao.mandobDao;
 import sample.app.dialogs.dialog;
 import sample.shared.Validation.Validation;
@@ -26,10 +29,12 @@ import sample.shared.Validation.Validation;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -496,6 +501,42 @@ public class mandobController implements Initializable {
 
         }
 
+
+    }
+
+    @FXML
+    void printAction(ActionEvent event) throws JRException {
+
+        LocalDate sDate = this.datesearch.getValue();
+        if (sDate == null) {
+            dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "حدد تاريخ من البحث للطباعه");
+
+
+        }else
+        {
+            Date StartDate = java.util.Date.from(Instant.from(sDate.atStartOfDay(ZoneId.systemDefault())));
+
+
+            HashMap<String, Object> hm = new HashMap<>();
+            hm.put("datefrom", new SimpleDateFormat("yyyy-MM-dd").format(StartDate));
+            hm.put("logoPath", getClass().getResource("C:\\jasperreports\\logo.png"));
+
+
+            // url
+
+            JasperReport jr = JasperCompileManager.compileReport("C:\\jasperreports\\mandob.jrxml");
+            JasperPrint jp = null;
+            try {
+                jp = JasperFillManager.fillReport(jr, hm, DBConnection.getConnection());
+            } catch (JRException e) {
+                e.printStackTrace();
+            }
+            JasperViewer jasperViewer = new JasperViewer(jp, false);
+            jasperViewer.setVisible(true);
+            jasperViewer.setTitle("مندوب");
+
+        }
+        System.out.println("Print Action");
 
     }
 

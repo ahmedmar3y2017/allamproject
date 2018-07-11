@@ -21,7 +21,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.util.Callback;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 import sample.app.Entities.ScreenPlus;
+import sample.app.Transactions.DBConnection;
 import sample.app.Transactions.ScreenplusDao.screenPlusDao;
 import sample.app.dialogs.dialog;
 import sample.shared.Validation.Validation;
@@ -29,10 +32,12 @@ import sample.shared.Validation.Validation;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -144,9 +149,9 @@ public class screenPlusController implements Initializable {
 //        hbox2.setLayoutX(hbox1.getLayoutX() + 87 );
 //        hbox3.setPrefWidth(primaryScreenBounds.getWidth() - 250);
 
-        hbox3.setLayoutX( (primaryScreenBounds.getWidth() -  750  ) / 2  );
+        hbox3.setLayoutX((primaryScreenBounds.getWidth() - 750) / 2);
         tableHbox.setPrefWidth(primaryScreenBounds.getWidth() - 235);
-        hbox3.setLayoutX( (primaryScreenBounds.getWidth() -  650  ) / 2  );
+        hbox3.setLayoutX((primaryScreenBounds.getWidth() - 650) / 2);
         tableHbox.setPrefWidth(primaryScreenBounds.getWidth() - 250);
         hbox3.setLayoutX((primaryScreenBounds.getWidth() - 650) / 2);
         tableHbox.setPrefWidth(primaryScreenBounds.getWidth() - 250);
@@ -160,13 +165,6 @@ public class screenPlusController implements Initializable {
         tableWeight.setPrefWidth(table.getPrefWidth() / 5);
         tableDriverName.setPrefWidth(table.getPrefWidth() / 5);
         tableDate.setPrefWidth(table.getPrefWidth() / 5);
-
-
-
-
-
-
-
 
 
         // init table design
@@ -579,6 +577,42 @@ public class screenPlusController implements Initializable {
         final TreeItem<screenPlusTable> root = new RecursiveTreeItem<screenPlusTable>(screenPlusTable_data, RecursiveTreeObject::getChildren);
         table.setRoot(root);
     }
+
+
+    @FXML
+    void printAction(ActionEvent event) throws JRException {
+
+//        LocalDate sDate = this.datesearch.getValue();
+//        if (sDate == null) {
+//            dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "حدد تاريخ من البحث للطباعه");
+//
+//
+//        } else {
+        Date StartDate = new Date();
+
+
+        HashMap<String, Object> hm = new HashMap<>();
+        hm.put("datefrom", new SimpleDateFormat("yyyy-MM-dd").format(StartDate));
+        hm.put("logoPath", getClass().getResource("C:\\jasperreports\\logo.png"));
+
+
+        // url
+
+        JasperReport jr = JasperCompileManager.compileReport("C:\\jasperreports\\screenplus.jrxml");
+        JasperPrint jp = null;
+        try {
+            jp = JasperFillManager.fillReport(jr, hm, DBConnection.getConnection());
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+        JasperViewer jasperViewer = new JasperViewer(jp, false);
+        jasperViewer.setVisible(true);
+        jasperViewer.setTitle("شاشه تشغيل");
+
+
+        System.out.println("Print Action");
+    }
+
 
     class screenPlusTable extends RecursiveTreeObject<screenPlusTable> {
 

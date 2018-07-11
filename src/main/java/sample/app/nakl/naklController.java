@@ -344,7 +344,7 @@ public class naklController implements Initializable {
 
         // save Function
         boolean clientName = this.clientName.getSelectionModel().isEmpty();
-        String type = this.type.getValue().toString();
+//        String type = this.type.getValue().toString();
         String to = this.toCity.getText();
         String from = this.fromCity.getText();
         LocalDate date = this.date.getValue();
@@ -360,19 +360,7 @@ public class naklController implements Initializable {
         String clear = this.clear.getText();
 
         if (clientName
-                || type.trim().isEmpty()
-                || to.trim().isEmpty()
-                || from.trim().isEmpty()
-                || bolisa.trim().isEmpty()
-                || carNum.trim().isEmpty()
-                || weight.trim().isEmpty()
-                || nawlon.trim().isEmpty()
-                || ohda.trim().isEmpty()
-                || added.trim().isEmpty()
-                || mezan.trim().isEmpty()
-                || discount.trim().isEmpty()
-                || office.trim().isEmpty()
-                || clear.trim().isEmpty()
+
                 || date == null
                 ) {
 
@@ -380,7 +368,11 @@ public class naklController implements Initializable {
             dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "ادخل جميع البيانات");
 
         } else {
+            String type = "";
+            if (!this.type.getSelectionModel().isEmpty()) {
 
+                type = this.type.getValue().toString();
+            }
             // select Client
             int clientIndex = this.clientName.getSelectionModel().getSelectedIndex();
             int clientId = clientsList_Ids.get(clientIndex);
@@ -465,7 +457,6 @@ public class naklController implements Initializable {
 
             // save Function
             boolean clientName = this.clientName.getSelectionModel().isEmpty();
-            String type = this.type.getValue().toString();
             String to = this.toCity.getText();
             String from = this.fromCity.getText();
             LocalDate date = this.date.getValue();
@@ -481,19 +472,7 @@ public class naklController implements Initializable {
             String clear = this.clear.getText();
 
             if (clientName
-                    || type.trim().isEmpty()
-                    || to.trim().isEmpty()
-                    || from.trim().isEmpty()
-                    || bolisa.trim().isEmpty()
-                    || carNum.trim().isEmpty()
-                    || weight.trim().isEmpty()
-                    || nawlon.trim().isEmpty()
-                    || ohda.trim().isEmpty()
-                    || added.trim().isEmpty()
-                    || mezan.trim().isEmpty()
-                    || discount.trim().isEmpty()
-                    || office.trim().isEmpty()
-                    || clear.trim().isEmpty()
+
                     || date == null
                     ) {
 
@@ -501,7 +480,11 @@ public class naklController implements Initializable {
                 dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "ادخل جميع البيانات");
 
             } else {
+                String type = "";
+                if (!this.type.getSelectionModel().isEmpty()) {
 
+                    type = this.type.getValue().toString();
+                }
                 // select Client
                 int clientIndex = this.clientName.getSelectionModel().getSelectedIndex();
                 int clientId = clientsList_Ids.get(clientIndex);
@@ -853,8 +836,8 @@ public class naklController implements Initializable {
             NaklTable ct = (NaklTable) item.getValue();
             this.naklTable = ct;
             this.type.setValue(ct.getType());
-            this.fromCity.setText(getTokensWithCollection(ct.getBian()).get(0));
-            this.toCity.setText(getTokensWithCollection(ct.getBian()).get(1));
+            this.fromCity.setText(getTokensWithCollection(ct.getBian()).get(0) + "");
+            this.toCity.setText(getTokensWithCollection(ct.getBian()).get(1) + "");
             this.date.setValue(LOCAL_DATE(ct.getDate()));
             this.bolisa.setText(ct.getBolisa() + "");
             this.carNum.setText(ct.getCarNum() + "");

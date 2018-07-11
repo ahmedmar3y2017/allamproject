@@ -44,7 +44,7 @@
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/account.png" />
+                                <Image url="@../images/turnOn.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -78,9 +78,9 @@
                   <Font name="System Bold" size="15.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="57.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/account.png" />
+                        <Image url="@../images/mandob%20(2).png" />
                      </image>
                   </ImageView>
                </graphic>
