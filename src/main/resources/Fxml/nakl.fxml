@@ -89,7 +89,7 @@
                         <Insets right="20.0" />
                     </HBox.margin>
                 </Label>
-                <TextField fx:id="bolisa" alignment="CENTER" layoutX="328.0" layoutY="20.0" prefHeight="33.0" prefWidth="170.0" promptText="0.0" styleClass="jfx-text-field" HBox.hgrow="ALWAYS">
+                <TextField fx:id="bolisa" alignment="CENTER" layoutX="328.0" layoutY="20.0" prefHeight="33.0" prefWidth="170.0" styleClass="jfx-text-field" HBox.hgrow="ALWAYS">
                     <font>
                         <Font size="15.0" />
                     </font>
@@ -151,7 +151,7 @@
                         <Insets right="20.0" />
                     </HBox.margin>
                 </Label>
-                <TextField fx:id="carNum" alignment="CENTER" layoutX="328.0" layoutY="20.0" prefHeight="33.0" prefWidth="170.0" promptText="0.0" HBox.hgrow="ALWAYS">
+                <TextField fx:id="carNum" alignment="CENTER" layoutX="328.0" layoutY="20.0" prefHeight="33.0" prefWidth="170.0" HBox.hgrow="ALWAYS">
                     <font>
                         <Font size="15.0" />
                     </font>
@@ -257,13 +257,13 @@
                         <TreeTableColumn fx:id="tableWeight" prefWidth="75.0" text="الوزن" />
                         <TreeTableColumn fx:id="tableNawlon" prefWidth="75.0" text="النولون" />
                         <TreeTableColumn fx:id="tableOhda" prefWidth="82.0" text="عهده" />
-                        <TreeTableColumn fx:id="tableAgz" prefWidth="57.0" text="عجز" />
-                        <TreeTableColumn fx:id="tableMezan" prefWidth="75.0" text="الميزان" />
-                  <TreeTableColumn fx:id="tableTotal" prefWidth="75.0" text="الاجمالى" />
-                        <TreeTableColumn fx:id="tableOffice" prefWidth="75.0" text="مكتب" />
-                        <TreeTableColumn fx:id="tableClear" prefWidth="75.0" text="صافى" />
-                        <TreeTableColumn fx:id="tableBian" prefWidth="77.0" text="بيان" />
-                        <TreeTableColumn fx:id="tableNotes" prefWidth="95.0" text="ملاحظات" />
+                        <TreeTableColumn fx:id="tableAgz" prefWidth="54.0" text="عجز" />
+                        <TreeTableColumn fx:id="tableMezan" prefWidth="76.0" text="الميزان" />
+                  <TreeTableColumn fx:id="tableTotal" prefWidth="69.0" text="الاجمالى" />
+                        <TreeTableColumn fx:id="tableOffice" prefWidth="52.0" text="مكتب" />
+                        <TreeTableColumn fx:id="tableClear" prefWidth="89.0" text="صافى" />
+                        <TreeTableColumn fx:id="tableBian" prefWidth="105.0" text="بيان" />
+                        <TreeTableColumn fx:id="tableNotes" prefWidth="84.0" text="ملاحظات" />
                     </columns>
                     <opaqueInsets>
                         <Insets />

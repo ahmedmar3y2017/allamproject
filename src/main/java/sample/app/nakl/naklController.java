@@ -402,7 +402,9 @@ public class naklController implements Initializable {
                         maintable1.getCarNumber(),
                         maintable1.getAmount(),
                         maintable1.getNowlon(), maintable1.getOhda(),
-                        0.0, maintable1.getMezan(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + "-" + maintable1.getCityTo(), "Notes", 0.0, this.clientName.getValue().toString()));
+                        maintable1.getAgz(), maintable1.getMezan(), maintable1.getOffice(),
+                        maintable1.getSafy(), maintable1.getCityFrom() + "-" + maintable1.getCityTo(),
+                        "Notes", maintable1.getTotal(), this.clientName.getValue().toString()));
                 final TreeItem<NaklTable> root = new RecursiveTreeItem<NaklTable>(NaklTable_data, RecursiveTreeObject::getChildren);
                 table.setRoot(root);
                 table.setShowRoot(false);
@@ -419,10 +421,10 @@ public class naklController implements Initializable {
 
     private void resetFields() {
 
-        this.clientName.setValue("");
+//        this.clientName.setValue("");
 //        this.type.setText("");
-        this.fromCity.setText("");
-        this.toCity.setText("");
+//        this.fromCity.setText("");
+//        this.toCity.setText("");
 
         bolisa.setText("");
         carNum.setText("");
@@ -430,7 +432,8 @@ public class naklController implements Initializable {
         nawlon.setText("0.0");
         ohda.setText("0.0");
 //        mezan.setText("0.0");
-        office.setText("0.0");
+//        office.setText("0.0");
+        agz.setText("0.0");
 
         // set init date
         String newstring = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
@@ -454,7 +457,7 @@ public class naklController implements Initializable {
             String weight = this.weight.getText();
             String nawlon = this.nawlon.getText();
             String ohda = this.ohda.getText();
-//            String mezan = this.mezan.getText();
+            String agz = this.agz.getText();
             String office = this.office.getText();
 
             if (clientName
@@ -474,11 +477,10 @@ public class naklController implements Initializable {
                 // select Client
                 int clientIndex = this.clientName.getSelectionModel().getSelectedIndex();
                 int clientId = clientsList_Ids.get(clientIndex);
-                // calculate total
-
-                double total = (Double.parseDouble(weight) * Double.parseDouble(nawlon)) -
-                        Double.parseDouble(ohda) -
-                        Double.parseDouble(office);
+                // calculated
+                double mmezan = Double.parseDouble(weight) - Double.parseDouble(agz);
+                double ttotal = mmezan * Double.parseDouble(nawlon);
+                double cclear = ttotal - Double.parseDouble(ohda) - Double.parseDouble(office);
 
                 Date date1 = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
                 Maintable maintable = new Maintable(
@@ -488,14 +490,17 @@ public class naklController implements Initializable {
                         Double.parseDouble(weight),
                         Double.parseDouble(nawlon),
                         Double.parseDouble(ohda),
-                        0.0,
+                        mmezan,
                         Double.parseDouble(office),
-                        Double.parseDouble(new DecimalFormat(".##").format(total)),
+                        Double.parseDouble(new DecimalFormat(".##").format(ttotal)),
                         type,
                         from,
-                        to, 0.0, 0.0,
+                        to,
+                        Double.parseDouble(agz),
+                        cclear,
                         new Clients(clientId)
                 );
+
                 maintable.setId(naklTable.getId());
 
 
@@ -512,7 +517,17 @@ public class naklController implements Initializable {
                     if (t) {
                         // insert into table design
 
-                        NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getMezan(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + "-" + maintable1.getCityTo(), "Notes", 0.0, this.clientName.getValue().toString()));
+                        // insert into table design
+                        NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()),
+                                maintable1.getType(),
+                                maintable1.getPolesa(),
+                                maintable1.getCarNumber(),
+                                maintable1.getAmount(),
+                                maintable1.getNowlon(), maintable1.getOhda(),
+                                maintable1.getAgz(), maintable1.getMezan(), maintable1.getOffice(),
+                                maintable1.getSafy(), maintable1.getCityFrom() + "-" + maintable1.getCityTo(),
+                                "Notes", maintable1.getTotal(), this.clientName.getValue().toString()));
+
                         final TreeItem<NaklTable> root = new RecursiveTreeItem<NaklTable>(NaklTable_data, RecursiveTreeObject::getChildren);
                         table.setRoot(root);
                         table.setShowRoot(false);
@@ -607,7 +622,13 @@ public class naklController implements Initializable {
         maintables = mainTableDao.SelectAllMaintableToday();
         maintables.stream().forEach(maintable1 -> {
 
-            NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getMezan(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", 0.0, maintable1.getClientsid().getName()));
+            NaklTable_data.add(new NaklTable(maintable1.getId(),
+                    new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()), maintable1.getType(),
+                    maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(),
+                    maintable1.getNowlon(), maintable1.getOhda(), maintable1.getAgz(), maintable1.getMezan(),
+                    maintable1.getOffice(), maintable1.getSafy()
+                    , maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes",
+                    maintable1.getTotal(), maintable1.getClientsid().getName()));
 
 
         });
@@ -763,6 +784,7 @@ public class naklController implements Initializable {
 //        this.bolisa.setTextFormatter(Validation.DoubleValidation());
 //        this.carNum.setTextFormatter(Validation.DoubleValidation());
         this.weight.setTextFormatter(Validation.DoubleValidation());
+        this.agz.setTextFormatter(Validation.DoubleValidation());
         this.nawlon.setTextFormatter(Validation.DoubleValidation());
         this.ohda.setTextFormatter(Validation.DoubleValidation());
 //        this.mezan.setTextFormatter(Validation.DoubleValidation());
@@ -824,7 +846,7 @@ public class naklController implements Initializable {
             this.weight.setText(ct.getWeight() + "");
             this.nawlon.setText(ct.getNawlon() + "");
             this.ohda.setText(ct.getOhda() + "");
-//            this.mezan.setText(ct.getMezan() + "");
+            this.agz.setText(ct.getAgz() + "");
             this.office.setText(ct.getOffice() + "");
             this.clientName.getSelectionModel().select(ct.getClientName());
 
