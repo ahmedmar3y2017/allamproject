@@ -102,20 +102,18 @@ public class kashfHesabController implements Initializable {
     @FXML
     private TreeTableColumn<HesabTable, Double> tableAgz;
 
-    @FXML
-    private TreeTableColumn<HesabTable, Double> tableAdded;
 
     @FXML
     private TreeTableColumn<HesabTable, Double> tableMezan;
 
-    @FXML
-    private TreeTableColumn<HesabTable, Double> tableDiscount;
 
     @FXML
     private TreeTableColumn<HesabTable, Double> tableOffice;
 
     @FXML
     private TreeTableColumn<HesabTable, Double> tableClear;
+    @FXML
+    private TreeTableColumn<HesabTable, Double> tableTotal;
 
     @FXML
     private TreeTableColumn<HesabTable, String> tableBian;
@@ -248,7 +246,7 @@ public class kashfHesabController implements Initializable {
                 }).forEach(maintable1 -> {
                     sum_clear[0] += maintable1.getTotal();
 
-                    HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
+                    HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getMezan(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", 0.0, maintable1.getClientsid().getName()));
 
 
                 });
@@ -274,7 +272,7 @@ public class kashfHesabController implements Initializable {
                 }).forEach(maintable1 -> {
                     sum_clear[0] += maintable1.getTotal();
 
-                    HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
+                    HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getMezan(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", 0.0, maintable1.getClientsid().getName()));
 
 
                 });
@@ -299,7 +297,7 @@ public class kashfHesabController implements Initializable {
                 }).forEach(maintable1 -> {
                     sum_clear[0] += maintable1.getTotal();
 
-                    HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
+                    HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getMezan(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", 0.0, maintable1.getClientsid().getName()));
 
 
                 });
@@ -328,7 +326,7 @@ public class kashfHesabController implements Initializable {
                 }).forEach(maintable1 -> {
                     sum_clear[0] += maintable1.getTotal();
 
-                    HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
+                    HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getMezan(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", 0.0, maintable1.getClientsid().getName()));
 
 
                 });
@@ -357,7 +355,7 @@ public class kashfHesabController implements Initializable {
                 }).forEach(maintable1 -> {
                     sum_clear[0] += maintable1.getTotal();
 
-                    HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
+                    HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getMezan(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", 0.0, maintable1.getClientsid().getName()));
 
 
                 });
@@ -383,7 +381,7 @@ public class kashfHesabController implements Initializable {
                 }).forEach(maintable1 -> {
                     sum_clear[0] += maintable1.getTotal();
 
-                    HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
+                    HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getMezan(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", 0.0, maintable1.getClientsid().getName()));
 
 
                 });
@@ -409,7 +407,7 @@ public class kashfHesabController implements Initializable {
                 }).forEach(maintable1 -> {
                     sum_clear[0] += maintable1.getTotal();
 
-                    HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
+                    HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getMezan(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", 0.0, maintable1.getClientsid().getName()));
 
 
                 });
@@ -448,7 +446,7 @@ public class kashfHesabController implements Initializable {
         maintables.stream().forEach(maintable1 -> {
             sum_clear[0] += maintable1.getTotal();
 
-            HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
+            HesabTable_data.add(new HesabTable(maintable1.getId(), maintable1.getDate().toString(), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getMezan(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", 0.0, maintable1.getClientsid().getName()));
 
 
         });
@@ -551,13 +549,6 @@ public class kashfHesabController implements Initializable {
 
         });
 
-        tableAdded.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<HesabTable, Double>, ObservableValue<Double>>() {
-            @Override
-            public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<HesabTable, Double> param) {
-                return param.getValue().getValue().added.asObject();
-            }
-
-        });
 
         tableMezan.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<HesabTable, Double>, ObservableValue<Double>>() {
             @Override
@@ -567,13 +558,6 @@ public class kashfHesabController implements Initializable {
 
         });
 
-        tableDiscount.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<HesabTable, Double>, ObservableValue<Double>>() {
-            @Override
-            public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<HesabTable, Double> param) {
-                return param.getValue().getValue().discount.asObject();
-            }
-
-        });
 
         tableOffice.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<HesabTable, Double>, ObservableValue<Double>>() {
             @Override
@@ -587,6 +571,13 @@ public class kashfHesabController implements Initializable {
             @Override
             public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<HesabTable, Double> param) {
                 return param.getValue().getValue().clear.asObject();
+            }
+
+        });
+        tableTotal.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<HesabTable, Double>, ObservableValue<Double>>() {
+            @Override
+            public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<HesabTable, Double> param) {
+                return param.getValue().getValue().total.asObject();
             }
 
         });
@@ -655,17 +646,18 @@ public class kashfHesabController implements Initializable {
         SimpleDoubleProperty nawlon;
         SimpleDoubleProperty ohda;
         SimpleDoubleProperty agz;
-        SimpleDoubleProperty added;
+        //        SimpleDoubleProperty added;
         SimpleDoubleProperty mezan;
-        SimpleDoubleProperty discount;
+        //        SimpleDoubleProperty discount;
         SimpleDoubleProperty office;
         SimpleDoubleProperty clear;
+        SimpleDoubleProperty total;
         SimpleStringProperty bian;
         SimpleStringProperty type;
         SimpleStringProperty notes;
         SimpleIntegerProperty id;
 
-        public HesabTable(int id, String date, String type, String bolisa, String carNum, double weight, double nawlon, double ohda, double agz, double added, double mezan, double discount, double office, double clear, String bian, String notes, String clientName) {
+        public HesabTable(int id, String date, String type, String bolisa, String carNum, double weight, double nawlon, double ohda, double agz, double mezan, double office, double clear, String bian, String notes, double total, String clientName) {
             this.date = new SimpleStringProperty(date);
             this.type = new SimpleStringProperty(type);
             this.bolisa = new SimpleStringProperty(bolisa);
@@ -674,16 +666,29 @@ public class kashfHesabController implements Initializable {
             this.nawlon = new SimpleDoubleProperty(nawlon);
             this.ohda = new SimpleDoubleProperty(ohda);
             this.agz = new SimpleDoubleProperty(agz);
-            this.added = new SimpleDoubleProperty(added);
+//            this.added = new SimpleDoubleProperty(added);
             this.mezan = new SimpleDoubleProperty(mezan);
-            this.discount = new SimpleDoubleProperty(discount);
+//            this.discount = new SimpleDoubleProperty(discount);
             this.office = new SimpleDoubleProperty(office);
             this.clear = new SimpleDoubleProperty(clear);
+            this.total = new SimpleDoubleProperty(total);
 
             this.bian = new SimpleStringProperty(bian);
             this.notes = new SimpleStringProperty(notes);
             this.id = new SimpleIntegerProperty(id);
             this.clientName = new SimpleStringProperty(clientName);
+        }
+
+        public double getTotal() {
+            return total.get();
+        }
+
+        public SimpleDoubleProperty totalProperty() {
+            return total;
+        }
+
+        public void setTotal(double total) {
+            this.total.set(total);
         }
 
         public String getDate() {
@@ -770,17 +775,6 @@ public class kashfHesabController implements Initializable {
             this.agz.set(agz);
         }
 
-        public double getAdded() {
-            return added.get();
-        }
-
-        public SimpleDoubleProperty addedProperty() {
-            return added;
-        }
-
-        public void setAdded(double added) {
-            this.added.set(added);
-        }
 
         public double getMezan() {
             return mezan.get();
@@ -794,17 +788,6 @@ public class kashfHesabController implements Initializable {
             this.mezan.set(mezan);
         }
 
-        public double getDiscount() {
-            return discount.get();
-        }
-
-        public SimpleDoubleProperty discountProperty() {
-            return discount;
-        }
-
-        public void setDiscount(double discount) {
-            this.discount.set(discount);
-        }
 
         public double getOffice() {
             return office.get();

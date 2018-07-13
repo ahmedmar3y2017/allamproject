@@ -55,11 +55,6 @@ public class naklController implements Initializable {
     @FXML
     private HBox hbox3;
 
-    @FXML
-    private TextField clear;
-
-    @FXML
-    private TextField added;
 
     @FXML
     private TextField carNum;
@@ -78,6 +73,8 @@ public class naklController implements Initializable {
 
     @FXML
     private TextField bolisa;
+    @FXML
+    private TextField agz;
 
     @FXML
     private ComboBox type;
@@ -106,15 +103,13 @@ public class naklController implements Initializable {
 
     @FXML
     private TreeTableColumn<NaklTable, Double> tableAgz;
-
     @FXML
-    private TreeTableColumn<NaklTable, Double> tableAdded;
+    private TreeTableColumn<NaklTable, Double> tableTotal;
+
 
     @FXML
     private TreeTableColumn<NaklTable, Double> tableMezan;
 
-    @FXML
-    private TreeTableColumn<NaklTable, Double> tableDiscount;
 
     @FXML
     private TreeTableColumn<NaklTable, Double> tableOffice;
@@ -133,8 +128,6 @@ public class naklController implements Initializable {
     @FXML
     private HBox hbox1;
 
-    @FXML
-    private TextField discount;
 
     @FXML
     private TextField nawlon;
@@ -157,8 +150,6 @@ public class naklController implements Initializable {
     @FXML
     private JFXButton save;
 
-    @FXML
-    private TextField mezan;
 
     @FXML
     private TextField weight;
@@ -265,13 +256,11 @@ public class naklController implements Initializable {
         weight.setText("0.0");
         nawlon.setText("0.0");
         ohda.setText("0.0");
-        added.setText("0.0");
-        mezan.setText("0.0");
-        discount.setText("0.0");
-        office.setText("0.0");
+//        mezan.setText("0.0");
+//        office.setText("0.0");
 
-        fromCity.setText("");
-        toCity.setText("");
+//        fromCity.setText("");
+//        toCity.setText("");
         clientName.setValue(null);
 
 
@@ -353,14 +342,11 @@ public class naklController implements Initializable {
         String weight = this.weight.getText();
         String nawlon = this.nawlon.getText();
         String ohda = this.ohda.getText();
-        String added = this.added.getText();
-        String mezan = this.mezan.getText();
-        String discount = this.discount.getText();
+//        String mezan = this.mezan.getText();
         String office = this.office.getText();
-        String clear = this.clear.getText();
+        String agz = this.agz.getText();
 
         if (clientName
-
                 || date == null
                 ) {
 
@@ -376,12 +362,12 @@ public class naklController implements Initializable {
             // select Client
             int clientIndex = this.clientName.getSelectionModel().getSelectedIndex();
             int clientId = clientsList_Ids.get(clientIndex);
-            // calculate total
 
-            double total = (Double.parseDouble(weight) * Double.parseDouble(nawlon)) -
-                    Double.parseDouble(ohda) -
-                    Double.parseDouble(office) +
-                    Double.parseDouble(added);
+
+            // calculated
+            double mmezan = Double.parseDouble(weight) - Double.parseDouble(agz);
+            double ttotal = mmezan * Double.parseDouble(nawlon);
+            double cclear = ttotal - Double.parseDouble(ohda) - Double.parseDouble(office);
 
             Date date1 = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
             Maintable maintable = new Maintable(
@@ -391,14 +377,14 @@ public class naklController implements Initializable {
                     Double.parseDouble(weight),
                     Double.parseDouble(nawlon),
                     Double.parseDouble(ohda),
-                    Double.parseDouble(added),
-                    Double.parseDouble(mezan),
-                    Double.parseDouble(discount),
+                    mmezan,
                     Double.parseDouble(office),
-                    Double.parseDouble(new DecimalFormat(".##").format(total)),
+                    Double.parseDouble(new DecimalFormat(".##").format(ttotal)),
                     type,
                     from,
                     to,
+                    Double.parseDouble(agz),
+                    cclear,
                     new Clients(clientId)
             );
 
@@ -410,7 +396,13 @@ public class naklController implements Initializable {
             } else {
 
                 // insert into table design
-                NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + "-" + maintable1.getCityTo(), "Notes", this.clientName.getValue().toString()));
+                NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()),
+                        maintable1.getType(),
+                        maintable1.getPolesa(),
+                        maintable1.getCarNumber(),
+                        maintable1.getAmount(),
+                        maintable1.getNowlon(), maintable1.getOhda(),
+                        0.0, maintable1.getMezan(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + "-" + maintable1.getCityTo(), "Notes", 0.0, this.clientName.getValue().toString()));
                 final TreeItem<NaklTable> root = new RecursiveTreeItem<NaklTable>(NaklTable_data, RecursiveTreeObject::getChildren);
                 table.setRoot(root);
                 table.setShowRoot(false);
@@ -437,11 +429,8 @@ public class naklController implements Initializable {
         weight.setText("0.0");
         nawlon.setText("0.0");
         ohda.setText("0.0");
-        added.setText("0.0");
-        mezan.setText("0.0");
-        discount.setText("0.0");
+//        mezan.setText("0.0");
         office.setText("0.0");
-        clear.setText("0.0");
 
         // set init date
         String newstring = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
@@ -465,11 +454,8 @@ public class naklController implements Initializable {
             String weight = this.weight.getText();
             String nawlon = this.nawlon.getText();
             String ohda = this.ohda.getText();
-            String added = this.added.getText();
-            String mezan = this.mezan.getText();
-            String discount = this.discount.getText();
+//            String mezan = this.mezan.getText();
             String office = this.office.getText();
-            String clear = this.clear.getText();
 
             if (clientName
 
@@ -492,8 +478,7 @@ public class naklController implements Initializable {
 
                 double total = (Double.parseDouble(weight) * Double.parseDouble(nawlon)) -
                         Double.parseDouble(ohda) -
-                        Double.parseDouble(office) +
-                        Double.parseDouble(added);
+                        Double.parseDouble(office);
 
                 Date date1 = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
                 Maintable maintable = new Maintable(
@@ -503,14 +488,12 @@ public class naklController implements Initializable {
                         Double.parseDouble(weight),
                         Double.parseDouble(nawlon),
                         Double.parseDouble(ohda),
-                        Double.parseDouble(added),
-                        Double.parseDouble(mezan),
-                        Double.parseDouble(discount),
+                        0.0,
                         Double.parseDouble(office),
                         Double.parseDouble(new DecimalFormat(".##").format(total)),
                         type,
                         from,
-                        to,
+                        to, 0.0, 0.0,
                         new Clients(clientId)
                 );
                 maintable.setId(naklTable.getId());
@@ -529,7 +512,7 @@ public class naklController implements Initializable {
                     if (t) {
                         // insert into table design
 
-                        NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + "-" + maintable1.getCityTo(), "Notes", this.clientName.getValue().toString()));
+                        NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getMezan(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + "-" + maintable1.getCityTo(), "Notes", 0.0, this.clientName.getValue().toString()));
                         final TreeItem<NaklTable> root = new RecursiveTreeItem<NaklTable>(NaklTable_data, RecursiveTreeObject::getChildren);
                         table.setRoot(root);
                         table.setShowRoot(false);
@@ -624,7 +607,7 @@ public class naklController implements Initializable {
         maintables = mainTableDao.SelectAllMaintableToday();
         maintables.stream().forEach(maintable1 -> {
 
-            NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getAdded(), maintable1.getMezan(), maintable1.getDiscount(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", maintable1.getClientsid().getName()));
+            NaklTable_data.add(new NaklTable(maintable1.getId(), new SimpleDateFormat("dd-MM-yyyy").format(maintable1.getDate()), maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(), 0.0, maintable1.getMezan(), maintable1.getOffice(), maintable1.getTotal(), maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes", 0.0, maintable1.getClientsid().getName()));
 
 
         });
@@ -674,6 +657,13 @@ public class naklController implements Initializable {
             }
 
         });
+        tableTotal.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
+            @Override
+            public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<NaklTable, Double> param) {
+                return param.getValue().getValue().total.asObject();
+            }
+
+        });
 
         tableNawlon.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
             @Override
@@ -699,13 +689,6 @@ public class naklController implements Initializable {
 
         });
 
-        tableAdded.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
-            @Override
-            public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<NaklTable, Double> param) {
-                return param.getValue().getValue().added.asObject();
-            }
-
-        });
 
         tableMezan.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
             @Override
@@ -715,13 +698,6 @@ public class naklController implements Initializable {
 
         });
 
-        tableDiscount.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
-            @Override
-            public ObservableValue<Double> call(TreeTableColumn.CellDataFeatures<NaklTable, Double> param) {
-                return param.getValue().getValue().discount.asObject();
-            }
-
-        });
 
         tableOffice.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<NaklTable, Double>, ObservableValue<Double>>() {
             @Override
@@ -789,11 +765,8 @@ public class naklController implements Initializable {
         this.weight.setTextFormatter(Validation.DoubleValidation());
         this.nawlon.setTextFormatter(Validation.DoubleValidation());
         this.ohda.setTextFormatter(Validation.DoubleValidation());
-        this.added.setTextFormatter(Validation.DoubleValidation());
-        this.mezan.setTextFormatter(Validation.DoubleValidation());
-        this.discount.setTextFormatter(Validation.DoubleValidation());
+//        this.mezan.setTextFormatter(Validation.DoubleValidation());
         this.office.setTextFormatter(Validation.DoubleValidation());
-        this.clear.setTextFormatter(Validation.DoubleValidation());
         // combobox
         this.clientName.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
@@ -824,9 +797,16 @@ public class naklController implements Initializable {
     }
 
     public List<String> getTokensWithCollection(String str) {
-        return Collections.list(new StringTokenizer(str, "-")).stream()
+        List<String> list = Collections.list(new StringTokenizer(str, "-")).stream()
                 .map(token -> (String) token)
                 .collect(Collectors.toList());
+        if (list.size() == 0) {
+
+
+            list.add("");
+            list.add("");
+        }
+        return list;
     }
 
     private void selectionUpdateTableAction() {
@@ -844,11 +824,8 @@ public class naklController implements Initializable {
             this.weight.setText(ct.getWeight() + "");
             this.nawlon.setText(ct.getNawlon() + "");
             this.ohda.setText(ct.getOhda() + "");
-            this.added.setText(ct.getAdded() + "");
-            this.mezan.setText(ct.getMezan() + "");
-            this.discount.setText(ct.getDiscount() + "");
+//            this.mezan.setText(ct.getMezan() + "");
             this.office.setText(ct.getOffice() + "");
-            this.clear.setText(ct.getClear() + "");
             this.clientName.getSelectionModel().select(ct.getClientName());
 
 
@@ -872,17 +849,16 @@ public class naklController implements Initializable {
         SimpleDoubleProperty nawlon;
         SimpleDoubleProperty ohda;
         SimpleDoubleProperty agz;
-        SimpleDoubleProperty added;
         SimpleDoubleProperty mezan;
-        SimpleDoubleProperty discount;
         SimpleDoubleProperty office;
         SimpleDoubleProperty clear;
+        SimpleDoubleProperty total;
         SimpleStringProperty bian;
         SimpleStringProperty type;
         SimpleStringProperty notes;
         SimpleIntegerProperty id;
 
-        public NaklTable(int id, String date, String type, String bolisa, String carNum, double weight, double nawlon, double ohda, double agz, double added, double mezan, double discount, double office, double clear, String bian, String notes, String clientName) {
+        public NaklTable(int id, String date, String type, String bolisa, String carNum, double weight, double nawlon, double ohda, double agz, double mezan, double office, double clear, String bian, String notes, double total, String clientName) {
             this.date = new SimpleStringProperty(date);
             this.type = new SimpleStringProperty(type);
             this.bolisa = new SimpleStringProperty(bolisa);
@@ -891,16 +867,28 @@ public class naklController implements Initializable {
             this.nawlon = new SimpleDoubleProperty(nawlon);
             this.ohda = new SimpleDoubleProperty(ohda);
             this.agz = new SimpleDoubleProperty(agz);
-            this.added = new SimpleDoubleProperty(added);
             this.mezan = new SimpleDoubleProperty(mezan);
-            this.discount = new SimpleDoubleProperty(discount);
             this.office = new SimpleDoubleProperty(office);
             this.clear = new SimpleDoubleProperty(clear);
+            this.total = new SimpleDoubleProperty(total);
 
             this.bian = new SimpleStringProperty(bian);
             this.notes = new SimpleStringProperty(notes);
             this.id = new SimpleIntegerProperty(id);
             this.clientName = new SimpleStringProperty(clientName);
+        }
+
+
+        public double getTotal() {
+            return total.get();
+        }
+
+        public SimpleDoubleProperty totalProperty() {
+            return total;
+        }
+
+        public void setTotal(double total) {
+            this.total.set(total);
         }
 
         public String getDate() {
@@ -987,17 +975,6 @@ public class naklController implements Initializable {
             this.agz.set(agz);
         }
 
-        public double getAdded() {
-            return added.get();
-        }
-
-        public SimpleDoubleProperty addedProperty() {
-            return added;
-        }
-
-        public void setAdded(double added) {
-            this.added.set(added);
-        }
 
         public double getMezan() {
             return mezan.get();
@@ -1011,17 +988,6 @@ public class naklController implements Initializable {
             this.mezan.set(mezan);
         }
 
-        public double getDiscount() {
-            return discount.get();
-        }
-
-        public SimpleDoubleProperty discountProperty() {
-            return discount;
-        }
-
-        public void setDiscount(double discount) {
-            this.discount.set(discount);
-        }
 
         public double getOffice() {
             return office.get();

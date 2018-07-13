@@ -6,6 +6,7 @@
 <?import javafx.scene.ImageCursor?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.control.TreeTableView?>
@@ -17,7 +18,7 @@
 
 <Pane styleClass=".main" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox fx:id="hbox1" alignment="TOP_RIGHT" layoutX="40.0" layoutY="25.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="1110.0">
+      <HBox fx:id="hbox1" alignment="TOP_RIGHT" layoutY="25.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="1110.0">
          <children>
             <Label alignment="CENTER" layoutY="20.0" prefHeight="21.0" prefWidth="110.0" text="عهده" textAlignment="CENTER">
                <font>
@@ -53,7 +54,10 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <DatePicker fx:id="date" prefHeight="34.0" prefWidth="170.0" />
+            <DatePicker fx:id="date" prefHeight="34.0" prefWidth="170.0">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin></DatePicker>
          </children>
          <padding>
             <Insets top="7.0" />
@@ -117,12 +121,15 @@
             <Insets top="7.0" />
          </padding>
       </HBox>
-      <HBox fx:id="hbox3" alignment="TOP_RIGHT" layoutX="150.0" layoutY="160.0" nodeOrientation="RIGHT_TO_LEFT">
+      <HBox fx:id="hbox3" alignment="TOP_RIGHT" layoutX="150.0" layoutY="170.0" nodeOrientation="RIGHT_TO_LEFT">
          <children>
             <Label alignment="CENTER" prefHeight="21.0" prefWidth="115.0" text="التاريخ : ">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
             </Label>
             <DatePicker fx:id="datesearch" prefHeight="34.0" prefWidth="170.0" />
             <JFXButton fx:id="search" contentDisplay="RIGHT" onAction="#searchAction" prefHeight="35.0" prefWidth="129.0" styleClass="round-red" text="بحث" textFill="WHITE">
@@ -137,7 +144,7 @@
                   </ImageView>
                </graphic>
                <HBox.margin>
-                  <Insets right="10.0" />
+                  <Insets left="20.0" right="10.0" />
                </HBox.margin>
                <cursor>
                   <ImageCursor fx:constant="HAND" />
@@ -184,7 +191,7 @@
             <Insets left="10.0" />
          </padding>
       </HBox>
-      <HBox fx:id="lastHbox" layoutX="98.0" layoutY="650.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="206.0">
+      <HBox fx:id="lastHbox" layoutX="98.0" layoutY="640.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="206.0">
          <children>
             <JFXButton fx:id="delete" contentDisplay="RIGHT" onAction="#deleteAction" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #e74c3c;" text="مسح" textFill="WHITE">
                <font>
@@ -221,5 +228,6 @@
             </JFXButton>
          </children>
       </HBox>
+      <Separator fx:id="hr" layoutX="10.0" layoutY="145.0" prefWidth="200.0" />
    </children>
 </Pane>

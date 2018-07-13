@@ -42,9 +42,7 @@ import javax.xml.bind.annotation.XmlRootElement;
         @NamedQuery(name = "Maintable.findByAmount", query = "SELECT m FROM Maintable m WHERE m.amount = :amount"),
         @NamedQuery(name = "Maintable.findByNowlon", query = "SELECT m FROM Maintable m WHERE m.nowlon = :nowlon"),
         @NamedQuery(name = "Maintable.findByOhda", query = "SELECT m FROM Maintable m WHERE m.ohda = :ohda"),
-        @NamedQuery(name = "Maintable.findByAdded", query = "SELECT m FROM Maintable m WHERE m.added = :added"),
         @NamedQuery(name = "Maintable.findByMezan", query = "SELECT m FROM Maintable m WHERE m.mezan = :mezan"),
-        @NamedQuery(name = "Maintable.findByDiscount", query = "SELECT m FROM Maintable m WHERE m.discount = :discount"),
         @NamedQuery(name = "Maintable.findByOffice", query = "SELECT m FROM Maintable m WHERE m.office = :office"),
         @NamedQuery(name = "Maintable.findByTotal", query = "SELECT m FROM Maintable m WHERE m.total = :total"),
         @NamedQuery(name = "Maintable.findByType", query = "SELECT m FROM Maintable m WHERE m.type = :type"),
@@ -69,11 +67,13 @@ public class Maintable implements Serializable {
     private Double amount;
     private Double nowlon;
     private Double ohda;
-    private Double added;
+    //    private Double added;
     private Double mezan;
-    private Double discount;
+    //    private Double discount;
     private Double office;
+    private Double agz;
     private Double total;
+    private Double safy;
     private String type;
     private String cityFrom;
     private String cityTo;
@@ -85,22 +85,40 @@ public class Maintable implements Serializable {
     }
 
 
-    public Maintable(Date date, String polesa, String carNumber, Double amount, Double nowlon, Double ohda, Double added, Double mezan, Double discount, Double office, Double total, String type, String cityFrom, String cityTo, Clients clientsid) {
+    public Maintable(Date date, String polesa, String carNumber, Double amount, Double nowlon, Double ohda, Double mezan, Double office, Double total, String type, String cityFrom, String cityTo, double agz, double safy, Clients clientsid) {
         this.date = date;
         this.polesa = polesa;
         this.carNumber = carNumber;
         this.amount = amount;
         this.nowlon = nowlon;
         this.ohda = ohda;
-        this.added = added;
+//        this.added = added;
         this.mezan = mezan;
-        this.discount = discount;
+//        this.discount = discount;
         this.office = office;
         this.total = total;
         this.type = type;
         this.cityFrom = cityFrom;
         this.cityTo = cityTo;
         this.clientsid = clientsid;
+        this.safy = safy;
+        this.agz = agz;
+    }
+
+    public Double getAgz() {
+        return agz;
+    }
+
+    public void setAgz(Double agz) {
+        this.agz = agz;
+    }
+
+    public Double getSafy() {
+        return safy;
+    }
+
+    public void setSafy(Double safy) {
+        this.safy = safy;
     }
 
     public Maintable(Integer id) {
@@ -163,13 +181,6 @@ public class Maintable implements Serializable {
         this.ohda = ohda;
     }
 
-    public Double getAdded() {
-        return added;
-    }
-
-    public void setAdded(Double added) {
-        this.added = added;
-    }
 
     public Double getMezan() {
         return mezan;
@@ -179,13 +190,6 @@ public class Maintable implements Serializable {
         this.mezan = mezan;
     }
 
-    public Double getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(Double discount) {
-        this.discount = discount;
-    }
 
     public Double getOffice() {
         return office;

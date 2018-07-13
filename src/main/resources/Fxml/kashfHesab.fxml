@@ -145,9 +145,8 @@
                                 <TreeTableColumn fx:id="tableNawlon" prefWidth="75.0" text="النولون" />
                                 <TreeTableColumn fx:id="tableOhda" prefWidth="75.0" text="عهده" />
                                 <TreeTableColumn fx:id="tableAgz" prefWidth="75.0" text="عجز" />
-                                <TreeTableColumn fx:id="tableAdded" prefWidth="75.0" text="اضافة" />
                                 <TreeTableColumn fx:id="tableMezan" prefWidth="75.0" text="الميزان" />
-                                <TreeTableColumn fx:id="tableDiscount" prefWidth="75.0" text="خصم" />
+                        <TreeTableColumn fx:id="tableTotal" prefWidth="75.0" text="الاجمالى" />
                                 <TreeTableColumn fx:id="tableOffice" prefWidth="75.0" text="مكتب" />
                                 <TreeTableColumn fx:id="tableClear" prefWidth="75.0" text="صافى" />
                                 <TreeTableColumn fx:id="tableBian" prefWidth="95.0" text="بيان" />

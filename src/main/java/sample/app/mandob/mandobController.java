@@ -12,11 +12,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.HBox;
+import javafx.stage.Screen;
 import javafx.util.Callback;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
@@ -57,6 +59,9 @@ public class mandobController implements Initializable {
 
     @FXML
     private HBox hbox2;
+
+    @FXML
+    private Separator hr;
 
     @FXML
     private JFXButton add;
@@ -115,7 +120,36 @@ public class mandobController implements Initializable {
         String newstring = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
         date.setValue(LOCAL_DATE(newstring));
 
-        // init table design 
+
+//        set size  Ashraf
+
+        // --------------- set size ---------------------------
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+
+
+        hbox1.setPrefWidth(primaryScreenBounds.getWidth() - 180);
+//        hbox2.setPrefWidth(primaryScreenBounds.getWidth() - 180);
+        hbox2.setLayoutX((primaryScreenBounds.getWidth() - 650) / 2);
+        hr.setPrefWidth((primaryScreenBounds.getWidth() - 200));
+
+        hbox3.setLayoutX((primaryScreenBounds.getWidth() - 750) / 2);
+        tableHbox.setPrefWidth(primaryScreenBounds.getWidth() - 200);
+        hbox3.setLayoutX((primaryScreenBounds.getWidth() - 650) / 2);
+        tableHbox.setPrefWidth(primaryScreenBounds.getWidth() - 250);
+        hbox3.setLayoutX((primaryScreenBounds.getWidth() - 650) / 2);
+        tableHbox.setPrefWidth(primaryScreenBounds.getWidth() - 250);
+//
+        lastHbox.setLayoutY(primaryScreenBounds.getHeight() - 75);
+//        hbox4.setLayoutY(table.getPrefHeight());
+        tableHbox.setPrefHeight(primaryScreenBounds.getHeight() - 350);
+        tableDate.setPrefWidth((table.getPrefWidth() / 4) - 10);
+        tableOhda.setPrefWidth(table.getPrefWidth() / 4);
+
+        tableRest.setPrefWidth(table.getPrefWidth() / 4);
+        tableMasrof.setPrefWidth(table.getPrefWidth() / 4);
+
+
+        // init table design
         tableDate.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<mandobTable, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<mandobTable, String> param) {
@@ -401,6 +435,42 @@ public class mandobController implements Initializable {
     }
 
     @FXML
+    void printAction(ActionEvent event) throws JRException {
+
+        LocalDate sDate = this.datesearch.getValue();
+        if (sDate == null) {
+            dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "حدد تاريخ من البحث للطباعه");
+
+
+        } else {
+            Date StartDate = java.util.Date.from(Instant.from(sDate.atStartOfDay(ZoneId.systemDefault())));
+
+
+            HashMap<String, Object> hm = new HashMap<>();
+            hm.put("datefrom", new SimpleDateFormat("yyyy-MM-dd").format(StartDate));
+            hm.put("logoPath", getClass().getResource("C:\\jasperreports\\logo.png"));
+
+
+            // url
+
+            JasperReport jr = JasperCompileManager.compileReport("C:\\jasperreports\\mandob.jrxml");
+            JasperPrint jp = null;
+            try {
+                jp = JasperFillManager.fillReport(jr, hm, DBConnection.getConnection());
+            } catch (JRException e) {
+                e.printStackTrace();
+            }
+            JasperViewer jasperViewer = new JasperViewer(jp, false);
+            jasperViewer.setVisible(true);
+            jasperViewer.setTitle("مندوب");
+
+        }
+        System.out.println("Print Action");
+
+    }
+
+
+    @FXML
     void showTodayAction(ActionEvent event) {
 
 
@@ -501,42 +571,6 @@ public class mandobController implements Initializable {
 
         }
 
-
-    }
-
-    @FXML
-    void printAction(ActionEvent event) throws JRException {
-
-        LocalDate sDate = this.datesearch.getValue();
-        if (sDate == null) {
-            dialog dialog = new dialog(Alert.AlertType.ERROR, "خطأ", "حدد تاريخ من البحث للطباعه");
-
-
-        }else
-        {
-            Date StartDate = java.util.Date.from(Instant.from(sDate.atStartOfDay(ZoneId.systemDefault())));
-
-
-            HashMap<String, Object> hm = new HashMap<>();
-            hm.put("datefrom", new SimpleDateFormat("yyyy-MM-dd").format(StartDate));
-            hm.put("logoPath", getClass().getResource("C:\\jasperreports\\logo.png"));
-
-
-            // url
-
-            JasperReport jr = JasperCompileManager.compileReport("C:\\jasperreports\\mandob.jrxml");
-            JasperPrint jp = null;
-            try {
-                jp = JasperFillManager.fillReport(jr, hm, DBConnection.getConnection());
-            } catch (JRException e) {
-                e.printStackTrace();
-            }
-            JasperViewer jasperViewer = new JasperViewer(jp, false);
-            jasperViewer.setVisible(true);
-            jasperViewer.setTitle("مندوب");
-
-        }
-        System.out.println("Print Action");
 
     }
 

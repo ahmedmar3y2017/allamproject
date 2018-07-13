@@ -13,7 +13,7 @@
     <children>
         <VBox fx:id="vbox" fillWidth="false" maxWidth="180.0" prefWidth="180.0" style="-fx-background-color: #2c2c54;" styleClass="contenttab" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <JFXButton fx:id="nakl" contentDisplay="TOP" onAction="#MainButtonAction" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="النقــــل" textAlignment="CENTER" textFill="#33d9b2" VBox.vgrow="ALWAYS">
+                <JFXButton fx:id="nakl" contentDisplay="TOP" onAction="#MainButtonAction" prefHeight="300.0" prefWidth="181.0" styleClass="tab" text="إذن صرف" textAlignment="CENTER" textFill="#33d9b2" VBox.vgrow="ALWAYS">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
