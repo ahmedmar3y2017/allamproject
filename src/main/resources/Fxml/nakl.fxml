@@ -255,11 +255,11 @@
                         <TreeTableColumn fx:id="tableBolisa" prefWidth="66.0" text="البوليصه" />
                         <TreeTableColumn fx:id="tableCarNum" prefWidth="75.0" text="السياره" />
                         <TreeTableColumn fx:id="tableWeight" prefWidth="75.0" text="الوزن" />
-                        <TreeTableColumn fx:id="tableNawlon" prefWidth="75.0" text="النولون" />
-                        <TreeTableColumn fx:id="tableOhda" prefWidth="82.0" text="عهده" />
                         <TreeTableColumn fx:id="tableAgz" prefWidth="54.0" text="عجز" />
                         <TreeTableColumn fx:id="tableMezan" prefWidth="76.0" text="الميزان" />
+                        <TreeTableColumn fx:id="tableNawlon" prefWidth="75.0" text="النولون" />
                   <TreeTableColumn fx:id="tableTotal" prefWidth="69.0" text="الاجمالى" />
+                        <TreeTableColumn fx:id="tableOhda" prefWidth="82.0" text="عهده" />
                         <TreeTableColumn fx:id="tableOffice" prefWidth="52.0" text="مكتب" />
                         <TreeTableColumn fx:id="tableClear" prefWidth="89.0" text="صافى" />
                         <TreeTableColumn fx:id="tableBian" prefWidth="105.0" text="بيان" />

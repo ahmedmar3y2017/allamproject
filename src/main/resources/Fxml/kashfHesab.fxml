@@ -77,16 +77,6 @@
                                 </ImageView>
                             </graphic>
                         </JFXButton>
-                        <DatePicker fx:id="to" layoutX="10.0" layoutY="25.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="200.0" promptText="التاريخ " HBox.hgrow="ALWAYS">
-                            <HBox.margin>
-                                <Insets right="4.0" />
-                            </HBox.margin>
-                        </DatePicker>
-                        <Label layoutX="184.0" layoutY="25.0" prefHeight="21.0" prefWidth="50.0" text="من :">
-                            <font>
-                                <Font name="System Bold" size="15.0" />
-                            </font>
-                        </Label>
                         <DatePicker fx:id="from" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="200.0" promptText="التاريخ " HBox.hgrow="ALWAYS">
                             <HBox.margin>
                                 <Insets right="4.0" />
@@ -130,7 +120,7 @@
                         <Insets left="20.0" top="15.0" />
                     </padding>
                 </HBox>
-                <HBox layoutY="90.0">
+                <HBox layoutY="90.0" prefHeight="400.0" prefWidth="1168.0">
                     <children>
                         <TreeTableView fx:id="table" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;" HBox.hgrow="ALWAYS">
                             <opaqueInsets>
@@ -139,18 +129,18 @@
                             <columns>
                                 <TreeTableColumn fx:id="tableDate" prefWidth="75.0" text="التاريخ" />
                                 <TreeTableColumn fx:id="tableType" prefWidth="84.0" text="نوع البضاعه" />
-                                <TreeTableColumn fx:id="tableBolisa" prefWidth="66.0" text="البوليصه" />
-                                <TreeTableColumn fx:id="tableCarNum" prefWidth="75.0" text="السياره" />
+                                <TreeTableColumn fx:id="tableBolisa" prefWidth="73.0" text="البوليصه" />
+                                <TreeTableColumn fx:id="tableCarNum" text="السياره" />
                                 <TreeTableColumn fx:id="tableWeight" prefWidth="75.0" text="الوزن" />
-                                <TreeTableColumn fx:id="tableNawlon" prefWidth="75.0" text="النولون" />
-                                <TreeTableColumn fx:id="tableOhda" prefWidth="75.0" text="عهده" />
-                                <TreeTableColumn fx:id="tableAgz" prefWidth="75.0" text="عجز" />
-                                <TreeTableColumn fx:id="tableMezan" prefWidth="75.0" text="الميزان" />
-                        <TreeTableColumn fx:id="tableTotal" prefWidth="75.0" text="الاجمالى" />
-                                <TreeTableColumn fx:id="tableOffice" prefWidth="75.0" text="مكتب" />
-                                <TreeTableColumn fx:id="tableClear" prefWidth="75.0" text="صافى" />
-                                <TreeTableColumn fx:id="tableBian" prefWidth="95.0" text="بيان" />
-                                <TreeTableColumn fx:id="tableNotes" text="ملاحظات" />
+                                <TreeTableColumn fx:id="tableAgz" prefWidth="70.0" text="عجز" />
+                                <TreeTableColumn fx:id="tableMezan" prefWidth="87.0" text="الميزان" />
+                                <TreeTableColumn fx:id="tableNawlon" prefWidth="73.0" text="النولون" />
+                        <TreeTableColumn fx:id="tableTotal" prefWidth="88.0" text="الاجمالى" />
+                                <TreeTableColumn fx:id="tableOhda" prefWidth="67.0" text="عهده" />
+                                <TreeTableColumn fx:id="tableOffice" prefWidth="62.0" text="مكتب" />
+                                <TreeTableColumn fx:id="tableClear" prefWidth="79.0" text="صافى" />
+                                <TreeTableColumn fx:id="tableBian" prefWidth="111.0" text="بيان" />
+                                <TreeTableColumn fx:id="tableNotes" maxWidth="142.0" prefWidth="118.0" text="ملاحظات" />
                             </columns>
                         </TreeTableView>
                     </children>
