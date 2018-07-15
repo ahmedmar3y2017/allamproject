@@ -38,6 +38,8 @@ public class MainStart {
             }
         });
 
+        System.out.println("addsf");
+
         primaryStage.setTitle("Login");
         primaryStage.setScene(scene);
         primaryStage.show();
