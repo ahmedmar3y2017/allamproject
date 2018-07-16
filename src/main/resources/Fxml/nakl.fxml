@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -15,6 +7,8 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.control.TreeTableView?>
@@ -24,7 +18,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane styleClass=".main" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane styleClass=".main" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <HBox fx:id="hbox1" alignment="TOP_RIGHT" nodeOrientation="RIGHT_TO_LEFT">
             <children>
@@ -226,7 +220,7 @@
                         <Insets right="4.0" />
                     </HBox.margin>
                 </TextField>
-            <TextArea prefHeight="33.0" prefWidth="279.0" promptText="ملاحظات...">
+            <TextArea fx:id="notes" prefHeight="33.0" prefWidth="279.0" promptText="ملاحظات...">
                <HBox.margin>
                   <Insets right="4.0" />
                </HBox.margin>
@@ -286,14 +280,14 @@
                         <TreeTableColumn fx:id="tableType" prefWidth="84.0" text="نوع البضاعه" />
                         <TreeTableColumn fx:id="tableBolisa" prefWidth="66.0" text="البوليصه" />
                         <TreeTableColumn fx:id="tableCarNum" prefWidth="75.0" text="السياره" />
-                        <TreeTableColumn fx:id="tableMezan" prefWidth="76.0" text="الميزان" />
                         <TreeTableColumn fx:id="tableWeight" prefWidth="75.0" text="الوزن" />
                         <TreeTableColumn fx:id="tableAgz" prefWidth="54.0" text="عجز" />
+                        <TreeTableColumn fx:id="tableMezan" prefWidth="76.0" text="الميزان" />
                         <TreeTableColumn fx:id="tableNawlon" prefWidth="75.0" text="النولون" />
+                  <TreeTableColumn fx:id="tableTotal" prefWidth="69.0" text="الاجمالى" />
                         <TreeTableColumn fx:id="tableOhda" prefWidth="82.0" text="عهده" />
                         <TreeTableColumn fx:id="tableOffice" prefWidth="52.0" text="مكتب" />
                         <TreeTableColumn fx:id="tableClear" prefWidth="89.0" text="صافى" />
-                  <TreeTableColumn fx:id="tableTotal" prefWidth="69.0" text="الاجمالى" />
                         <TreeTableColumn fx:id="tableBian" prefWidth="105.0" text="بيان" />
                         <TreeTableColumn fx:id="tableNotes" prefWidth="84.0" text="ملاحظات" />
                     </columns>

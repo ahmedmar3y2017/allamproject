@@ -77,6 +77,8 @@ public class Maintable implements Serializable {
     private String type;
     private String cityFrom;
     private String cityTo;
+    private String notes;
+
     @JoinColumn(name = "clientsid", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Clients clientsid;
@@ -85,7 +87,7 @@ public class Maintable implements Serializable {
     }
 
 
-    public Maintable(Date date, String polesa, String carNumber, Double amount, Double nowlon, Double ohda, Double mezan, Double office, Double total, String type, String cityFrom, String cityTo, double agz, double safy, Clients clientsid) {
+    public Maintable(Date date, String polesa, String carNumber, Double amount, Double nowlon, Double ohda, Double mezan, Double office, Double total, String type, String cityFrom, String cityTo, double agz, double safy, String notes, Clients clientsid) {
         this.date = date;
         this.polesa = polesa;
         this.carNumber = carNumber;
@@ -103,6 +105,16 @@ public class Maintable implements Serializable {
         this.clientsid = clientsid;
         this.safy = safy;
         this.agz = agz;
+        this.notes = notes;
+    }
+
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 
     public Double getAgz() {

@@ -56,7 +56,7 @@ public class naklController implements Initializable {
     private HBox hbox3;
 
     @FXML
-    private  Separator hr;
+    private Separator hr;
 
 
     @FXML
@@ -64,10 +64,11 @@ public class naklController implements Initializable {
 
     @FXML
     private TextField fromCity;
+    @FXML
+    private TextArea notes;
 
     @FXML
-    private HBox hbox2 , tableHbox ;
-
+    private HBox hbox2, tableHbox;
 
 
     @FXML
@@ -172,9 +173,8 @@ public class naklController implements Initializable {
     private Pane lastHbox;
 
 
-
     @FXML
-    private  HBox hboxbtns;
+    private HBox hboxbtns;
 
     List<Clients> clientsList;
     List<String> clientsList_Names;
@@ -355,6 +355,7 @@ public class naklController implements Initializable {
 //        String mezan = this.mezan.getText();
         String office = this.office.getText();
         String agz = this.agz.getText();
+        String notes = this.notes.getText();
 
         if (clientName
                 || date == null
@@ -394,7 +395,7 @@ public class naklController implements Initializable {
                     from,
                     to,
                     Double.parseDouble(agz),
-                    cclear,
+                    cclear, notes,
                     new Clients(clientId)
             );
 
@@ -414,7 +415,7 @@ public class naklController implements Initializable {
                         maintable1.getNowlon(), maintable1.getOhda(),
                         maintable1.getAgz(), maintable1.getMezan(), maintable1.getOffice(),
                         maintable1.getSafy(), maintable1.getCityFrom() + "-" + maintable1.getCityTo(),
-                        "Notes", maintable1.getTotal(), this.clientName.getValue().toString()));
+                        maintable1.getNotes(), maintable1.getTotal(), this.clientName.getValue().toString()));
                 final TreeItem<NaklTable> root = new RecursiveTreeItem<NaklTable>(NaklTable_data, RecursiveTreeObject::getChildren);
                 table.setRoot(root);
                 table.setShowRoot(false);
@@ -469,6 +470,7 @@ public class naklController implements Initializable {
             String ohda = this.ohda.getText();
             String agz = this.agz.getText();
             String office = this.office.getText();
+            String notes = this.notes.getText();
 
             if (clientName
 
@@ -507,7 +509,7 @@ public class naklController implements Initializable {
                         from,
                         to,
                         Double.parseDouble(agz),
-                        cclear,
+                        cclear, notes,
                         new Clients(clientId)
                 );
 
@@ -536,7 +538,7 @@ public class naklController implements Initializable {
                                 maintable1.getNowlon(), maintable1.getOhda(),
                                 maintable1.getAgz(), maintable1.getMezan(), maintable1.getOffice(),
                                 maintable1.getSafy(), maintable1.getCityFrom() + "-" + maintable1.getCityTo(),
-                                "Notes", maintable1.getTotal(), this.clientName.getValue().toString()));
+                                maintable1.getNotes(), maintable1.getTotal(), this.clientName.getValue().toString()));
 
                         final TreeItem<NaklTable> root = new RecursiveTreeItem<NaklTable>(NaklTable_data, RecursiveTreeObject::getChildren);
                         table.setRoot(root);
@@ -617,17 +619,16 @@ public class naklController implements Initializable {
         hbox2.setPrefWidth(primaryScreenBounds.getWidth() - 185);
         hbox3.setPrefWidth(primaryScreenBounds.getWidth() - 185);
         hbox4.setPrefWidth(primaryScreenBounds.getWidth() - 185);
-        hboxbtns.setPrefWidth(primaryScreenBounds.getWidth()  / 2 );
-        hboxbtns.setLayoutY(hbox4.getLayoutY() + 50 );
+        hboxbtns.setPrefWidth(primaryScreenBounds.getWidth() / 2);
+        hboxbtns.setLayoutY(hbox4.getLayoutY() + 50);
 
         double kashfHesabWid = primaryScreenBounds.getWidth() - 320;
-        double kashfHesabHeight = hbox1.getLayoutY() + hbox2.getLayoutY() +hbox3.getLayoutY() + hbox4.getLayoutY() + 50;
+        double kashfHesabHeight = hbox1.getLayoutY() + hbox2.getLayoutY() + hbox3.getLayoutY() + hbox4.getLayoutY() + 50;
 
 
-        hboxbtns.setLayoutX( (kashfHesabWid / 2)- 50 );
+        hboxbtns.setLayoutX((kashfHesabWid / 2) - 50);
 
 //        hboxbtns.setLayoutY(hbox4.getLayoutY() + 50  );
-
 
 
         table.setPrefWidth(primaryScreenBounds.getWidth() - 200);
@@ -636,8 +637,6 @@ public class naklController implements Initializable {
 //        table.setPrefHeight(primaryScreenBounds.getHeight() - 100);
 //        tableHbox.setLayoutY(primaryScreenBounds.getHeight() + 150);
         table.setPrefHeight(primaryScreenBounds.getHeight() - 350);
-
-
 
 
         hr.setPrefWidth((primaryScreenBounds.getWidth() - 200));
@@ -656,7 +655,7 @@ public class naklController implements Initializable {
                     maintable1.getPolesa(), maintable1.getCarNumber(), maintable1.getAmount(),
                     maintable1.getNowlon(), maintable1.getOhda(), maintable1.getAgz(), maintable1.getMezan(),
                     maintable1.getOffice(), maintable1.getSafy()
-                    , maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes",
+                    , maintable1.getCityFrom() + " - " + maintable1.getCityTo(), maintable1.getNotes(),
                     maintable1.getTotal(), maintable1.getClientsid().getName()));
 
 

@@ -60,7 +60,7 @@ public class kashfHesabController implements Initializable {
     private Pane kashfHesab;
 
     @FXML
-    private HBox  tableHbox , hbox1;
+    private HBox tableHbox, hbox1;
 
     @FXML
     private JFXButton search;
@@ -227,7 +227,7 @@ public class kashfHesabController implements Initializable {
             HesabTable_data.clear();
 
             // name Only
-            if (!emptyName && from == null ) {
+            if (!emptyName && from == null) {
                 printBtn.setDisable(true);
 
                 final double[] sum_clear = {0.0};
@@ -248,7 +248,7 @@ public class kashfHesabController implements Initializable {
                             maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(),
                             maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(),
                             maintable1.getAgz(), maintable1.getMezan(), maintable1.getOffice(), maintable1.getSafy(),
-                            maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes",
+                            maintable1.getCityFrom() + " - " + maintable1.getCityTo(), maintable1.getNotes(),
                             maintable1.getTotal(), maintable1.getClientsid().getName()));
 
 
@@ -258,7 +258,7 @@ public class kashfHesabController implements Initializable {
 
 
             }
-            if (!emptyName && from != null ) {
+            if (!emptyName && from != null) {
                 final double[] sum_clear = {0.0};
                 printBtn.setDisable(false);
 
@@ -266,7 +266,7 @@ public class kashfHesabController implements Initializable {
                 Date fromDate = Date.from(from.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
                 maintables.stream().filter(maintable1 -> {
-                    if (maintable1.getClientsid().getName().equals(name) &&  maintable1.getDate().compareTo(fromDate) == 0) {
+                    if (maintable1.getClientsid().getName().equals(name) && maintable1.getDate().compareTo(fromDate) == 0) {
                         return true;
 
                     }
@@ -279,7 +279,7 @@ public class kashfHesabController implements Initializable {
                             maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(),
                             maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(),
                             maintable1.getAgz(), maintable1.getMezan(), maintable1.getOffice(), maintable1.getSafy(),
-                            maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes",
+                            maintable1.getCityFrom() + " - " + maintable1.getCityTo(), maintable1.getNotes(),
                             maintable1.getTotal(), maintable1.getClientsid().getName()));
 
                 });
@@ -289,7 +289,7 @@ public class kashfHesabController implements Initializable {
             }
 
 
-            if (emptyName && from != null ) {
+            if (emptyName && from != null) {
                 final double[] sum_clear = {0.0};
                 printBtn.setDisable(true);
 
@@ -297,7 +297,7 @@ public class kashfHesabController implements Initializable {
 
                 maintables.stream().filter(maintable1 -> {
                     if (
-                            ( maintable1.getDate().compareTo(fromDate) == 0)
+                            (maintable1.getDate().compareTo(fromDate) == 0)
                             ) {
                         return true;
 
@@ -311,7 +311,7 @@ public class kashfHesabController implements Initializable {
                             maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(),
                             maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(),
                             maintable1.getAgz(), maintable1.getMezan(), maintable1.getOffice(), maintable1.getSafy(),
-                            maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes",
+                            maintable1.getCityFrom() + " - " + maintable1.getCityTo(), maintable1.getNotes(),
                             maintable1.getTotal(), maintable1.getClientsid().getName()));
 
                 });
@@ -319,7 +319,6 @@ public class kashfHesabController implements Initializable {
 
 
             }
-
 
 
             final TreeItem<HesabTable> Client_root = new RecursiveTreeItem<HesabTable>(HesabTable_data, RecursiveTreeObject::getChildren);
@@ -355,7 +354,7 @@ public class kashfHesabController implements Initializable {
                     maintable1.getType(), maintable1.getPolesa(), maintable1.getCarNumber(),
                     maintable1.getAmount(), maintable1.getNowlon(), maintable1.getOhda(),
                     maintable1.getAgz(), maintable1.getMezan(), maintable1.getOffice(), maintable1.getSafy(),
-                    maintable1.getCityFrom() + " - " + maintable1.getCityTo(), "Notes",
+                    maintable1.getCityFrom() + " - " + maintable1.getCityTo(), maintable1.getNotes(),
                     maintable1.getTotal(), maintable1.getClientsid().getName()));
 
         });
@@ -388,7 +387,7 @@ public class kashfHesabController implements Initializable {
         table.setPrefWidth(primaryScreenBounds.getWidth() - 200);
 //        table.setPrefHeight(primaryScreenBounds.getHeight() - 500);
 
-        tableHbox.setPrefHeight(primaryScreenBounds.getHeight() -200 );
+        tableHbox.setPrefHeight(primaryScreenBounds.getHeight() - 200);
 
         double kashfHesabWid = primaryScreenBounds.getWidth() - 360;
 //        System.out.println("Kashfe hsab width"  + kashfHesabWid);
