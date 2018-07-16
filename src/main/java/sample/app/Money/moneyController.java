@@ -1326,7 +1326,7 @@ public class moneyController implements Initializable {
         infoPane.setPrefWidth(screenWidth / 4 + 10);
         infoPane2.setPrefWidth(screenWidth / 4 + 10);
 
-        tableHbox.setPrefWidth(screenWidth - infoPane.getPrefWidth() - 20);
+        tableHbox.setPrefWidth(screenWidth - infoPane.getPrefWidth() - 50);
         tableHbox2.setPrefWidth(screenWidth - infoPane2.getPrefWidth() - 20);
 
         bankTable.setPrefHeight(primaryScreenBounds.getHeight() - 250);

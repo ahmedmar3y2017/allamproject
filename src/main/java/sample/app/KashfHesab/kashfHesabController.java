@@ -60,7 +60,7 @@ public class kashfHesabController implements Initializable {
     private Pane kashfHesab;
 
     @FXML
-    private HBox hbox1;
+    private HBox  tableHbox , hbox1;
 
     @FXML
     private JFXButton search;
@@ -386,10 +386,13 @@ public class kashfHesabController implements Initializable {
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
         hbox1.setPrefWidth(primaryScreenBounds.getWidth() - 185);
         table.setPrefWidth(primaryScreenBounds.getWidth() - 200);
+//        table.setPrefHeight(primaryScreenBounds.getHeight() - 500);
+
+        tableHbox.setPrefHeight(primaryScreenBounds.getHeight() -200 );
 
         double kashfHesabWid = primaryScreenBounds.getWidth() - 360;
 //        System.out.println("Kashfe hsab width"  + kashfHesabWid);
-        table.setPrefHeight(primaryScreenBounds.getHeight() - 200);
+//        table.setPrefHeight(primaryScreenBounds.getHeight() - 300);
         lasthbox.setLayoutX(kashfHesabWid / 2);
         lasthbox.setLayoutY(primaryScreenBounds.getHeight() - 100);
 

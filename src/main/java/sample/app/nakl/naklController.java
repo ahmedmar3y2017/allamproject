@@ -55,6 +55,9 @@ public class naklController implements Initializable {
     @FXML
     private HBox hbox3;
 
+    @FXML
+    private  Separator hr;
+
 
     @FXML
     private TextField carNum;
@@ -63,7 +66,9 @@ public class naklController implements Initializable {
     private TextField fromCity;
 
     @FXML
-    private HBox hbox2;
+    private HBox hbox2 , tableHbox ;
+
+
 
     @FXML
     private TextField office;
@@ -165,6 +170,11 @@ public class naklController implements Initializable {
 
     @FXML
     private Pane lastHbox;
+
+
+
+    @FXML
+    private  HBox hboxbtns;
 
     List<Clients> clientsList;
     List<String> clientsList_Names;
@@ -596,8 +606,8 @@ public class naklController implements Initializable {
 
 
         // set disabled
-        update.setDisable(true);
-        save.setDisable(false);
+//        update.setDisable(true);
+//        save.setDisable(false);
 
 
         // --------------- set size ---------------------------
@@ -607,11 +617,30 @@ public class naklController implements Initializable {
         hbox2.setPrefWidth(primaryScreenBounds.getWidth() - 185);
         hbox3.setPrefWidth(primaryScreenBounds.getWidth() - 185);
         hbox4.setPrefWidth(primaryScreenBounds.getWidth() - 185);
+        hboxbtns.setPrefWidth(primaryScreenBounds.getWidth()  / 2 );
+        hboxbtns.setLayoutY(hbox4.getLayoutY() + 50 );
+
+        double kashfHesabWid = primaryScreenBounds.getWidth() - 320;
+        double kashfHesabHeight = hbox1.getLayoutY() + hbox2.getLayoutY() +hbox3.getLayoutY() + hbox4.getLayoutY() + 50;
+
+
+        hboxbtns.setLayoutX( (kashfHesabWid / 2)- 50 );
+
+//        hboxbtns.setLayoutY(hbox4.getLayoutY() + 50  );
+
+
+
         table.setPrefWidth(primaryScreenBounds.getWidth() - 200);
 
         lastHbox.setLayoutY(primaryScreenBounds.getHeight() - 75);
-//        hbox4.setLayoutY(table.getPrefHeight());
-        table.setPrefHeight(primaryScreenBounds.getHeight() - 300);
+//        table.setPrefHeight(primaryScreenBounds.getHeight() - 100);
+//        tableHbox.setLayoutY(primaryScreenBounds.getHeight() + 150);
+        table.setPrefHeight(primaryScreenBounds.getHeight() - 350);
+
+
+
+
+        hr.setPrefWidth((primaryScreenBounds.getWidth() - 200));
 
 
         //set date on init

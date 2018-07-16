@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -17,7 +25,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Pane fx:id="kashfHesab">
             <children>
@@ -120,9 +128,9 @@
                         <Insets left="20.0" top="15.0" />
                     </padding>
                 </HBox>
-                <HBox layoutY="90.0" prefHeight="400.0" prefWidth="1168.0">
+                <HBox fx:id="tableHbox" layoutY="90.0" prefHeight="400.0" prefWidth="1168.0">
                     <children>
-                        <TreeTableView fx:id="table" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;" HBox.hgrow="ALWAYS">
+                        <TreeTableView fx:id="table" layoutY="200.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-border-color: #7f8c8d; -fx-margin-left: 10;" HBox.hgrow="ALWAYS">
                             <opaqueInsets>
                                 <Insets />
                             </opaqueInsets>
