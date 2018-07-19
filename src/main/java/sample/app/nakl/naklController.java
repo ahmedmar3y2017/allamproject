@@ -625,6 +625,26 @@ public class naklController implements Initializable {
         double kashfHesabWid = primaryScreenBounds.getWidth() - 320;
         double kashfHesabHeight = hbox1.getLayoutY() + hbox2.getLayoutY() + hbox3.getLayoutY() + hbox4.getLayoutY() + 50;
 
+        tableHbox.setPrefWidth(primaryScreenBounds.getWidth() - 185);
+
+        tableDate.setPrefWidth(tableHbox.getPrefWidth() / 15);
+        tableClientName.setPrefWidth(tableHbox.getPrefWidth() / 15);
+
+        tableNawlon.setPrefWidth(tableHbox.getPrefWidth() / 15);
+        tableBian.setPrefWidth(tableHbox.getPrefWidth() / 15);
+        tableBolisa.setPrefWidth(tableHbox.getPrefWidth() / 15);
+        tableCarNum.setPrefWidth(tableHbox.getPrefWidth() / 15);
+        tableClear.setPrefWidth(tableHbox.getPrefWidth() / 15);
+        tableTotal.setPrefWidth(tableHbox.getPrefWidth() / 15);
+        tableType.setPrefWidth( (tableHbox.getPrefWidth() / 15) + 10  ) ;
+        tableAgz.setPrefWidth( tableHbox.getPrefWidth() / (15   ) - 10 );
+        tableOhda.setPrefWidth(tableHbox.getPrefWidth() / 15);
+        tableOffice.setPrefWidth(tableHbox.getPrefWidth() / 15);
+        tableMezan.setPrefWidth(tableHbox.getPrefWidth() / 15);
+
+        tableNotes.setPrefWidth( (tableHbox.getPrefWidth() / 15 ) + 5  );
+
+        tableWeight.setPrefWidth(tableHbox.getPrefWidth() / (15   ) - 10 );
 
         hboxbtns.setLayoutX((kashfHesabWid / 2) - 50);
 

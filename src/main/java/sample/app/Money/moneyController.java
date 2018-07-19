@@ -1330,11 +1330,22 @@ public class moneyController implements Initializable {
         tableHbox2.setPrefWidth(screenWidth - infoPane2.getPrefWidth() - 20);
 
         bankTable.setPrefHeight(primaryScreenBounds.getHeight() - 250);
+//        tableHbox.setPrefWidth(infoPane.getPrefWidth() + 20);
         moneyTable.setPrefHeight(primaryScreenBounds.getHeight() - 250);
 //        System.out.println(table.getPrefWidth() + "  "  + table2.getPrefWidth() );
         lasthbox.setLayoutY(primaryScreenBounds.getHeight() - 150);
         lasthbox2.setLayoutY(primaryScreenBounds.getHeight() - 150);
 
+        tableBankDate.setPrefWidth(tableHbox.getPrefWidth() / 6 );
+        tableBankName.setPrefWidth(tableHbox.getPrefWidth() / 6 );
+
+        tableBankNumber.setPrefWidth(tableHbox.getPrefWidth() / 6 );
+
+        tableBankNotes.setPrefWidth(tableHbox.getPrefWidth() / 6 );
+
+        tableBankType.setPrefWidth(tableHbox.getPrefWidth() / 6 );
+
+        tableNankMoney.setPrefWidth(tableHbox.getPrefWidth() / 6 );
 
         // ------------------ init table --------------------
 

@@ -395,6 +395,24 @@ public class kashfHesabController implements Initializable {
         lasthbox.setLayoutX(kashfHesabWid / 2);
         lasthbox.setLayoutY(primaryScreenBounds.getHeight() - 100);
 
+
+
+        tableDate.setPrefWidth(tableHbox.getPrefWidth() / 14);
+        tableNawlon.setPrefWidth(tableHbox.getPrefWidth() / 14);
+        tableBian.setPrefWidth(tableHbox.getPrefWidth() / 14);
+        tableBolisa.setPrefWidth(tableHbox.getPrefWidth() / 14);
+        tableCarNum.setPrefWidth(tableHbox.getPrefWidth() / 14);
+        tableClear.setPrefWidth(tableHbox.getPrefWidth() / 14);
+        tableTotal.setPrefWidth(tableHbox.getPrefWidth() / 14);
+        tableType.setPrefWidth( (tableHbox.getPrefWidth() / 14) + 5  ) ;
+        tableAgz.setPrefWidth(tableHbox.getPrefWidth() / 14);
+        tableOhda.setPrefWidth(tableHbox.getPrefWidth() / 14);
+        tableOffice.setPrefWidth(tableHbox.getPrefWidth() / 14);
+        tableMezan.setPrefWidth(tableHbox.getPrefWidth() / 14);
+        tableNotes.setPrefWidth(tableHbox.getPrefWidth() / 14);
+        tableWeight.setPrefWidth(tableHbox.getPrefWidth() / (14 + 5  ));
+
+
         // ---------------- init table ------------------
 
         tableDate.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<HesabTable, String>, ObservableValue<String>>() {
