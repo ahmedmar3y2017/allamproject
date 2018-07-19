@@ -384,7 +384,7 @@ public class kashfHesabController implements Initializable {
         // --------------- set size ---------------------------
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
         hbox1.setPrefWidth(primaryScreenBounds.getWidth() - 185);
-        table.setPrefWidth(primaryScreenBounds.getWidth() - 200);
+        tableHbox.setPrefWidth(primaryScreenBounds.getWidth() - 200);
 //        table.setPrefHeight(primaryScreenBounds.getHeight() - 500);
 
         tableHbox.setPrefHeight(primaryScreenBounds.getHeight() - 200);
